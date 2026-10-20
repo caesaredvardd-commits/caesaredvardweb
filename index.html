@@ -173,12 +173,12 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 22px;
         }
 
         .sidebar-nav a {
             font-family: var(--font-serif);
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             letter-spacing: 1px;
             color: var(--text-light);
             transition: all 0.3s;
@@ -316,7 +316,6 @@
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
-            display: block; /* Asegura visibilidad por defecto */
         }
 
         .art-card:hover {
@@ -586,10 +585,9 @@
     <aside class="sidebar" id="sidebar">
         <button class="close-btn" id="closeSidebar">&times;</button>
         <div>
-            <div style="font-family: var(--font-title); letter-spacing: 4px; font-size: 1.2rem; margin-bottom: 30px; color: var(--accent-red);">CAESAR ARCHIVE</div>
+            <div style="font-family: var(--font-title); letter-spacing: 4px; font-size: 1.2rem; margin-bottom: 40px; color: var(--accent-red);">CAESAR ARCHIVE</div>
             <ul class="sidebar-nav">
-                <li><a href="#gallery" onclick="filterGallery('selectas'); closeMenu();">Obras Selectas <span>→</span></a></li>
-                <li><a href="#gallery" onclick="filterGallery('proceso'); closeMenu();">Obras en Proceso <span>→</span></a></li>
+                <li><a href="#gallery" onclick="filterGallery('all'); closeMenu();">Obras Selectas <span>→</span></a></li>
                 <li><a href="#gallery" onclick="filterGallery('oleos'); closeMenu();">Pinturas al Óleo <span>→</span></a></li>
                 <li><a href="#gallery" onclick="filterGallery('tintas'); closeMenu();">Tinta y Dibujo <span>→</span></a></li>
                 <li><a href="#gallery" onclick="filterGallery('retratos'); closeMenu();">Retratos <span>→</span></a></li>
@@ -609,7 +607,7 @@
             <div class="hero-subtitle">Visual Archive & Atelier</div>
             <h1 class="hero-title">CAESAR EDVARD</h1>
             <p class="hero-desc">Óleo · Tinta · Arte Figurativo Tradicional</p>
-            <a href="#gallery" class="btn-enter" onclick="filterGallery('all')">Explorar Galería</a>
+            <a href="#gallery" class="btn-enter">Explorar Galería</a>
         </div>
     </section>
 
@@ -621,8 +619,8 @@
         <div class="gallery-container">
             <div class="gallery-grid" id="galleryGrid">
                 
-                <!-- OBRA 1: Tinta / Selecta -->
-                <div class="art-card" data-category="tintas selectas" onclick="openModal('Estudio Mitológico en Tinta', 'Tinta sobre papel', '40 x 50 cm', 'Disponible', '1,200 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Composición de alta precisión en tinta negra sobre papel, explorando simbolismos orgánicos y mitológicos.')">
+                <!-- OBRA 1 -->
+                <div class="art-card" data-category="tintas" onclick="openModal('Estudio Mitológico en Tinta', 'Tinta sobre papel', '40 x 50 cm', 'Disponible', '1,200 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Composición de alta precisión en tinta negra sobre papel, explorando simbolismos orgánicos y mitológicos.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Obra a Tinta">
@@ -634,8 +632,8 @@
                     </div>
                 </div>
 
-                <!-- OBRA 2: Óleo / Retrato / Selecta -->
-                <div class="art-card" data-category="oleos retratos selectas" onclick="openModal('Retrato Figurativo Académico', 'Óleo sobre lienzo', '60 x 80 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Estudio de retrato figurativo al óleo con técnica de claroscuro clásico.')">
+                <!-- OBRA 2 -->
+                <div class="art-card" data-category="oleos retratos" onclick="openModal('Retrato Figurativo Académico', 'Óleo sobre lienzo', '60 x 80 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Estudio de retrato figurativo al óleo con técnica de claroscuro clásico.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status sold">Vendido</span>
                         <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80" alt="Retrato al Óleo">
@@ -647,10 +645,10 @@
                     </div>
                 </div>
 
-                <!-- OBRA 3: Tinta / Proceso -->
-                <div class="art-card" data-category="tintas proceso" onclick="openModal('Anatomía y Sombra Cruzada', 'Tinta / Trazos sobre papel', '30 x 45 cm', 'En Proceso', '950 USD', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', 'Estudio anatómico detallado mediante técnica de trama fina a tinta.')">
+                <!-- OBRA 3 -->
+                <div class="art-card" data-category="tintas" onclick="openModal('Anatomía y Sombra Cruzada', 'Tinta / Trazos sobre papel', '30 x 45 cm', 'Disponible', '950 USD', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', 'Estudio anatómico detallado mediante técnica de trama fina a tinta.')">
                     <div class="art-img-wrapper">
-                        <span class="badge-status">En Proceso</span>
+                        <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80" alt="Anatomía Tinta">
                     </div>
                     <div class="art-info">
@@ -660,10 +658,10 @@
                     </div>
                 </div>
 
-                <!-- OBRA 4: Óleo / Retrato / Proceso -->
-                <div class="art-card" data-category="oleos retratos proceso" onclick="openModal('La Dama del Azul Profundo', 'Óleo sobre lienzo', '70 x 100 cm', 'En Proceso', '2,400 USD', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Pintura al óleo inspirada en retratos renacentistas con pigmentos intensos.')">
+                <!-- OBRA 4 -->
+                <div class="art-card" data-category="oleos retratos" onclick="openModal('La Dama del Azul Profundo', 'Óleo sobre lienzo', '70 x 100 cm', 'Disponible', '2,400 USD', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Pintura al óleo inspirada en retratos renacentistas con pigmentos intensos.')">
                     <div class="art-img-wrapper">
-                        <span class="badge-status">En Proceso</span>
+                        <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="Dama Azul">
                     </div>
                     <div class="art-info">

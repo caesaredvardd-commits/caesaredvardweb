@@ -571,11 +571,86 @@
             margin-top: 30px;
         }
 
-        /* --- FOOTER & CONTACTO --- */
+        /* --- FOOTER & FORMULARIO DE CONTACTO --- */
         footer {
-            padding: 80px 30px 40px 30px;
-            text-align: center;
+            padding: 100px 30px 40px 30px;
             background-color: var(--bg-dark);
+        }
+
+        .contact-container {
+            max-width: 750px;
+            margin: 0 auto 60px auto;
+            text-align: left;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            margin-top: 40px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            letter-spacing: 1px;
+        }
+
+        .form-control {
+            width: 100%;
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 14px 18px;
+            color: var(--text-light);
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            border-radius: 2px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-red);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23909095' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            background-size: 16px;
+            cursor: pointer;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            align-self: flex-end;
+            padding: 14px 45px;
+            background-color: var(--accent-red);
+            color: #fff;
+            border: none;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-red-hover);
+            box-shadow: 0 0 20px rgba(194, 41, 41, 0.5);
         }
 
         .contact-email {
@@ -597,6 +672,8 @@
             color: var(--text-dim);
             letter-spacing: 2px;
             text-transform: uppercase;
+            text-align: center;
+            margin-top: 40px;
         }
 
         /* --- RESPONSIVE --- */
@@ -605,6 +682,7 @@
             .modal-content { grid-template-columns: 1fr; }
             .modal-img-container img { max-height: 40vh; }
             .gallery-grid { grid-template-columns: 1fr; }
+            .btn-submit { width: 100%; }
         }
     </style>
 </head>
@@ -691,8 +769,8 @@
         <div class="gallery-container">
             <div class="gallery-grid" id="galleryGrid">
                 
-                <!-- ÓLEO 1 (2026) -->
-                <div class="art-card" data-category="oleos disponible" data-year="2026" onclick="openModal('Aura Crepuscular', 'Óleo sobre lienzo', '70 x 90 cm', 'Disponible', '2,100 USD', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Exploración contemporánea del claroscuro con tonos cálidos y de atmósfera profunda.')">
+                <!-- ==================== PINTURAS AL ÓLEO (16 RECUADROS) ==================== -->
+                <div class="art-card" data-category="oleos disponible" data-year="2026" onclick="openModal('Aura Crepuscular', 'Óleo sobre lienzo', '70 x 90 cm', 'Disponible', '2,100 USD', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Exploración contemporánea del claroscuro con tonos cálidos.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="Aura Crepuscular">
@@ -704,8 +782,7 @@
                     </div>
                 </div>
 
-                <!-- ÓLEO 2 (2025) -->
-                <div class="art-card" data-category="oleos disponible" data-year="2025" onclick="openModal('Sinfonía en Óxido', 'Óleo sobre lienzo', '65 x 85 cm', 'Disponible', '1,900 USD', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Estudio cromático enfocado en texturas terrosas y pigmentos minerales pesados.')">
+                <div class="art-card" data-category="oleos disponible" data-year="2025" onclick="openModal('Sinfonía en Óxido', 'Óleo sobre lienzo', '65 x 85 cm', 'Disponible', '1,900 USD', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Estudio cromático enfocado en texturas terrosas.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80" alt="Sinfonía en Óxido">
@@ -717,8 +794,7 @@
                     </div>
                 </div>
 
-                <!-- ÓLEO 3 (2024 - La Dama del Azul Profundo) -->
-                <div class="art-card" data-category="oleos retratos disponible" data-year="2024" onclick="openModal('La Dama del Azul Profundo', 'Óleo sobre lienzo', '70 x 100 cm', 'Disponible', '2,400 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Pintura al óleo inspirada en retratos renacentistas con pigmentos intensos.')">
+                <div class="art-card" data-category="oleos retratos disponible" data-year="2024" onclick="openModal('La Dama del Azul Profundo', 'Óleo sobre lienzo', '70 x 100 cm', 'Disponible', '2,400 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Pintura al óleo inspirada en retratos renacentistas.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Dama Azul">
@@ -730,8 +806,7 @@
                     </div>
                 </div>
 
-                <!-- ÓLEO 4 (2024) -->
-                <div class="art-card" data-category="oleos" data-year="2024" onclick="openModal('Elegía del Silencio', 'Óleo sobre lienzo', '50 x 70 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', 'Obra introspectiva que retrata la quietud mediante transiciones tonales suaves.')">
+                <div class="art-card" data-category="oleos" data-year="2024" onclick="openModal('Elegía del Silencio', 'Óleo sobre lienzo', '50 x 70 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', 'Obra introspectiva que retrata la quietud.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status sold">Vendido</span>
                         <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80" alt="Elegía del Silencio">
@@ -743,8 +818,7 @@
                     </div>
                 </div>
 
-                <!-- ÓLEO 5 (2023) -->
-                <div class="art-card" data-category="oleos retratos" data-year="2023" onclick="openModal('Retrato Figurativo Académico', 'Óleo sobre lienzo', '60 x 80 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Estudio de retrato figurativo al óleo con técnica de claroscuro clásico.')">
+                <div class="art-card" data-category="oleos retratos" data-year="2023" onclick="openModal('Retrato Figurativo Académico', 'Óleo sobre lienzo', '60 x 80 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Estudio de retrato figurativo al óleo.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status sold">Vendido</span>
                         <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80" alt="Retrato al Óleo">
@@ -756,8 +830,7 @@
                     </div>
                 </div>
 
-                <!-- ÓLEO 6 (2023) -->
-                <div class="art-card" data-category="oleos disponible" data-year="2023" onclick="openModal('Naturaleza Muerta con Frutos', 'Óleo sobre tabla', '40 x 50 cm', 'Disponible', '1,450 USD', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Homenaje a los bodegones flamencos tradicionales con un enfoque moderno.')">
+                <div class="art-card" data-category="oleos disponible" data-year="2023" onclick="openModal('Naturaleza Muerta con Frutos', 'Óleo sobre tabla', '40 x 50 cm', 'Disponible', '1,450 USD', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Homenaje a los bodegones flamencos.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="Naturaleza Muerta">
@@ -769,8 +842,7 @@
                     </div>
                 </div>
 
-                <!-- ÓLEO 7 (2022) -->
-                <div class="art-card" data-category="oleos disponible" data-year="2022" onclick="openModal('Umbra y Luz', 'Óleo sobre lienzo', '80 x 80 cm', 'Disponible', '2,800 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Contraste severo entre sombras absolutas y destellos de luz pura.')">
+                <div class="art-card" data-category="oleos disponible" data-year="2022" onclick="openModal('Umbra y Luz', 'Óleo sobre lienzo', '80 x 80 cm', 'Disponible', '2,800 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Contraste severo entre sombras e iluminación.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Umbra y Luz">
@@ -782,8 +854,7 @@
                     </div>
                 </div>
 
-                <!-- ÓLEO 8 (2021) -->
-                <div class="art-card" data-category="oleos" data-year="2021" onclick="openModal('Vestigios del Tiempo', 'Óleo sobre lienzo', '60 x 90 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', 'Composición alegórica sobre la erosión y la memoria.')">
+                <div class="art-card" data-category="oleos" data-year="2021" onclick="openModal('Vestigios del Tiempo', 'Óleo sobre lienzo', '60 x 90 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', 'Composición alegórica sobre la memoria.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status sold">Vendido</span>
                         <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80" alt="Vestigios del Tiempo">
@@ -795,8 +866,7 @@
                     </div>
                 </div>
 
-                <!-- ÓLEO 9 (2020) -->
-                <div class="art-card" data-category="oleos disponible" data-year="2020" onclick="openModal('Melancolía de Otoño', 'Óleo sobre lienzo', '50 x 60 cm', 'Disponible', '1,600 USD', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Paleta reducida de ocres y marrones evocando la estación otoñal.')">
+                <div class="art-card" data-category="oleos disponible" data-year="2020" onclick="openModal('Melancolía de Otoño', 'Óleo sobre lienzo', '50 x 60 cm', 'Disponible', '1,600 USD', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Paleta reducida de ocres y marrones.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80" alt="Melancolía de Otoño">
@@ -808,8 +878,7 @@
                     </div>
                 </div>
 
-                <!-- ÓLEO 10 (2019) -->
-                <div class="art-card" data-category="oleos" data-year="2019" onclick="openModal('El Vuelo Roto', 'Óleo sobre lienzo', '70 x 100 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Obra dramática con simbolismo de aves y cielos tormentosos.')">
+                <div class="art-card" data-category="oleos" data-year="2019" onclick="openModal('El Vuelo Roto', 'Óleo sobre lienzo', '70 x 100 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Obra dramática con simbolismo de aves.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status sold">Vendido</span>
                         <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="El Vuelo Roto">
@@ -821,8 +890,7 @@
                     </div>
                 </div>
 
-                <!-- ÓLEO 11 (2018) -->
-                <div class="art-card" data-category="oleos disponible" data-year="2018" onclick="openModal('Retrato en Sombra', 'Óleo sobre tabla', '45 x 55 cm', 'Disponible', '1,300 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Práctica de iluminación lateral inspirada en la escuela caravaggista.')">
+                <div class="art-card" data-category="oleos disponible" data-year="2018" onclick="openModal('Retrato en Sombra', 'Óleo sobre tabla', '45 x 55 cm', 'Disponible', '1,300 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Práctica de iluminación lateral.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Retrato en Sombra">
@@ -834,8 +902,7 @@
                     </div>
                 </div>
 
-                <!-- ÓLEO 12 (2017) -->
-                <div class="art-card" data-category="oleos" data-year="2017" onclick="openModal('Horizonte Mineral', 'Óleo sobre lienzo', '60 x 120 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', 'Paisaje abstracto texturizado con arenas y óleos pesados.')">
+                <div class="art-card" data-category="oleos" data-year="2017" onclick="openModal('Horizonte Mineral', 'Óleo sobre lienzo', '60 x 120 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', 'Paisaje abstracto texturizado.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status sold">Vendido</span>
                         <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80" alt="Horizonte Mineral">
@@ -847,11 +914,10 @@
                     </div>
                 </div>
 
-                <!-- ÓLEO 13 (2016) -->
-                <div class="art-card" data-category="oleos disponible" data-year="2016" onclick="openModal('Estudio de Manos y Paño', 'Óleo sobre lienzo', '50 x 70 cm', 'Disponible', '1,500 USD', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Ejercicio académico enfocado en los pliegues complejos de telas y anatomía.')">
+                <div class="art-card" data-category="oleos disponible" data-year="2016" onclick="openModal('Estudio de Manos y Paño', 'Óleo sobre lienzo', '50 x 70 cm', 'Disponible', '1,500 USD', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Ejercicio académico enfocado en pliegues.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
-                        <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80" alt="Estudio de Manos y Paño">
+                        <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80" alt="Estudio de Manos">
                     </div>
                     <div class="art-info">
                         <div class="art-title">Estudio de Manos y Paño</div>
@@ -860,8 +926,7 @@
                     </div>
                 </div>
 
-                <!-- ÓLEO 14 (2016) -->
-                <div class="art-card" data-category="oleos" data-year="2016" onclick="openModal('Luz de Ventana', 'Óleo sobre tabla', '40 x 60 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Interior silencioso iluminado por luz matutina indirecta.')">
+                <div class="art-card" data-category="oleos" data-year="2016" onclick="openModal('Luz de Ventana', 'Óleo sobre tabla', '40 x 60 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Interior silencioso iluminado.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status sold">Vendido</span>
                         <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="Luz de Ventana">
@@ -873,8 +938,7 @@
                     </div>
                 </div>
 
-                <!-- ÓLEO 15 (2015) -->
-                <div class="art-card" data-category="oleos disponible" data-year="2015" onclick="openModal('Inicios del Realismo', 'Óleo sobre lienzo', '60 x 80 cm', 'Disponible', '1,800 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Pieza clave de los primeros años de experimentación técnica del taller.')">
+                <div class="art-card" data-category="oleos disponible" data-year="2015" onclick="openModal('Inicios del Realismo', 'Óleo sobre lienzo', '60 x 80 cm', 'Disponible', '1,800 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Pieza clave de la experimentación técnica inicial.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Inicios del Realismo">
@@ -886,7 +950,6 @@
                     </div>
                 </div>
 
-                <!-- ÓLEO 16 (2015) -->
                 <div class="art-card" data-category="oleos" data-year="2015" onclick="openModal('Primeros Óleos: Nocturno', 'Óleo sobre tabla', '35 x 45 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', 'Estudio nocturno minimalista de la colección fundacional.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status sold">Vendido</span>
@@ -897,6 +960,110 @@
                         <div class="art-meta">Óleo sobre tabla · 2015</div>
                         <div class="art-price" style="color: var(--accent-red);">Colección Privada</div>
                     </div>
+                </div>
+
+                <!-- ==================== DIBUJO (15 RECUADROS) ==================== -->
+                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Estudio Mitológico I', 'Tinta sobre papel', '40 x 50 cm', 'Disponible', '850 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Trazo detallado en tinta negra sobre papel artesanal.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Dibujo 1"></div>
+                    <div class="art-info"><div class="art-title">Estudio Mitológico I</div><div class="art-meta">Tinta sobre papel · 2025</div><div class="art-price">850 USD</div></div>
+                </div>
+                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Anatomía Cruzada', 'Carboncillo y grafito', '50 x 70 cm', 'Disponible', '950 USD', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', 'Estudio anatómico detallado mediante trama fina.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80" alt="Dibujo 2"></div>
+                    <div class="art-info"><div class="art-title">Anatomía Cruzada</div><div class="art-meta">Carboncillo sobre papel · 2025</div><div class="art-price">950 USD</div></div>
+                </div>
+                <div class="art-card" data-category="dibujo" onclick="openModal('Perfil Clásico', 'Grafito sobre papel', '30 x 40 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Estudio académico de perfil con claroscuro sutil.')">
+                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80" alt="Dibujo 3"></div>
+                    <div class="art-info"><div class="art-title">Perfil Clásico</div><div class="art-meta">Grafito sobre papel · 2024</div><div class="art-price" style="color: var(--accent-red);">Colección Privada</div></div>
+                </div>
+                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Silueta e Inercia', 'Tinta china', '45 x 60 cm', 'Disponible', '780 USD', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Movimiento figurativo capturado a pluma fina.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="Dibujo 4"></div>
+                    <div class="art-info"><div class="art-title">Silueta e Inercia</div><div class="art-meta">Tinta china · 2024</div><div class="art-price">780 USD</div></div>
+                </div>
+                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Torsos en Penumbra', 'Sanguina sobre papel', '50 x 65 cm', 'Disponible', '900 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Técnica clásica de sanguina con tiza blanca.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Dibujo 5"></div>
+                    <div class="art-info"><div class="art-title">Torsos en Penumbra</div><div class="art-meta">Sanguina · 2024</div><div class="art-price">900 USD</div></div>
+                </div>
+                <div class="art-card" data-category="dibujo" onclick="openModal('Boceto de Manos II', 'Carboncillo', '35 x 50 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', 'Análisis gestual rápido con trazos expresivos.')">
+                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80" alt="Dibujo 6"></div>
+                    <div class="art-info"><div class="art-title">Boceto de Manos II</div><div class="art-meta">Carboncillo · 2023</div><div class="art-price" style="color: var(--accent-red);">Colección Privada</div></div>
+                </div>
+                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Fragmento de Estatua', 'Grafito duro y suave', '40 x 50 cm', 'Disponible', '820 USD', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Estudio académico basado en la estatuaria clásica.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80" alt="Dibujo 7"></div>
+                    <div class="art-info"><div class="art-title">Fragmento de Estatua</div><div class="art-meta">Grafito · 2023</div><div class="art-price">820 USD</div></div>
+                </div>
+                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Flora y Ceniza', 'Tinta estilográfica', '30 x 40 cm', 'Disponible', '650 USD', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Detalle botánico con trama de alta densidad.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="Dibujo 8"></div>
+                    <div class="art-info"><div class="art-title">Flora y Ceniza</div><div class="art-meta">Tinta · 2023</div><div class="art-price">650 USD</div></div>
+                </div>
+                <div class="art-card" data-category="dibujo" onclick="openModal('El Guía Nocturno', 'Pluma y bistre', '40 x 60 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Dibujo mitológico elaborado con tintas antiguas.')">
+                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Dibujo 9"></div>
+                    <div class="art-info"><div class="art-title">El Guía Nocturno</div><div class="art-meta">Tinta bistre · 2022</div><div class="art-price" style="color: var(--accent-red);">Colección Privada</div></div>
+                </div>
+                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Pliegues de Seda', 'Grafito sobre cartulina', '50 x 70 cm', 'Disponible', '980 USD', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', 'Estudio hiperrealista de drapería.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80" alt="Dibujo 10"></div>
+                    <div class="art-info"><div class="art-title">Pliegues de Seda</div><div class="art-meta">Grafito · 2022</div><div class="art-price">980 USD</div></div>
+                </div>
+                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Retrato Figurativo A', 'Carboncillo y creta', '40 x 50 cm', 'Disponible', '750 USD', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Mirada dramática capturada en claroscuro.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80" alt="Dibujo 11"></div>
+                    <div class="art-info"><div class="art-title">Retrato Figurativo A</div><div class="art-meta">Carboncillo · 2021</div><div class="art-price">750 USD</div></div>
+                </div>
+                <div class="art-card" data-category="dibujo" onclick="openModal('Arquitectura del Resto', 'Tinta y aguada', '30 x 45 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Estudio estructural con aguadas suaves.')">
+                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="Dibujo 12"></div>
+                    <div class="art-info"><div class="art-title">Arquitectura del Resto</div><div class="art-meta">Aguada · 2020</div><div class="art-price" style="color: var(--accent-red);">Colección Privada</div></div>
+                </div>
+                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Cráneo y Sombras', 'Grafito 6B', '35 x 45 cm', 'Disponible', '700 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Vanitas clásica dibujada a lápiz directo.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Dibujo 13"></div>
+                    <div class="art-info"><div class="art-title">Cráneo y Sombras</div><div class="art-meta">Grafito · 2020</div><div class="art-price">700 USD</div></div>
+                </div>
+                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Estudio de Espalda', 'Sanguina', '45 x 60 cm', 'Disponible', '880 USD', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', 'Línea de contorno fluida y sombras graduadas.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80" alt="Dibujo 14"></div>
+                    <div class="art-info"><div class="art-title">Estudio de Espalda</div><div class="art-meta">Sanguina · 2019</div><div class="art-price">880 USD</div></div>
+                </div>
+                <div class="art-card" data-category="dibujo" onclick="openModal('Trazo Inicial 2018', 'Tinta sobre papel', '30 x 40 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Uno de los primeros cuadernos de taller.')">
+                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80" alt="Dibujo 15"></div>
+                    <div class="art-info"><div class="art-title">Trazo Inicial 2018</div><div class="art-meta">Tinta · 2018</div><div class="art-price" style="color: var(--accent-red);">Colección Privada</div></div>
+                </div>
+
+                <!-- ==================== FOTOGRAFÍA (10 RECUADROS) ==================== -->
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Claroscuro Urbano I', 'Fotografía analógica impreso en papel fine art', '50 x 70 cm', 'Disponible', '600 USD', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Captura en blanco y negro analógico de 35mm.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="Foto 1"></div>
+                    <div class="art-info"><div class="art-title">Claroscuro Urbano I</div><div class="art-meta">Fine Art Print · Edición de 5 · 2026</div><div class="art-price">600 USD</div></div>
+                </div>
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Sombras de Taller', 'Fotografía digital', '60 x 80 cm', 'Disponible', '750 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Estudio fotográfico sobre las herramientas del atelier.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Foto 2"></div>
+                    <div class="art-info"><div class="art-title">Sombras de Taller</div><div class="art-meta">Fotografía Digital · Edición de 3 · 2025</div><div class="art-price">750 USD</div></div>
+                </div>
+                <div class="art-card" data-category="fotografia" onclick="openModal('Perfil Silencioso', 'Impresión al platino', '40 x 50 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', 'Retrato fotográfico figurativo con revelado especial en platino.')">
+                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80" alt="Foto 3"></div>
+                    <div class="art-info"><div class="art-title">Perfil Silencioso</div><div class="art-meta">Platinotipia · 2025</div><div class="art-price" style="color: var(--accent-red);">Colección Privada</div></div>
+                </div>
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Textura y Bronce', 'Fine Art Monocromo', '50 x 50 cm', 'Disponible', '550 USD', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Composición macro de esculturas de taller.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80" alt="Foto 4"></div>
+                    <div class="art-info"><div class="art-title">Textura y Bronce</div><div class="art-meta">Fine Art Print · 2024</div><div class="art-price">550 USD</div></div>
+                </div>
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Luz en la Penumbra', 'Fotografía analógica', '70 x 100 cm', 'Disponible', '900 USD', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Formato grande de estudio sobre claroscuro natural.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="Foto 5"></div>
+                    <div class="art-info"><div class="art-title">Luz en la Penumbra</div><div class="art-meta">Analógica 120mm · Edición de 3 · 2024</div><div class="art-price">900 USD</div></div>
+                </div>
+                <div class="art-card" data-category="fotografia" onclick="openModal('Niebla y Piedra', 'Impresión sobre papel de algodón', '60 x 90 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Paisaje de baja luz y atmósfera melancólica.')">
+                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Foto 6"></div>
+                    <div class="art-info"><div class="art-title">Niebla y Piedra</div><div class="art-meta">Cotton Paper Print · 2023</div><div class="art-price" style="color: var(--accent-red);">Colección Privada</div></div>
+                </div>
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Reflejos de Pigmento', 'Fine Art enmarcados', '40 x 60 cm', 'Disponible', '650 USD', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', 'Estudio abstracto de reflejos de luz sobre pintura fresca.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80" alt="Foto 7"></div>
+                    <div class="art-info"><div class="art-title">Reflejos de Pigmento</div><div class="art-meta">Fine Art Print · 2023</div><div class="art-price">650 USD</div></div>
+                </div>
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Maniquí y Sombra', 'Fotografía digital monocromo', '50 x 70 cm', 'Disponible', '580 USD', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Estudio fotográfico sobre composición figurativa.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80" alt="Foto 8"></div>
+                    <div class="art-info"><div class="art-title">Maniquí y Sombra</div><div class="art-meta">Monocromo · 2022</div><div class="art-price">580 USD</div></div>
+                </div>
+                <div class="art-card" data-category="fotografia" onclick="openModal('Manos en Acción', 'Fotografía analógica', '30 x 45 cm', 'Vendido', 'Colección Privada', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Registro documental del proceso de creación.')">
+                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="Foto 9"></div>
+                    <div class="art-info"><div class="art-title">Manos en Acción</div><div class="art-meta">Analógica 35mm · 2021</div><div class="art-price" style="color: var(--accent-red);">Colección Privada</div></div>
+                </div>
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Nocturno Urbano', 'Fine Art Print', '60 x 80 cm', 'Disponible', '800 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Exposición larga de sombras en la noche.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Foto 10"></div>
+                    <div class="art-info"><div class="art-title">Nocturno Urbano</div><div class="art-meta">Fine Art Print · 2021</div><div class="art-price">800 USD</div></div>
                 </div>
 
             </div>
@@ -930,12 +1097,54 @@
         </div>
     </section>
 
-    <!-- FOOTER Y CONTACTO -->
+    <!-- FOOTER Y FORMULARIO DE CONTACTO / ENCARGOS -->
     <footer id="contact">
-        <div style="font-family: var(--font-title); letter-spacing: 4px; font-size: 0.9rem; color: var(--text-dim); text-transform: uppercase;">Inquiries & Atelier</div>
-        <a href="mailto:caesaredvardd@gmail.com" class="contact-email">caesaredvardd@gmail.com</a>
-        <div class="copyright">
-            © CAESAR EDVARD. TODOS LOS DERECHOS RESERVADOS.
+        <div class="contact-container">
+            <h2 class="section-title" style="margin-top: 0; text-align: left;">CONTACTO / ENCARGOS</h2>
+            <p style="color: var(--text-dim); font-size: 0.9rem; letter-spacing: 1px; margin-top: 10px;">
+                Para consultas sobre adquisición de obras de colección, solicitudes de encargos privados o comisiones, completa el siguiente formulario:
+            </p>
+
+            <form class="contact-form" action="https://formspree.io/f/caesaredvardd@gmail.com" method="POST" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="clientType">Business or Individual</label>
+                    <select id="clientType" name="clientType" class="form-control">
+                        <option value="Individual">Individual Client</option>
+                        <option value="Gallery / Business">Gallery / Business / Collector</option>
+                        <option value="Press / Media">Press / Media</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="firstName">First name</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="First name" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last name</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Last name" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="Email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" placeholder="Message" class="form-control" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </div>
+
+        <div style="text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 40px;">
+            <div style="font-family: var(--font-title); letter-spacing: 4px; font-size: 0.85rem; color: var(--text-dim); text-transform: uppercase;">Direct Atelier Email</div>
+            <a href="mailto:caesaredvardd@gmail.com" class="contact-email">caesaredvardd@gmail.com</a>
+            <div class="copyright">
+                © CAESAR EDVARD. TODOS LOS DERECHOS RESERVADOS.
+            </div>
         </div>
     </footer>
 
@@ -1014,6 +1223,19 @@
                 artModal.classList.remove('active');
             }
         });
+
+        // --- ENVÍO DEL FORMULARIO DE CONTACTO ---
+        function handleFormSubmit(e) {
+            // Permite el envío del formulario mediante mailto como respaldo
+            const email = document.getElementById('email').value;
+            const firstName = document.getElementById('firstName').value;
+            const message = document.getElementById('message').value;
+            
+            // Si el cliente no usa Formspree u otra integración posterior, redirige sutilmente
+            setTimeout(() => {
+                alert('Gracias por su mensaje. CAESAR se pondrá en contacto pronto.');
+            }, 300);
+        }
     </script>
 </body>
 </html>

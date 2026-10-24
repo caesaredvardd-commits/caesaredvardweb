@@ -635,7 +635,7 @@
         <div>
             <div style="font-family: var(--font-title); letter-spacing: 4px; font-size: 1.2rem; margin-bottom: 30px; color: var(--accent-red);">CAESAR ARCHIVE</div>
             <ul class="sidebar-nav">
-                <li><a href="#gallery" onclick="filterGallery('all'); closeMenu();">Obras Selectas <span>→</span></a></li>
+                <li><a href="#gallery" onclick="filterGallery('disponible'); closeMenu();">Obras Disponibles <span>→</span></a></li>
                 
                 <!-- DESPLEGABLE PINTURAS AL ÓLEO POR AÑO -->
                 <li class="has-submenu" id="oleosSubmenu">
@@ -660,8 +660,7 @@
                     </ul>
                 </li>
 
-                <li><a href="#gallery" onclick="filterGallery('tintas'); closeMenu();">Tinta y Dibujo <span>→</span></a></li>
-                <li><a href="#gallery" onclick="filterGallery('bocetos'); closeMenu();">Bocetos <span>→</span></a></li>
+                <li><a href="#gallery" onclick="filterGallery('dibujo'); closeMenu();">Dibujo <span>→</span></a></li>
                 <li><a href="#gallery" onclick="filterGallery('fotografia'); closeMenu();">Fotografía <span>→</span></a></li>
                 <li><a href="#gallery" onclick="filterGallery('retratos'); closeMenu();">Retratos <span>→</span></a></li>
                 <li><a href="#bio" onclick="closeMenu();">Biografía <span>→</span></a></li>
@@ -693,7 +692,7 @@
             <div class="gallery-grid" id="galleryGrid">
                 
                 <!-- ÓLEO 1 (2026) -->
-                <div class="art-card" data-category="oleos" data-year="2026" onclick="openModal('Aura Crepuscular', 'Óleo sobre lienzo', '70 x 90 cm', 'Disponible', '2,100 USD', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Exploración contemporánea del claroscuro con tonos cálidos y de atmósfera profunda.')">
+                <div class="art-card" data-category="oleos disponible" data-year="2026" onclick="openModal('Aura Crepuscular', 'Óleo sobre lienzo', '70 x 90 cm', 'Disponible', '2,100 USD', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Exploración contemporánea del claroscuro con tonos cálidos y de atmósfera profunda.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="Aura Crepuscular">
@@ -706,7 +705,7 @@
                 </div>
 
                 <!-- ÓLEO 2 (2025) -->
-                <div class="art-card" data-category="oleos" data-year="2025" onclick="openModal('Sinfonía en Óxido', 'Óleo sobre lienzo', '65 x 85 cm', 'Disponible', '1,900 USD', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Estudio cromático enfocado en texturas terrosas y pigmentos minerales pesados.')">
+                <div class="art-card" data-category="oleos disponible" data-year="2025" onclick="openModal('Sinfonía en Óxido', 'Óleo sobre lienzo', '65 x 85 cm', 'Disponible', '1,900 USD', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Estudio cromático enfocado en texturas terrosas y pigmentos minerales pesados.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80" alt="Sinfonía en Óxido">
@@ -719,7 +718,7 @@
                 </div>
 
                 <!-- ÓLEO 3 (2024 - La Dama del Azul Profundo) -->
-                <div class="art-card" data-category="oleos retratos" data-year="2024" onclick="openModal('La Dama del Azul Profundo', 'Óleo sobre lienzo', '70 x 100 cm', 'Disponible', '2,400 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Pintura al óleo inspirada en retratos renacentistas con pigmentos intensos.')">
+                <div class="art-card" data-category="oleos retratos disponible" data-year="2024" onclick="openModal('La Dama del Azul Profundo', 'Óleo sobre lienzo', '70 x 100 cm', 'Disponible', '2,400 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Pintura al óleo inspirada en retratos renacentistas con pigmentos intensos.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Dama Azul">
@@ -758,7 +757,7 @@
                 </div>
 
                 <!-- ÓLEO 6 (2023) -->
-                <div class="art-card" data-category="oleos" data-year="2023" onclick="openModal('Naturaleza Muerta con Frutos', 'Óleo sobre tabla', '40 x 50 cm', 'Disponible', '1,450 USD', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Homenaje a los bodegones flamencos tradicionales con un enfoque moderno.')">
+                <div class="art-card" data-category="oleos disponible" data-year="2023" onclick="openModal('Naturaleza Muerta con Frutos', 'Óleo sobre tabla', '40 x 50 cm', 'Disponible', '1,450 USD', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', 'Homenaje a los bodegones flamencos tradicionales con un enfoque moderno.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="Naturaleza Muerta">
@@ -771,7 +770,7 @@
                 </div>
 
                 <!-- ÓLEO 7 (2022) -->
-                <div class="art-card" data-category="oleos" data-year="2022" onclick="openModal('Umbra y Luz', 'Óleo sobre lienzo', '80 x 80 cm', 'Disponible', '2,800 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Contraste severo entre sombras absolutas y destellos de luz pura.')">
+                <div class="art-card" data-category="oleos disponible" data-year="2022" onclick="openModal('Umbra y Luz', 'Óleo sobre lienzo', '80 x 80 cm', 'Disponible', '2,800 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Contraste severo entre sombras absolutas y destellos de luz pura.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Umbra y Luz">
@@ -797,7 +796,7 @@
                 </div>
 
                 <!-- ÓLEO 9 (2020) -->
-                <div class="art-card" data-category="oleos" data-year="2020" onclick="openModal('Melancolía de Otoño', 'Óleo sobre lienzo', '50 x 60 cm', 'Disponible', '1,600 USD', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Paleta reducida de ocres y marrones evocando la estación otoñal.')">
+                <div class="art-card" data-category="oleos disponible" data-year="2020" onclick="openModal('Melancolía de Otoño', 'Óleo sobre lienzo', '50 x 60 cm', 'Disponible', '1,600 USD', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Paleta reducida de ocres y marrones evocando la estación otoñal.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80" alt="Melancolía de Otoño">
@@ -823,7 +822,7 @@
                 </div>
 
                 <!-- ÓLEO 11 (2018) -->
-                <div class="art-card" data-category="oleos" data-year="2018" onclick="openModal('Retrato en Sombra', 'Óleo sobre tabla', '45 x 55 cm', 'Disponible', '1,300 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Práctica de iluminación lateral inspirada en la escuela caravaggista.')">
+                <div class="art-card" data-category="oleos disponible" data-year="2018" onclick="openModal('Retrato en Sombra', 'Óleo sobre tabla', '45 x 55 cm', 'Disponible', '1,300 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Práctica de iluminación lateral inspirada en la escuela caravaggista.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Retrato en Sombra">
@@ -849,7 +848,7 @@
                 </div>
 
                 <!-- ÓLEO 13 (2016) -->
-                <div class="art-card" data-category="oleos" data-year="2016" onclick="openModal('Estudio de Manos y Paño', 'Óleo sobre lienzo', '50 x 70 cm', 'Disponible', '1,500 USD', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Ejercicio académico enfocado en los pliegues complejos de telas y anatomía.')">
+                <div class="art-card" data-category="oleos disponible" data-year="2016" onclick="openModal('Estudio de Manos y Paño', 'Óleo sobre lienzo', '50 x 70 cm', 'Disponible', '1,500 USD', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80', 'Ejercicio académico enfocado en los pliegues complejos de telas y anatomía.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?auto=format&fit=crop&w=800&q=80" alt="Estudio de Manos y Paño">
@@ -875,7 +874,7 @@
                 </div>
 
                 <!-- ÓLEO 15 (2015) -->
-                <div class="art-card" data-category="oleos" data-year="2015" onclick="openModal('Inicios del Realismo', 'Óleo sobre lienzo', '60 x 80 cm', 'Disponible', '1,800 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Pieza clave de los primeros años de experimentación técnica del taller.')">
+                <div class="art-card" data-category="oleos disponible" data-year="2015" onclick="openModal('Inicios del Realismo', 'Óleo sobre lienzo', '60 x 80 cm', 'Disponible', '1,800 USD', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', 'Pieza clave de los primeros años de experimentación técnica del taller.')">
                     <div class="art-img-wrapper">
                         <span class="badge-status">Disponible</span>
                         <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80" alt="Inicios del Realismo">

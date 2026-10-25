@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CEZZARO — Official Website</title>
     
-    <!-- Importación CDN para Dominican Small Caps y EB Garamond -->
+    <!-- Importación de fuentes optimizada -->
     <link href="https://fonts.cdnfonts.com/css/dominican" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/eb-garamond" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -16,9 +16,9 @@
             --accent-hover: #4a2e2b;      
             --card-bg: #f9f9f9;           
 
-            /* Definición clara de las fuentes */
+            /* Fuentes separadas */
             --font-titles: 'Dominican Small Caps', serif;
-            --font-body: 'EB Garamond 08', 'EB Garamond', serif;
+            --font-body: 'EB Garamond', serif;
         }
 
         * {
@@ -27,10 +27,11 @@
             padding: 0;
         }
 
+        /* Todo el cuerpo usa EB Garamond por defecto */
         body {
             background-color: var(--bg-main);
             color: var(--text-main);
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             overflow-x: hidden;
             line-height: 1.6;
         }
@@ -62,7 +63,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 1.1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -94,9 +95,9 @@
             background-color: var(--accent-hover);
         }
 
-        /* ESTE SÍ SE QUEDA CON DOMINICAN PORQUE ES EL TÍTULO PRINCIPAL DEL LOGO */
+        /* ESTE SÍ SE QUEDA CON DOMINICAN (LOGOTIPO) */
         .logo {
-            font-family: var(--font-titles) !important;
+            font-family: var(--font-titles);
             font-size: 2.2rem;
             letter-spacing: 4px;
             color: var(--text-main);
@@ -104,7 +105,7 @@
         }
 
         .lang-select {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 1rem;
             letter-spacing: 2px;
             color: var(--text-main);
@@ -180,7 +181,7 @@
         }
 
         .sidebar-nav a, .submenu-trigger {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 1.35rem;
             letter-spacing: 1px;
             color: var(--text-main);
@@ -232,7 +233,7 @@
         }
 
         .submenu-years a {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-style: italic;
             font-size: 1.1rem;
             color: var(--text-main);
@@ -245,7 +246,7 @@
         }
 
         .sidebar-footer {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 0.95rem;
             color: var(--text-main);
             letter-spacing: 1px;
@@ -285,9 +286,9 @@
             max-width: 800px;
         }
 
-        /* Subtítulo del Hero cambiado a EB Garamond 08 */
+        /* Subtítulo cambiado a EB Garamond */
         .hero-subtitle {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-style: italic;
             font-size: 1.8rem;
             color: var(--text-main);
@@ -295,9 +296,9 @@
             letter-spacing: 3px;
         }
 
-        /* Título grande del Hero conservando Dominican */
+        /* Título principal con Dominican */
         .hero-title {
-            font-family: var(--font-titles) !important;
+            font-family: var(--font-titles);
             font-size: 5.2rem;
             font-weight: normal;
             letter-spacing: 4px;
@@ -305,9 +306,9 @@
             color: var(--text-main);
         }
 
-        /* Descripción del Hero cambiada a EB Garamond 08 */
+        /* Descripción cambiada a EB Garamond */
         .hero-desc {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 1.2rem;
             color: var(--text-main);
             letter-spacing: 3px;
@@ -322,7 +323,7 @@
             background-color: #000000;
             color: #ffffff;
             border: 2px solid #000000;
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 1.1rem;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -337,21 +338,22 @@
         }
 
         /* --- GALERÍA / CATÁLOGO --- */
-        /* Título de sección cambiado a EB Garamond 08 */
+        /* Título de sección cambiado a EB Garamond */
         .section-title {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 2.5rem;
             text-align: center;
             color: var(--text-main);
             letter-spacing: 4px;
             margin: 80px 0 15px 0;
             text-transform: uppercase;
+            font-weight: 500;
         }
 
-        /* Subtítulo de sección cambiado a EB Garamond 08 */
+        /* Subtítulo de sección cambiado a EB Garamond */
         .section-subtitle {
             text-align: center;
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-style: italic;
             color: var(--text-main);
             font-size: 1.3rem;
@@ -411,7 +413,7 @@
             top: 15px;
             left: 15px;
             padding: 4px 12px;
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 0.9rem;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -430,10 +432,10 @@
             background: var(--card-bg);
         }
 
-        /* Textos y títulos dentro de las tarjetas con imagen (Cambiados a EB Garamond 08) */
+        /* Textos dentro de las tarjetas (Cambiados a EB Garamond) */
         .art-title {
-            font-family: var(--font-body) !important;
-            font-size: 1.6rem;
+            font-family: var(--font-body);
+            font-size: 1.5rem;
             font-weight: 600;
             color: var(--text-main);
             margin-bottom: 6px;
@@ -441,7 +443,7 @@
         }
 
         .art-meta {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-style: italic;
             font-size: 1.1rem;
             color: var(--text-main);
@@ -450,7 +452,7 @@
         }
 
         .art-price {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 1.1rem;
             font-weight: 500;
             color: var(--text-main);
@@ -523,7 +525,7 @@
         }
 
         .modal-title {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 2.2rem;
             font-weight: 600;
             margin-bottom: 10px;
@@ -531,7 +533,7 @@
         }
 
         .modal-tech {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 1.1rem;
             color: var(--text-main);
             letter-spacing: 2px;
@@ -540,7 +542,7 @@
         }
 
         .modal-desc {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-style: italic;
             font-size: 1.25rem;
             color: var(--text-main);
@@ -549,7 +551,7 @@
         }
 
         .modal-price {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 1.4rem;
             color: var(--text-main);
             margin-bottom: 25px;
@@ -560,7 +562,7 @@
             background-color: #000000;
             color: #ffffff;
             border: 2px solid #000000;
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 1.1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -617,7 +619,7 @@
         }
 
         .bio-artist-tag {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 1.1rem;
             letter-spacing: 4px;
             color: var(--text-main);
@@ -626,7 +628,7 @@
         }
 
         .bio-artist-name {
-            font-family: var(--font-titles) !important;
+            font-family: var(--font-titles);
             font-size: 3.5rem;
             font-weight: normal;
             letter-spacing: 3px;
@@ -636,7 +638,7 @@
         }
 
         .bio-paragraphs {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-style: italic;
             font-size: 1.3rem;
             line-height: 1.85;
@@ -653,7 +655,7 @@
         }
 
         .bio-awards-title {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 1.6rem;
             color: var(--text-main);
             margin-bottom: 15px;
@@ -668,7 +670,7 @@
         }
 
         .bio-awards-list li {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 1.2rem;
             color: var(--text-main);
             letter-spacing: 1px;
@@ -709,7 +711,7 @@
         }
 
         .form-group label {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 1.1rem;
             color: var(--text-main);
             letter-spacing: 1px;
@@ -721,7 +723,7 @@
             border: 1px solid rgba(0, 0, 0, 0.2);
             padding: 14px 18px;
             color: var(--text-main);
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 1.2rem;
             border-radius: 2px;
             outline: none;
@@ -752,7 +754,7 @@
             background-color: #000000;
             color: #ffffff;
             border: 2px solid #000000;
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 1.1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -769,7 +771,7 @@
         }
 
         .contact-email {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-style: italic;
             font-size: 2.2rem;
             color: var(--text-main);
@@ -784,7 +786,7 @@
         }
 
         .copyright {
-            font-family: var(--font-body) !important;
+            font-family: var(--font-body);
             font-size: 0.95rem;
             color: var(--text-main);
             letter-spacing: 2px;

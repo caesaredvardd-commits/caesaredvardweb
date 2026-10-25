@@ -16,7 +16,9 @@
             --accent-hover: #4a2e2b;      /* Café oscuro para el índice al apacharse */
             --card-bg: #f9f9f9;           /* Fondo sutil para tarjetas */
 
+            /* Títulos principales conservan Dominican */
             --font-titles: 'Dominican Small Caps', serif;
+            /* Toda la demás tipografía usa EB Garamond 08 */
             --font-body: 'EB Garamond 08', 'EB Garamond', serif;
         }
 
@@ -309,7 +311,7 @@
             text-transform: uppercase;
         }
 
-        /* BOTÓN DE EXPLORAR GALERÍA CON ESTILO MODIFICADO */
+        /* BOTÓN DE EXPLORAR GALERÍA */
         .btn-enter {
             display: inline-block;
             padding: 14px 40px;
@@ -422,9 +424,11 @@
             background: var(--card-bg);
         }
 
+        /* Cambiado a EB Garamond 08 para las descripciones/títulos de las tarjetas con imagen */
         .art-title {
-            font-family: var(--font-titles);
+            font-family: var(--font-body);
             font-size: 1.6rem;
+            font-weight: 600;
             color: var(--text-main);
             margin-bottom: 6px;
             letter-spacing: 1px;
@@ -513,8 +517,9 @@
         }
 
         .modal-title {
-            font-family: var(--font-titles);
+            font-family: var(--font-body);
             font-size: 2.2rem;
+            font-weight: 600;
             margin-bottom: 10px;
             color: var(--text-main);
         }
@@ -1025,7 +1030,7 @@
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/venado.jpg" alt="Dibujo 10"></div>
                     <div class="art-info"><div class="art-title">Pliegues de Seda</div><div class="art-meta">Grafito · 2022</div><div class="art-price">980 USD</div></div>
                 </div>
-                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Estudio de Café', 'Tinta y técnica mixta', '40 x 50 cm', 'Disponible', '850 USD', 'imagenes/cofee 2.png', 'Estudio detallado de bodegón y texturas.')">
+                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Estudio de Café', 'Tinta y técnica mixta', '40 x 50 cm', 'Disponible', '850 USD', 'imagenes/cofee 2.png', 'Estudio detailed de bodegón y texturas.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/cofee 2.png" alt="cofee 2"></div>
                     <div class="art-info"><div class="art-title">Estudio de Café</div><div class="art-meta">Técnica mixta · 2025</div><div class="art-price">850 USD</div></div>
                 </div>

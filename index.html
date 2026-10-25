@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAESAR — Official Website</title>
+    <title>CEZZARO — Official Website</title>
     
-    <!-- Importación CDN para garantizar la visualización de las 4 fuentes -->
+    <!-- Importación CDN para las tipografías -->
     <link href="https://fonts.cdnfonts.com/css/dominican" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/olde-english" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,22 +14,13 @@
     
     <style>
         :root {
-            /* PALETA DE 5 COLORES (EXTRAÍDA DIRECTAMENTE DE LA PALETA) */
-            --color-1-yellow: #e5ba43;    /* Mostaza / Dorado */
-            --color-2-rose: #c78c80;      /* Rosa Palo / Terracota claro */
-            --color-3-sand: #d7cbbe;      /* Arena / Marfil */
-            --color-4-terracotta: #be4f31;/* Terracota Óxido / Cobre */
-            --color-5-earth: #695b46;     /* Café Oliva / Tierra oscuro */
+            /* NUEVOS COLORES SOLICITADOS */
+            --bg-green: #a7ba42;          /* Fondo verde de la imagen */
+            --text-pink: #ffdede;         /* Letras principales rosadas */
+            --text-cream: #fff0cb;        /* Letras secundarias crema */
+            --card-green: #95a639;        /* Tono de verde adaptado para tarjetas */
 
-            --bg-dark: var(--color-5-earth);
-            --bg-card: #544837;           /* Variante profunda del color 5 */
-            --text-light: var(--color-3-sand);
-            --text-dim: #b8aaa2;
-            --accent-main: var(--color-1-yellow);
-            --accent-red: var(--color-4-terracotta);
-            --sidebar-width: 320px;
-
-            /* USO DE LAS 4 TIPOGRAFÍAS */
+            /* TIPOGRAFÍAS */
             --font-old-english: 'Olde English', serif;
             --font-dominican: 'Dominican', serif;
             --font-dominican-sc: 'Dominican Small Caps', serif;
@@ -44,8 +35,8 @@
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            background-color: var(--bg-green);
+            color: var(--text-cream);
             font-family: var(--font-dominican);
             overflow-x: hidden;
             line-height: 1.6;
@@ -66,13 +57,13 @@
             align-items: center;
             justify-content: space-between;
             z-index: 100;
-            background: linear-gradient(180deg, rgba(105, 91, 70, 0.95) 0%, rgba(105, 91, 70, 0) 100%);
+            background: linear-gradient(180deg, rgba(167, 186, 66, 0.95) 0%, rgba(167, 186, 66, 0) 100%);
         }
 
         .menu-btn {
             background: none;
             border: none;
-            color: var(--color-1-yellow);
+            color: var(--text-pink);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -86,7 +77,7 @@
         }
 
         .menu-btn:hover {
-            color: var(--color-2-rose);
+            color: var(--text-cream);
         }
 
         .hamburger {
@@ -101,15 +92,15 @@
             display: block;
             height: 2px;
             width: 100%;
-            background-color: var(--color-1-yellow);
+            background-color: var(--text-pink);
             transition: 0.3s ease;
         }
 
         .logo {
-            font-family: var(--font-dominican-sc);
+            font-family: var(--font-old-english);
             font-size: 2.2rem;
             letter-spacing: 4px;
-            color: var(--color-3-sand);
+            color: var(--text-pink);
             text-align: center;
         }
 
@@ -117,11 +108,11 @@
             font-family: var(--font-dominican-sc);
             font-size: 0.9rem;
             letter-spacing: 2px;
-            color: var(--text-dim);
+            color: var(--text-cream);
         }
 
         .lang-select span.active {
-            color: var(--color-4-terracotta);
+            color: var(--text-pink);
             font-weight: 600;
         }
 
@@ -132,7 +123,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(84, 72, 55, 0.85);
+            background: rgba(149, 166, 57, 0.85);
             backdrop-filter: blur(5px);
             z-index: 150;
             opacity: 0;
@@ -149,10 +140,10 @@
             position: fixed;
             top: 0;
             left: -100%;
-            width: var(--sidebar-width);
+            width: 320px;
             height: 100%;
-            background-color: #43392b;
-            border-right: 1px solid var(--color-2-rose);
+            background-color: #8b9c32;
+            border-right: 1px solid var(--text-pink);
             z-index: 160;
             padding: 60px 30px 40px 30px;
             display: flex;
@@ -172,14 +163,14 @@
             right: 25px;
             background: none;
             border: none;
-            color: var(--color-1-yellow);
+            color: var(--text-pink);
             font-size: 1.8rem;
             cursor: pointer;
             transition: color 0.3s;
         }
 
         .close-btn:hover {
-            color: var(--color-4-terracotta);
+            color: var(--text-cream);
         }
 
         .sidebar-nav {
@@ -193,7 +184,7 @@
             font-family: var(--font-dominican);
             font-size: 1.35rem;
             letter-spacing: 1px;
-            color: var(--color-3-sand);
+            color: var(--text-cream);
             transition: all 0.3s;
             display: flex;
             align-items: center;
@@ -202,7 +193,7 @@
         }
 
         .sidebar-nav a:hover, .submenu-trigger:hover {
-            color: var(--color-1-yellow);
+            color: var(--text-pink);
             padding-left: 6px;
         }
 
@@ -230,7 +221,7 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            border-left: 1px solid var(--color-2-rose);
+            border-left: 1px solid var(--text-pink);
             margin-top: 5px;
             margin-left: 5px;
         }
@@ -244,19 +235,19 @@
         .submenu-years a {
             font-family: var(--font-dominican-italic);
             font-size: 1.1rem;
-            color: var(--color-2-rose);
+            color: var(--text-cream);
             letter-spacing: 2px;
         }
 
         .submenu-years a:hover {
-            color: var(--color-1-yellow);
+            color: var(--text-pink);
             padding-left: 4px;
         }
 
         .sidebar-footer {
             font-family: var(--font-dominican-sc);
             font-size: 0.85rem;
-            color: var(--text-dim);
+            color: var(--text-cream);
             letter-spacing: 1px;
             margin-top: 30px;
         }
@@ -273,7 +264,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: radial-gradient(circle at center, rgba(190, 79, 49, 0.35) 0%, rgba(105, 91, 70, 1) 75%),
+            background: radial-gradient(circle at center, rgba(149, 166, 57, 0.4) 0%, rgba(167, 186, 66, 1) 75%),
                         url('imagenes/lyon.DNG') center/cover no-repeat;
             padding: 0 20px;
         }
@@ -285,7 +276,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(67, 57, 43, 0.65);
+            background: rgba(139, 156, 50, 0.5);
         }
 
         .hero-content {
@@ -297,25 +288,25 @@
         .hero-subtitle {
             font-family: var(--font-dominican-italic);
             font-size: 1.8rem;
-            color: var(--color-4-terracotta);
+            color: var(--text-pink);
             margin-bottom: 10px;
             letter-spacing: 3px;
         }
 
         .hero-title {
             font-family: var(--font-old-english);
-            font-size: 4.8rem;
+            font-size: 5.2rem;
             font-weight: normal;
             letter-spacing: 4px;
             margin-bottom: 20px;
-            color: var(--color-3-sand);
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            color: var(--text-pink);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
         }
 
         .hero-desc {
             font-family: var(--font-dominican-sc);
             font-size: 1.1rem;
-            color: var(--color-2-rose);
+            color: var(--text-cream);
             letter-spacing: 3px;
             margin-bottom: 35px;
             text-transform: uppercase;
@@ -324,20 +315,20 @@
         .btn-enter {
             display: inline-block;
             padding: 14px 40px;
-            border: 2px solid var(--color-1-yellow);
-            color: var(--color-1-yellow);
+            background-color: var(--text-pink);
+            color: var(--bg-green);
+            border: 2px solid var(--text-pink);
             font-family: var(--font-dominican-sc);
             font-size: 1.1rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             transition: all 0.4s ease;
-            background: rgba(229, 186, 67, 0.1);
         }
 
-        .btn-enter:hover {
-            background: var(--color-1-yellow);
-            color: var(--color-5-earth);
-            box-shadow: 0 0 25px rgba(229, 186, 67, 0.6);
+        .btn-enter:hover, .btn-enter:active {
+            background-color: transparent;
+            color: var(--text-pink);
+            box-shadow: 0 0 20px rgba(255, 222, 222, 0.6);
         }
 
         /* --- GALERÍA / CATÁLOGO --- */
@@ -345,7 +336,7 @@
             font-family: var(--font-dominican-sc);
             font-size: 2.5rem;
             text-align: center;
-            color: var(--color-3-sand);
+            color: var(--text-pink);
             letter-spacing: 4px;
             margin: 80px 0 15px 0;
             text-transform: uppercase;
@@ -354,7 +345,7 @@
         .section-subtitle {
             text-align: center;
             font-family: var(--font-dominican-italic);
-            color: var(--color-2-rose);
+            color: var(--text-cream);
             font-size: 1.3rem;
             margin-bottom: 50px;
         }
@@ -372,8 +363,8 @@
         }
 
         .art-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--color-2-rose);
+            background-color: var(--card-green);
+            border: 1px solid var(--text-pink);
             border-radius: 2px;
             overflow: hidden;
             cursor: pointer;
@@ -383,8 +374,8 @@
 
         .art-card:hover {
             transform: translateY(-8px);
-            border-color: var(--color-1-yellow);
-            box-shadow: 0 12px 30px rgba(229, 186, 67, 0.25);
+            border-color: var(--text-cream);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
         }
 
         .art-img-wrapper {
@@ -416,26 +407,27 @@
             font-size: 0.8rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            background: rgba(67, 57, 43, 0.9);
-            border: 1px solid var(--color-1-yellow);
-            color: var(--color-1-yellow);
+            background: rgba(139, 156, 50, 0.9);
+            border: 1px solid var(--text-pink);
+            color: var(--text-pink);
             z-index: 2;
         }
 
         .badge-status.sold {
-            border-color: var(--color-4-terracotta);
-            color: var(--color-4-terracotta);
+            border-color: var(--text-cream);
+            color: var(--text-cream);
         }
 
         .art-info {
             padding: 22px;
-            background: var(--bg-card);
+            background: var(--card-green);
         }
 
+        /* TÍTULOS DE CADA OBRA EN OLD ENGLISH */
         .art-title {
-            font-family: var(--font-dominican);
-            font-size: 1.6rem;
-            color: var(--color-3-sand);
+            font-family: var(--font-old-english);
+            font-size: 1.8rem;
+            color: var(--text-pink);
             margin-bottom: 6px;
             letter-spacing: 1px;
         }
@@ -443,7 +435,7 @@
         .art-meta {
             font-family: var(--font-dominican-italic);
             font-size: 1rem;
-            color: var(--color-2-rose);
+            color: var(--text-cream);
             letter-spacing: 1px;
             margin-bottom: 12px;
         }
@@ -452,7 +444,7 @@
             font-family: var(--font-dominican-sc);
             font-size: 1.1rem;
             font-weight: 500;
-            color: var(--color-1-yellow);
+            color: var(--text-cream);
             letter-spacing: 1px;
         }
 
@@ -463,7 +455,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(67, 57, 43, 0.95);
+            background: rgba(139, 156, 50, 0.95);
             backdrop-filter: blur(8px);
             z-index: 200;
             opacity: 0;
@@ -481,8 +473,8 @@
         }
 
         .modal-content {
-            background-color: var(--bg-card);
-            border: 1px solid var(--color-1-yellow);
+            background-color: var(--card-green);
+            border: 1px solid var(--text-pink);
             max-width: 1000px;
             width: 100%;
             max-height: 90vh;
@@ -501,7 +493,7 @@
             right: 20px;
             background: none;
             border: none;
-            color: var(--color-1-yellow);
+            color: var(--text-pink);
             font-size: 2.2rem;
             cursor: pointer;
             z-index: 10;
@@ -512,7 +504,7 @@
             height: auto;
             max-height: 70vh;
             object-fit: contain;
-            border: 1px solid var(--color-2-rose);
+            border: 1px solid var(--text-pink);
         }
 
         .modal-details {
@@ -522,16 +514,16 @@
         }
 
         .modal-title {
-            font-family: var(--font-dominican);
-            font-size: 2.2rem;
+            font-family: var(--font-old-english);
+            font-size: 2.4rem;
             margin-bottom: 10px;
-            color: var(--color-3-sand);
+            color: var(--text-pink);
         }
 
         .modal-tech {
             font-family: var(--font-dominican-sc);
             font-size: 1rem;
-            color: var(--color-2-rose);
+            color: var(--text-cream);
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 20px;
@@ -540,7 +532,7 @@
         .modal-desc {
             font-family: var(--font-dominican-italic);
             font-size: 1.2rem;
-            color: var(--color-3-sand);
+            color: var(--text-cream);
             margin-bottom: 25px;
             line-height: 1.8;
         }
@@ -548,14 +540,14 @@
         .modal-price {
             font-family: var(--font-dominican-sc);
             font-size: 1.4rem;
-            color: var(--color-1-yellow);
+            color: var(--text-cream);
             margin-bottom: 25px;
         }
 
         .btn-inquire {
             padding: 14px 28px;
-            background-color: var(--color-4-terracotta);
-            color: var(--color-3-sand);
+            background-color: var(--text-pink);
+            color: var(--bg-green);
             border: none;
             font-family: var(--font-dominican-sc);
             font-size: 1rem;
@@ -566,17 +558,18 @@
             text-align: center;
         }
 
-        .btn-inquire:hover {
-            background-color: var(--color-1-yellow);
-            color: var(--color-5-earth);
+        .btn-inquire:hover, .btn-inquire:active {
+            background-color: transparent;
+            color: var(--text-pink);
+            border: 1px solid var(--text-pink);
         }
 
         /* --- BIOGRAFÍA --- */
         .bio-section {
             padding: 120px 30px;
-            background-color: #43392b;
-            border-top: 1px solid var(--color-2-rose);
-            border-bottom: 1px solid var(--color-2-rose);
+            background-color: #8b9c32;
+            border-top: 1px solid var(--text-pink);
+            border-bottom: 1px solid var(--text-pink);
         }
 
         .bio-grid {
@@ -590,9 +583,9 @@
 
         .bio-image-wrapper {
             width: 100%;
-            border: 1px solid var(--color-1-yellow);
+            border: 1px solid var(--text-pink);
             overflow: hidden;
-            background-color: var(--bg-card);
+            background-color: var(--card-green);
         }
 
         .bio-image-wrapper img {
@@ -616,17 +609,17 @@
             font-family: var(--font-dominican-sc);
             font-size: 1rem;
             letter-spacing: 4px;
-            color: var(--color-1-yellow);
+            color: var(--text-pink);
             text-transform: uppercase;
             margin-bottom: 10px;
         }
 
         .bio-artist-name {
             font-family: var(--font-old-english);
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: normal;
             letter-spacing: 3px;
-            color: var(--color-3-sand);
+            color: var(--text-pink);
             margin-bottom: 35px;
             line-height: 1.2;
         }
@@ -635,7 +628,7 @@
             font-family: var(--font-dominican-italic);
             font-size: 1.25rem;
             line-height: 1.85;
-            color: var(--color-3-sand);
+            color: var(--text-cream);
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -643,14 +636,14 @@
         }
 
         .bio-paragraphs p span.highlight {
-            color: var(--color-1-yellow);
+            color: var(--text-pink);
             font-style: normal;
         }
 
         .bio-awards-title {
             font-family: var(--font-dominican);
             font-size: 1.5rem;
-            color: var(--color-2-rose);
+            color: var(--text-pink);
             margin-bottom: 15px;
             letter-spacing: 1px;
         }
@@ -665,7 +658,7 @@
         .bio-awards-list li {
             font-family: var(--font-dominican);
             font-size: 1.1rem;
-            color: var(--color-3-sand);
+            color: var(--text-cream);
             letter-spacing: 1px;
             display: flex;
             align-items: center;
@@ -674,14 +667,14 @@
 
         .bio-awards-list li::before {
             content: "•";
-            color: var(--color-1-yellow);
+            color: var(--text-pink);
             font-size: 1.5rem;
         }
 
         /* --- FOOTER & FORMULARIO DE CONTACTO --- */
         footer {
             padding: 100px 30px 40px 30px;
-            background-color: var(--bg-dark);
+            background-color: var(--bg-green);
         }
 
         .contact-container {
@@ -706,16 +699,16 @@
         .form-group label {
             font-family: var(--font-dominican-sc);
             font-size: 0.95rem;
-            color: var(--color-2-rose);
+            color: var(--text-pink);
             letter-spacing: 1px;
         }
 
         .form-control {
             width: 100%;
-            background-color: var(--bg-card);
-            border: 1px solid var(--color-2-rose);
+            background-color: var(--card-green);
+            border: 1px solid var(--text-pink);
             padding: 14px 18px;
-            color: var(--color-3-sand);
+            color: var(--text-cream);
             font-family: var(--font-dominican);
             font-size: 1.1rem;
             border-radius: 2px;
@@ -724,12 +717,12 @@
         }
 
         .form-control:focus {
-            border-color: var(--color-1-yellow);
+            border-color: var(--text-cream);
         }
 
         select.form-control {
             appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c78c80' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffdede' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
             background-repeat: no-repeat;
             background-position: right 18px center;
             background-size: 16px;
@@ -744,8 +737,8 @@
         .btn-submit {
             align-self: flex-end;
             padding: 14px 45px;
-            background-color: var(--color-4-terracotta);
-            color: var(--color-3-sand);
+            background-color: var(--text-pink);
+            color: var(--bg-green);
             border: none;
             font-family: var(--font-dominican-sc);
             font-size: 1rem;
@@ -756,16 +749,17 @@
             margin-top: 10px;
         }
 
-        .btn-submit:hover {
-            background-color: var(--color-1-yellow);
-            color: var(--color-5-earth);
-            box-shadow: 0 0 20px rgba(229, 186, 67, 0.5);
+        .btn-submit:hover, .btn-submit:active {
+            background-color: transparent;
+            color: var(--text-pink);
+            border: 1px solid var(--text-pink);
+            box-shadow: 0 0 20px rgba(255, 222, 222, 0.5);
         }
 
         .contact-email {
             font-family: var(--font-dominican-italic);
             font-size: 2.2rem;
-            color: var(--color-1-yellow);
+            color: var(--text-pink);
             letter-spacing: 2px;
             display: inline-block;
             margin: 20px 0 40px 0;
@@ -773,13 +767,13 @@
         }
 
         .contact-email:hover {
-            color: var(--color-2-rose);
+            color: var(--text-cream);
         }
 
         .copyright {
             font-family: var(--font-dominican-sc);
             font-size: 0.85rem;
-            color: var(--color-2-rose);
+            color: var(--text-cream);
             letter-spacing: 2px;
             text-transform: uppercase;
             text-align: center;
@@ -793,7 +787,7 @@
         }
 
         @media (max-width: 768px) {
-            .hero-title { font-size: 3rem; letter-spacing: 2px; }
+            .hero-title { font-size: 3.2rem; letter-spacing: 2px; }
             .modal-content { grid-template-columns: 1fr; }
             .modal-img-container img { max-height: 40vh; }
             .gallery-grid { grid-template-columns: 1fr; }
@@ -814,7 +808,7 @@
             <span>Índice</span>
         </button>
 
-        <div class="logo">CAESAR</div>
+        <div class="logo">Cezzaro</div>
 
         <div class="lang-select">
             <span class="active">ES</span> / <span>EN</span>
@@ -826,7 +820,7 @@
     <aside class="sidebar" id="sidebar">
         <button class="close-btn" id="closeSidebar">&times;</button>
         <div>
-            <div style="font-family: var(--font-dominican-sc); letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; color: var(--color-1-yellow);">CAESAR ARCHIVE</div>
+            <div style="font-family: var(--font-dominican-sc); letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; color: var(--text-pink);">CEZZARO ARCHIVE</div>
             <ul class="sidebar-nav">
                 <li><a href="#gallery" onclick="filterGallery('disponible'); closeMenu();">Obras Disponibles <span>→</span></a></li>
                 
@@ -862,7 +856,7 @@
         </div>
         <div class="sidebar-footer">
             <p>Atelier & Collection</p>
-            <p style="color: var(--color-1-yellow);">caesaredvardd@gmail.com</p>
+            <p style="color: var(--text-pink);">cezzarostudio@gmail.com</p>
         </div>
     </aside>
 
@@ -870,7 +864,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-subtitle">Visual Archive & Atelier</div>
-            <h1 class="hero-title">CAESAR EDVARD</h1>
+            <h1 class="hero-title">Cezzaro</h1>
             <p class="hero-desc">Óleo · Tinta · Arte Figurativo Tradicional</p>
             <a href="#gallery" class="btn-enter">Explorar Galería</a>
         </div>
@@ -907,13 +901,13 @@
                 <!-- 4. Wvirgen (2024) -->
                 <div class="art-card" data-category="oleos" data-year="2024" onclick="openModal('Wvirgen', 'Óleo sobre lienzo', '50 x 70 cm', 'Vendido', 'Colección Privada', 'imagenes/wvirgen.DNG', 'Obra introspectiva que retrata la quietud y la sombra.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/wvirgen.DNG" alt="Wvirgen"></div>
-                    <div class="art-info"><div class="art-title">Wvirgen</div><div class="art-meta">Óleo sobre lienzo · 2024</div><div class="art-price" style="color: var(--color-4-terracotta);">Colección Privada</div></div>
+                    <div class="art-info"><div class="art-title">Wvirgen</div><div class="art-meta">Óleo sobre lienzo · 2024</div><div class="art-price" style="color: var(--text-cream);">Colección Privada</div></div>
                 </div>
 
                 <!-- 5. Sis (2023) -->
                 <div class="art-card" data-category="oleos retratos" data-year="2023" onclick="openModal('Sis', 'Óleo sobre lienzo', '60 x 80 cm', 'Vendido', 'Colección Privada', 'imagenes/sis.DNG', 'Estudio figurativo al óleo con técnica de claroscuro.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/sis.DNG" alt="Sis"></div>
-                    <div class="art-info"><div class="art-title">Sis</div><div class="art-meta">Óleo sobre lienzo · 2023</div><div class="art-price" style="color: var(--color-4-terracotta);">Colección Privada</div></div>
+                    <div class="art-info"><div class="art-title">Sis</div><div class="art-meta">Óleo sobre lienzo · 2023</div><div class="art-price" style="color: var(--text-cream);">Colección Privada</div></div>
                 </div>
 
                 <!-- 6. Hombre y paisaje (2023) -->
@@ -931,7 +925,7 @@
                 <!-- 8. Hombre Verde (2021) -->
                 <div class="art-card" data-category="oleos" data-year="2021" onclick="openModal('Hombre Verde', 'Óleo sobre lienzo', '60 x 90 cm', 'Vendido', 'Colección Privada', 'imagenes/hombre verde.jpg', 'Composición alegórica con tonalidades verdosos y terrosos.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/hombre verde.jpg" alt="Hombre Verde"></div>
-                    <div class="art-info"><div class="art-title">Hombre Verde</div><div class="art-meta">Óleo sobre lienzo · 2021</div><div class="art-price" style="color: var(--color-4-terracotta);">Colección Privada</div></div>
+                    <div class="art-info"><div class="art-title">Hombre Verde</div><div class="art-meta">Óleo sobre lienzo · 2021</div><div class="art-price" style="color: var(--text-cream);">Colección Privada</div></div>
                 </div>
 
                 <!-- 9. Doll (2020) -->
@@ -943,7 +937,7 @@
                 <!-- 10. Eva (2019) -->
                 <div class="art-card" data-category="oleos" data-year="2019" onclick="openModal('Eva', 'Óleo sobre lienzo', '70 x 100 cm', 'Vendido', 'Colección Privada', 'imagenes/eva.jpeg', 'Obra alegórica de la serie mitológica.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/eva.jpeg" alt="Eva"></div>
-                    <div class="art-info"><div class="art-title">Eva</div><div class="art-meta">Óleo sobre lienzo · 2019</div><div class="art-price" style="color: var(--color-4-terracotta);">Colección Privada</div></div>
+                    <div class="art-info"><div class="art-title">Eva</div><div class="art-meta">Óleo sobre lienzo · 2019</div><div class="art-price" style="color: var(--text-cream);">Colección Privada</div></div>
                 </div>
 
                 <!-- 11. Adan (2018) -->
@@ -955,7 +949,7 @@
                 <!-- 12. Flower (2017) -->
                 <div class="art-card" data-category="oleos" data-year="2017" onclick="openModal('Flower', 'Óleo sobre lienzo', '60 x 120 cm', 'Vendido', 'Colección Privada', 'imagenes/flower.DNG', 'Naturaleza muerta con simbolismo barroco.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/flower.DNG" alt="Flower"></div>
-                    <div class="art-info"><div class="art-title">Flower</div><div class="art-meta">Óleo sobre lienzo · 2017</div><div class="art-price" style="color: var(--color-4-terracotta);">Colección Privada</div></div>
+                    <div class="art-info"><div class="art-title">Flower</div><div class="art-meta">Óleo sobre lienzo · 2017</div><div class="art-price" style="color: var(--text-cream);">Colección Privada</div></div>
                 </div>
 
                 <!-- 13. Rubia (2016) -->
@@ -967,7 +961,7 @@
                 <!-- 14. Padre (2016) -->
                 <div class="art-card" data-category="oleos" data-year="2016" onclick="openModal('Padre', 'Óleo sobre tabla', '40 x 60 cm', 'Vendido', 'Colección Privada', 'imagenes/padre 2.PNG', 'Retrato psicológico de carácter solemne.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/padre 2.PNG" alt="Padre"></div>
-                    <div class="art-info"><div class="art-title">Padre</div><div class="art-meta">Óleo sobre tabla · 2016</div><div class="art-price" style="color: var(--color-4-terracotta);">Colección Privada</div></div>
+                    <div class="art-info"><div class="art-title">Padre</div><div class="art-meta">Óleo sobre tabla · 2016</div><div class="art-price" style="color: var(--text-cream);">Colección Privada</div></div>
                 </div>
 
                 <!-- 15. Mujer 1 (2015) -->
@@ -979,7 +973,7 @@
                 <!-- 16. Estudio Inicial (2015) -->
                 <div class="art-card" data-category="oleos" data-year="2015" onclick="openModal('Estudio Inicial', 'Óleo sobre tabla', '35 x 45 cm', 'Vendido', 'Colección Privada', 'imagenes/flor w.jpg', 'Estudio fundacional de claroscuro.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/flor w.jpg" alt="Estudio Inicial"></div>
-                    <div class="art-info"><div class="art-title">Estudio Inicial</div><div class="art-meta">Óleo sobre tabla · 2015</div><div class="art-price" style="color: var(--color-4-terracotta);">Colección Privada</div></div>
+                    <div class="art-info"><div class="art-title">Estudio Inicial</div><div class="art-meta">Óleo sobre tabla · 2015</div><div class="art-price" style="color: var(--text-cream);">Colección Privada</div></div>
                 </div>
 
                 <!-- Clelia Toledo (2026) -->
@@ -999,7 +993,7 @@
                 </div>
                 <div class="art-card" data-category="dibujo" onclick="openModal('Perfil Clásico', 'Grafito sobre papel', '30 x 40 cm', 'Vendido', 'Colección Privada', 'imagenes/9.jpeg', 'Estudio académico de perfil con claroscuro sutil.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/9.jpeg" alt="Perfil Clásico"></div>
-                    <div class="art-info"><div class="art-title">Perfil Clásico</div><div class="art-meta">Grafito sobre papel · 2024</div><div class="art-price" style="color: var(--color-4-terracotta);">Colección Privada</div></div>
+                    <div class="art-info"><div class="art-title">Perfil Clásico</div><div class="art-meta">Grafito sobre papel · 2024</div><div class="art-price" style="color: var(--text-cream);">Colección Privada</div></div>
                 </div>
                 <div class="art-card" data-category="dibujo disponible" onclick="openModal('Silueta e Inercia', 'Tinta china', '45 x 60 cm', 'Disponible', '780 USD', 'imagenes/bodegon gotico.JPG', 'Movimiento figurativo capturado a pluma fina.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/bodegon gotico.JPG" alt="Silueta e Inercia"></div>
@@ -1011,7 +1005,7 @@
                 </div>
                 <div class="art-card" data-category="dibujo" onclick="openModal('Boceto de Manos II', 'Carboncillo', '35 x 50 cm', 'Vendido', 'Colección Privada', 'imagenes/8.jpeg', 'Análisis gestual rápido con trazos expresivos.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/8.jpeg" alt="Boceto de Manos II"></div>
-                    <div class="art-info"><div class="art-title">Boceto de Manos II</div><div class="art-meta">Carboncillo · 2023</div><div class="art-price" style="color: var(--color-4-terracotta);">Colección Privada</div></div>
+                    <div class="art-info"><div class="art-title">Boceto de Manos II</div><div class="art-meta">Carboncillo · 2023</div><div class="art-price" style="color: var(--text-cream);">Colección Privada</div></div>
                 </div>
                 <div class="art-card" data-category="dibujo disponible" onclick="openModal('Fragmento de Estatua', 'Grafito duro y suave', '40 x 50 cm', 'Disponible', '820 USD', 'imagenes/niño2.jpg', 'Estudio académico basado en la estatuaria clásica.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/niño2.jpg" alt="Dibujo 7"></div>
@@ -1023,7 +1017,7 @@
                 </div>
                 <div class="art-card" data-category="dibujo" onclick="openModal('El Guía Nocturno', 'Pluma y bistre', '40 x 60 cm', 'Vendido', 'Colección Privada', 'imagenes/iglesia.JPG', 'Dibujo mitológico elaborado con tintas antiguas.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/iglesia.JPG" alt="Dibujo 9"></div>
-                    <div class="art-info"><div class="art-title">El Guía Nocturno</div><div class="art-meta">Tinta bistre · 2022</div><div class="art-price" style="color: var(--color-4-terracotta);">Colección Privada</div></div>
+                    <div class="art-info"><div class="art-title">El Guía Nocturno</div><div class="art-meta">Tinta bistre · 2022</div><div class="art-price" style="color: var(--text-cream);">Colección Privada</div></div>
                 </div>
                 <div class="art-card" data-category="dibujo disponible" onclick="openModal('Pliegues de Seda', 'Grafito sobre cartulina', '50 x 70 cm', 'Disponible', '980 USD', 'imagenes/venado.jpg', 'Estudio hiperrealista de drapería.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/venado.jpg" alt="Dibujo 10"></div>
@@ -1035,7 +1029,7 @@
                 </div>
                 <div class="art-card" data-category="dibujo" onclick="openModal('Arquitectura del Resto', 'Tinta y aguada', '30 x 45 cm', 'Vendido', 'Colección Privada', 'imagenes/11.jpeg', 'Estudio estructural con aguadas suaves.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/11.jpeg" alt="Dibujo 12"></div>
-                    <div class="art-info"><div class="art-title">Arquitectura del Resto</div><div class="art-meta">Aguada · 2020</div><div class="art-price" style="color: var(--color-4-terracotta);">Colección Privada</div></div>
+                    <div class="art-info"><div class="art-title">Arquitectura del Resto</div><div class="art-meta">Aguada · 2020</div><div class="art-price" style="color: var(--text-cream);">Colección Privada</div></div>
                 </div>
                 <div class="art-card" data-category="dibujo disponible" onclick="openModal('Cráneo y Sombras', 'Grafito 6B', '35 x 45 cm', 'Disponible', '700 USD', 'imagenes/angel.JPG', 'Vanitas clásica dibujada a lápiz directo.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/angel.JPG" alt="Dibujo 13"></div>
@@ -1047,7 +1041,7 @@
                 </div>
                 <div class="art-card" data-category="dibujo" onclick="openModal('Trazo Inicial 2018', 'Tinta sobre papel', '30 x 40 cm', 'Vendido', 'Colección Privada', 'imagenes/bigote.jpg', 'Uno de los primeros cuadernos de taller.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/bigote.jpg" alt="Dibujo 15"></div>
-                    <div class="art-info"><div class="art-title">Trazo Inicial 2018</div><div class="art-meta">Tinta · 2018</div><div class="art-price" style="color: var(--color-4-terracotta);">Colección Privada</div></div>
+                    <div class="art-info"><div class="art-title">Trazo Inicial 2018</div><div class="art-meta">Tinta · 2018</div><div class="art-price" style="color: var(--text-cream);">Colección Privada</div></div>
                 </div>
 
                 <!-- ==================== FOTOGRAFÍA (10 RECUADROS) ==================== -->
@@ -1061,7 +1055,7 @@
                 </div>
                 <div class="art-card" data-category="fotografia" onclick="openModal('Perfil Silencioso', 'Impresión al platino', '40 x 50 cm', 'Vendido', 'Colección Privada', 'imagenes/rubia.DNG', 'Retrato fotográfico figurativo con revelado especial.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/rubia.DNG" alt="Foto 3"></div>
-                    <div class="art-info"><div class="art-title">Perfil Silencioso</div><div class="art-meta">Platinotipia · 2025</div><div class="art-price" style="color: var(--color-4-terracotta);">Colección Privada</div></div>
+                    <div class="art-info"><div class="art-title">Perfil Silencioso</div><div class="art-meta">Platinotipia · 2025</div><div class="art-price" style="color: var(--text-cream);">Colección Privada</div></div>
                 </div>
                 <div class="art-card" data-category="fotografia disponible" onclick="openModal('Textura y Bronce', 'Fine Art Monocromo', '50 x 50 cm', 'Disponible', '550 USD', 'imagenes/mujer 1.DNG', 'Composición macro de esculturas de taller.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/mujer 1.DNG" alt="Foto 4"></div>
@@ -1073,7 +1067,7 @@
                 </div>
                 <div class="art-card" data-category="fotografia" onclick="openModal('Niebla y Piedra', 'Impresión sobre papel', '60 x 90 cm', 'Vendido', 'Colección Privada', 'imagenes/virgen 2.DNG', 'Paisaje de baja luz y atmósfera melancólica.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/virgen 2.DNG" alt="Foto 6"></div>
-                    <div class="art-info"><div class="art-title">Niebla y Piedra</div><div class="art-meta">Cotton Paper Print · 2023</div><div class="art-price" style="color: var(--color-4-terracotta);">Colección Privada</div></div>
+                    <div class="art-info"><div class="art-title">Niebla y Piedra</div><div class="art-meta">Cotton Paper Print · 2023</div><div class="art-price" style="color: var(--text-cream);">Colección Privada</div></div>
                 </div>
                 <div class="art-card" data-category="fotografia disponible" onclick="openModal('Reflejos de Pigmento', 'Fine Art', '40 x 60 cm', 'Disponible', '650 USD', 'imagenes/wvirgen.DNG', 'Estudio abstracto de reflejos de luz sobre pintura.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/wvirgen.DNG" alt="Foto 7"></div>
@@ -1085,7 +1079,7 @@
                 </div>
                 <div class="art-card" data-category="fotografia" onclick="openModal('Manos en Acción', 'Fotografía analógica', '30 x 45 cm', 'Vendido', 'Colección Privada', 'imagenes/nude 3.DNG', 'Registro documental del proceso de creación.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/nude 3.DNG" alt="Foto 9"></div>
-                    <div class="art-info"><div class="art-title">Manos en Acción</div><div class="art-meta">Analógica 35mm · 2021</div><div class="art-price" style="color: var(--color-4-terracotta);">Colección Privada</div></div>
+                    <div class="art-info"><div class="art-title">Manos en Acción</div><div class="art-meta">Analógica 35mm · 2021</div><div class="art-price" style="color: var(--text-cream);">Colección Privada</div></div>
                 </div>
                 <div class="art-card" data-category="fotografia disponible" onclick="openModal('Nocturno Urbano', 'Fine Art Print', '60 x 80 cm', 'Disponible', '800 USD', 'imagenes/Hombre y paisaje.png', 'Exposición larga de sombras en la noche.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/Hombre y paisaje.png" alt="Foto 10"></div>
@@ -1108,7 +1102,7 @@
                 <div class="modal-tech" id="mTech">Técnica / Medidas</div>
                 <p class="modal-desc" id="mDesc">Descripción de la obra...</p>
                 <div class="modal-price" id="mPrice">0,00 USD</div>
-                <a id="mInquire" href="mailto:caesaredvardd@gmail.com" class="btn-inquire">Solicitar Adquisición vía Email</a>
+                <a id="mInquire" href="mailto:cezzarostudio@gmail.com" class="btn-inquire">Solicitar Adquisición vía Email</a>
             </div>
         </div>
     </div>
@@ -1117,15 +1111,15 @@
     <section class="bio-section" id="bio">
         <div class="bio-grid">
             <div class="bio-image-wrapper">
-                <img src="imagenes/lyon.DNG" alt="CAESAR EDVARD Portrait">
+                <img src="imagenes/lyon.DNG" alt="CEZZARO Portrait">
             </div>
             <div class="bio-content-wrapper">
                 <div class="bio-artist-tag">ARTIST</div>
-                <h2 class="bio-artist-name">CAESAR EDVARD</h2>
+                <h2 class="bio-artist-name">Cezzaro</h2>
                 
                 <div class="bio-paragraphs">
                     <p>
-                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">CAESAR (Caesar Edvard)</span> ha consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
+                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">CEZZARO</span> ha consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
                     </p>
                     <p>
                         A lo largo de su trayectoria, su visión estética ha explorado simbolismos alegóricos, retratos psicológicos y composiciones de alta precisión, posicionándose como una de las voces emergentes más distintivas del realismo figurativo contemporáneo.
@@ -1150,11 +1144,11 @@
     <footer id="contact">
         <div class="contact-container">
             <h2 class="section-title" style="margin-top: 0; text-align: left;">CONTACTO / ENCARGOS</h2>
-            <p style="color: var(--color-2-rose); font-family: var(--font-dominican-italic); font-size: 1.1rem; margin-top: 10px;">
+            <p style="color: var(--text-cream); font-family: var(--font-dominican-italic); font-size: 1.1rem; margin-top: 10px;">
                 Para consultas sobre adquisición de obras de colección, solicitudes de encargos privados o comisiones, completa el siguiente formulario:
             </p>
 
-            <form class="contact-form" action="https://formspree.io/f/caesaredvardd@gmail.com" method="POST" onsubmit="handleFormSubmit(event)">
+            <form class="contact-form" action="https://formspree.io/f/cezzarostudio@gmail.com" method="POST" onsubmit="handleFormSubmit(event)">
                 <div class="form-group">
                     <label for="clientType">Business or Individual</label>
                     <select id="clientType" name="clientType" class="form-control">
@@ -1188,11 +1182,11 @@
             </form>
         </div>
 
-        <div style="text-align: center; border-top: 1px solid var(--color-2-rose); padding-top: 40px;">
-            <div style="font-family: var(--font-dominican-sc); letter-spacing: 2px; font-size: 0.95rem; color: var(--color-2-rose); text-transform: uppercase;">Direct Atelier Email</div>
-            <a href="mailto:caesaredvardd@gmail.com" class="contact-email">caesaredvardd@gmail.com</a>
+        <div style="text-align: center; border-top: 1px solid var(--text-pink); padding-top: 40px;">
+            <div style="font-family: var(--font-dominican-sc); letter-spacing: 2px; font-size: 0.95rem; color: var(--text-pink); text-transform: uppercase;">Direct Atelier Email</div>
+            <a href="mailto:cezzarostudio@gmail.com" class="contact-email">cezzarostudio@gmail.com</a>
             <div class="copyright">
-                © CAESAR EDVARD. TODOS LOS DERECHOS RESERVADOS.
+                © CEZZARO. TODOS LOS DERECHOS RESERVADOS.
             </div>
         </div>
     </footer>
@@ -1258,7 +1252,7 @@
             document.getElementById('mImg').src = imgSrc;
             
             const inquireBtn = document.getElementById('mInquire');
-            inquireBtn.href = `mailto:caesaredvardd@gmail.com?subject=Consulta%20sobre%20obra:%20${encodeURIComponent(title)}`;
+            inquireBtn.href = `mailto:cezzarostudio@gmail.com?subject=Consulta%20sobre%20obra:%20${encodeURIComponent(title)}`;
             
             artModal.classList.add('active');
         }
@@ -1275,12 +1269,8 @@
 
         // --- ENVÍO DEL FORMULARIO DE CONTACTO ---
         function handleFormSubmit(e) {
-            const email = document.getElementById('email').value;
-            const firstName = document.getElementById('firstName').value;
-            const message = document.getElementById('message').value;
-            
             setTimeout(() => {
-                alert('Gracias por su mensaje. CAESAR se pondrá en contacto pronto.');
+                alert('Gracias por su mensaje. CEZZARO se pondrá en contacto pronto.');
             }, 300);
         }
     </script>

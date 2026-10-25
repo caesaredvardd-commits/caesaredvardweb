@@ -11,14 +11,13 @@
     
     <style>
         :root {
-            --bg-main: #ffffff;           /* Fondo blanco */
-            --text-main: #000000;         /* Letras color negro */
-            --accent-hover: #4a2e2b;      /* Café oscuro para el índice al apacharse */
-            --card-bg: #f9f9f9;           /* Fondo sutil para tarjetas */
+            --bg-main: #ffffff;           
+            --text-main: #000000;         
+            --accent-hover: #4a2e2b;      
+            --card-bg: #f9f9f9;           
 
-            /* Títulos principales conservan Dominican */
+            /* Definición clara de las fuentes */
             --font-titles: 'Dominican Small Caps', serif;
-            /* Toda la demás tipografía usa EB Garamond 08 */
             --font-body: 'EB Garamond 08', 'EB Garamond', serif;
         }
 
@@ -31,7 +30,7 @@
         body {
             background-color: var(--bg-main);
             color: var(--text-main);
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             overflow-x: hidden;
             line-height: 1.6;
         }
@@ -39,6 +38,7 @@
         a {
             color: inherit;
             text-decoration: none;
+            font-family: var(--font-body);
         }
 
         header {
@@ -62,7 +62,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 1.1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -94,8 +94,9 @@
             background-color: var(--accent-hover);
         }
 
+        /* ESTE SÍ SE QUEDA CON DOMINICAN PORQUE ES EL TÍTULO PRINCIPAL DEL LOGO */
         .logo {
-            font-family: var(--font-titles);
+            font-family: var(--font-titles) !important;
             font-size: 2.2rem;
             letter-spacing: 4px;
             color: var(--text-main);
@@ -103,7 +104,7 @@
         }
 
         .lang-select {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 1rem;
             letter-spacing: 2px;
             color: var(--text-main);
@@ -179,7 +180,7 @@
         }
 
         .sidebar-nav a, .submenu-trigger {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 1.35rem;
             letter-spacing: 1px;
             color: var(--text-main);
@@ -231,7 +232,7 @@
         }
 
         .submenu-years a {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-style: italic;
             font-size: 1.1rem;
             color: var(--text-main);
@@ -244,7 +245,7 @@
         }
 
         .sidebar-footer {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 0.95rem;
             color: var(--text-main);
             letter-spacing: 1px;
@@ -284,8 +285,9 @@
             max-width: 800px;
         }
 
+        /* Subtítulo del Hero cambiado a EB Garamond 08 */
         .hero-subtitle {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-style: italic;
             font-size: 1.8rem;
             color: var(--text-main);
@@ -293,8 +295,9 @@
             letter-spacing: 3px;
         }
 
+        /* Título grande del Hero conservando Dominican */
         .hero-title {
-            font-family: var(--font-titles);
+            font-family: var(--font-titles) !important;
             font-size: 5.2rem;
             font-weight: normal;
             letter-spacing: 4px;
@@ -302,8 +305,9 @@
             color: var(--text-main);
         }
 
+        /* Descripción del Hero cambiada a EB Garamond 08 */
         .hero-desc {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 1.2rem;
             color: var(--text-main);
             letter-spacing: 3px;
@@ -318,7 +322,7 @@
             background-color: #000000;
             color: #ffffff;
             border: 2px solid #000000;
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 1.1rem;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -333,8 +337,9 @@
         }
 
         /* --- GALERÍA / CATÁLOGO --- */
+        /* Título de sección cambiado a EB Garamond 08 */
         .section-title {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 2.5rem;
             text-align: center;
             color: var(--text-main);
@@ -343,9 +348,10 @@
             text-transform: uppercase;
         }
 
+        /* Subtítulo de sección cambiado a EB Garamond 08 */
         .section-subtitle {
             text-align: center;
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-style: italic;
             color: var(--text-main);
             font-size: 1.3rem;
@@ -405,7 +411,7 @@
             top: 15px;
             left: 15px;
             padding: 4px 12px;
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 0.9rem;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -424,9 +430,9 @@
             background: var(--card-bg);
         }
 
-        /* Cambiado a EB Garamond 08 para las descripciones/títulos de las tarjetas con imagen */
+        /* Textos y títulos dentro de las tarjetas con imagen (Cambiados a EB Garamond 08) */
         .art-title {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 1.6rem;
             font-weight: 600;
             color: var(--text-main);
@@ -435,7 +441,7 @@
         }
 
         .art-meta {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-style: italic;
             font-size: 1.1rem;
             color: var(--text-main);
@@ -444,7 +450,7 @@
         }
 
         .art-price {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 1.1rem;
             font-weight: 500;
             color: var(--text-main);
@@ -517,7 +523,7 @@
         }
 
         .modal-title {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 2.2rem;
             font-weight: 600;
             margin-bottom: 10px;
@@ -525,7 +531,7 @@
         }
 
         .modal-tech {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 1.1rem;
             color: var(--text-main);
             letter-spacing: 2px;
@@ -534,7 +540,7 @@
         }
 
         .modal-desc {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-style: italic;
             font-size: 1.25rem;
             color: var(--text-main);
@@ -543,7 +549,7 @@
         }
 
         .modal-price {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 1.4rem;
             color: var(--text-main);
             margin-bottom: 25px;
@@ -554,7 +560,7 @@
             background-color: #000000;
             color: #ffffff;
             border: 2px solid #000000;
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 1.1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -611,7 +617,7 @@
         }
 
         .bio-artist-tag {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 1.1rem;
             letter-spacing: 4px;
             color: var(--text-main);
@@ -620,7 +626,7 @@
         }
 
         .bio-artist-name {
-            font-family: var(--font-titles);
+            font-family: var(--font-titles) !important;
             font-size: 3.5rem;
             font-weight: normal;
             letter-spacing: 3px;
@@ -630,7 +636,7 @@
         }
 
         .bio-paragraphs {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-style: italic;
             font-size: 1.3rem;
             line-height: 1.85;
@@ -647,7 +653,7 @@
         }
 
         .bio-awards-title {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 1.6rem;
             color: var(--text-main);
             margin-bottom: 15px;
@@ -662,7 +668,7 @@
         }
 
         .bio-awards-list li {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 1.2rem;
             color: var(--text-main);
             letter-spacing: 1px;
@@ -703,7 +709,7 @@
         }
 
         .form-group label {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 1.1rem;
             color: var(--text-main);
             letter-spacing: 1px;
@@ -715,7 +721,7 @@
             border: 1px solid rgba(0, 0, 0, 0.2);
             padding: 14px 18px;
             color: var(--text-main);
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 1.2rem;
             border-radius: 2px;
             outline: none;
@@ -746,7 +752,7 @@
             background-color: #000000;
             color: #ffffff;
             border: 2px solid #000000;
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 1.1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -763,7 +769,7 @@
         }
 
         .contact-email {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-style: italic;
             font-size: 2.2rem;
             color: var(--text-main);
@@ -778,7 +784,7 @@
         }
 
         .copyright {
-            font-family: var(--font-body);
+            font-family: var(--font-body) !important;
             font-size: 0.95rem;
             color: var(--text-main);
             letter-spacing: 2px;
@@ -989,7 +995,7 @@
                     <div class="art-info"><div class="art-title">Clelia Toledo</div><div class="art-meta">Óleo sobre lienzo · 2026</div><div class="art-price">2,200 USD</div></div>
                 </div>
 
-                <!-- ==================== DIBUJO (15 RECUADROS) ==================== -->
+                <!-- ==================== DIBUJO ==================== -->
                 <div class="art-card" data-category="dibujo disponible" onclick="openModal('Estudio Mitológico I', 'Tinta sobre papel', '40 x 50 cm', 'Disponible', '850 USD', 'imagenes/1.JPG', 'Trazo detallado en tinta negra sobre papel artesanal.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/1.JPG" alt="Estudio Mitológico I"></div>
                     <div class="art-info"><div class="art-title">Estudio Mitológico I</div><div class="art-meta">Tinta sobre papel · 2025</div><div class="art-price">850 USD</div></div>
@@ -1030,7 +1036,7 @@
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/venado.jpg" alt="Dibujo 10"></div>
                     <div class="art-info"><div class="art-title">Pliegues de Seda</div><div class="art-meta">Grafito · 2022</div><div class="art-price">980 USD</div></div>
                 </div>
-                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Estudio de Café', 'Tinta y técnica mixta', '40 x 50 cm', 'Disponible', '850 USD', 'imagenes/cofee 2.png', 'Estudio detailed de bodegón y texturas.')">
+                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Estudio de Café', 'Tinta y técnica mixta', '40 x 50 cm', 'Disponible', '850 USD', 'imagenes/cofee 2.png', 'Estudio detallado de bodegón y texturas.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/cofee 2.png" alt="cofee 2"></div>
                     <div class="art-info"><div class="art-title">Estudio de Café</div><div class="art-meta">Técnica mixta · 2025</div><div class="art-price">850 USD</div></div>
                 </div>
@@ -1051,7 +1057,7 @@
                     <div class="art-info"><div class="art-title">Trazo Inicial 2018</div><div class="art-meta">Tinta · 2018</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
-                <!-- ==================== FOTOGRAFÍA (10 RECUADROS) ==================== -->
+                <!-- ==================== FOTOGRAFÍA ==================== -->
                 <div class="art-card" data-category="fotografia disponible" onclick="openModal('Claroscuro Urbano I', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '600 USD', 'imagenes/sis.DNG', 'Captura en blanco y negro analógico de 35mm.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/sis.DNG" alt="Foto 1"></div>
                     <div class="art-info"><div class="art-title">Claroscuro Urbano I</div><div class="art-meta">Fine Art Print · 2026</div><div class="art-price">600 USD</div></div>
@@ -1200,7 +1206,6 @@
 
     <!-- JAVASCRIPT / LÓGICA DE INTERACCIÓN -->
     <script>
-        // --- MENÚ DESPLEGABLE LATERAL ---
         const sidebar = document.getElementById('sidebar');
         const sidebarOverlay = document.getElementById('sidebarOverlay');
         const openSidebarBtn = document.getElementById('openSidebar');
@@ -1219,13 +1224,11 @@
         closeSidebarBtn.addEventListener('click', closeMenu);
         sidebarOverlay.addEventListener('click', closeMenu);
 
-        // --- ACORDEÓN PINTURAS AL ÓLEO ---
         function toggleOleosSubmenu() {
             const oleosLi = document.getElementById('oleosSubmenu');
             oleosLi.classList.toggle('open');
         }
 
-        // --- FILTRAR OBRAS DE ARTE DESDE EL ÍNDICE ---
         function filterGallery(category, year = null) {
             const cards = document.querySelectorAll('.art-card');
             cards.forEach(card => {
@@ -1247,7 +1250,6 @@
             });
         }
 
-        // --- VENTANA MODAL PARA CADA PINTURA ---
         const artModal = document.getElementById('artModal');
         const closeModalBtn = document.getElementById('closeModal');
 
@@ -1274,7 +1276,6 @@
             }
         });
 
-        // --- ENVÍO DEL FORMULARIO DE CONTACTO ---
         function handleFormSubmit(e) {
             setTimeout(() => {
                 alert('Gracias por su mensaje. CEZZARO se pondrá en contacto pronto.');

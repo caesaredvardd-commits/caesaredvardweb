@@ -9,7 +9,7 @@
     <link href="https://fonts.cdnfonts.com/css/dominican" rel="stylesheet">
     
     <style>
-        /* DECLARACIÓN DE LA FUENTE LOCAL CON RUTA DIRECTA */
+        /* DECLARACIÓN DE LA FUENTE LOCAL */
         @font-face {
             font-family: 'EB Garamond 08';
             src: url('text/EBGaramond08-Regular (2).ttf') format('truetype');
@@ -27,7 +27,7 @@
             --font-body: 'EB Garamond 08', 'Georgia', serif;
         }
 
-        /* FORZAR LA TIPOGRAFÍA EB GARAMOND 08 EN ABSOLUTAMENTE TODO EL SITIO */
+        /* FORZAR LA TIPOGRAFÍA EN TODO EL SITIO */
         *, html, body, p, span, div, a, button, input, select, textarea, label, h2, h3, h4, h5, h6 {
             font-family: var(--font-body) !important;
         }
@@ -44,15 +44,16 @@
             text-decoration: none;
         }
 
+        /* HEADER ORIGINAL RESTAURADO (CENTRADO Y SIMÉTRICO) */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             padding: 20px 30px;
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
             align-items: center;
-            justify-content: space-between;
             z-index: 100;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 100%);
         }
@@ -68,6 +69,7 @@
             font-size: 1.1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
+            justify-self: start;
             z-index: 101;
             transition: color 0.3s;
         }
@@ -96,22 +98,20 @@
             background-color: var(--accent-hover);
         }
 
-        /* ÚNICA EXCEPCIÓN ESTRICTA: LOGOTIPO Y TÍTULO PRINCIPAL DEL HERO */
-        .logo, .hero-title {
+        .logo {
             font-family: var(--font-titles) !important;
+            font-size: 2.2rem;
             letter-spacing: 4px;
             color: var(--text-main);
-        }
-
-        .logo {
-            font-size: 2.2rem;
             text-align: center;
+            justify-self: center;
         }
 
         .lang-select {
             font-size: 1rem;
             letter-spacing: 2px;
             color: var(--text-main);
+            justify-self: end;
         }
 
         .lang-select span.active {
@@ -291,22 +291,26 @@
             font-size: 1.8rem;
             color: var(--text-main);
             margin-bottom: 10px;
-            letter-spacing: 3px;
+            letter-spacing: 1px;
         }
 
         .hero-title {
+            font-family: var(--font-titles) !important;
             font-size: 5.2rem;
             font-weight: normal;
+            letter-spacing: 4px;
             margin-bottom: 20px;
             color: var(--text-main);
         }
 
+        /* Estilo igualado al subtítulo para Óleo, Tinta... */
         .hero-desc {
-            font-size: 1.2rem;
+            font-style: italic;
+            font-size: 1.25rem;
             color: var(--text-main);
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             margin-bottom: 35px;
-            text-transform: uppercase;
+            text-transform: none;
         }
 
         .btn-enter {
@@ -511,7 +515,7 @@
             transform-origin: center center;
         }
 
-        /* Botón de la Lupa usando tu imagen de la carpeta imagenes/lupa.png */
+        /* Botón de la Lupa usando la imagen de tu carpeta */
         .zoom-toggle-btn {
             position: absolute;
             bottom: 12px;
@@ -827,7 +831,7 @@
 </head>
 <body>
 
-    <!-- HEADER PRINCIPAL -->
+    <!-- HEADER ORIGINAL RESTAURADO -->
     <header>
         <button class="menu-btn" id="openSidebar">
             <div class="hamburger">
@@ -1126,7 +1130,7 @@
             <button class="modal-close" id="closeModal">&times;</button>
             <div class="modal-img-container" id="modalImgContainer">
                 <img id="mImg" src="" alt="Detalle de obra">
-                <!-- Botón de la Lupa usando la imagen 'imagenes/lupa.png' -->
+                <!-- Botón de la Lupa usando la imagen de tu carpeta -->
                 <button class="zoom-toggle-btn" id="zoomToggleBtn" title="Activar/Desactivar Lupa" onclick="toggleZoomMode()">
                     <img src="imagenes/lupa.png" alt="Lupa">
                 </button>
@@ -1287,7 +1291,6 @@
             document.getElementById('mPrice').innerText = price;
             modalImg.src = imgSrc;
             
-            // Resetear lupa al abrir nueva obra
             isZoomActive = false;
             zoomToggleBtn.classList.remove('active');
             modalImg.style.transform = 'scale(1)';
@@ -1300,7 +1303,6 @@
             artModal.classList.add('active');
         }
 
-        // Activar o desactivar la lupa con el botón
         function toggleZoomMode() {
             isZoomActive = !isZoomActive;
             if (isZoomActive) {
@@ -1314,7 +1316,6 @@
             }
         }
 
-        // Movimiento del zoom según el mouse / touchpad dentro del contenedor de la imagen
         modalImgContainer.addEventListener('mousemove', (e) => {
             if (!isZoomActive) return;
             const rect = modalImgContainer.getBoundingClientRect();

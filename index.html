@@ -9,7 +9,7 @@
     <link href="https://fonts.cdnfonts.com/css/dominican" rel="stylesheet">
     
     <style>
-        /* DECLARACIÓN DE LA FUENTE LOCAL SUBIDA A GITHUB */
+        /* DECLARACIÓN DE LA FUENTE LOCAL CON RUTA DIRECTA */
         @font-face {
             font-family: 'EB Garamond 08';
             src: url('text/EBGaramond08-Regular (2).ttf') format('truetype');
@@ -24,17 +24,11 @@
             --card-bg: #f9f9f9;           
 
             --font-titles: 'Dominican Small Caps', serif;
-            --font-body: 'EB Garamond 08', serif;
+            --font-body: 'EB Garamond 08', 'Georgia', serif;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* FORZAR LA TIPOGRAFÍA EB GARAMOND 08 EN TODO EL SITIO */
-        body, p, span, div, a, button, input, select, textarea, label {
+        /* FORZAR LA TIPOGRAFÍA EB GARAMOND 08 EN ABSOLUTAMENTE TODO EL SITIO */
+        *, html, body, p, span, div, a, button, input, select, textarea, label, h2, h3, h4, h5, h6 {
             font-family: var(--font-body) !important;
         }
 
@@ -102,12 +96,15 @@
             background-color: var(--accent-hover);
         }
 
-        /* LOGOTIPO CON DOMINICAN */
-        .logo {
+        /* ÚNICA EXCEPCIÓN ESTRICTA: LOGOTIPO Y TÍTULO PRINCIPAL DEL HERO */
+        .logo, .hero-title {
             font-family: var(--font-titles) !important;
-            font-size: 2.2rem;
             letter-spacing: 4px;
             color: var(--text-main);
+        }
+
+        .logo {
+            font-size: 2.2rem;
             text-align: center;
         }
 
@@ -297,12 +294,9 @@
             letter-spacing: 3px;
         }
 
-        /* Título principal del Hero con Dominican */
         .hero-title {
-            font-family: var(--font-titles) !important;
             font-size: 5.2rem;
             font-weight: normal;
-            letter-spacing: 4px;
             margin-bottom: 20px;
             color: var(--text-main);
         }
@@ -446,7 +440,7 @@
             letter-spacing: 1px;
         }
 
-        /* --- VISTA DETALLADA / MODAL CON LUPA --- */
+        /* --- VISTA DETALLADA / MODAL CON LUPA DE IMAGEN --- */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -517,35 +511,40 @@
             transform-origin: center center;
         }
 
-        /* Botón de la Lupa discreto en la esquina inferior derecha */
+        /* Botón de la Lupa usando tu imagen de la carpeta imagenes/lupa.png */
         .zoom-toggle-btn {
             position: absolute;
             bottom: 12px;
             right: 12px;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             border: 1px solid var(--text-main);
-            color: var(--text-main);
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             z-index: 15;
-            font-size: 1rem;
             transition: background 0.3s, transform 0.2s;
             box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            padding: 6px;
+        }
+
+        .zoom-toggle-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: none;
         }
 
         .zoom-toggle-btn:hover {
-            background: #ffffff;
-            transform: scale(1.08);
+            transform: scale(1.1);
         }
 
         .zoom-toggle-btn.active {
             background: var(--text-main);
-            color: #ffffff;
+            border-color: var(--text-main);
         }
 
         .modal-details {
@@ -1127,8 +1126,10 @@
             <button class="modal-close" id="closeModal">&times;</button>
             <div class="modal-img-container" id="modalImgContainer">
                 <img id="mImg" src="" alt="Detalle de obra">
-                <!-- Botón de la Lupa discreto -->
-                <button class="zoom-toggle-btn" id="zoomToggleBtn" title="Activar/Desactivar Lupa" onclick="toggleZoomMode()">🔍</button>
+                <!-- Botón de la Lupa usando la imagen 'imagenes/lupa.png' -->
+                <button class="zoom-toggle-btn" id="zoomToggleBtn" title="Activar/Desactivar Lupa" onclick="toggleZoomMode()">
+                    <img src="imagenes/lupa.png" alt="Lupa">
+                </button>
             </div>
             <div class="modal-details">
                 <h3 class="modal-title" id="mTitle">Título de la Obra</h3>
@@ -1324,7 +1325,7 @@
             const yPercent = (y / rect.height) * 100;
 
             modalImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
-            modalImg.style.transform = 'scale(2.5)'; // Nivel de zoom de la lupa
+            modalImg.style.transform = 'scale(2.5)';
         });
 
         modalImgContainer.addEventListener('mouseleave', () => {

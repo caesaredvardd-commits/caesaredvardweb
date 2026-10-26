@@ -44,7 +44,7 @@
             text-decoration: none;
         }
 
-        /* HEADER ORIGINAL RESTAURADO (CENTRADO Y SIMÉTRICO) */
+        /* HEADER CENTRADO Y SIMÉTRICO */
         header {
             position: fixed;
             top: 0;
@@ -286,6 +286,7 @@
             max-width: 800px;
         }
 
+        /* Visual Archive & Atelier con la tipografía en cursiva anterior */
         .hero-subtitle {
             font-style: italic;
             font-size: 1.8rem;
@@ -303,14 +304,14 @@
             color: var(--text-main);
         }
 
-        /* Estilo igualado al subtítulo para Óleo, Tinta... */
+        /* Óleo · Tinta con la tipografía normal anterior */
         .hero-desc {
-            font-style: italic;
-            font-size: 1.25rem;
+            font-style: normal;
+            font-size: 1.2rem;
             color: var(--text-main);
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             margin-bottom: 35px;
-            text-transform: none;
+            text-transform: uppercase;
         }
 
         .btn-enter {
@@ -515,7 +516,7 @@
             transform-origin: center center;
         }
 
-        /* Botón de la Lupa usando la imagen de tu carpeta */
+        /* Botón de la Lupa con tu imagen de la carpeta */
         .zoom-toggle-btn {
             position: absolute;
             bottom: 12px;
@@ -629,6 +630,7 @@
             background-color: #ffffff;
         }
 
+        /* Imagen de biografía actualizada con 'imagenes/foto cesar.JPG' */
         .bio-image-wrapper img {
             width: 100%;
             height: auto;
@@ -831,7 +833,7 @@
 </head>
 <body>
 
-    <!-- HEADER ORIGINAL RESTAURADO -->
+    <!-- HEADER PRINCIPAL -->
     <header>
         <button class="menu-btn" id="openSidebar">
             <div class="hamburger">
@@ -897,8 +899,10 @@
     <!-- HERO / PORTADA -->
     <section class="hero">
         <div class="hero-content">
+            <!-- Tipografía cursiva aplicada a Visual Archive -->
             <div class="hero-subtitle">Visual Archive & Atelier</div>
             <h1 class="hero-title">Cezzaro</h1>
+            <!-- Tipografía normal aplicada a Óleo · Tinta -->
             <p class="hero-desc">Óleo · Tinta · Arte Figurativo Tradicional</p>
             <a href="#gallery" class="btn-enter">Explorar Galería</a>
         </div>
@@ -1145,11 +1149,11 @@
         </div>
     </div>
 
-    <!-- SECCIÓN BIOGRAFÍA -->
+    <!-- SECCIÓN BIOGRAFÍA (CON FOTO ACTUALIZADA) -->
     <section class="bio-section" id="bio">
         <div class="bio-grid">
             <div class="bio-image-wrapper">
-                <img src="imagenes/hombre ilustrado.jpg" alt="CEZZARO Portrait">
+                <img src="imagenes/foto cesar.JPG" alt="CEZZARO Portrait">
             </div>
             <div class="bio-content-wrapper">
                 <div class="bio-artist-tag">ARTIST</div>

@@ -5,20 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CEZZARO — Official Website</title>
     
-    <!-- Importación de fuentes optimizada -->
+    <!-- Importación de la fuente Dominican Small Caps -->
     <link href="https://fonts.cdnfonts.com/css/dominican" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
     
     <style>
+        /* DECLARACIÓN DE LA FUENTE LOCAL SUBIDA A GITHUB */
+        @font-face {
+            font-family: 'EB Garamond 08';
+            src: url('text/EBGaramond08-Regular (2).ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         :root {
             --bg-main: #ffffff;           
             --text-main: #000000;         
             --accent-hover: #4a2e2b;      
             --card-bg: #f9f9f9;           
 
-            /* Fuentes separadas */
             --font-titles: 'Dominican Small Caps', serif;
-            --font-body: 'EB Garamond', serif;
+            --font-body: 'EB Garamond 08', serif;
         }
 
         * {
@@ -27,11 +33,14 @@
             padding: 0;
         }
 
-        /* Todo el cuerpo usa EB Garamond por defecto */
+        /* FORZAR LA TIPOGRAFÍA EB GARAMOND 08 EN TODO EL SITIO */
+        body, p, span, div, a, button, input, select, textarea, label {
+            font-family: var(--font-body) !important;
+        }
+
         body {
             background-color: var(--bg-main);
             color: var(--text-main);
-            font-family: var(--font-body);
             overflow-x: hidden;
             line-height: 1.6;
         }
@@ -39,7 +48,6 @@
         a {
             color: inherit;
             text-decoration: none;
-            font-family: var(--font-body);
         }
 
         header {
@@ -63,7 +71,6 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            font-family: var(--font-body);
             font-size: 1.1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -95,9 +102,9 @@
             background-color: var(--accent-hover);
         }
 
-        /* ESTE SÍ SE QUEDA CON DOMINICAN (LOGOTIPO) */
+        /* LOGOTIPO CON DOMINICAN */
         .logo {
-            font-family: var(--font-titles);
+            font-family: var(--font-titles) !important;
             font-size: 2.2rem;
             letter-spacing: 4px;
             color: var(--text-main);
@@ -105,7 +112,6 @@
         }
 
         .lang-select {
-            font-family: var(--font-body);
             font-size: 1rem;
             letter-spacing: 2px;
             color: var(--text-main);
@@ -181,7 +187,6 @@
         }
 
         .sidebar-nav a, .submenu-trigger {
-            font-family: var(--font-body);
             font-size: 1.35rem;
             letter-spacing: 1px;
             color: var(--text-main);
@@ -233,7 +238,6 @@
         }
 
         .submenu-years a {
-            font-family: var(--font-body);
             font-style: italic;
             font-size: 1.1rem;
             color: var(--text-main);
@@ -246,7 +250,6 @@
         }
 
         .sidebar-footer {
-            font-family: var(--font-body);
             font-size: 0.95rem;
             color: var(--text-main);
             letter-spacing: 1px;
@@ -286,9 +289,7 @@
             max-width: 800px;
         }
 
-        /* Subtítulo cambiado a EB Garamond */
         .hero-subtitle {
-            font-family: var(--font-body);
             font-style: italic;
             font-size: 1.8rem;
             color: var(--text-main);
@@ -296,9 +297,9 @@
             letter-spacing: 3px;
         }
 
-        /* Título principal con Dominican */
+        /* Título principal del Hero con Dominican */
         .hero-title {
-            font-family: var(--font-titles);
+            font-family: var(--font-titles) !important;
             font-size: 5.2rem;
             font-weight: normal;
             letter-spacing: 4px;
@@ -306,9 +307,7 @@
             color: var(--text-main);
         }
 
-        /* Descripción cambiada a EB Garamond */
         .hero-desc {
-            font-family: var(--font-body);
             font-size: 1.2rem;
             color: var(--text-main);
             letter-spacing: 3px;
@@ -316,14 +315,12 @@
             text-transform: uppercase;
         }
 
-        /* BOTÓN DE EXPLORAR GALERÍA */
         .btn-enter {
             display: inline-block;
             padding: 14px 40px;
             background-color: #000000;
             color: #ffffff;
             border: 2px solid #000000;
-            font-family: var(--font-body);
             font-size: 1.1rem;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -338,22 +335,17 @@
         }
 
         /* --- GALERÍA / CATÁLOGO --- */
-        /* Título de sección cambiado a EB Garamond */
         .section-title {
-            font-family: var(--font-body);
             font-size: 2.5rem;
             text-align: center;
             color: var(--text-main);
             letter-spacing: 4px;
             margin: 80px 0 15px 0;
             text-transform: uppercase;
-            font-weight: 500;
         }
 
-        /* Subtítulo de sección cambiado a EB Garamond */
         .section-subtitle {
             text-align: center;
-            font-family: var(--font-body);
             font-style: italic;
             color: var(--text-main);
             font-size: 1.3rem;
@@ -413,7 +405,6 @@
             top: 15px;
             left: 15px;
             padding: 4px 12px;
-            font-family: var(--font-body);
             font-size: 0.9rem;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -432,10 +423,8 @@
             background: var(--card-bg);
         }
 
-        /* Textos dentro de las tarjetas (Cambiados a EB Garamond) */
         .art-title {
-            font-family: var(--font-body);
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 600;
             color: var(--text-main);
             margin-bottom: 6px;
@@ -443,7 +432,6 @@
         }
 
         .art-meta {
-            font-family: var(--font-body);
             font-style: italic;
             font-size: 1.1rem;
             color: var(--text-main);
@@ -452,14 +440,13 @@
         }
 
         .art-price {
-            font-family: var(--font-body);
             font-size: 1.1rem;
             font-weight: 500;
             color: var(--text-main);
             letter-spacing: 1px;
         }
 
-        /* --- VISTA DETALLADA / MODAL --- */
+        /* --- VISTA DETALLADA / MODAL CON LUPA --- */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -510,12 +497,55 @@
             z-index: 10;
         }
 
+        .modal-img-container {
+            position: relative;
+            width: 100%;
+            max-height: 70vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
         .modal-img-container img {
             width: 100%;
             height: auto;
             max-height: 70vh;
             object-fit: contain;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: transform 0.1s ease-out;
+            transform-origin: center center;
+        }
+
+        /* Botón de la Lupa discreto en la esquina inferior derecha */
+        .zoom-toggle-btn {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid var(--text-main);
+            color: var(--text-main);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 15;
+            font-size: 1rem;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        .zoom-toggle-btn:hover {
+            background: #ffffff;
+            transform: scale(1.08);
+        }
+
+        .zoom-toggle-btn.active {
+            background: var(--text-main);
+            color: #ffffff;
         }
 
         .modal-details {
@@ -525,7 +555,6 @@
         }
 
         .modal-title {
-            font-family: var(--font-body);
             font-size: 2.2rem;
             font-weight: 600;
             margin-bottom: 10px;
@@ -533,7 +562,6 @@
         }
 
         .modal-tech {
-            font-family: var(--font-body);
             font-size: 1.1rem;
             color: var(--text-main);
             letter-spacing: 2px;
@@ -542,7 +570,6 @@
         }
 
         .modal-desc {
-            font-family: var(--font-body);
             font-style: italic;
             font-size: 1.25rem;
             color: var(--text-main);
@@ -551,7 +578,6 @@
         }
 
         .modal-price {
-            font-family: var(--font-body);
             font-size: 1.4rem;
             color: var(--text-main);
             margin-bottom: 25px;
@@ -562,7 +588,6 @@
             background-color: #000000;
             color: #ffffff;
             border: 2px solid #000000;
-            font-family: var(--font-body);
             font-size: 1.1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -619,7 +644,6 @@
         }
 
         .bio-artist-tag {
-            font-family: var(--font-body);
             font-size: 1.1rem;
             letter-spacing: 4px;
             color: var(--text-main);
@@ -628,7 +652,7 @@
         }
 
         .bio-artist-name {
-            font-family: var(--font-titles);
+            font-family: var(--font-titles) !important;
             font-size: 3.5rem;
             font-weight: normal;
             letter-spacing: 3px;
@@ -638,7 +662,6 @@
         }
 
         .bio-paragraphs {
-            font-family: var(--font-body);
             font-style: italic;
             font-size: 1.3rem;
             line-height: 1.85;
@@ -655,7 +678,6 @@
         }
 
         .bio-awards-title {
-            font-family: var(--font-body);
             font-size: 1.6rem;
             color: var(--text-main);
             margin-bottom: 15px;
@@ -670,7 +692,6 @@
         }
 
         .bio-awards-list li {
-            font-family: var(--font-body);
             font-size: 1.2rem;
             color: var(--text-main);
             letter-spacing: 1px;
@@ -711,7 +732,6 @@
         }
 
         .form-group label {
-            font-family: var(--font-body);
             font-size: 1.1rem;
             color: var(--text-main);
             letter-spacing: 1px;
@@ -723,7 +743,6 @@
             border: 1px solid rgba(0, 0, 0, 0.2);
             padding: 14px 18px;
             color: var(--text-main);
-            font-family: var(--font-body);
             font-size: 1.2rem;
             border-radius: 2px;
             outline: none;
@@ -754,7 +773,6 @@
             background-color: #000000;
             color: #ffffff;
             border: 2px solid #000000;
-            font-family: var(--font-body);
             font-size: 1.1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -771,7 +789,6 @@
         }
 
         .contact-email {
-            font-family: var(--font-body);
             font-style: italic;
             font-size: 2.2rem;
             color: var(--text-main);
@@ -786,7 +803,6 @@
         }
 
         .copyright {
-            font-family: var(--font-body);
             font-size: 0.95rem;
             color: var(--text-main);
             letter-spacing: 2px;
@@ -835,7 +851,7 @@
     <aside class="sidebar" id="sidebar">
         <button class="close-btn" id="closeSidebar">&times;</button>
         <div>
-            <div style="font-family: var(--font-body); letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; color: var(--text-main);">CEZZARO ARCHIVE</div>
+            <div style="letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; color: var(--text-main);">CEZZARO ARCHIVE</div>
             <ul class="sidebar-nav">
                 <li><a href="#gallery" onclick="filterGallery('disponible'); closeMenu();">Obras Disponibles <span>→</span></a></li>
                 
@@ -1109,8 +1125,10 @@
     <div class="modal-overlay" id="artModal">
         <div class="modal-content">
             <button class="modal-close" id="closeModal">&times;</button>
-            <div class="modal-img-container">
+            <div class="modal-img-container" id="modalImgContainer">
                 <img id="mImg" src="" alt="Detalle de obra">
+                <!-- Botón de la Lupa discreto -->
+                <button class="zoom-toggle-btn" id="zoomToggleBtn" title="Activar/Desactivar Lupa" onclick="toggleZoomMode()">🔍</button>
             </div>
             <div class="modal-details">
                 <h3 class="modal-title" id="mTitle">Título de la Obra</h3>
@@ -1159,7 +1177,7 @@
     <footer id="contact">
         <div class="contact-container">
             <h2 class="section-title" style="margin-top: 0; text-align: left;">CONTACTO / ENCARGOS</h2>
-            <p style="color: var(--text-main); font-family: var(--font-body); font-style: italic; font-size: 1.2rem; margin-top: 10px;">
+            <p style="font-style: italic; font-size: 1.2rem; margin-top: 10px;">
                 Para consultas sobre adquisición de obras de colección, solicitudes de encargos privados o comisiones, completa el siguiente formulario:
             </p>
 
@@ -1198,7 +1216,7 @@
         </div>
 
         <div style="text-align: center; border-top: 1px solid rgba(0, 0, 0, 0.1); padding-top: 40px;">
-            <div style="font-family: var(--font-body); letter-spacing: 2px; font-size: 1rem; color: var(--text-main); text-transform: uppercase;">Direct Atelier Email</div>
+            <div style="letter-spacing: 2px; font-size: 1rem; text-transform: uppercase;">Direct Atelier Email</div>
             <a href="mailto:cezzarostudio@gmail.com" class="contact-email">cezzarostudio@gmail.com</a>
             <div class="copyright">
                 © CEZZARO. TODOS LOS DERECHOS RESERVADOS.
@@ -1252,21 +1270,68 @@
             });
         }
 
+        // --- LÓGICA DE MODAL Y LUPA ---
         const artModal = document.getElementById('artModal');
         const closeModalBtn = document.getElementById('closeModal');
+        const modalImg = document.getElementById('mImg');
+        const modalImgContainer = document.getElementById('modalImgContainer');
+        const zoomToggleBtn = document.getElementById('zoomToggleBtn');
+
+        let isZoomActive = false;
 
         function openModal(title, tech, size, status, price, imgSrc, desc) {
             document.getElementById('mTitle').innerText = title;
             document.getElementById('mTech').innerText = `${tech} · ${size}`;
             document.getElementById('mDesc').innerText = desc;
             document.getElementById('mPrice').innerText = price;
-            document.getElementById('mImg').src = imgSrc;
+            modalImg.src = imgSrc;
             
+            // Resetear lupa al abrir nueva obra
+            isZoomActive = false;
+            zoomToggleBtn.classList.remove('active');
+            modalImg.style.transform = 'scale(1)';
+            modalImg.style.transformOrigin = 'center center';
+            modalImg.style.cursor = 'default';
+
             const inquireBtn = document.getElementById('mInquire');
             inquireBtn.href = `mailto:cezzarostudio@gmail.com?subject=Consulta%20sobre%20obra:%20${encodeURIComponent(title)}`;
             
             artModal.classList.add('active');
         }
+
+        // Activar o desactivar la lupa con el botón
+        function toggleZoomMode() {
+            isZoomActive = !isZoomActive;
+            if (isZoomActive) {
+                zoomToggleBtn.classList.add('active');
+                modalImg.style.cursor = 'crosshair';
+            } else {
+                zoomToggleBtn.classList.remove('active');
+                modalImg.style.transform = 'scale(1)';
+                modalImg.style.transformOrigin = 'center center';
+                modalImg.style.cursor = 'default';
+            }
+        }
+
+        // Movimiento del zoom según el mouse / touchpad dentro del contenedor de la imagen
+        modalImgContainer.addEventListener('mousemove', (e) => {
+            if (!isZoomActive) return;
+            const rect = modalImgContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const xPercent = (x / rect.width) * 100;
+            const yPercent = (y / rect.height) * 100;
+
+            modalImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+            modalImg.style.transform = 'scale(2.5)'; // Nivel de zoom de la lupa
+        });
+
+        modalImgContainer.addEventListener('mouseleave', () => {
+            if (isZoomActive) {
+                modalImg.style.transform = 'scale(1)';
+            }
+        });
 
         closeModalBtn.addEventListener('click', () => {
             artModal.classList.remove('active');

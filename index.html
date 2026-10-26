@@ -109,8 +109,8 @@
             letter-spacing: 4px;
             color: var(--text-main);
             display: inline-block;
-            border-bottom: 1px solid var(--text-main);
-            padding-bottom: 2px;
+            border-bottom: 2px solid var(--text-main); /* Línea un poco más gruesa */
+            padding-bottom: 0px; /* Más junto al texto */
         }
 
         .lang-select {
@@ -120,6 +120,7 @@
             justify-self: end;
             cursor: pointer;
             font-weight: 600;
+            margin-right: 40px; /* Movido más hacia el lado izquierdo para que se vea perfectamente */
         }
 
         .lang-select span {
@@ -297,17 +298,7 @@
             position: relative;
             z-index: 2;
             max-width: 800px;
-            margin-left: 15px; /* Ligeramente desplazado a la derecha para un centrado perfecto visual */
-        }
-
-        /* Visual Archive & Atelier adaptado al estilo del subtítulo inferior */
-        .hero-subtitle {
-            font-style: normal;
-            font-size: 1.2rem;
-            color: var(--text-main);
-            margin-bottom: 25px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            margin-left: 15px;
         }
 
         .hero-title-wrapper {
@@ -324,6 +315,16 @@
             display: inline-block;
             border-bottom: 1px solid var(--text-main);
             padding-bottom: 4px;
+        }
+
+        /* Visual Archive & Atelier reubicado más abajo, justo antes del título principal */
+        .hero-subtitle {
+            font-style: normal;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         .hero-desc {
@@ -921,7 +922,7 @@
     <!-- HERO / PORTADA -->
     <section class="hero">
         <div class="hero-content">
-            <!-- Visual Archive & Atelier reubicado en el espacio inferior -->
+            <!-- Visual Archive & Atelier reubicado justo encima del título principal -->
             <div class="hero-subtitle">Visual Archive & Atelier</div>
             <div class="hero-title-wrapper">
                 <h1 class="hero-title">Brunelio</h1>
@@ -1093,7 +1094,7 @@
                     <div class="art-info"><div class="art-title">Arquitectura del Resto</div><div class="art-meta">Aguada · 2020</div><div class="art-price">Colección Privada</div></div>
                 </div>
                 
-                <!-- Estudio Anatómico Final (con la imagen Tótem_final.JPG corregida) -->
+                <!-- Estudio Anatómico Final -->
                 <div class="art-card" data-category="dibujo disponible" onclick="openModal('Estudio Anatómico Final', 'Carboncillo', '50 x 70 cm', 'Disponible', '950 USD', 'imagenes/Tótem_final.JPG', 'Estudio académico profundo basado en la forma y composición figurativa.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/Tótem_final.JPG" alt="Estudio Anatómico Final"></div>
                     <div class="art-info"><div class="art-title">Estudio Anatómico Final</div><div class="art-meta">Carboncillo · 2025</div><div class="art-price">950 USD</div></div>

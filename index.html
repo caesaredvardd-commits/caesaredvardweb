@@ -102,7 +102,7 @@
             background-color: var(--accent-hover);
         }
 
-        /* EXCEPCIÓN ESTRICTA: LOGOTIPO Y TÍTULOS PRINCIPALES CON DOMINICAN */
+        /* LOGOTIPO CON DOMINICAN */
         .logo {
             font-family: var(--font-titles) !important;
             font-size: 2.2rem;
@@ -297,7 +297,7 @@
             letter-spacing: 3px;
         }
 
-        /* Mantener Dominican solo en el título principal grande */
+        /* Título principal del Hero con Dominican */
         .hero-title {
             font-family: var(--font-titles) !important;
             font-size: 5.2rem;
@@ -446,7 +446,7 @@
             letter-spacing: 1px;
         }
 
-        /* --- VISTA DETALLADA / MODAL --- */
+        /* --- VISTA DETALLADA / MODAL CON LUPA --- */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -497,12 +497,55 @@
             z-index: 10;
         }
 
+        .modal-img-container {
+            position: relative;
+            width: 100%;
+            max-height: 70vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
         .modal-img-container img {
             width: 100%;
             height: auto;
             max-height: 70vh;
             object-fit: contain;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: transform 0.1s ease-out;
+            transform-origin: center center;
+        }
+
+        /* Botón de la Lupa discreto en la esquina inferior derecha */
+        .zoom-toggle-btn {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid var(--text-main);
+            color: var(--text-main);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 15;
+            font-size: 1rem;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        .zoom-toggle-btn:hover {
+            background: #ffffff;
+            transform: scale(1.08);
+        }
+
+        .zoom-toggle-btn.active {
+            background: var(--text-main);
+            color: #ffffff;
         }
 
         .modal-details {
@@ -1082,8 +1125,10 @@
     <div class="modal-overlay" id="artModal">
         <div class="modal-content">
             <button class="modal-close" id="closeModal">&times;</button>
-            <div class="modal-img-container">
+            <div class="modal-img-container" id="modalImgContainer">
                 <img id="mImg" src="" alt="Detalle de obra">
+                <!-- Botón de la Lupa discreto -->
+                <button class="zoom-toggle-btn" id="zoomToggleBtn" title="Activar/Desactivar Lupa" onclick="toggleZoomMode()">🔍</button>
             </div>
             <div class="modal-details">
                 <h3 class="modal-title" id="mTitle">Título de la Obra</h3>
@@ -1225,21 +1270,68 @@
             });
         }
 
+        // --- LÓGICA DE MODAL Y LUPA ---
         const artModal = document.getElementById('artModal');
         const closeModalBtn = document.getElementById('closeModal');
+        const modalImg = document.getElementById('mImg');
+        const modalImgContainer = document.getElementById('modalImgContainer');
+        const zoomToggleBtn = document.getElementById('zoomToggleBtn');
+
+        let isZoomActive = false;
 
         function openModal(title, tech, size, status, price, imgSrc, desc) {
             document.getElementById('mTitle').innerText = title;
             document.getElementById('mTech').innerText = `${tech} · ${size}`;
             document.getElementById('mDesc').innerText = desc;
             document.getElementById('mPrice').innerText = price;
-            document.getElementById('mImg').src = imgSrc;
+            modalImg.src = imgSrc;
             
+            // Resetear lupa al abrir nueva obra
+            isZoomActive = false;
+            zoomToggleBtn.classList.remove('active');
+            modalImg.style.transform = 'scale(1)';
+            modalImg.style.transformOrigin = 'center center';
+            modalImg.style.cursor = 'default';
+
             const inquireBtn = document.getElementById('mInquire');
             inquireBtn.href = `mailto:cezzarostudio@gmail.com?subject=Consulta%20sobre%20obra:%20${encodeURIComponent(title)}`;
             
             artModal.classList.add('active');
         }
+
+        // Activar o desactivar la lupa con el botón
+        function toggleZoomMode() {
+            isZoomActive = !isZoomActive;
+            if (isZoomActive) {
+                zoomToggleBtn.classList.add('active');
+                modalImg.style.cursor = 'crosshair';
+            } else {
+                zoomToggleBtn.classList.remove('active');
+                modalImg.style.transform = 'scale(1)';
+                modalImg.style.transformOrigin = 'center center';
+                modalImg.style.cursor = 'default';
+            }
+        }
+
+        // Movimiento del zoom según el mouse / touchpad dentro del contenedor de la imagen
+        modalImgContainer.addEventListener('mousemove', (e) => {
+            if (!isZoomActive) return;
+            const rect = modalImgContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const xPercent = (x / rect.width) * 100;
+            const yPercent = (y / rect.height) * 100;
+
+            modalImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+            modalImg.style.transform = 'scale(2.5)'; // Nivel de zoom de la lupa
+        });
+
+        modalImgContainer.addEventListener('mouseleave', () => {
+            if (isZoomActive) {
+                modalImg.style.transform = 'scale(1)';
+            }
+        });
 
         closeModalBtn.addEventListener('click', () => {
             artModal.classList.remove('active');

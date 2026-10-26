@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEZZARO — Official Website</title>
+    <title>BRUNELIO — Official Website</title>
     
     <!-- Importación de la fuente Dominican Small Caps -->
     <link href="https://fonts.cdnfonts.com/css/dominican" rel="stylesheet">
@@ -44,7 +44,7 @@
             text-decoration: none;
         }
 
-        /* HEADER CENTRADO Y SIMÉTRICO */
+        /* HEADER PERFECTAMENTE CENTRADO Y VISIBLE */
         header {
             position: fixed;
             top: 0;
@@ -108,15 +108,22 @@
         }
 
         .lang-select {
-            font-size: 1rem;
+            font-size: 1.1rem;
             letter-spacing: 2px;
             color: var(--text-main);
             justify-self: end;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .lang-select span {
+            opacity: 0.5;
+            transition: opacity 0.3s;
         }
 
         .lang-select span.active {
+            opacity: 1;
             text-decoration: underline;
-            font-weight: 600;
         }
 
         /* --- MENÚ LATERAL DESPLEGABLE --- */
@@ -286,13 +293,14 @@
             max-width: 800px;
         }
 
-        /* Visual Archive & Atelier con la tipografía en cursiva anterior */
+        /* Visual Archive & Atelier con la tipografía normal de Óleo */
         .hero-subtitle {
-            font-style: italic;
-            font-size: 1.8rem;
+            font-style: normal;
+            font-size: 1.2rem;
             color: var(--text-main);
             margin-bottom: 10px;
-            letter-spacing: 1px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         .hero-title {
@@ -304,7 +312,7 @@
             color: var(--text-main);
         }
 
-        /* Óleo · Tinta con la tipografía normal anterior */
+        /* Óleo · Tinta con la tipografía limpia anterior */
         .hero-desc {
             font-style: normal;
             font-size: 1.2rem;
@@ -516,7 +524,7 @@
             transform-origin: center center;
         }
 
-        /* Botón de la Lupa con tu imagen de la carpeta */
+        /* Botón de la Lupa */
         .zoom-toggle-btn {
             position: absolute;
             bottom: 12px;
@@ -630,7 +638,6 @@
             background-color: #ffffff;
         }
 
-        /* Imagen de biografía actualizada con 'imagenes/foto cesar.JPG' */
         .bio-image-wrapper img {
             width: 100%;
             height: auto;
@@ -844,10 +851,10 @@
             <span>Índice</span>
         </button>
 
-        <div class="logo">Cezzaro</div>
+        <div class="logo">Brunelio</div>
 
-        <div class="lang-select">
-            <span class="active">ES</span> / <span>EN</span>
+        <div class="lang-select" id="langToggle" onclick="toggleLanguage()">
+            <span class="active" id="langEs">ES</span> / <span id="langEn">EN</span>
         </div>
     </header>
 
@@ -856,7 +863,7 @@
     <aside class="sidebar" id="sidebar">
         <button class="close-btn" id="closeSidebar">&times;</button>
         <div>
-            <div style="letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; color: var(--text-main);">CEZZARO ARCHIVE</div>
+            <div style="letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; color: var(--text-main);">BRUNELIO ARCHIVE</div>
             <ul class="sidebar-nav">
                 <li><a href="#gallery" onclick="filterGallery('disponible'); closeMenu();">Obras Disponibles <span>→</span></a></li>
                 
@@ -899,10 +906,8 @@
     <!-- HERO / PORTADA -->
     <section class="hero">
         <div class="hero-content">
-            <!-- Tipografía cursiva aplicada a Visual Archive -->
             <div class="hero-subtitle">Visual Archive & Atelier</div>
-            <h1 class="hero-title">Cezzaro</h1>
-            <!-- Tipografía normal aplicada a Óleo · Tinta -->
+            <h1 class="hero-title">Brunelio</h1>
             <p class="hero-desc">Óleo · Tinta · Arte Figurativo Tradicional</p>
             <a href="#gallery" class="btn-enter">Explorar Galería</a>
         </div>
@@ -1069,14 +1074,13 @@
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/11.jpeg" alt="Dibujo 12"></div>
                     <div class="art-info"><div class="art-title">Arquitectura del Resto</div><div class="art-meta">Aguada · 2020</div><div class="art-price">Colección Privada</div></div>
                 </div>
-                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Cráneo y Sombras', 'Grafito 6B', '35 x 45 cm', 'Disponible', '700 USD', 'imagenes/angel.JPG', 'Vanitas clásica dibujada a lápiz directo.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/angel.JPG" alt="Dibujo 13"></div>
-                    <div class="art-info"><div class="art-title">Cráneo y Sombras</div><div class="art-meta">Grafito · 2020</div><div class="art-price">700 USD</div></div>
-                </div>
-                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Estudio Anatómico Final', 'Carboncillo', '50 x 70 cm', 'Disponible', '950 USD', 'imagenes/totem_final.jpg', 'Estudio académico profundo basado en la forma y composición figurativa.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/totem_final.jpg" alt="Estudio Anatómico Final"></div>
+                
+                <!-- Estudio Anatómico Final (con la imagen Tótem_final.JPG corregida) -->
+                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Estudio Anatómico Final', 'Carboncillo', '50 x 70 cm', 'Disponible', '950 USD', 'imagenes/Tótem_final.JPG', 'Estudio académico profundo basado en la forma y composición figurativa.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/Tótem_final.JPG" alt="Estudio Anatómico Final"></div>
                     <div class="art-info"><div class="art-title">Estudio Anatómico Final</div><div class="art-meta">Carboncillo · 2025</div><div class="art-price">950 USD</div></div>
                 </div>
+
                 <div class="art-card" data-category="dibujo" onclick="openModal('Trazo Inicial 2018', 'Tinta sobre papel', '30 x 40 cm', 'Vendido', 'Colección Privada', 'imagenes/bigote.jpg', 'Uno de los primeros cuadernos de taller.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/bigote.jpg" alt="Dibujo 15"></div>
                     <div class="art-info"><div class="art-title">Trazo Inicial 2018</div><div class="art-meta">Tinta · 2018</div><div class="art-price">Colección Privada</div></div>
@@ -1134,7 +1138,7 @@
             <button class="modal-close" id="closeModal">&times;</button>
             <div class="modal-img-container" id="modalImgContainer">
                 <img id="mImg" src="" alt="Detalle de obra">
-                <!-- Botón de la Lupa usando la imagen de tu carpeta -->
+                <!-- Botón de la Lupa -->
                 <button class="zoom-toggle-btn" id="zoomToggleBtn" title="Activar/Desactivar Lupa" onclick="toggleZoomMode()">
                     <img src="imagenes/lupa.png" alt="Lupa">
                 </button>
@@ -1149,19 +1153,19 @@
         </div>
     </div>
 
-    <!-- SECCIÓN BIOGRAFÍA (CON FOTO ACTUALIZADA) -->
+    <!-- SECCIÓN BIOGRAFÍA -->
     <section class="bio-section" id="bio">
         <div class="bio-grid">
             <div class="bio-image-wrapper">
-                <img src="imagenes/foto cesar.JPG" alt="CEZZARO Portrait">
+                <img src="imagenes/foto cesar.JPG" alt="BRUNELIO Portrait">
             </div>
             <div class="bio-content-wrapper">
-                <div class="bio-artist-tag">ARTIST</div>
-                <h2 class="bio-artist-name">Cezzaro</h2>
+                <div class="bio-artist-tag">ARTISTA</div>
+                <h2 class="bio-artist-name">Brunelio</h2>
                 
                 <div class="bio-paragraphs">
                     <p>
-                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">CEZZARO</span> ha consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
+                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">BRUNELIO</span> ha consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
                     </p>
                     <p>
                         A lo largo de su trayectoria, su visión estética ha explorado simbolismos alegóricos, retratos psicológicos y composiciones de alta precisión, posicionándose como una de las voces emergentes más distintivas del realismo figurativo contemporáneo.
@@ -1182,7 +1186,7 @@
         </div>
     </section>
 
-    <!-- FOOTER Y FORMULARIO DE CONTACTO / ENCARGOS -->
+    <!-- FOOTER Y FORMULARIO DE CONTACTO EN ESPAÑOL -->
     <footer id="contact">
         <div class="contact-container">
             <h2 class="section-title" style="margin-top: 0; text-align: left;">CONTACTO / ENCARGOS</h2>
@@ -1192,32 +1196,32 @@
 
             <form class="contact-form" action="https://formspree.io/f/cezzarostudio@gmail.com" method="POST" onsubmit="handleFormSubmit(event)">
                 <div class="form-group">
-                    <label for="clientType">Business or Individual</label>
+                    <label for="clientType" id="labelClientType">Empresa o Particular</label>
                     <select id="clientType" name="clientType" class="form-control">
-                        <option value="Individual">Individual Client</option>
-                        <option value="Gallery / Business">Gallery / Business / Collector</option>
-                        <option value="Press / Media">Press / Media</option>
+                        <option value="Individual">Cliente Individual</option>
+                        <option value="Gallery / Business">Galería / Empresa / Coleccionista</option>
+                        <option value="Press / Media">Prensa / Medios</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="firstName">First name</label>
-                    <input type="text" id="firstName" name="firstName" placeholder="First name" class="form-control">
+                    <label for="firstName" id="labelFirstName">Nombre</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Nombre" class="form-control">
                 </div>
 
                 <div class="form-group">
-                    <label for="lastName">Last name</label>
-                    <input type="text" id="lastName" name="lastName" placeholder="Last name" class="form-control">
+                    <label for="lastName" id="labelLastName">Apellido</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Apellido" class="form-control">
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" placeholder="Email" class="form-control" required>
+                    <label for="email" id="labelEmail">Correo electrónico *</label>
+                    <input type="email" id="email" name="email" placeholder="Correo electrónico" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Message *</label>
-                    <textarea id="message" name="message" placeholder="Message" class="form-control" required></textarea>
+                    <label for="message" id="labelMessage">Mensaje *</label>
+                    <textarea id="message" name="message" placeholder="Mensaje" class="form-control" required></textarea>
                 </div>
 
                 <button type="submit" class="btn-submit">Submit</button>
@@ -1225,10 +1229,10 @@
         </div>
 
         <div style="text-align: center; border-top: 1px solid rgba(0, 0, 0, 0.1); padding-top: 40px;">
-            <div style="letter-spacing: 2px; font-size: 1rem; text-transform: uppercase;">Direct Atelier Email</div>
+            <div style="letter-spacing: 2px; font-size: 1rem; text-transform: uppercase;">Correo Directo del Taller</div>
             <a href="mailto:cezzarostudio@gmail.com" class="contact-email">cezzarostudio@gmail.com</a>
             <div class="copyright">
-                © CEZZARO. TODOS LOS DERECHOS RESERVADOS.
+                © BRUNELIO. TODOS LOS DERECHOS RESERVADOS.
             </div>
         </div>
     </footer>
@@ -1277,6 +1281,34 @@
                     }
                 }
             });
+        }
+
+        // --- LÓGICA DE IDIOMA (FUNCIONAL) ---
+        let currentLang = 'ES';
+        function toggleLanguage() {
+            currentLang = currentLang === 'ES' ? 'EN' : 'ES';
+            const langEs = document.getElementById('langEs');
+            const langEn = document.getElementById('langEn');
+            
+            if (currentLang === 'EN') {
+                langEn.classList.add('active');
+                langEs.classList.remove('active');
+                // Traducción dinámica rápida al inglés si se desea
+                document.getElementById('labelClientType').innerText = 'Business or Individual';
+                document.getElementById('labelFirstName').innerText = 'First name';
+                document.getElementById('labelLastName').innerText = 'Last name';
+                document.getElementById('labelEmail').innerText = 'Email *';
+                document.getElementById('labelMessage').innerText = 'Message *';
+            } else {
+                langEs.classList.add('active');
+                langEn.classList.remove('active');
+                // Restaurar a español
+                document.getElementById('labelClientType').innerText = 'Empresa o Particular';
+                document.getElementById('labelFirstName').innerText = 'Nombre';
+                document.getElementById('labelLastName').innerText = 'Apellido';
+                document.getElementById('labelEmail').innerText = 'Correo electrónico *';
+                document.getElementById('labelMessage').innerText = 'Mensaje *';
+            }
         }
 
         // --- LÓGICA DE MODAL Y LUPA ---
@@ -1351,7 +1383,7 @@
 
         function handleFormSubmit(e) {
             setTimeout(() => {
-                alert('Gracias por su mensaje. CEZZARO se pondrá en contacto pronto.');
+                alert('Gracias por su mensaje. BRUNELIO se pondrá en contacto pronto.');
             }, 300);
         }
     </script>

@@ -44,7 +44,7 @@
             text-decoration: none;
         }
 
-        /* HEADER PERFECTAMENTE CENTRADO Y VISIBLE */
+        /* HEADER PRINCIPAL */
         header {
             position: fixed;
             top: 0;
@@ -98,13 +98,19 @@
             background-color: var(--accent-hover);
         }
 
+        .logo-container {
+            justify-self: center;
+            text-align: center;
+        }
+
         .logo {
             font-family: var(--font-titles) !important;
             font-size: 2.2rem;
             letter-spacing: 4px;
             color: var(--text-main);
-            text-align: center;
-            justify-self: center;
+            display: inline-block;
+            border-bottom: 1px solid var(--text-main);
+            padding-bottom: 2px;
         }
 
         .lang-select {
@@ -291,16 +297,22 @@
             position: relative;
             z-index: 2;
             max-width: 800px;
+            margin-left: 15px; /* Ligeramente desplazado a la derecha para un centrado perfecto visual */
         }
 
-        /* Visual Archive & Atelier con la tipografía normal de Óleo */
+        /* Visual Archive & Atelier adaptado al estilo del subtítulo inferior */
         .hero-subtitle {
             font-style: normal;
             font-size: 1.2rem;
             color: var(--text-main);
-            margin-bottom: 10px;
+            margin-bottom: 25px;
             letter-spacing: 3px;
             text-transform: uppercase;
+        }
+
+        .hero-title-wrapper {
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
         .hero-title {
@@ -308,11 +320,12 @@
             font-size: 5.2rem;
             font-weight: normal;
             letter-spacing: 4px;
-            margin-bottom: 20px;
             color: var(--text-main);
+            display: inline-block;
+            border-bottom: 1px solid var(--text-main);
+            padding-bottom: 4px;
         }
 
-        /* Óleo · Tinta con la tipografía limpia anterior */
         .hero-desc {
             font-style: normal;
             font-size: 1.2rem;
@@ -851,7 +864,9 @@
             <span>Índice</span>
         </button>
 
-        <div class="logo">Brunelio</div>
+        <div class="logo-container">
+            <div class="logo">Brunelio</div>
+        </div>
 
         <div class="lang-select" id="langToggle" onclick="toggleLanguage()">
             <span class="active" id="langEs">ES</span> / <span id="langEn">EN</span>
@@ -906,8 +921,11 @@
     <!-- HERO / PORTADA -->
     <section class="hero">
         <div class="hero-content">
+            <!-- Visual Archive & Atelier reubicado en el espacio inferior -->
             <div class="hero-subtitle">Visual Archive & Atelier</div>
-            <h1 class="hero-title">Brunelio</h1>
+            <div class="hero-title-wrapper">
+                <h1 class="hero-title">Brunelio</h1>
+            </div>
             <p class="hero-desc">Óleo · Tinta · Arte Figurativo Tradicional</p>
             <a href="#gallery" class="btn-enter">Explorar Galería</a>
         </div>
@@ -1293,7 +1311,6 @@
             if (currentLang === 'EN') {
                 langEn.classList.add('active');
                 langEs.classList.remove('active');
-                // Traducción dinámica rápida al inglés si se desea
                 document.getElementById('labelClientType').innerText = 'Business or Individual';
                 document.getElementById('labelFirstName').innerText = 'First name';
                 document.getElementById('labelLastName').innerText = 'Last name';
@@ -1302,7 +1319,6 @@
             } else {
                 langEs.classList.add('active');
                 langEn.classList.remove('active');
-                // Restaurar a español
                 document.getElementById('labelClientType').innerText = 'Empresa o Particular';
                 document.getElementById('labelFirstName').innerText = 'Nombre';
                 document.getElementById('labelLastName').innerText = 'Apellido';

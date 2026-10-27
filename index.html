@@ -279,17 +279,17 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background-color: #ffffff; /* Fondo completamente blanco */
+            background-color: #ffffff;
             overflow: hidden;
             padding: 0 20px;
         }
 
-        /* Imágenes animadas laterales */
+        /* Imágenes laterales ampliadas y simétricas */
         .hero-side-img {
             position: absolute;
-            bottom: -50px;
-            width: 320px;
-            opacity: 0.85;
+            bottom: -20px;
+            width: 450px; /* Tamaño más grande acorde al área solicitada */
+            opacity: 0.9;
             pointer-events: none;
             transition: transform 0.1s ease-out;
             will-change: transform;
@@ -298,12 +298,12 @@
         }
 
         .hero-side-img.left {
-            left: 5%;
+            left: 2%;
             transform: scaleX(1); /* Viendo hacia la derecha */
         }
 
         .hero-side-img.right {
-            right: 5%;
+            right: 2%;
             transform: scaleX(-1); /* Espejo: Viendo hacia la izquierda */
         }
 
@@ -854,7 +854,7 @@
         @media (max-width: 900px) {
             .bio-grid { grid-template-columns: 1fr; gap: 40px; }
             .bio-image-wrapper { max-width: 400px; margin: 0 auto; }
-            .hero-side-img { display: none; } /* Ocultar en móviles para evitar solapamiento */
+            .hero-side-img { display: none; }
         }
 
         @media (max-width: 768px) {
@@ -933,13 +933,13 @@
         </div>
     </aside>
 
-    <!-- HERO / PORTADA CON FIGURAS LATERALES ANIMADAS -->
+    <!-- HERO / PORTADA CON NUEVAS IMÁGENES LATERALES AMPLIADAS -->
     <section class="hero">
-        <!-- Figura izquierda (mirando a la derecha) -->
-        <img src="imagenes/hombre ilustrado.jpg" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
+        <!-- Figura izquierda (foto para pagina principal.png) -->
+        <img src="imagenes/foto para pagina principal.png" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
         
-        <!-- Figura derecha (espejo, mirando a la izquierda) -->
-        <img src="imagenes/hombre ilustrado.jpg" alt="Ilustración lateral derecha" class="hero-side-img right" id="sideImgRight">
+        <!-- Figura derecha simétrica (espejo) -->
+        <img src="imagenes/foto para pagina principal.png" alt="Ilustración lateral derecha" class="hero-side-img right" id="sideImgRight">
 
         <div class="hero-content">
             <div class="hero-subtitle">Visual Archive & Atelier</div>
@@ -1327,10 +1327,9 @@
 
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
-            // Solo aplicar animación mientras estemos en la vista de la sección hero (altura de pantalla)
             if (scrollY <= window.innerHeight) {
-                const scaleValue = 1 + scrollY * 0.0015; // Se amplía suavemente al hacer scroll
-                const translateYValue = -scrollY * 0.35; // Sube conforme se baja el scroll
+                const scaleValue = 1 + scrollY * 0.0015;
+                const translateYValue = -scrollY * 0.35;
 
                 const transformLeft = `scaleX(1) scale(${scaleValue}) translateY(${translateYValue}px)`;
                 const transformRight = `scaleX(-1) scale(${scaleValue}) translateY(${translateYValue}px)`;

@@ -279,19 +279,32 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.9) 75%),
-                        url('imagenes/hombre ilustrado.jpg') center/cover no-repeat;
+            background-color: #ffffff; /* Fondo completamente blanco */
+            overflow: hidden;
             padding: 0 20px;
         }
 
-        .hero::before {
-            content: '';
+        /* Imágenes animadas laterales */
+        .hero-side-img {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.7);
+            bottom: -50px;
+            width: 320px;
+            opacity: 0.85;
+            pointer-events: none;
+            transition: transform 0.1s ease-out;
+            will-change: transform;
+            z-index: 1;
+            mix-blend-mode: multiply;
+        }
+
+        .hero-side-img.left {
+            left: 5%;
+            transform: scaleX(1); /* Viendo hacia la derecha */
+        }
+
+        .hero-side-img.right {
+            right: 5%;
+            transform: scaleX(-1); /* Espejo: Viendo hacia la izquierda */
         }
 
         .hero-content {
@@ -301,7 +314,6 @@
             margin-left: 15px;
         }
 
-        /* Visual Archive & Atelier bajado un poco más para acercarlo al título central */
         .hero-subtitle {
             font-style: normal;
             font-size: 1.2rem;
@@ -323,11 +335,10 @@
             letter-spacing: 4px;
             color: var(--text-main);
             display: inline-block;
-            border-bottom: 2px solid var(--text-main); /* Subrayado más grueso e integrado como el superior */
-            padding-bottom: 0px; /* Más junto al texto */
+            border-bottom: 2px solid var(--text-main);
+            padding-bottom: 0px;
         }
 
-        /* Óleo · Tinta · Arte Figurativo Tradicional subido para acercarlo al Brunelio central */
         .hero-desc {
             font-style: normal;
             font-size: 1.2rem;
@@ -843,6 +854,7 @@
         @media (max-width: 900px) {
             .bio-grid { grid-template-columns: 1fr; gap: 40px; }
             .bio-image-wrapper { max-width: 400px; margin: 0 auto; }
+            .hero-side-img { display: none; } /* Ocultar en móviles para evitar solapamiento */
         }
 
         @media (max-width: 768px) {
@@ -921,15 +933,19 @@
         </div>
     </aside>
 
-    <!-- HERO / PORTADA -->
+    <!-- HERO / PORTADA CON FIGURAS LATERALES ANIMADAS -->
     <section class="hero">
+        <!-- Figura izquierda (mirando a la derecha) -->
+        <img src="imagenes/hombre ilustrado.jpg" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
+        
+        <!-- Figura derecha (espejo, mirando a la izquierda) -->
+        <img src="imagenes/hombre ilustrado.jpg" alt="Ilustración lateral derecha" class="hero-side-img right" id="sideImgRight">
+
         <div class="hero-content">
-            <!-- Visual Archive & Atelier bajado para quedar más cerca del Brunelio central -->
             <div class="hero-subtitle">Visual Archive & Atelier</div>
             <div class="hero-title-wrapper">
                 <h1 class="hero-title">Brunelio</h1>
             </div>
-            <!-- Óleo · Tinta subido para acercarlo al Brunelio central -->
             <p class="hero-desc">Óleo · Tinta · Arte Figurativo Tradicional</p>
             <a href="#gallery" class="btn-enter">Explorar Galería</a>
         </div>
@@ -1304,6 +1320,25 @@
                 }
             });
         }
+
+        // --- ANIMACIÓN DE SCROLL EXCLUSIVA PARA LA PÁGINA PRINCIPAL (HERO) ---
+        const sideImgLeft = document.getElementById('sideImgLeft');
+        const sideImgRight = document.getElementById('sideImgRight');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            // Solo aplicar animación mientras estemos en la vista de la sección hero (altura de pantalla)
+            if (scrollY <= window.innerHeight) {
+                const scaleValue = 1 + scrollY * 0.0015; // Se amplía suavemente al hacer scroll
+                const translateYValue = -scrollY * 0.35; // Sube conforme se baja el scroll
+
+                const transformLeft = `scaleX(1) scale(${scaleValue}) translateY(${translateYValue}px)`;
+                const transformRight = `scaleX(-1) scale(${scaleValue}) translateY(${translateYValue}px)`;
+
+                if(sideImgLeft) sideImgLeft.style.transform = transformLeft;
+                if(sideImgRight) sideImgRight.style.transform = transformRight;
+            }
+        });
 
         // --- LÓGICA DE IDIOMA (FUNCIONAL) ---
         let currentLang = 'ES';

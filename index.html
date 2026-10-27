@@ -109,8 +109,8 @@
             letter-spacing: 4px;
             color: var(--text-main);
             display: inline-block;
-            border-bottom: 2px solid var(--text-main); /* Línea un poco más gruesa */
-            padding-bottom: 0px; /* Más junto al texto */
+            border-bottom: 2px solid var(--text-main);
+            padding-bottom: 0px;
         }
 
         .lang-select {
@@ -120,7 +120,7 @@
             justify-self: end;
             cursor: pointer;
             font-weight: 600;
-            margin-right: 40px; /* Movido más hacia el lado izquierdo para que se vea perfectamente */
+            margin-right: 40px;
         }
 
         .lang-select span {
@@ -301,6 +301,16 @@
             margin-left: 15px;
         }
 
+        /* Visual Archive & Atelier bajado un poco más para acercarlo al título central */
+        .hero-subtitle {
+            font-style: normal;
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 25px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
         .hero-title-wrapper {
             display: inline-block;
             margin-bottom: 20px;
@@ -313,25 +323,17 @@
             letter-spacing: 4px;
             color: var(--text-main);
             display: inline-block;
-            border-bottom: 1px solid var(--text-main);
-            padding-bottom: 4px;
+            border-bottom: 2px solid var(--text-main); /* Subrayado más grueso e integrado como el superior */
+            padding-bottom: 0px; /* Más junto al texto */
         }
 
-        /* Visual Archive & Atelier reubicado más abajo, justo antes del título principal */
-        .hero-subtitle {
-            font-style: normal;
-            font-size: 1.1rem;
-            color: var(--text-main);
-            margin-bottom: 15px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
+        /* Óleo · Tinta · Arte Figurativo Tradicional subido para acercarlo al Brunelio central */
         .hero-desc {
             font-style: normal;
             font-size: 1.2rem;
             color: var(--text-main);
             letter-spacing: 3px;
+            margin-top: 15px;
             margin-bottom: 35px;
             text-transform: uppercase;
         }
@@ -922,11 +924,12 @@
     <!-- HERO / PORTADA -->
     <section class="hero">
         <div class="hero-content">
-            <!-- Visual Archive & Atelier reubicado justo encima del título principal -->
+            <!-- Visual Archive & Atelier bajado para quedar más cerca del Brunelio central -->
             <div class="hero-subtitle">Visual Archive & Atelier</div>
             <div class="hero-title-wrapper">
                 <h1 class="hero-title">Brunelio</h1>
             </div>
+            <!-- Óleo · Tinta subido para acercarlo al Brunelio central -->
             <p class="hero-desc">Óleo · Tinta · Arte Figurativo Tradicional</p>
             <a href="#gallery" class="btn-enter">Explorar Galería</a>
         </div>

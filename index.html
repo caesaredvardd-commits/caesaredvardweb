@@ -284,11 +284,11 @@
             padding: 0 20px;
         }
 
-        /* Imágenes laterales ampliadas y simétricas */
+        /* Imágenes laterales ampliadas (aprox. la mitad de la página principal) */
         .hero-side-img {
             position: absolute;
-            bottom: -20px;
-            width: 450px; /* Tamaño más grande acorde al área solicitada */
+            bottom: -40px;
+            width: 650px; 
             opacity: 0.9;
             pointer-events: none;
             transition: transform 0.1s ease-out;
@@ -298,12 +298,12 @@
         }
 
         .hero-side-img.left {
-            left: 2%;
+            left: -5%;
             transform: scaleX(1); /* Viendo hacia la derecha */
         }
 
         .hero-side-img.right {
-            right: 2%;
+            right: -5%;
             transform: scaleX(-1); /* Espejo: Viendo hacia la izquierda */
         }
 
@@ -933,13 +933,13 @@
         </div>
     </aside>
 
-    <!-- HERO / PORTADA CON NUEVAS IMÁGENES LATERALES AMPLIADAS -->
+    <!-- HERO / PORTADA CON NUEVAS IMÁGENES LATERALES AMPLIADAS (FOTO PARA PAGINA PRINCIPAL 2) -->
     <section class="hero">
-        <!-- Figura izquierda (foto para pagina principal.png) -->
-        <img src="imagenes/foto para pagina principal.png" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
+        <!-- Figura izquierda (foto para pagina principal 2.png) -->
+        <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
         
         <!-- Figura derecha simétrica (espejo) -->
-        <img src="imagenes/foto para pagina principal.png" alt="Ilustración lateral derecha" class="hero-side-img right" id="sideImgRight">
+        <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral derecha" class="hero-side-img right" id="sideImgRight">
 
         <div class="hero-content">
             <div class="hero-subtitle">Visual Archive & Atelier</div>

@@ -46,7 +46,7 @@
             text-decoration: none;
         }
 
-        /* HEADER / BANNER BLANCO INTELIGENTE CON FIRMA */
+        /* HEADER / BANNER BLANCO INTELIGENTE CON FIRMA Y BOTÓN BACK SUPERIOR */
         header {
             position: fixed;
             top: 0;
@@ -61,23 +61,45 @@
             background-color: #ffffff;
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             box-sizing: border-box;
-            transition: transform 0.4s ease, background-color 0.3s ease, color 0.3s ease;
+            transition: transform 0.4s ease;
         }
 
         header.header-hidden {
             transform: translateY(-100%);
         }
 
+        .header-left-slot {
+            width: 120px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-back-btn {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--text-main);
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: none; /* Se muestra con JS en categorías */
+        }
+
+        .header-back-btn:hover {
+            background: var(--text-main);
+            color: #ffffff;
+        }
+
         .header-logo-firma {
-            height: 40px;
+            height: 38px;
             object-fit: contain;
         }
 
-        header.header-light .lang-select {
-            color: #ffffff !important;
-        }
-
         .lang-select {
+            width: 120px;
+            text-align: right;
             font-size: 1.1rem;
             letter-spacing: 2px;
             color: var(--text-main);
@@ -107,7 +129,7 @@
             background-color: #ffffff;
             overflow: hidden;
             padding: 0 20px;
-            margin-top: 80px; /* Espacio por el nuevo banner blanco */
+            margin-top: 80px;
         }
 
         .hero-side-img {
@@ -332,7 +354,7 @@
         }
 
 
-        /* --- SECCIÓN DE PINTURAS AL ÓLEO (ESTILO HORIZONTAL) --- */
+        /* --- SECCIÓN DE PINTURAS AL ÓLEO --- */
         .oil-section-wrapper {
             position: relative;
             width: 100vw;
@@ -374,26 +396,7 @@
             font-style: italic;
             font-size: 1.15rem;
             color: #555;
-            margin-bottom: 30px;
             line-height: 1.5;
-        }
-
-        .oil-back-btn {
-            align-self: flex-start;
-            background: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--text-main);
-            padding: 10px 24px;
-            font-size: 0.95rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .oil-back-btn:hover {
-            background: var(--text-main);
-            color: #ffffff;
         }
 
         .oil-scroll-container {
@@ -481,7 +484,7 @@
         }
 
 
-        /* --- SECCIÓN DE DIBUJO (SUPERPOSICIÓN DE BANNER Y GRID UNIDO SIN ESPACIOS) --- */
+        /* --- SECCIÓN DE DIBUJO (SUPERPOSICIÓN PARALLAX LIMPIA) --- */
         .drawing-section-wrapper {
             position: relative;
             width: 100vw;
@@ -489,19 +492,21 @@
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
             box-sizing: border-box;
-            overflow: hidden;
         }
 
         .drawing-hero-banner {
             position: relative;
             width: 100%;
-            height: 75vh;
+            height: 70vh;
             background-image: url('imagenes/bodegon gotico.JPG');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: sticky;
+            top: 80px;
+            z-index: 1;
         }
 
         .drawing-hero-banner::before {
@@ -511,53 +516,31 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.35);
         }
 
-        /* Letras de dibujo blancas, más pequeñas, sin recuadro blanco */
         .drawing-banner-title {
             position: relative;
             z-index: 2;
             color: #ffffff;
             font-family: var(--font-titles) !important;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             letter-spacing: 6px;
             text-transform: uppercase;
             text-shadow: 0 2px 10px rgba(0,0,0,0.6);
         }
 
-        /* Botón back en la esquina inferior izquierda del banner de dibujo */
-        .drawing-back-btn {
-            position: absolute;
-            bottom: 30px;
-            left: 40px;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.85);
-            color: #000000;
-            border: 1px solid #000000;
-            padding: 10px 22px;
-            font-size: 0.95rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .drawing-back-btn:hover {
-            background: #000000;
-            color: #ffffff;
-        }
-
-        /* Grid de dibujo unidas sin separaciones blancas y sin info abajo */
         .drawing-grid-3x3 {
             position: relative;
-            z-index: 5;
+            z-index: 10;
             max-width: 1400px;
-            margin: -80px auto 0 auto; /* Sube tapando el banner elegantemente */
+            margin: 0 auto;
             padding: 0 30px 100px 30px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0; /* Totalmente unidas sin separaciones */
+            gap: 0;
+            background-color: #ffffff;
+            box-shadow: 0 -20px 40px rgba(0,0,0,0.15);
         }
 
         .drawing-card {
@@ -588,7 +571,7 @@
         }
 
 
-        /* --- SECCIÓN DE FOTOGRAFÍA (IMÁGENES A ESPACIO COMPLETO SIN BORDES NEGROS) --- */
+        /* --- SECCIÓN DE FOTOGRAFÍA (ESPACIO COMPLETO & ENCUADRE DE F1000019) --- */
         .photo-section-wrapper {
             position: relative;
             width: 100vw;
@@ -642,12 +625,16 @@
             height: 85vh;
         }
 
-        /* Ocupar todo el espacio sin bordes negros sobrantes (object-fit: cover) */
         .photo-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
+        }
+
+        /* Ajuste específico para F1000019 (parte superior visible) */
+        .photo-item img.img-focus-top {
+            object-position: top center !important;
         }
 
         .photo-item:hover img {
@@ -684,31 +671,96 @@
             letter-spacing: 1px;
         }
 
-        .photo-back-btn {
+
+        /* --- VISTA MODAL EXCLUSIVA PARA FOTOGRAFÍA (AMPLIADA CENTRADA + LUPA DERECHA INFERIOR) --- */
+        .photo-modal-overlay {
             position: fixed;
-            bottom: 30px;
-            left: 40px;
-            z-index: 150;
-            background: rgba(0, 0, 0, 0.7);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(10px);
+            z-index: 250;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.35s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .photo-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .photo-modal-wrapper {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-modal-wrapper img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            transition: transform 0.1s ease-out;
+            transform-origin: center center;
+        }
+
+        .photo-modal-close {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            background: none;
+            border: none;
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 12px 25px;
-            font-size: 1rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            font-size: 2.2rem;
             cursor: pointer;
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
         }
 
-        .photo-back-btn:hover {
-            background: #ffffff;
-            color: #000000;
-            border-color: #ffffff;
+        .photo-zoom-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ffffff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 20;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            padding: 8px;
         }
 
+        .photo-zoom-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            box-shadow: none;
+        }
 
-        /* --- VISTA MODAL AMPLIADA CON LUPA A LA DERECHA INFERIOR --- */
+        .photo-zoom-btn.active {
+            background: #000000;
+            border-color: #000000;
+        }
+
+        .photo-zoom-btn.active img {
+            filter: invert(1);
+        }
+
+        /* --- MODAL ESTÁNDAR PARA OTRAS SECCIONES --- */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -775,44 +827,6 @@
             height: auto;
             max-height: 70vh;
             object-fit: contain;
-            transition: transform 0.1s ease-out;
-            transform-origin: center center;
-        }
-
-        /* Lupa ubicada exactamente en la esquina inferior derecha */
-        .zoom-toggle-btn {
-            position: absolute;
-            bottom: 12px;
-            right: 12px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid var(--text-main);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 15;
-            transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-            padding: 6px;
-        }
-
-        .zoom-toggle-btn img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: none;
-        }
-
-        .zoom-toggle-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .zoom-toggle-btn.active {
-            background: var(--text-main);
-            border-color: var(--text-main);
         }
 
         .modal-details {
@@ -968,7 +982,7 @@
             font-size: 1.5rem;
         }
 
-        /* --- FOOTER & FORMULARIO DE CONTACTO --- */
+        /* --- FOOTER Y FORMULARIO DE CONTACTO --- */
         footer {
             padding: 100px 30px 40px 30px;
             background-color: var(--bg-main);
@@ -1096,10 +1110,14 @@
 </head>
 <body>
 
-    <!-- BANNER BLANCO INTELIGENTE CON FIRMA -->
+    <!-- HEADER / BANNER BLANCO INTELIGENTE CON FIRMA Y BOTÓN BACK -->
     <header id="mainHeader">
-        <div></div>
-        <img src="imagenes/firma.png" alt="Firma Brunelio" class="header-logo-firma">
+        <div class="header-left-slot">
+            <button class="header-back-btn" id="headerBackBtn" onclick="goBackToMain()">← Back</button>
+        </div>
+        
+        <img src="imagenes/firma .png" alt="BRUNELIO" class="header-logo-firma">
+        
         <div class="lang-select" id="langToggle" onclick="toggleLanguage()">
             <span class="active" id="langEs">ES</span> / <span id="langEn">EN</span>
         </div>
@@ -1132,7 +1150,6 @@
                     </div>
                 </div>
 
-                <!-- Imagen del índice de dibujo cambiada a silla.jpg -->
                 <div class="carousel-card" onclick="jumpToCard(1)">
                     <img src="imagenes/silla.jpg" alt="Dibujo">
                     <div class="card-explore-overlay">
@@ -1161,12 +1178,11 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE PINTURAS AL ÓLEO (SIN PRECIOS) ==================== -->
+    <!-- ==================== SECCIÓN DE PINTURAS AL ÓLEO ==================== -->
     <section id="galleryOil" style="display:none;" class="oil-section-wrapper">
         <div class="oil-left-panel">
             <h2 class="oil-section-title" id="oilTitleText">PINTURAS<br>AL ÓLEO</h2>
             <p class="oil-section-subtitle" id="oilSubText">Obras de taller y catálogo de adquisición reciente</p>
-            <button class="oil-back-btn" onclick="goBackToMain()">← Back</button>
         </div>
 
         <div class="oil-scroll-container" id="oilScrollContainer">
@@ -1262,10 +1278,9 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE DIBUJO (SUPERPOSICIÓN Y SIN PRECIOS) ==================== -->
+    <!-- ==================== SECCIÓN DE DIBUJO (CON PARALLAX LINDO) ==================== -->
     <section id="galleryDrawing" style="display:none;" class="drawing-section-wrapper">
         <div class="drawing-hero-banner">
-            <button class="drawing-back-btn" onclick="goBackToMain()">← Back</button>
             <div class="drawing-banner-title">DIBUJO</div>
         </div>
 
@@ -1331,106 +1346,105 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE FOTOGRAFÍA (ESPACIO COMPLETO + IMAGEN ADICIONAL) ==================== -->
+    <!-- ==================== SECCIÓN DE FOTOGRAFÍA ==================== -->
     <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
-        <button class="photo-back-btn" onclick="goBackToMain()">← Back</button>
         <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
             <h2 class="photo-section-title">Fotografía</h2>
             
             <div class="photo-split-grid">
                 
-                <div class="photo-item horizontal" onclick="openModal('F1000007', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1000007.JPG?v=2', 'Serie documental y de archivo.')">
+                <div class="photo-item horizontal" onclick="openPhotoModal('imagenes/F1000007.JPG?v=2')">
                     <img src="imagenes/F1000007.JPG?v=2" alt="F1000007">
                     <div class="photo-info-overlay"><div class="photo-title">F1000007</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('10.JPG', 'Fotografía Fine Art', '50 x 70 cm', 'imagenes/10.JPG?v=2', 'Captura fotográfica de taller.')">
+                <div class="photo-item" onclick="openPhotoModal('imagenes/10.JPG?v=2')">
                     <img src="imagenes/10.JPG?v=2" alt="10.JPG">
                     <div class="photo-info-overlay"><div class="photo-title">10.JPG</div><div class="photo-meta">Fine Art Print · 2026</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('El salto', 'Fotografía Fine Art', '60 x 80 cm', 'imagenes/El salto.jpg?v=2', 'Registro fotográfico expresivo.')">
+                <div class="photo-item" onclick="openPhotoModal('imagenes/El salto.jpg?v=2')">
                     <img src="imagenes/El salto.jpg?v=2" alt="El salto">
                     <div class="photo-info-overlay"><div class="photo-title">El salto</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
 
-                <div class="photo-item horizontal" onclick="openModal('F1000014', 'Fotografía analógica', '60 x 80 cm', 'imagenes/F1000014.JPG?v=2', 'Estudio de iluminación y sombras.')">
+                <div class="photo-item horizontal" onclick="openPhotoModal('imagenes/F1000014.JPG?v=2')">
                     <img src="imagenes/F1000014.JPG?v=2" alt="F1000014">
                     <div class="photo-info-overlay"><div class="photo-title">F1000014</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('F1000006', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1000006.JPG?v=2', 'Serie documental y de archivo.')">
+                <div class="photo-item" onclick="openPhotoModal('imagenes/F1000006.JPG?v=2')">
                     <img src="imagenes/F1000006.JPG?v=2" alt="F1000006">
                     <div class="photo-info-overlay"><div class="photo-title">F1000006</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('F1000019', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1000019.JPG?v=2', 'Captura de atelier.')">
-                    <img src="imagenes/F1000019.JPG?v=2" alt="F1000019">
+                <!-- Foto F1000019 con encuadre en la parte superior -->
+                <div class="photo-item" onclick="openPhotoModal('imagenes/F1000019.JPG?v=2')">
+                    <img src="imagenes/F1000019.JPG?v=2" alt="F1000019" class="img-focus-top">
                     <div class="photo-info-overlay"><div class="photo-title">F1000019</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <div class="photo-item horizontal" onclick="openModal('F1000023', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1000023.JPG?v=2', 'Captura de atelier.')">
+                <div class="photo-item horizontal" onclick="openPhotoModal('imagenes/F1000023.JPG?v=2')">
                     <img src="imagenes/F1000023.JPG?v=2" alt="F1000023">
                     <div class="photo-info-overlay"><div class="photo-title">F1000023</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <div class="photo-item horizontal" onclick="openModal('F1000024', 'Fotografía analógica', '60 x 80 cm', 'imagenes/F1000024.JPG?v=2', 'Estudio compositivo.')">
+                <div class="photo-item horizontal" onclick="openPhotoModal('imagenes/F1000024.JPG?v=2')">
                     <img src="imagenes/F1000024.JPG?v=2" alt="F1000024">
                     <div class="photo-info-overlay"><div class="photo-title">F1000024</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <!-- Par de F1000026(1) con imagen adicional para llenar espacio -->
-                <div class="photo-item" onclick="openModal('F1000026(1)', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1000026(1).JPG?v=3', 'Exploración visual en blanco y negro.')">
+                <div class="photo-item" onclick="openPhotoModal('imagenes/F1000026(1).JPG?v=3')">
                     <img src="imagenes/F1000026(1).JPG?v=3" alt="F1000026(1)">
                     <div class="photo-info-overlay"><div class="photo-title">F1000026(1)</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('Complemento Fotográfico', 'Fotografía Fine Art', '50 x 70 cm', 'imagenes/10.JPG?v=2', 'Estudio adicional de archivo.')">
-                    <img src="imagenes/10.JPG?v=2" alt="Complemento Fotográfico">
+                <div class="photo-item" onclick="openPhotoModal('imagenes/10.JPG?v=2')">
+                    <img src="imagenes/10.JPG?v=2" alt="Estudio Adjunto">
                     <div class="photo-info-overlay"><div class="photo-title">Estudio Adjunto</div><div class="photo-meta">Fine Art Print · 2024</div></div>
                 </div>
 
-                <div class="photo-item horizontal" onclick="openModal('F1000031', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1000031.JPG?v=2', 'Registro fotográfico de obras.')">
+                <div class="photo-item horizontal" onclick="openPhotoModal('imagenes/F1000031.JPG?v=2')">
                     <img src="imagenes/F1000031.JPG?v=2" alt="F1000031">
                     <div class="photo-info-overlay"><div class="photo-title">F1000031</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <div class="photo-item horizontal" onclick="openModal('F1000032', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1000032.JPG?v=2', 'Registro fotográfico de obras.')">
+                <div class="photo-item horizontal" onclick="openPhotoModal('imagenes/F1000032.JPG?v=2')">
                     <img src="imagenes/F1000032.JPG?v=2" alt="F1000032">
                     <div class="photo-info-overlay"><div class="photo-title">F1000032</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <div class="photo-item horizontal" onclick="openModal('F1010012', 'Fotografía analógica', '60 x 80 cm', 'imagenes/F1010012.JPG?v=2', 'Estudio de claroscuro fotográfico.')">
+                <div class="photo-item horizontal" onclick="openPhotoModal('imagenes/F1010012.JPG?v=2')">
                     <img src="imagenes/F1010012.JPG?v=2" alt="F1010012">
                     <div class="photo-info-overlay"><div class="photo-title">F1010012</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('F1010024', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1010024.JPG?v=2', 'Composición de luz natural.')">
+                <div class="photo-item" onclick="openPhotoModal('imagenes/F1010024.JPG?v=2')">
                     <img src="imagenes/F1010024.JPG?v=2" alt="F1010024">
                     <div class="photo-info-overlay"><div class="photo-title">F1010024</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('F1010025', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1010025.JPG?v=2', 'Composición de luz natural.')">
+                <div class="photo-item" onclick="openPhotoModal('imagenes/F1010025.JPG?v=2')">
                     <img src="imagenes/F1010025.JPG?v=2" alt="F1010025">
                     <div class="photo-info-overlay"><div class="photo-title">F1010025</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('F1010026', 'Fotografía analógica', '60 x 80 cm', 'imagenes/F1010026.JPG?v=2', 'Estudio fotográfico de texturas.')">
+                <div class="photo-item" onclick="openPhotoModal('imagenes/F1010026.JPG?v=2')">
                     <img src="imagenes/F1010026.JPG?v=2" alt="F1010026">
                     <div class="photo-info-overlay"><div class="photo-title">F1010026</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('F1010036', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1010036.JPG?v=2', 'Registro de taller y modelos.')">
+                <div class="photo-item" onclick="openPhotoModal('imagenes/F1010036.JPG?v=2')">
                     <img src="imagenes/F1010036.JPG?v=2" alt="F1010036">
                     <div class="photo-info-overlay"><div class="photo-title">F1010036</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('Satygne 1', 'Fotografía Fine Art', '60 x 80 cm', 'imagenes/Satygne_1.jpg?v=2', 'Composición inspirada en la mitología clásica.')">
+                <div class="photo-item" onclick="openPhotoModal('imagenes/Satygne_1.jpg?v=2')">
                     <img src="imagenes/Satygne_1.jpg?v=2" alt="Satygne 1">
                     <div class="photo-info-overlay"><div class="photo-title">Satygne 1</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('Spiegel', 'Fotografía Fine Art', '70 x 100 cm', 'imagenes/Spiegel.jpg?v=2', 'Estudio de reflejos y perspectiva.')">
+                <div class="photo-item" onclick="openPhotoModal('imagenes/Spiegel.jpg?v=2')">
                     <img src="imagenes/Spiegel.jpg?v=2" alt="Spiegel">
                     <div class="photo-info-overlay"><div class="photo-title">Spiegel</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
@@ -1439,15 +1453,23 @@
         </div>
     </section>
 
-    <!-- VISTA MODAL PARA VER DETALLES DE OBRA (CON LUPA DERECHA INFERIOR) -->
+    <!-- VISTA MODAL EXCLUSIVA PARA FOTOGRAFÍA (CENTRADAS CON LUPA EN ESQUINA INFERIOR DERECHA) -->
+    <div class="photo-modal-overlay" id="photoModal">
+        <div class="photo-modal-wrapper" id="photoModalWrapper">
+            <button class="photo-modal-close" id="closePhotoModal">&times;</button>
+            <img id="pModalImg" src="" alt="Fotografía ampliada">
+            <button class="photo-zoom-btn" id="photoZoomBtn" title="Activar/Desactivar Lupa" onclick="togglePhotoZoom()">
+                <img src="imagenes/lupa.png" alt="Lupa">
+            </button>
+        </div>
+    </div>
+
+    <!-- VISTA MODAL PARA OTRAS SECCIONES (ÓLEO/DIBUJO) -->
     <div class="modal-overlay" id="artModal">
         <div class="modal-content">
             <button class="modal-close" id="closeModal">&times;</button>
             <div class="modal-img-container" id="modalImgContainer">
                 <img id="mImg" src="" alt="Detalle de obra">
-                <button class="zoom-toggle-btn" id="zoomToggleBtn" title="Activar/Desactivar Lupa" onclick="toggleZoomMode()">
-                    <img src="imagenes/lupa.png" alt="Lupa">
-                </button>
             </div>
             <div class="modal-details">
                 <h3 class="modal-title" id="mTitle">Título de la Obra</h3>
@@ -1545,6 +1567,7 @@
     <!-- JAVASCRIPT / LÓGICA DE INTERACCIÓN -->
     <script>
         const mainHeader = document.getElementById('mainHeader');
+        const headerBackBtn = document.getElementById('headerBackBtn');
         const utopiaSection = document.getElementById('utopiaCarousel');
 
         function filterGallery(category, year = null) {
@@ -1552,49 +1575,47 @@
             const galleryDrawingSection = document.getElementById('galleryDrawing');
             const galleryOilSection = document.getElementById('galleryOil');
 
+            // Mostrar el botón ← Back en el header al entrar a cualquier categoría
+            headerBackBtn.style.display = 'inline-block';
+
             if (category === 'fotografia') {
                 galleryOilSection.style.display = 'none';
                 galleryDrawingSection.style.display = 'none';
                 galleryPhotoSection.style.display = 'block';
                 galleryPhotoSection.scrollIntoView({ behavior: 'smooth' });
-                return;
             } else if (category === 'dibujo') {
                 galleryOilSection.style.display = 'none';
                 galleryPhotoSection.style.display = 'none';
                 galleryDrawingSection.style.display = 'block';
                 galleryDrawingSection.scrollIntoView({ behavior: 'smooth' });
-                return;
             } else if (category === 'oleos' || category === 'retratos' || category === 'all') {
                 galleryPhotoSection.style.display = 'none';
                 galleryDrawingSection.style.display = 'none';
                 galleryOilSection.style.display = 'flex';
                 galleryOilSection.scrollIntoView({ behavior: 'smooth' });
-                return;
             }
         }
 
         function goBackToMain() {
+            headerBackBtn.style.display = 'none';
             utopiaSection.scrollIntoView({ behavior: 'smooth' });
         }
 
-        /* --- CONTROL DE SCROLL INTELIGENTE PARA EL BANNER BLANCO --- */
+        /* --- CONTROL DE SCROLL PARA HEADER BLANCO --- */
         let lastScrollTop = 0;
         window.addEventListener('scroll', () => {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
             if (scrollTop <= 50) {
                 mainHeader.classList.remove('header-hidden');
             } else if (scrollTop > lastScrollTop) {
-                // Bajando: Ocultar banner
                 mainHeader.classList.add('header-hidden');
             } else {
-                // Subiendo: Mostrar banner
                 mainHeader.classList.remove('header-hidden');
             }
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
 
-        /* --- ARRASTRE Y SCROLL PARA LA SECCIÓN DE ÓLEO --- */
+        /* --- SCROLL Y DRAG EN ÓLEO --- */
         const oilScrollContainer = document.getElementById('oilScrollContainer');
         let isOilDragging = false;
         let oilStartX, oilScrollLeft;
@@ -1623,7 +1644,7 @@
             }, { passive: false });
         }
 
-        /* --- CARRUSEL HORIZONTAL PRINCIPAL --- */
+        /* --- CARRUSEL PRINCIPAL --- */
         const categoriesData = [
             { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', filterCat: 'oleos' },
             { titleEs: 'Dibujo', titleEn: 'Drawing', filterCat: 'dibujo' },
@@ -1683,26 +1704,19 @@
 
         dragContainer.addEventListener('mousedown', dragStart);
         dragContainer.addEventListener('touchstart', dragStart, { passive: true });
-
         dragContainer.addEventListener('mouseup', dragEnd);
         dragContainer.addEventListener('mouseleave', dragEnd);
         dragContainer.addEventListener('touchend', dragEnd);
-
         dragContainer.addEventListener('mousemove', drag);
         dragContainer.addEventListener('touchmove', drag, { passive: true });
 
-        function dragStart(e) {
-            isDragging = true;
-            startPos = getPositionX(e);
-        }
-
+        function dragStart(e) { isDragging = true; startPos = getPositionX(e); }
         function drag(e) {
             if (!isDragging) return;
             const currentPosition = getPositionX(e);
             const diff = currentPosition - startPos;
             track.style.transform = `translateX(${prevTranslate + diff}px)`;
         }
-
         function dragEnd(e) {
             if (!isDragging) return;
             isDragging = false;
@@ -1713,13 +1727,10 @@
             } else if (movedBy > 50) {
                 currentIndex = (currentIndex - 1 + cards.length) % cards.length;
             }
-
             updateCarouselPosition();
         }
 
-        function getPositionX(e) {
-            return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        }
+        function getPositionX(e) { return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX; }
 
         let scrollTimeout;
         dragContainer.addEventListener('wheel', (e) => {
@@ -1757,12 +1768,8 @@
             if (scrollY <= window.innerHeight) {
                 const scaleValue = 1 + scrollY * 0.0015;
                 const translateYValue = -scrollY * 0.35;
-
-                const transformLeft = `scaleX(1) scale(${scaleValue}) translateY(${translateYValue}px)`;
-                const transformRight = `scaleX(-1) scale(${scaleValue}) translateY(${translateYValue}px)`;
-
-                if(sideImgLeft) sideImgLeft.style.transform = transformLeft;
-                if(sideImgRight) sideImgRight.style.transform = transformRight;
+                if(sideImgLeft) sideImgLeft.style.transform = `scaleX(1) scale(${scaleValue}) translateY(${translateYValue}px)`;
+                if(sideImgRight) sideImgRight.style.transform = `scaleX(-1) scale(${scaleValue}) translateY(${translateYValue}px)`;
             }
         });
 
@@ -1780,10 +1787,8 @@
                 
                 document.getElementById('heroDescText').innerText = 'Oil · Ink · Traditional Figurative Art';
                 document.getElementById('heroBtnText').innerText = 'Explore Gallery';
-
                 document.getElementById('oilTitleText').innerHTML = 'OIL<br>PAINTINGS';
                 document.getElementById('oilSubText').innerText = 'Atelier works and recent acquisition catalog';
-
                 document.getElementById('labelClientType').innerText = 'Business or Individual';
                 document.getElementById('optIndividual').innerText = 'Individual Client';
                 document.getElementById('optGallery').innerText = 'Gallery / Business / Collector';
@@ -1793,7 +1798,6 @@
                 document.getElementById('labelEmail').innerText = 'Email *';
                 document.getElementById('labelMessage').innerText = 'Message *';
                 document.getElementById('submitBtnText').innerText = 'Submit';
-                
                 document.getElementById('contactSectionTitle').innerText = 'CONTACT / COMMISSIONS';
                 document.getElementById('contactSubText').innerText = 'For inquiries regarding collection works, private commission requests, or collaborations, please fill out the form below:';
                 document.getElementById('directEmailText').innerText = 'Direct Studio Email';
@@ -1804,10 +1808,8 @@
                 
                 document.getElementById('heroDescText').innerText = 'Óleo · Tinta · Arte Figurativo Tradicional';
                 document.getElementById('heroBtnText').innerText = 'Explorar Galería';
-
                 document.getElementById('oilTitleText').innerHTML = 'PINTURAS<br>AL ÓLEO';
                 document.getElementById('oilSubText').innerText = 'Obras de taller y catálogo de adquisición reciente';
-
                 document.getElementById('labelClientType').innerText = 'Empresa o Particular';
                 document.getElementById('optIndividual').innerText = 'Cliente Individual';
                 document.getElementById('optGallery').innerText = 'Galería / Empresa / Coleccionista';
@@ -1817,7 +1819,6 @@
                 document.getElementById('labelEmail').innerText = 'Correo electrónico *';
                 document.getElementById('labelMessage').innerText = 'Mensaje *';
                 document.getElementById('submitBtnText').innerText = 'Submit';
-                
                 document.getElementById('contactSectionTitle').innerText = 'CONTACTO / ENCARGOS';
                 document.getElementById('contactSubText').innerText = 'Para consultas sobre adquisición de obras de colección, solicitudes de encargos privados o comisiones, completa el siguiente formulario:';
                 document.getElementById('directEmailText').innerText = 'Correo Directo del Taller';
@@ -1825,63 +1826,83 @@
             }
         }
 
-        const artModal = document.getElementById('artModal');
-        const closeModalBtn = document.getElementById('closeModal');
-        const modalImg = document.getElementById('mImg');
-        const modalImgContainer = document.getElementById('modalImgContainer');
-        const zoomToggleBtn = document.getElementById('zoomToggleBtn');
+        /* --- LÓGICA MODAL FOTOGRAFÍA (AMPLIADA CENTRADA CON LUPA) --- */
+        const photoModal = document.getElementById('photoModal');
+        const pModalImg = document.getElementById('pModalImg');
+        const photoModalWrapper = document.getElementById('photoModalWrapper');
+        const photoZoomBtn = document.getElementById('photoZoomBtn');
+        const closePhotoModalBtn = document.getElementById('closePhotoModal');
 
-        let isZoomActive = false;
+        let isPhotoZoomActive = false;
 
-        function openModal(title, tech, size, imgSrc, desc) {
-            document.getElementById('mTitle').innerText = title;
-            document.getElementById('mTech').innerText = `${tech} · ${size}`;
-            document.getElementById('mDesc').innerText = desc;
-            modalImg.src = imgSrc;
-            
-            isZoomActive = false;
-            zoomToggleBtn.classList.remove('active');
-            modalImg.style.transform = 'scale(1)';
-            modalImg.style.transformOrigin = 'center center';
-            modalImg.style.cursor = 'default';
-
-            const inquireBtn = document.getElementById('mInquire');
-            inquireBtn.href = `mailto:cezzarostudio@gmail.com?subject=Consulta%20sobre%20obra:%20${encodeURIComponent(title)}`;
-            
-            artModal.classList.add('active');
+        function openPhotoModal(imgSrc) {
+            pModalImg.src = imgSrc;
+            isPhotoZoomActive = false;
+            photoZoomBtn.classList.remove('active');
+            pModalImg.style.transform = 'scale(1)';
+            pModalImg.style.transformOrigin = 'center center';
+            pModalImg.style.cursor = 'default';
+            photoModal.classList.add('active');
         }
 
-        function toggleZoomMode() {
-            isZoomActive = !isZoomActive;
-            if (isZoomActive) {
-                zoomToggleBtn.classList.add('active');
-                modalImg.style.cursor = 'crosshair';
+        function togglePhotoZoom() {
+            isPhotoZoomActive = !isPhotoZoomActive;
+            if (isPhotoZoomActive) {
+                photoZoomBtn.classList.add('active');
+                pModalImg.style.cursor = 'crosshair';
             } else {
-                zoomToggleBtn.classList.remove('active');
-                modalImg.style.transform = 'scale(1)';
-                modalImg.style.transformOrigin = 'center center';
-                modalImg.style.cursor = 'default';
+                photoZoomBtn.classList.remove('active');
+                pModalImg.style.transform = 'scale(1)';
+                pModalImg.style.transformOrigin = 'center center';
+                pModalImg.style.cursor = 'default';
             }
         }
 
-        modalImgContainer.addEventListener('mousemove', (e) => {
-            if (!isZoomActive) return;
-            const rect = modalImgContainer.getBoundingClientRect();
+        photoModalWrapper.addEventListener('mousemove', (e) => {
+            if (!isPhotoZoomActive) return;
+            const rect = pModalImg.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
 
             const xPercent = (x / rect.width) * 100;
             const yPercent = (y / rect.height) * 100;
 
-            modalImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
-            modalImg.style.transform = 'scale(2.5)';
+            pModalImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+            pModalImg.style.transform = 'scale(2.2)';
         });
 
-        modalImgContainer.addEventListener('mouseleave', () => {
-            if (isZoomActive) {
-                modalImg.style.transform = 'scale(1)';
+        photoModalWrapper.addEventListener('mouseleave', () => {
+            if (isPhotoZoomActive) {
+                pModalImg.style.transform = 'scale(1)';
             }
         });
+
+        closePhotoModalBtn.addEventListener('click', () => {
+            photoModal.classList.remove('active');
+        });
+
+        photoModal.addEventListener('click', (e) => {
+            if (e.target === photoModal) {
+                photoModal.classList.remove('active');
+            }
+        });
+
+        /* --- LÓGICA MODAL ÓLEO / DIBUJO --- */
+        const artModal = document.getElementById('artModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const modalImg = document.getElementById('mImg');
+
+        function openModal(title, tech, size, imgSrc, desc) {
+            document.getElementById('mTitle').innerText = title;
+            document.getElementById('mTech').innerText = `${tech} · ${size}`;
+            document.getElementById('mDesc').innerText = desc;
+            modalImg.src = imgSrc;
+
+            const inquireBtn = document.getElementById('mInquire');
+            inquireBtn.href = `mailto:cezzarostudio@gmail.com?subject=Consulta%20sobre%20obra:%20${encodeURIComponent(title)}`;
+            
+            artModal.classList.add('active');
+        }
 
         closeModalBtn.addEventListener('click', () => {
             artModal.classList.remove('active');
@@ -1893,12 +1914,8 @@
             }
         });
 
-        window.addEventListener('load', () => {
-            updateCarouselPosition();
-        });
-        window.addEventListener('resize', () => {
-            updateCarouselPosition();
-        });
+        window.addEventListener('load', () => { updateCarouselPosition(); });
+        window.addEventListener('resize', () => { updateCarouselPosition(); });
     </script>
 </body>
 </html>

@@ -284,7 +284,6 @@
             padding: 0 20px;
         }
 
-        /* Imágenes laterales ampliadas (aprox. la mitad de la página principal) */
         .hero-side-img {
             position: absolute;
             bottom: -40px;
@@ -299,12 +298,12 @@
 
         .hero-side-img.left {
             left: -5%;
-            transform: scaleX(1); /* Viendo hacia la derecha */
+            transform: scaleX(1);
         }
 
         .hero-side-img.right {
             right: -5%;
-            transform: scaleX(-1); /* Espejo: Viendo hacia la izquierda */
+            transform: scaleX(-1);
         }
 
         .hero-content {
@@ -318,14 +317,14 @@
             font-style: normal;
             font-size: 1.2rem;
             color: var(--text-main);
-            margin-bottom: 25px;
+            margin-bottom: 8px;
             letter-spacing: 3px;
             text-transform: uppercase;
         }
 
         .hero-title-wrapper {
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 5px;
         }
 
         .hero-title {
@@ -344,8 +343,8 @@
             font-size: 1.2rem;
             color: var(--text-main);
             letter-spacing: 3px;
-            margin-top: 15px;
-            margin-bottom: 35px;
+            margin-top: 8px;
+            margin-bottom: 25px;
             text-transform: uppercase;
         }
 
@@ -424,7 +423,7 @@
         .art-img-wrapper img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Fuerza el formato vertical idéntico a las demás tarjetas */
             filter: brightness(0.95) contrast(1.05);
             transition: transform 0.6s ease, filter 0.6s ease;
         }
@@ -551,7 +550,6 @@
             transform-origin: center center;
         }
 
-        /* Botón de la Lupa */
         .zoom-toggle-btn {
             position: absolute;
             bottom: 12px;
@@ -876,7 +874,7 @@
                 <span></span>
                 <span></span>
             </div>
-            <span>Índice</span>
+            <span id="navIndexText">Índice</span>
         </button>
 
         <div class="logo-container">
@@ -894,16 +892,16 @@
         <button class="close-btn" id="closeSidebar">&times;</button>
         <div>
             <div style="letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; color: var(--text-main);">BRUNELIO ARCHIVE</div>
-            <ul class="sidebar-nav">
-                <li><a href="#gallery" onclick="filterGallery('disponible'); closeMenu();">Obras Disponibles <span>→</span></a></li>
+            <ul class="sidebar-nav" id="sidebarNavList">
+                <li><a href="#gallery" onclick="filterGallery('disponible'); closeMenu();"><span class="menu-item-1">Obras Disponibles</span> <span>→</span></a></li>
                 
                 <!-- DESPLEGABLE PINTURAS AL ÓLEO POR AÑO -->
                 <li class="has-submenu" id="oleosSubmenu">
                     <div class="submenu-trigger" onclick="toggleOleosSubmenu()">
-                        <span>Pinturas al Óleo</span>
+                        <span class="menu-item-2">Pinturas al Óleo</span>
                         <span class="submenu-arrow">▶</span>
                     </div>
-                    <ul class="submenu-years">
+                    <ul class="submenu-years" id="submenuYearsList">
                         <li><a href="#gallery" onclick="filterGallery('oleos'); closeMenu();">Ver Todo el Óleo</a></li>
                         <li><a href="#gallery" onclick="filterGallery('oleos', '2026'); closeMenu();">2026</a></li>
                         <li><a href="#gallery" onclick="filterGallery('oleos', '2025'); closeMenu();">2025</a></li>
@@ -920,11 +918,11 @@
                     </ul>
                 </li>
 
-                <li><a href="#gallery" onclick="filterGallery('dibujo'); closeMenu();">Dibujo <span>→</span></a></li>
-                <li><a href="#gallery" onclick="filterGallery('fotografia'); closeMenu();">Fotografía <span>→</span></a></li>
-                <li><a href="#gallery" onclick="filterGallery('retratos'); closeMenu();">Retratos <span>→</span></a></li>
-                <li><a href="#bio" onclick="closeMenu();">Biografía <span>→</span></a></li>
-                <li><a href="#contact" onclick="closeMenu();">Contacto / Encargos <span>→</span></a></li>
+                <li><a href="#gallery" onclick="filterGallery('dibujo'); closeMenu();"><span class="menu-item-3">Dibujo</span> <span>→</span></a></li>
+                <li><a href="#gallery" onclick="filterGallery('fotografia'); closeMenu();"><span class="menu-item-4">Fotografía</span> <span>→</span></a></li>
+                <li><a href="#gallery" onclick="filterGallery('retratos'); closeMenu();"><span class="menu-item-5">Retratos</span> <span>→</span></a></li>
+                <li><a href="#bio" onclick="closeMenu();"><span class="menu-item-6">Biografía</span> <span>→</span></a></li>
+                <li><a href="#contact" onclick="closeMenu();"><span class="menu-item-7">Contacto / Encargos</span> <span>→</span></a></li>
             </ul>
         </div>
         <div class="sidebar-footer">
@@ -933,12 +931,9 @@
         </div>
     </aside>
 
-    <!-- HERO / PORTADA CON NUEVAS IMÁGENES LATERALES AMPLIADAS (FOTO PARA PAGINA PRINCIPAL 2) -->
+    <!-- HERO / PORTADA -->
     <section class="hero">
-        <!-- Figura izquierda (foto para pagina principal 2.png) -->
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
-        
-        <!-- Figura derecha simétrica (espejo) -->
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral derecha" class="hero-side-img right" id="sideImgRight">
 
         <div class="hero-content">
@@ -946,136 +941,122 @@
             <div class="hero-title-wrapper">
                 <h1 class="hero-title">Brunelio</h1>
             </div>
-            <p class="hero-desc">Óleo · Tinta · Arte Figurativo Tradicional</p>
-            <a href="#gallery" class="btn-enter">Explorar Galería</a>
+            <p class="hero-desc" id="heroDescText">Óleo · Tinta · Arte Figurativo Tradicional</p>
+            <a href="#gallery" class="btn-enter" id="heroBtnText">Explorar Galería</a>
         </div>
     </section>
 
     <!-- CATÁLOGO DE OBRAS -->
     <section id="gallery">
-        <h2 class="section-title">Colección Principal</h2>
-        <p class="section-subtitle">Obras de taller y catálogo de adquisición</p>
+        <h2 class="section-title" id="galleryTitle">Colección Principal</h2>
+        <p class="section-subtitle" id="gallerySubtitle">Obras de taller y catálogo de adquisición</p>
 
         <div class="gallery-container">
             <div class="gallery-grid" id="galleryGrid">
                 
                 <!-- ==================== PINTURAS AL ÓLEO ==================== -->
                 
-                <!-- 1. Nude 3 (2026) -->
-                <div class="art-card" data-category="oleos disponible" data-year="2026" onclick="openModal('Nude 3', 'Óleo sobre lienzo', '70 x 90 cm', 'Disponible', '2,100 USD', 'imagenes/nude 3.DNG', 'Estudio contemporáneo de la figura humana y texturas en óleo.')">
+                <div class="art-card" data-category="oleos retratos disponible" data-year="2026" onclick="openModal('Nude 3', 'Óleo sobre lienzo', '70 x 90 cm', 'Disponible', '2,100 USD', 'imagenes/nude 3.DNG', 'Estudio contemporáneo de la figura humana y texturas en óleo.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/nude 3.DNG" alt="Nude 3"></div>
                     <div class="art-info"><div class="art-title">Nude 3</div><div class="art-meta">Óleo sobre lienzo · 2026</div><div class="art-price">2,100 USD</div></div>
                 </div>
 
-                <!-- 2. Lyon (2025) -->
                 <div class="art-card" data-category="oleos disponible" data-year="2025" onclick="openModal('Lyon', 'Óleo sobre lienzo', '65 x 85 cm', 'Disponible', '1,900 USD', 'imagenes/lyon.DNG', 'Composición de atmósfera profunda y tonos clásicos.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/lyon.DNG" alt="Lyon"></div>
                     <div class="art-info"><div class="art-title">Lyon</div><div class="art-meta">Óleo sobre lienzo · 2025</div><div class="art-price">1,900 USD</div></div>
                 </div>
 
-                <!-- 3. Virgen (2024) -->
                 <div class="art-card" data-category="oleos retratos disponible" data-year="2024" onclick="openModal('Virgen', 'Óleo sobre lienzo', '70 x 100 cm', 'Disponible', '2,400 USD', 'imagenes/virgen 3.PNG', 'Inspirado en la iconografía clásica y pigmentos intensos.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/virgen 3.PNG" alt="Virgen"></div>
                     <div class="art-info"><div class="art-title">Virgen</div><div class="art-meta">Óleo sobre lienzo · 2024</div><div class="art-price">2,400 USD</div></div>
                 </div>
 
-                <!-- 4. Wvirgen (2024) -->
                 <div class="art-card" data-category="oleos" data-year="2024" onclick="openModal('Wvirgen', 'Óleo sobre lienzo', '50 x 70 cm', 'Vendido', 'Colección Privada', 'imagenes/wvirgen.DNG', 'Obra introspectiva que retrata la quietud y la sombra.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/wvirgen.DNG" alt="Wvirgen"></div>
                     <div class="art-info"><div class="art-title">Wvirgen</div><div class="art-meta">Óleo sobre lienzo · 2024</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
-                <!-- 5. Sis (2023) -->
                 <div class="art-card" data-category="oleos retratos" data-year="2023" onclick="openModal('Sis', 'Óleo sobre lienzo', '60 x 80 cm', 'Vendido', 'Colección Privada', 'imagenes/sis.DNG', 'Estudio figurativo al óleo con técnica de claroscuro.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/sis.DNG" alt="Sis"></div>
                     <div class="art-info"><div class="art-title">Sis</div><div class="art-meta">Óleo sobre lienzo · 2023</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
-                <!-- 6. Hombre y paisaje (2023) -->
-                <div class="art-card" data-category="oleos disponible" data-year="2023" onclick="openModal('Hombre y paisaje', 'Óleo sobre tabla', '40 x 50 cm', 'Disponible', '1,450 USD', 'imagenes/Hombre y paisaje.png', 'Diálogo entre la figura humana y el entorno natural.')">
+                <div class="art-card" data-category="oleos retratos disponible" data-year="2023" onclick="openModal('Hombre y paisaje', 'Óleo sobre tabla', '40 x 50 cm', 'Disponible', '1,450 USD', 'imagenes/Hombre y paisaje.png', 'Diálogo entre la figura humana y el entorno natural.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/Hombre y paisaje.png" alt="Hombre y paisaje"></div>
                     <div class="art-info"><div class="art-title">Hombre y paisaje</div><div class="art-meta">Óleo sobre tabla · 2023</div><div class="art-price">1,450 USD</div></div>
                 </div>
 
-                <!-- 7. Hombre y paisaje 2 (2022) -->
-                <div class="art-card" data-category="oleos disponible" data-year="2022" onclick="openModal('Hombre y paisaje 2', 'Óleo sobre lienzo', '80 x 80 cm', 'Disponible', '2,800 USD', 'imagenes/Hombre y paisaje 2.jpg', 'Segunda parte de la serie de exploración paisajística.')">
+                <div class="art-card" data-category="oleos retratos disponible" data-year="2022" onclick="openModal('Hombre y paisaje 2', 'Óleo sobre lienzo', '80 x 80 cm', 'Disponible', '2,800 USD', 'imagenes/Hombre y paisaje 2.jpg', 'Segunda parte de la serie de exploración paisajística.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/Hombre y paisaje 2.jpg" alt="Hombre y paisaje 2"></div>
                     <div class="art-info"><div class="art-title">Hombre y paisaje 2</div><div class="art-meta">Óleo sobre lienzo · 2022</div><div class="art-price">2,800 USD</div></div>
                 </div>
 
-                <!-- 8. Hombre Verde (2021) -->
                 <div class="art-card" data-category="oleos" data-year="2021" onclick="openModal('Hombre Verde', 'Óleo sobre lienzo', '60 x 90 cm', 'Vendido', 'Colección Privada', 'imagenes/hombre verde.jpg', 'Composición alegórica con tonalidades verdosos y terrosos.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/hombre verde.jpg" alt="Hombre Verde"></div>
                     <div class="art-info"><div class="art-title">Hombre Verde</div><div class="art-meta">Óleo sobre lienzo · 2021</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
-                <!-- 9. Doll (2020) -->
                 <div class="art-card" data-category="oleos disponible" data-year="2020" onclick="openModal('Doll', 'Óleo sobre lienzo', '50 x 60 cm', 'Disponible', '1,600 USD', 'imagenes/doll.DNG', 'Estudio figurativo minimalista con enfoque dramático.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/doll.DNG" alt="Doll"></div>
                     <div class="art-info"><div class="art-title">Doll</div><div class="art-meta">Óleo sobre lienzo · 2020</div><div class="art-price">1,600 USD</div></div>
                 </div>
 
-                <!-- 10. Eva (2019) -->
                 <div class="art-card" data-category="oleos" data-year="2019" onclick="openModal('Eva', 'Óleo sobre lienzo', '70 x 100 cm', 'Vendido', 'Colección Privada', 'imagenes/eva.jpeg', 'Obra alegórica de la serie mitológica.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/eva.jpeg" alt="Eva"></div>
                     <div class="art-info"><div class="art-title">Eva</div><div class="art-meta">Óleo sobre lienzo · 2019</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
-                <!-- 11. Adan (2018) -->
-                <div class="art-card" data-category="oleos disponible" data-year="2018" onclick="openModal('Adan', 'Óleo sobre tabla', '45 x 55 cm', 'Disponible', '1,300 USD', 'imagenes/adan 2.PNG', 'Estudio anatómico y de iluminación lateral.')">
+                <div class="art-card" data-category="oleos retratos disponible" data-year="2018" onclick="openModal('Adan', 'Óleo sobre tabla', '45 x 55 cm', 'Disponible', '1,300 USD', 'imagenes/adan 2.PNG', 'Estudio anatómico y de iluminación lateral.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/adan 2.PNG" alt="Adan"></div>
                     <div class="art-info"><div class="art-title">Adan</div><div class="art-meta">Óleo sobre tabla · 2018</div><div class="art-price">1,300 USD</div></div>
                 </div>
 
-                <!-- 12. Flower (2017) -->
                 <div class="art-card" data-category="oleos" data-year="2017" onclick="openModal('Flower', 'Óleo sobre lienzo', '60 x 120 cm', 'Vendido', 'Colección Privada', 'imagenes/flower.DNG', 'Naturaleza muerta con simbolismo barroco.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/flower.DNG" alt="Flower"></div>
                     <div class="art-info"><div class="art-title">Flower</div><div class="art-meta">Óleo sobre lienzo · 2017</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
-                <!-- 13. Rubia (2016) -->
-                <div class="art-card" data-category="oleos disponible" data-year="2016" onclick="openModal('Rubia', 'Óleo sobre lienzo', '50 x 70 cm', 'Disponible', '1,500 USD', 'imagenes/rubia.DNG', 'Retrato figurativo con paleta cálida.')">
+                <div class="art-card" data-category="oleos retratos disponible" data-year="2016" onclick="openModal('Rubia', 'Óleo sobre lienzo', '50 x 70 cm', 'Disponible', '1,500 USD', 'imagenes/rubia.DNG', 'Retrato figurativo con paleta cálida.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/rubia.DNG" alt="Rubia"></div>
                     <div class="art-info"><div class="art-title">Rubia</div><div class="art-meta">Óleo sobre lienzo · 2016</div><div class="art-price">1,500 USD</div></div>
                 </div>
 
-                <!-- 14. Padre (2016) -->
                 <div class="art-card" data-category="oleos" data-year="2016" onclick="openModal('Padre', 'Óleo sobre tabla', '40 x 60 cm', 'Vendido', 'Colección Privada', 'imagenes/padre 2.PNG', 'Retrato psicológico de carácter solemne.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/padre 2.PNG" alt="Padre"></div>
                     <div class="art-info"><div class="art-title">Padre</div><div class="art-meta">Óleo sobre tabla · 2016</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
-                <!-- 15. Mujer 1 (2015) -->
-                <div class="art-card" data-category="oleos disponible" data-year="2015" onclick="openModal('Mujer 1', 'Óleo sobre lienzo', '60 x 80 cm', 'Disponible', '1,800 USD', 'imagenes/mujer 1.DNG', 'Pieza clave de los primeros años de taller.')">
+                <div class="art-card" data-category="oleos retratos disponible" data-year="2015" onclick="openModal('Mujer 1', 'Óleo sobre lienzo', '60 x 80 cm', 'Disponible', '1,800 USD', 'imagenes/mujer 1.DNG', 'Pieza clave de los primeros años de taller.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/mujer 1.DNG" alt="Mujer 1"></div>
                     <div class="art-info"><div class="art-title">Mujer 1</div><div class="art-meta">Óleo sobre lienzo · 2015</div><div class="art-price">1,800 USD</div></div>
                 </div>
 
-                <!-- 16. Estudio Inicial (2015) -->
                 <div class="art-card" data-category="oleos" data-year="2015" onclick="openModal('Estudio Inicial', 'Óleo sobre tabla', '35 x 45 cm', 'Vendido', 'Colección Privada', 'imagenes/flor w.jpg', 'Estudio fundacional de claroscuro.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/flor w.jpg" alt="Estudio Inicial"></div>
                     <div class="art-info"><div class="art-title">Estudio Inicial</div><div class="art-meta">Óleo sobre tabla · 2015</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
-                <!-- Clelia Toledo (2026) -->
                 <div class="art-card" data-category="oleos retratos disponible" data-year="2026" onclick="openModal('Clelia Toledo', 'Óleo sobre lienzo', '60 x 80 cm', 'Disponible', '2,200 USD', 'imagenes/Clelia Toledo.jpg', 'Retrato pictórico detallado con maestría en el claroscuro y la expresión.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/Clelia Toledo.jpg" alt="Clelia Toledo"></div>
                     <div class="art-info"><div class="art-title">Clelia Toledo</div><div class="art-meta">Óleo sobre lienzo · 2026</div><div class="art-price">2,200 USD</div></div>
                 </div>
 
                 <!-- ==================== DIBUJO ==================== -->
-                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Estudio Mitológico I', 'Tinta sobre papel', '40 x 50 cm', 'Disponible', '850 USD', 'imagenes/1.JPG', 'Trazo detallado en tinta negra sobre papel artesanal.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/1.JPG" alt="Estudio Mitológico I"></div>
-                    <div class="art-info"><div class="art-title">Estudio Mitológico I</div><div class="art-meta">Tinta sobre papel · 2025</div><div class="art-price">850 USD</div></div>
+                <div class="art-card" data-category="dibujo retratos disponible" onclick="openModal('Estudio Mitológico 1', 'Tinta sobre papel', '40 x 50 cm', 'Disponible', '850 USD', 'imagenes/1.JPG', 'Trazo detallado en tinta negra sobre papel artesanal.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/1.JPG" alt="Estudio Mitológico 1"></div>
+                    <div class="art-info"><div class="art-title">Estudio Mitológico 1</div><div class="art-meta">Tinta sobre papel · 2025</div><div class="art-price">850 USD</div></div>
                 </div>
-                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Anatomía Cruzada', 'Carboncillo y grafito', '50 x 70 cm', 'Disponible', '950 USD', 'imagenes/4.jpeg', 'Estudio anatómico detallado mediante trama fina.')">
+
+                <div class="art-card" data-category="dibujo retratos disponible" onclick="openModal('Anatomía Cruzada', 'Carboncillo y grafito', '50 x 70 cm', 'Disponible', '950 USD', 'imagenes/4.jpeg', 'Estudio anatómico detallado mediante trama fina.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/4.jpeg" alt="Anatomía Cruzada"></div>
                     <div class="art-info"><div class="art-title">Anatomía Cruzada</div><div class="art-meta">Carboncillo sobre papel · 2025</div><div class="art-price">950 USD</div></div>
                 </div>
-                <div class="art-card" data-category="dibujo" onclick="openModal('Perfil Clásico', 'Grafito sobre papel', '30 x 40 cm', 'Vendido', 'Colección Privada', 'imagenes/9.jpeg', 'Estudio académico de perfil con claroscuro sutil.')">
+
+                <div class="art-card" data-category="dibujo retratos" onclick="openModal('Perfil Clásico', 'Grafito sobre papel', '30 x 40 cm', 'Vendido', 'Colección Privada', 'imagenes/9.jpeg', 'Estudio académico de perfil con claroscuro sutil.')">
                     <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/9.jpeg" alt="Perfil Clásico"></div>
                     <div class="art-info"><div class="art-title">Perfil Clásico</div><div class="art-meta">Grafito sobre papel · 2024</div><div class="art-price">Colección Privada</div></div>
                 </div>
+
                 <div class="art-card" data-category="dibujo disponible" onclick="openModal('Silueta e Inercia', 'Tinta china', '45 x 60 cm', 'Disponible', '780 USD', 'imagenes/bodegon gotico.JPG', 'Movimiento figurativo capturado a pluma fina.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/bodegon gotico.JPG" alt="Silueta e Inercia"></div>
                     <div class="art-info"><div class="art-title">Silueta e Inercia</div><div class="art-meta">Tinta china · 2024</div><div class="art-price">780 USD</div></div>
@@ -1084,86 +1065,140 @@
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/hombre ilustrado.jpg" alt="Torsos en Penumbra"></div>
                     <div class="art-info"><div class="art-title">Torsos en Penumbra</div><div class="art-meta">Sanguina · 2024</div><div class="art-price">900 USD</div></div>
                 </div>
-                <div class="art-card" data-category="dibujo" onclick="openModal('Boceto de Manos II', 'Carboncillo', '35 x 50 cm', 'Vendido', 'Colección Privada', 'imagenes/8.jpeg', 'Análisis gestual rápido con trazos expresivos.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/8.jpeg" alt="Boceto de Manos II"></div>
-                    <div class="art-info"><div class="art-title">Boceto de Manos II</div><div class="art-meta">Carboncillo · 2023</div><div class="art-price">Colección Privada</div></div>
+
+                <div class="art-card" data-category="dibujo retratos" onclick="openModal('Boceto de manos 2', 'Carboncillo', '35 x 50 cm', 'Vendido', 'Colección Privada', 'imagenes/8.jpeg', 'Análisis gestual rápido con trazos expresivos.')">
+                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/8.jpeg" alt="Boceto de manos 2"></div>
+                    <div class="art-info"><div class="art-title">Boceto de manos 2</div><div class="art-meta">Carboncillo · 2023</div><div class="art-price">Colección Privada</div></div>
                 </div>
-                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Fragmento de Estatua', 'Grafito duro y suave', '40 x 50 cm', 'Disponible', '820 USD', 'imagenes/niño2.jpg', 'Estudio académico basado en la estatuaria clásica.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/niño2.jpg" alt="Dibujo 7"></div>
+
+                <div class="art-card" data-category="dibujo retratos disponible" onclick="openModal('Fragmento de Estatua', 'Grafito duro y suave', '40 x 50 cm', 'Disponible', '820 USD', 'imagenes/niño2.jpg', 'Estudio académico basado en la estatuaria clásica.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/niño2.jpg" alt="Fragmento de Estatua"></div>
                     <div class="art-info"><div class="art-title">Fragmento de Estatua</div><div class="art-meta">Grafito · 2023</div><div class="art-price">820 USD</div></div>
                 </div>
+
                 <div class="art-card" data-category="dibujo disponible" onclick="openModal('Flora y Ceniza', 'Tinta estilográfica', '30 x 40 cm', 'Disponible', '650 USD', 'imagenes/silla.jpg', 'Detalle botánico con trama de alta densidad.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/silla.jpg" alt="Dibujo 8"></div>
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/silla.jpg" alt="Flora y Ceniza"></div>
                     <div class="art-info"><div class="art-title">Flora y Ceniza</div><div class="art-meta">Tinta · 2023</div><div class="art-price">650 USD</div></div>
                 </div>
                 <div class="art-card" data-category="dibujo" onclick="openModal('El Guía Nocturno', 'Pluma y bistre', '40 x 60 cm', 'Vendido', 'Colección Privada', 'imagenes/iglesia.JPG', 'Dibujo mitológico elaborado con tintas antiguas.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/iglesia.JPG" alt="Dibujo 9"></div>
+                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/iglesia.JPG" alt="El Guía Nocturno"></div>
                     <div class="art-info"><div class="art-title">El Guía Nocturno</div><div class="art-meta">Tinta bistre · 2022</div><div class="art-price">Colección Privada</div></div>
                 </div>
                 <div class="art-card" data-category="dibujo disponible" onclick="openModal('Pliegues de Seda', 'Grafito sobre cartulina', '50 x 70 cm', 'Disponible', '980 USD', 'imagenes/venado.jpg', 'Estudio hiperrealista de drapería.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/venado.jpg" alt="Dibujo 10"></div>
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/venado.jpg" alt="Pliegues de Seda"></div>
                     <div class="art-info"><div class="art-title">Pliegues de Seda</div><div class="art-meta">Grafito · 2022</div><div class="art-price">980 USD</div></div>
                 </div>
                 <div class="art-card" data-category="dibujo disponible" onclick="openModal('Estudio de Café', 'Tinta y técnica mixta', '40 x 50 cm', 'Disponible', '850 USD', 'imagenes/cofee 2.png', 'Estudio detallado de bodegón y texturas.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/cofee 2.png" alt="cofee 2"></div>
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/cofee 2.png" alt="Estudio de Café"></div>
                     <div class="art-info"><div class="art-title">Estudio de Café</div><div class="art-meta">Técnica mixta · 2025</div><div class="art-price">850 USD</div></div>
                 </div>
-                <div class="art-card" data-category="dibujo" onclick="openModal('Arquitectura del Resto', 'Tinta y aguada', '30 x 45 cm', 'Vendido', 'Colección Privada', 'imagenes/11.jpeg', 'Estudio estructural con aguadas suaves.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/11.jpeg" alt="Dibujo 12"></div>
+
+                <div class="art-card" data-category="dibujo retratos" onclick="openModal('Arquitectura del Resto', 'Tinta y aguada', '30 x 45 cm', 'Vendido', 'Colección Privada', 'imagenes/11.jpeg', 'Estudio estructural con aguadas suaves.')">
+                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/11.jpeg" alt="Arquitectura del Resto"></div>
                     <div class="art-info"><div class="art-title">Arquitectura del Resto</div><div class="art-meta">Aguada · 2020</div><div class="art-price">Colección Privada</div></div>
                 </div>
                 
-                <!-- Estudio Anatómico Final -->
                 <div class="art-card" data-category="dibujo disponible" onclick="openModal('Estudio Anatómico Final', 'Carboncillo', '50 x 70 cm', 'Disponible', '950 USD', 'imagenes/Tótem_final.JPG', 'Estudio académico profundo basado en la forma y composición figurativa.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/Tótem_final.JPG" alt="Estudio Anatómico Final"></div>
                     <div class="art-info"><div class="art-title">Estudio Anatómico Final</div><div class="art-meta">Carboncillo · 2025</div><div class="art-price">950 USD</div></div>
                 </div>
 
-                <div class="art-card" data-category="dibujo" onclick="openModal('Trazo Inicial 2018', 'Tinta sobre papel', '30 x 40 cm', 'Vendido', 'Colección Privada', 'imagenes/bigote.jpg', 'Uno de los primeros cuadernos de taller.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/bigote.jpg" alt="Dibujo 15"></div>
-                    <div class="art-info"><div class="art-title">Trazo Inicial 2018</div><div class="art-meta">Tinta · 2018</div><div class="art-price">Colección Privada</div></div>
+                <div class="art-card" data-category="dibujo retratos" onclick="openModal('Trazo inicial 2018', 'Tinta sobre papel', '30 x 40 cm', 'Vendido', 'Colección Privada', 'imagenes/bigote.jpg', 'Uno de los primeros cuadernos de taller.')">
+                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/bigote.jpg" alt="Trazo inicial 2018"></div>
+                    <div class="art-info"><div class="art-title">Trazo inicial 2018</div><div class="art-meta">Tinta · 2018</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
-                <!-- ==================== FOTOGRAFÍA ==================== -->
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Claroscuro Urbano I', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '600 USD', 'imagenes/sis.DNG', 'Captura en blanco y negro analógico de 35mm.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/sis.DNG" alt="Foto 1"></div>
-                    <div class="art-info"><div class="art-title">Claroscuro Urbano I</div><div class="art-meta">Fine Art Print · 2026</div><div class="art-price">600 USD</div></div>
+
+                <!-- ==================== FOTOGRAFÍA (18 RECUADROS VERTICALES) ==================== -->
+                
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('10.JPG', 'Fotografía Fine Art', '50 x 70 cm', 'Disponible', '600 USD', 'imagenes/10.JPG', 'Captura fotográfica de taller.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/10.JPG" alt="10.JPG"></div>
+                    <div class="art-info"><div class="art-title">10.JPG</div><div class="art-meta">Fine Art Print · 2026</div><div class="art-price">600 USD</div></div>
                 </div>
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Sombras de Taller', 'Fotografía digital', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/padre.DNG', 'Estudio fotográfico sobre las herramientas del atelier.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/padre.DNG" alt="Foto 2"></div>
-                    <div class="art-info"><div class="art-title">Sombras de Taller</div><div class="art-meta">Fotografía Digital · 2025</div><div class="art-price">750 USD</div></div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('El salto', 'Fotografía Fine Art', '60 x 80 cm', 'Disponible', '700 USD', 'imagenes/El salto.jpg', 'Registro fotográfico expresivo.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/El salto.jpg" alt="El salto"></div>
+                    <div class="art-info"><div class="art-title">El salto</div><div class="art-meta">Fine Art Print · 2025</div><div class="art-price">700 USD</div></div>
                 </div>
-                <div class="art-card" data-category="fotografia" onclick="openModal('Perfil Silencioso', 'Impresión al platino', '40 x 50 cm', 'Vendido', 'Colección Privada', 'imagenes/rubia.DNG', 'Retrato fotográfico figurativo con revelado especial.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/rubia.DNG" alt="Foto 3"></div>
-                    <div class="art-info"><div class="art-title">Perfil Silencioso</div><div class="art-meta">Platinotipia · 2025</div><div class="art-price">Colección Privada</div></div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000006', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000006.JPG', 'Serie documental y de archivo.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000006.JPG" alt="F1000006"></div>
+                    <div class="art-info"><div class="art-title">F1000006</div><div class="art-meta">Analógica · 2025</div><div class="art-price">650 USD</div></div>
                 </div>
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Textura y Bronce', 'Fine Art Monocromo', '50 x 50 cm', 'Disponible', '550 USD', 'imagenes/mujer 1.DNG', 'Composición macro de esculturas de taller.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/mujer 1.DNG" alt="Foto 4"></div>
-                    <div class="art-info"><div class="art-title">Textura y Bronce</div><div class="art-meta">Fine Art Print · 2024</div><div class="art-price">550 USD</div></div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000007', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000007.JPG', 'Serie documental y de archivo.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000007.JPG" alt="F1000007"></div>
+                    <div class="art-info"><div class="art-title">F1000007</div><div class="art-meta">Analógica · 2025</div><div class="art-price">650 USD</div></div>
                 </div>
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Luz en la Penumbra', 'Fotografía analógica', '70 x 100 cm', 'Disponible', '900 USD', 'imagenes/lyon.DNG', 'Formato grande de estudio sobre claroscuro natural.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/lyon.DNG" alt="Foto 5"></div>
-                    <div class="art-info"><div class="art-title">Luz en la Penumbra</div><div class="art-meta">Analógica 120mm · 2024</div><div class="art-price">900 USD</div></div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000014', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1000014.JPG', 'Estudio de iluminación y sombras.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000014.JPG" alt="F1000014"></div>
+                    <div class="art-info"><div class="art-title">F1000014</div><div class="art-meta">Analógica · 2025</div><div class="art-price">750 USD</div></div>
                 </div>
-                <div class="art-card" data-category="fotografia" onclick="openModal('Niebla y Piedra', 'Impresión sobre papel', '60 x 90 cm', 'Vendido', 'Colección Privada', 'imagenes/virgen 2.DNG', 'Paisaje de baja luz y atmósfera melancólica.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/virgen 2.DNG" alt="Foto 6"></div>
-                    <div class="art-info"><div class="art-title">Niebla y Piedra</div><div class="art-meta">Cotton Paper Print · 2023</div><div class="art-price">Colección Privada</div></div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000019', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000019.JPG', 'Captura de atelier.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000019.JPG" alt="F1000019"></div>
+                    <div class="art-info"><div class="art-title">F1000019</div><div class="art-meta">Analógica · 2025</div><div class="art-price">650 USD</div></div>
                 </div>
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Reflejos de Pigmento', 'Fine Art', '40 x 60 cm', 'Disponible', '650 USD', 'imagenes/wvirgen.DNG', 'Estudio abstracto de reflejos de luz sobre pintura.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/wvirgen.DNG" alt="Foto 7"></div>
-                    <div class="art-info"><div class="art-title">Reflejos de Pigmento</div><div class="art-meta">Fine Art Print · 2023</div><div class="art-price">650 USD</div></div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000023', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000023.JPG', 'Captura de atelier.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000023.JPG" alt="F1000023"></div>
+                    <div class="art-info"><div class="art-title">F1000023</div><div class="art-meta">Analógica · 2024</div><div class="art-price">650 USD</div></div>
                 </div>
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Maniquí y Sombra', 'Fotografía digital', '50 x 70 cm', 'Disponible', '580 USD', 'imagenes/adan.DNG', 'Estudio fotográfico sobre composición figurativa.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/adan.DNG" alt="Foto 8"></div>
-                    <div class="art-info"><div class="art-title">Maniquí y Sombra</div><div class="art-meta">Monocromo · 2022</div><div class="art-price">580 USD</div></div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000024', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1000024.JPG', 'Estudio compositivo.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000024.JPG" alt="F1000024"></div>
+                    <div class="art-info"><div class="art-title">F1000024</div><div class="art-meta">Analógica · 2024</div><div class="art-price">750 USD</div></div>
                 </div>
-                <div class="art-card" data-category="fotografia" onclick="openModal('Manos en Acción', 'Fotografía analógica', '30 x 45 cm', 'Vendido', 'Colección Privada', 'imagenes/nude 3.DNG', 'Registro documental del proceso de creación.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/nude 3.DNG" alt="Foto 9"></div>
-                    <div class="art-info"><div class="art-title">Manos en Acción</div><div class="art-meta">Analógica 35mm · 2021</div><div class="art-price">Colección Privada</div></div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000026(1)', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000026(1).JPG', 'Exploración visual en blanco y negro.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000026(1).JPG" alt="F1000026(1)"></div>
+                    <div class="art-info"><div class="art-title">F1000026(1)</div><div class="art-meta">Analógica · 2024</div><div class="art-price">650 USD</div></div>
                 </div>
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Nocturno Urbano', 'Fine Art Print', '60 x 80 cm', 'Disponible', '800 USD', 'imagenes/Hombre y paisaje.png', 'Exposición larga de sombras en la noche.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/Hombre y paisaje.png" alt="Foto 10"></div>
-                    <div class="art-info"><div class="art-title">Nocturno Urbano</div><div class="art-meta">Fine Art Print · 2021</div><div class="art-price">800 USD</div></div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000031', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000031.JPG', 'Registro fotográfico de obras.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000031.JPG" alt="F1000031"></div>
+                    <div class="art-info"><div class="art-title">F1000031</div><div class="art-meta">Analógica · 2024</div><div class="art-price">650 USD</div></div>
+                </div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000032', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000032.JPG', 'Registro fotográfico de obras.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000032.JPG" alt="F1000032"></div>
+                    <div class="art-info"><div class="art-title">F1000032</div><div class="art-meta">Analógica · 2024</div><div class="art-price">650 USD</div></div>
+                </div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1010012', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1010012.JPG', 'Estudio de claroscuro fotográfico.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1010012.JPG" alt="F1010012"></div>
+                    <div class="art-info"><div class="art-title">F1010012</div><div class="art-meta">Analógica · 2023</div><div class="art-price">750 USD</div></div>
+                </div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1010024', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1010024.JPG', 'Composición de luz natural.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1010024.JPG" alt="F1010024"></div>
+                    <div class="art-info"><div class="art-title">F1010024</div><div class="art-meta">Analógica · 2023</div><div class="art-price">650 USD</div></div>
+                </div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1010025', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1010025.JPG', 'Composición de luz natural.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1010025.JPG" alt="F1010025"></div>
+                    <div class="art-info"><div class="art-title">F1010025</div><div class="art-meta">Analógica · 2023</div><div class="art-price">650 USD</div></div>
+                </div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1010026', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1010026.JPG', 'Estudio fotográfico de texturas.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1010026.JPG" alt="F1010026"></div>
+                    <div class="art-info"><div class="art-title">F1010026</div><div class="art-meta">Analógica · 2023</div><div class="art-price">750 USD</div></div>
+                </div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1010036', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1010036.JPG', 'Registro de taller y modelos.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1010036.JPG" alt="F1010036"></div>
+                    <div class="art-info"><div class="art-title">F1010036</div><div class="art-meta">Analógica · 2023</div><div class="art-price">650 USD</div></div>
+                </div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Satygne 1', 'Fotografía Fine Art', '60 x 80 cm', 'Disponible', '800 USD', 'imagenes/Satygne_1.jpg', 'Composición inspirada en la mitología clásica.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/Satygne_1.jpg" alt="Satygne 1"></div>
+                    <div class="art-info"><div class="art-title">Satygne 1</div><div class="art-meta">Fine Art Print · 2025</div><div class="art-price">800 USD</div></div>
+                </div>
+
+                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Spiegel', 'Fotografía Fine Art', '70 x 100 cm', 'Disponible', '900 USD', 'imagenes/Spiegel.jpg', 'Estudio de reflejos y perspectiva.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/Spiegel.jpg" alt="Spiegel"></div>
+                    <div class="art-info"><div class="art-title">Spiegel</div><div class="art-meta">Fine Art Print · 2025</div><div class="art-price">900 USD</div></div>
                 </div>
 
             </div>
@@ -1176,7 +1211,6 @@
             <button class="modal-close" id="closeModal">&times;</button>
             <div class="modal-img-container" id="modalImgContainer">
                 <img id="mImg" src="" alt="Detalle de obra">
-                <!-- Botón de la Lupa -->
                 <button class="zoom-toggle-btn" id="zoomToggleBtn" title="Activar/Desactivar Lupa" onclick="toggleZoomMode()">
                     <img src="imagenes/lupa.png" alt="Lupa">
                 </button>
@@ -1198,12 +1232,12 @@
                 <img src="imagenes/foto cesar.JPG" alt="BRUNELIO Portrait">
             </div>
             <div class="bio-content-wrapper">
-                <div class="bio-artist-tag">ARTISTA</div>
+                <div class="bio-artist-tag" id="bioTag">ARTISTA</div>
                 <h2 class="bio-artist-name">Brunelio</h2>
                 
-                <div class="bio-paragraphs">
+                <div class="bio-paragraphs" id="bioParagraphs">
                     <p>
-                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">BRUNELIO</span> ha consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
+                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">BRUNELIO</span> has consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
                     </p>
                     <p>
                         A lo largo de su trayectoria, su visión estética ha explorado simbolismos alegóricos, retratos psicológicos y composiciones de alta precisión, posicionándose como una de las voces emergentes más distintivas del realismo figurativo contemporáneo.
@@ -1213,8 +1247,8 @@
                     </p>
                 </div>
 
-                <div class="bio-awards-title">Reconocimientos & Colecciones</div>
-                <ul class="bio-awards-list">
+                <div class="bio-awards-title" id="bioAwardsTitle">Reconocimientos & Colecciones</div>
+                <ul class="bio-awards-list" id="bioAwardsList">
                     <li>Selección Oficial Bienal de Arte Figurativo — 2024</li>
                     <li>Mención de Honor en Dibujo Académico — 2023</li>
                     <li>Exposición Colectiva "Sombras y Pigmentos" — 2022</li>
@@ -1224,21 +1258,21 @@
         </div>
     </section>
 
-    <!-- FOOTER Y FORMULARIO DE CONTACTO EN ESPAÑOL -->
+    <!-- FOOTER Y FORMULARIO DE CONTACTO -->
     <footer id="contact">
         <div class="contact-container">
-            <h2 class="section-title" style="margin-top: 0; text-align: left;">CONTACTO / ENCARGOS</h2>
-            <p style="font-style: italic; font-size: 1.2rem; margin-top: 10px;">
+            <h2 class="section-title" id="contactSectionTitle" style="margin-top: 0; text-align: left;">CONTACTO / ENCARGOS</h2>
+            <p id="contactSubText" style="font-style: italic; font-size: 1.2rem; margin-top: 10px;">
                 Para consultas sobre adquisición de obras de colección, solicitudes de encargos privados o comisiones, completa el siguiente formulario:
             </p>
 
-            <form class="contact-form" action="https://formspree.io/f/cezzarostudio@gmail.com" method="POST" onsubmit="handleFormSubmit(event)">
+            <form class="contact-form" action="https://formspree.io/f/cezzarostudio@gmail.com" method="POST">
                 <div class="form-group">
                     <label for="clientType" id="labelClientType">Empresa o Particular</label>
                     <select id="clientType" name="clientType" class="form-control">
-                        <option value="Individual">Cliente Individual</option>
-                        <option value="Gallery / Business">Galería / Empresa / Coleccionista</option>
-                        <option value="Press / Media">Prensa / Medios</option>
+                        <option value="Individual" id="optIndividual">Cliente Individual</option>
+                        <option value="Gallery / Business" id="optGallery">Galería / Empresa / Coleccionista</option>
+                        <option value="Press / Media" id="optPress">Prensa / Medios</option>
                     </select>
                 </div>
 
@@ -1262,14 +1296,14 @@
                     <textarea id="message" name="message" placeholder="Mensaje" class="form-control" required></textarea>
                 </div>
 
-                <button type="submit" class="btn-submit">Submit</button>
+                <button type="submit" class="btn-submit" id="submitBtnText">Submit</button>
             </form>
         </div>
 
         <div style="text-align: center; border-top: 1px solid rgba(0, 0, 0, 0.1); padding-top: 40px;">
-            <div style="letter-spacing: 2px; font-size: 1rem; text-transform: uppercase;">Correo Directo del Taller</div>
+            <div style="letter-spacing: 2px; font-size: 1rem; text-transform: uppercase;" id="directEmailText">Correo Directo del Taller</div>
             <a href="mailto:cezzarostudio@gmail.com" class="contact-email">cezzarostudio@gmail.com</a>
-            <div class="copyright">
+            <div class="copyright" id="copyrightText">
                 © BRUNELIO. TODOS LOS DERECHOS RESERVADOS.
             </div>
         </div>
@@ -1321,7 +1355,6 @@
             });
         }
 
-        // --- ANIMACIÓN DE SCROLL EXCLUSIVA PARA LA PÁGINA PRINCIPAL (HERO) ---
         const sideImgLeft = document.getElementById('sideImgLeft');
         const sideImgRight = document.getElementById('sideImgRight');
 
@@ -1339,7 +1372,6 @@
             }
         });
 
-        // --- LÓGICA DE IDIOMA (FUNCIONAL) ---
         let currentLang = 'ES';
         function toggleLanguage() {
             currentLang = currentLang === 'ES' ? 'EN' : 'ES';
@@ -1349,23 +1381,70 @@
             if (currentLang === 'EN') {
                 langEn.classList.add('active');
                 langEs.classList.remove('active');
+                
+                document.getElementById('navIndexText').innerText = 'Index';
+                document.querySelector('.menu-item-1').innerText = 'Available Works';
+                document.querySelector('.menu-item-2').innerText = 'Oil Paintings';
+                document.querySelector('.menu-item-3').innerText = 'Drawing';
+                document.querySelector('.menu-item-4').innerText = 'Photography';
+                document.querySelector('.menu-item-5').innerText = 'Portraits';
+                document.querySelector('.menu-item-6').innerText = 'Biography';
+                document.querySelector('.menu-item-7').innerText = 'Contact / Commissions';
+                
+                document.getElementById('heroDescText').innerText = 'Oil · Ink · Traditional Figurative Art';
+                document.getElementById('heroBtnText').innerText = 'Explore Gallery';
+                document.getElementById('galleryTitle').innerText = 'Main Collection';
+                document.getElementById('gallerySubtitle').innerText = 'Atelier works and acquisition catalog';
+
                 document.getElementById('labelClientType').innerText = 'Business or Individual';
+                document.getElementById('optIndividual').innerText = 'Individual Client';
+                document.getElementById('optGallery').innerText = 'Gallery / Business / Collector';
+                document.getElementById('optPress').innerText = 'Press / Media';
                 document.getElementById('labelFirstName').innerText = 'First name';
                 document.getElementById('labelLastName').innerText = 'Last name';
                 document.getElementById('labelEmail').innerText = 'Email *';
                 document.getElementById('labelMessage').innerText = 'Message *';
+                document.getElementById('submitBtnText').innerText = 'Submit';
+                
+                document.getElementById('contactSectionTitle').innerText = 'CONTACT / COMMISSIONS';
+                document.getElementById('contactSubText').innerText = 'For inquiries regarding collection works, private commission requests, or collaborations, please fill out the form below:';
+                document.getElementById('directEmailText').innerText = 'Direct Studio Email';
+                document.getElementById('copyrightText').innerText = '© BRUNELIO. ALL RIGHTS RESERVED.';
             } else {
                 langEs.classList.add('active');
                 langEn.classList.remove('active');
+                
+                document.getElementById('navIndexText').innerText = 'Índice';
+                document.querySelector('.menu-item-1').innerText = 'Obras Disponibles';
+                document.querySelector('.menu-item-2').innerText = 'Pinturas al Óleo';
+                document.querySelector('.menu-item-3').innerText = 'Dibujo';
+                document.querySelector('.menu-item-4').innerText = 'Fotografía';
+                document.querySelector('.menu-item-5').innerText = 'Retratos';
+                document.querySelector('.menu-item-6').innerText = 'Biografía';
+                document.querySelector('.menu-item-7').innerText = 'Contacto / Encargos';
+                
+                document.getElementById('heroDescText').innerText = 'Óleo · Tinta · Arte Figurativo Tradicional';
+                document.getElementById('heroBtnText').innerText = 'Explorar Galería';
+                document.getElementById('galleryTitle').innerText = 'Colección Principal';
+                document.getElementById('gallerySubtitle').innerText = 'Obras de taller y catálogo de adquisición';
+
                 document.getElementById('labelClientType').innerText = 'Empresa o Particular';
+                document.getElementById('optIndividual').innerText = 'Cliente Individual';
+                document.getElementById('optGallery').innerText = 'Galería / Empresa / Coleccionista';
+                document.getElementById('optPress').innerText = 'Prensa / Medios';
                 document.getElementById('labelFirstName').innerText = 'Nombre';
                 document.getElementById('labelLastName').innerText = 'Apellido';
                 document.getElementById('labelEmail').innerText = 'Correo electrónico *';
                 document.getElementById('labelMessage').innerText = 'Mensaje *';
+                document.getElementById('submitBtnText').innerText = 'Submit';
+                
+                document.getElementById('contactSectionTitle').innerText = 'CONTACTO / ENCARGOS';
+                document.getElementById('contactSubText').innerText = 'Para consultas sobre adquisición de obras de colección, solicitudes de encargos privados o comisiones, completa el siguiente formulario:';
+                document.getElementById('directEmailText').innerText = 'Correo Directo del Taller';
+                document.getElementById('copyrightText').innerText = '© BRUNELIO. TODOS LOS DERECHOS RESERVADOS.';
             }
         }
 
-        // --- LÓGICA DE MODAL Y LUPA ---
         const artModal = document.getElementById('artModal');
         const closeModalBtn = document.getElementById('closeModal');
         const modalImg = document.getElementById('mImg');
@@ -1434,12 +1513,6 @@
                 artModal.classList.remove('active');
             }
         });
-
-        function handleFormSubmit(e) {
-            setTimeout(() => {
-                alert('Gracias por su mensaje. BRUNELIO se pondrá en contacto pronto.');
-            }, 300);
-        }
     </script>
 </body>
 </html>

@@ -320,7 +320,7 @@
         }
 
 
-        /* --- GALERÍA ESTÁNDAR (ÓLEO Y DIBUJO) --- */
+        /* --- GALERÍA ESTÁNDAR (ÓLEO Y RETRATOS) --- */
         .gallery-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -425,7 +425,119 @@
         }
 
 
-        /* --- SECCIÓN DE FOTOGRAFÍA ESTILO MITAD-MITAD / PANTALLA COMPLETA --- */
+        /* --- ESTRUCTURA ESPECIAL DE DIBUJO (PORTADA + ORGANIZADO DE 3 EN 3) --- */
+        .drawing-section-wrapper {
+            position: relative;
+            width: 100vw;
+            background-color: #ffffff;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            box-sizing: border-box;
+            padding-bottom: 100px;
+        }
+
+        /* Banner Principal de Dibujo (bodegon gotico.JPG) */
+        .drawing-hero-banner {
+            position: relative;
+            width: 100%;
+            height: 75vh;
+            background-image: url('imagenes/bodegon gotico.JPG');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .drawing-hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        .drawing-banner-title {
+            position: relative;
+            z-index: 2;
+            background: #ffffff;
+            color: #000000;
+            padding: 12px 40px;
+            font-family: var(--font-titles) !important;
+            font-size: 2.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Botón Back flotante en Dibujo */
+        .drawing-back-btn {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.9);
+            color: #000000;
+            border: 1px solid #000000;
+            padding: 10px 22px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .drawing-back-btn:hover {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        /* Grid Organizativo de 3 en 3 para Dibujo */
+        .drawing-grid-3x3 {
+            max-width: 1400px;
+            margin: 60px auto 0 auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Exactamente 3 en 3 */
+            gap: 30px;
+        }
+
+        .drawing-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .drawing-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .drawing-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 480px;
+            background: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .drawing-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .drawing-card:hover .drawing-img-wrapper img {
+            transform: scale(1.04);
+        }
+
+
+        /* --- SECCIÓN DE FOTOGRAFÍA ESTILO MITAD-MITAD --- */
         .photo-section-wrapper {
             position: relative;
             width: 100vw;
@@ -449,7 +561,7 @@
 
         .photo-split-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Mitad y mitad */
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
             max-width: 1500px;
             margin: 0 auto;
@@ -459,7 +571,7 @@
         .photo-item {
             position: relative;
             width: 100%;
-            height: 70vh; /* Altura generosa tipo galería inmersiva */
+            height: 70vh;
             background: #000;
             display: flex;
             align-items: center;
@@ -475,7 +587,6 @@
             transform: scale(1.01);
         }
 
-        /* Si la obra es horizontal, abarca las dos columnas completas */
         .photo-item.horizontal {
             grid-column: span 2;
             height: 80vh;
@@ -484,7 +595,7 @@
         .photo-item img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* NO se recorta, se adapta completamente */
+            object-fit: contain;
             transition: transform 0.5s ease;
         }
 
@@ -522,7 +633,6 @@
             letter-spacing: 1px;
         }
 
-        /* Botón Back en la sección de fotografía (Esquina inferior izquierda) */
         .photo-back-btn {
             position: fixed;
             bottom: 30px;
@@ -923,6 +1033,7 @@
             .hero-side-img { display: none; }
             .photo-split-grid { grid-template-columns: 1fr; padding: 0 20px; }
             .photo-item.horizontal { grid-column: span 1; height: 50vh; }
+            .drawing-grid-3x3 { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -932,6 +1043,7 @@
             .gallery-grid { grid-template-columns: 1fr; }
             .carousel-card { min-width: 260px; max-width: 260px; height: 350px; }
             .btn-submit { width: 100%; }
+            .drawing-grid-3x3 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -998,7 +1110,7 @@
         <div class="utopia-footer-title" id="carouselFooterTitle">PINTURAS AL ÓLEO</div>
     </section>
 
-    <!-- GALERÍA ESTÁNDAR (ÓLEO / DIBUJO / RETRATOS) CON TÍTULO DE SECCIÓN SUPERIOR -->
+    <!-- GALERÍA ESTÁNDAR (ÓLEO / RETRATOS) -->
     <section id="gallery" style="display:none;">
         <div class="gallery-container">
             <h2 class="section-header-title" id="dynamicSectionTitle">Pinturas al Óleo</h2>
@@ -1090,79 +1202,97 @@
                     <div class="art-info"><div class="art-title">Clelia Toledo</div><div class="art-meta">Óleo sobre lienzo · 2026</div><div class="art-price">2,200 USD</div></div>
                 </div>
 
-                <!-- ==================== DIBUJO ==================== -->
-                <div class="art-card" data-category="dibujo retratos disponible" onclick="openModal('Estudio Mitológico 1', 'Tinta sobre papel', '40 x 50 cm', 'Disponible', '850 USD', 'imagenes/1.JPG', 'Trazo detallado en tinta negra sobre papel artesanal.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/1.JPG" alt="Estudio Mitológico 1"></div>
-                    <div class="art-info"><div class="art-title">Estudio Mitológico 1</div><div class="art-meta">Tinta sobre papel · 2025</div><div class="art-price">850 USD</div></div>
-                </div>
-
-                <div class="art-card" data-category="dibujo retratos disponible" onclick="openModal('Anatomía Cruzada', 'Carboncillo y grafito', '50 x 70 cm', 'Disponible', '950 USD', 'imagenes/4.jpeg', 'Estudio anatómico detallado mediante trama fina.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/4.jpeg" alt="Anatomía Cruzada"></div>
-                    <div class="art-info"><div class="art-title">Anatomía Cruzada</div><div class="art-meta">Carboncillo sobre papel · 2025</div><div class="art-price">950 USD</div></div>
-                </div>
-
-                <div class="art-card" data-category="dibujo retratos disponible" onclick="openModal('Perfil Clásico', 'Grafito sobre papel', '30 x 40 cm', 'Disponible', 'Colección Privada', 'imagenes/9.jpeg', 'Estudio académico de perfil con claroscuro sutil.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/9.jpeg" alt="Perfil Clásico"></div>
-                    <div class="art-info"><div class="art-title">Perfil Clásico</div><div class="art-meta">Grafito sobre papel · 2024</div><div class="art-price">Colección Privada</div></div>
-                </div>
-
-                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Silueta e Inercia', 'Tinta china', '45 x 60 cm', 'Disponible', '780 USD', 'imagenes/bodegon gotico.JPG', 'Movimiento figurativo capturado a pluma fina.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/bodegon gotico.JPG" alt="Silueta e Inercia"></div>
-                    <div class="art-info"><div class="art-title">Silueta e Inercia</div><div class="art-meta">Tinta china · 2024</div><div class="art-price">780 USD</div></div>
-                </div>
-                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Torsos en Penumbra', 'Sanguina sobre papel', '50 x 65 cm', 'Disponible', '900 USD', 'imagenes/hombre ilustrado.jpg', 'Técnica clásica de sanguina con tiza blanca.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/hombre ilustrado.jpg" alt="Torsos en Penumbra"></div>
-                    <div class="art-info"><div class="art-title">Torsos en Penumbra</div><div class="art-meta">Sanguina · 2024</div><div class="art-price">900 USD</div></div>
-                </div>
-
-                <div class="art-card" data-category="dibujo retratos disponible" onclick="openModal('Boceto de manos 2', 'Carboncillo', '35 x 50 cm', 'Disponible', 'Colección Privada', 'imagenes/8.jpeg', 'Análisis gestual rápido con trazos expresivos.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/8.jpeg" alt="Boceto de manos 2"></div>
-                    <div class="art-info"><div class="art-title">Boceto de manos 2</div><div class="art-meta">Carboncillo · 2023</div><div class="art-price">Colección Privada</div></div>
-                </div>
-
-                <div class="art-card" data-category="dibujo retratos disponible" onclick="openModal('Fragmento de Estatua', 'Grafito duro y suave', '40 x 50 cm', 'Disponible', '820 USD', 'imagenes/niño2.jpg', 'Estudio académico basado en la estatuaria clásica.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/niño2.jpg" alt="Fragmento de Estatua"></div>
-                    <div class="art-info"><div class="art-title">Fragmento de Estatua</div><div class="art-meta">Grafito · 2023</div><div class="art-price">820 USD</div></div>
-                </div>
-
-                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Flora y Ceniza', 'Tinta estilográfica', '30 x 40 cm', 'Disponible', '650 USD', 'imagenes/silla.jpg', 'Detalle botánico con trama de alta densidad.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/silla.jpg" alt="Flora y Ceniza"></div>
-                    <div class="art-info"><div class="art-title">Flora y Ceniza</div><div class="art-meta">Tinta · 2023</div><div class="art-price">650 USD</div></div>
-                </div>
-                <div class="art-card" data-category="dibujo disponible" onclick="openModal('El Guía Nocturno', 'Pluma y bistre', '40 x 60 cm', 'Disponible', 'Colección Privada', 'imagenes/iglesia.JPG', 'Dibujo mitológico elaborado con tintas antiguas.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/iglesia.JPG" alt="El Guía Nocturno"></div>
-                    <div class="art-info"><div class="art-title">El Guía Nocturno</div><div class="art-meta">Tinta bistre · 2022</div><div class="art-price">Colección Privada</div></div>
-                </div>
-                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Pliegues de Seda', 'Grafito sobre cartulina', '50 x 70 cm', 'Disponible', '980 USD', 'imagenes/venado.jpg', 'Estudio hiperrealista de drapería.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/venado.jpg" alt="Pliegues de Seda"></div>
-                    <div class="art-info"><div class="art-title">Pliegues de Seda</div><div class="art-meta">Grafito · 2022</div><div class="art-price">980 USD</div></div>
-                </div>
-                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Estudio de Café', 'Tinta y técnica mixta', '40 x 50 cm', 'Disponible', '850 USD', 'imagenes/cofee 2.png', 'Estudio detallado de bodegón y texturas.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/cofee 2.png" alt="Estudio de Café"></div>
-                    <div class="art-info"><div class="art-title">Estudio de Café</div><div class="art-meta">Técnica mixta · 2025</div><div class="art-price">850 USD</div></div>
-                </div>
-
-                <div class="art-card" data-category="dibujo retratos disponible" onclick="openModal('Arquitectura del Resto', 'Tinta y aguada', '30 x 45 cm', 'Disponible', 'Colección Privada', 'imagenes/11.jpeg', 'Estudio estructural con aguadas suaves.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/11.jpeg" alt="Arquitectura del Resto"></div>
-                    <div class="art-info"><div class="art-title">Arquitectura del Resto</div><div class="art-meta">Aguada · 2020</div><div class="art-price">Colección Privada</div></div>
-                </div>
-                
-                <div class="art-card" data-category="dibujo disponible" onclick="openModal('Estudio Anatómico Final', 'Carboncillo', '50 x 70 cm', 'Disponible', '950 USD', 'imagenes/Tótem_final.JPG', 'Estudio académico profundo basado en la forma y composición figurativa.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/Tótem_final.JPG" alt="Estudio Anatómico Final"></div>
-                    <div class="art-info"><div class="art-title">Estudio Anatómico Final</div><div class="art-meta">Carboncillo · 2025</div><div class="art-price">950 USD</div></div>
-                </div>
-
-                <div class="art-card" data-category="dibujo retratos disponible" onclick="openModal('Trazo inicial 2018', 'Tinta sobre papel', '30 x 40 cm', 'Disponible', 'Colección Privada', 'imagenes/bigote.jpg', 'Uno de los primeros cuadernos de taller.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/bigote.jpg" alt="Trazo inicial 2018"></div>
-                    <div class="art-info"><div class="art-title">Trazo inicial 2018</div><div class="art-meta">Tinta · 2018</div><div class="art-price">Colección Privada</div></div>
-                </div>
-
             </div>
         </div>
     </section>
 
 
-    <!-- ==================== SECCIÓN DE FOTOGRAFÍA (ESTILO ESPECIAL MITAD-MITAD Y HORIZONTALES) ==================== -->
+    <!-- ==================== NUEVA ESTRUCTURA ESPECIAL DE DIBUJO ==================== -->
+    <section id="galleryDrawing" style="display:none;" class="drawing-section-wrapper">
+        <!-- Banner Portada de Dibujo -->
+        <div class="drawing-hero-banner">
+            <button class="drawing-back-btn" onclick="goBackToMain()">← Back</button>
+            <div class="drawing-banner-title">DIBUJO</div>
+        </div>
+
+        <!-- Obras de Dibujo organizadas de 3 en 3 -->
+        <div class="drawing-grid-3x3">
+            
+            <div class="drawing-card" onclick="openModal('Estudio Mitológico 1', 'Tinta sobre papel', '40 x 50 cm', 'Disponible', '850 USD', 'imagenes/1.JPG', 'Trazo detallado en tinta negra sobre papel artesanal.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/1.JPG" alt="Estudio Mitológico 1"></div>
+                <div class="art-info"><div class="art-title">Estudio Mitológico 1</div><div class="art-meta">Tinta sobre papel · 2025</div><div class="art-price">850 USD</div></div>
+            </div>
+
+            <div class="drawing-card" onclick="openModal('Anatomía Cruzada', 'Carboncillo y grafito', '50 x 70 cm', 'Disponible', '950 USD', 'imagenes/4.jpeg', 'Estudio anatómico detallado mediante trama fina.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/4.jpeg" alt="Anatomía Cruzada"></div>
+                <div class="art-info"><div class="art-title">Anatomía Cruzada</div><div class="art-meta">Carboncillo sobre papel · 2025</div><div class="art-price">950 USD</div></div>
+            </div>
+
+            <div class="drawing-card" onclick="openModal('Perfil Clásico', 'Grafito sobre papel', '30 x 40 cm', 'Disponible', 'Colección Privada', 'imagenes/9.jpeg', 'Estudio académico de perfil con claroscuro sutil.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/9.jpeg" alt="Perfil Clásico"></div>
+                <div class="art-info"><div class="art-title">Perfil Clásico</div><div class="art-meta">Grafito sobre papel · 2024</div><div class="art-price">Colección Privada</div></div>
+            </div>
+
+            <div class="drawing-card" onclick="openModal('Silueta e Inercia', 'Tinta china', '45 x 60 cm', 'Disponible', '780 USD', 'imagenes/bodegon gotico.JPG', 'Movimiento figurativo capturado a pluma fina.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/bodegon gotico.JPG" alt="Silueta e Inercia"></div>
+                <div class="art-info"><div class="art-title">Silueta e Inercia</div><div class="art-meta">Tinta china · 2024</div><div class="art-price">780 USD</div></div>
+            </div>
+
+            <div class="drawing-card" onclick="openModal('Torsos en Penumbra', 'Sanguina sobre papel', '50 x 65 cm', 'Disponible', '900 USD', 'imagenes/hombre ilustrado.jpg', 'Técnica clásica de sanguina con tiza blanca.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/hombre ilustrado.jpg" alt="Torsos en Penumbra"></div>
+                <div class="art-info"><div class="art-title">Torsos en Penumbra</div><div class="art-meta">Sanguina · 2024</div><div class="art-price">900 USD</div></div>
+            </div>
+
+            <div class="drawing-card" onclick="openModal('Boceto de manos 2', 'Carboncillo', '35 x 50 cm', 'Disponible', 'Colección Privada', 'imagenes/8.jpeg', 'Análisis gestual rápido con trazos expresivos.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/8.jpeg" alt="Boceto de manos 2"></div>
+                <div class="art-info"><div class="art-title">Boceto de manos 2</div><div class="art-meta">Carboncillo · 2023</div><div class="art-price">Colección Privada</div></div>
+            </div>
+
+            <div class="drawing-card" onclick="openModal('Fragmento de Estatua', 'Grafito duro y suave', '40 x 50 cm', 'Disponible', '820 USD', 'imagenes/niño2.jpg', 'Estudio académico basado en la estatuaria clásica.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/niño2.jpg" alt="Fragmento de Estatua"></div>
+                <div class="art-info"><div class="art-title">Fragmento de Estatua</div><div class="art-meta">Grafito · 2023</div><div class="art-price">820 USD</div></div>
+            </div>
+
+            <div class="drawing-card" onclick="openModal('Flora y Ceniza', 'Tinta estilográfica', '30 x 40 cm', 'Disponible', '650 USD', 'imagenes/silla.jpg', 'Detalle botánico con trama de alta densidad.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/silla.jpg" alt="Flora y Ceniza"></div>
+                <div class="art-info"><div class="art-title">Flora y Ceniza</div><div class="art-meta">Tinta · 2023</div><div class="art-price">650 USD</div></div>
+            </div>
+
+            <div class="drawing-card" onclick="openModal('El Guía Nocturno', 'Pluma y bistre', '40 x 60 cm', 'Disponible', 'Colección Privada', 'imagenes/iglesia.JPG', 'Dibujo mitológico elaborado con tintas antiguas.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/iglesia.JPG" alt="El Guía Nocturno"></div>
+                <div class="art-info"><div class="art-title">El Guía Nocturno</div><div class="art-meta">Tinta bistre · 2022</div><div class="art-price">Colección Privada</div></div>
+            </div>
+
+            <div class="drawing-card" onclick="openModal('Pliegues de Seda', 'Grafito sobre cartulina', '50 x 70 cm', 'Disponible', '980 USD', 'imagenes/venado.jpg', 'Estudio hiperrealista de drapería.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/venado.jpg" alt="Pliegues de Seda"></div>
+                <div class="art-info"><div class="art-title">Pliegues de Seda</div><div class="art-meta">Grafito · 2022</div><div class="art-price">980 USD</div></div>
+            </div>
+
+            <div class="drawing-card" onclick="openModal('Estudio de Café', 'Tinta y técnica mixta', '40 x 50 cm', 'Disponible', '850 USD', 'imagenes/cofee 2.png', 'Estudio detallado de bodegón y texturas.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/cofee 2.png" alt="Estudio de Café"></div>
+                <div class="art-info"><div class="art-title">Estudio de Café</div><div class="art-meta">Técnica mixta · 2025</div><div class="art-price">850 USD</div></div>
+            </div>
+
+            <div class="drawing-card" onclick="openModal('Arquitectura del Resto', 'Tinta y aguada', '30 x 45 cm', 'Disponible', 'Colección Privada', 'imagenes/11.jpeg', 'Estudio estructural con aguadas suaves.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/11.jpeg" alt="Arquitectura del Resto"></div>
+                <div class="art-info"><div class="art-title">Arquitectura del Resto</div><div class="art-meta">Aguada · 2020</div><div class="art-price">Colección Privada</div></div>
+            </div>
+
+            <div class="drawing-card" onclick="openModal('Estudio Anatómico Final', 'Carboncillo', '50 x 70 cm', 'Disponible', '950 USD', 'imagenes/Tótem_final.JPG', 'Estudio académico profundo basado en la forma y composición figurativa.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/Tótem_final.JPG" alt="Estudio Anatómico Final"></div>
+                <div class="art-info"><div class="art-title">Estudio Anatómico Final</div><div class="art-meta">Carboncillo · 2025</div><div class="art-price">950 USD</div></div>
+            </div>
+
+            <div class="drawing-card" onclick="openModal('Trazo inicial 2018', 'Tinta sobre papel', '30 x 40 cm', 'Disponible', 'Colección Privada', 'imagenes/bigote.jpg', 'Uno de los primeros cuadernos de taller.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/bigote.jpg" alt="Trazo inicial 2018"></div>
+                <div class="art-info"><div class="art-title">Trazo inicial 2018</div><div class="art-meta">Tinta · 2018</div><div class="art-price">Colección Privada</div></div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ==================== SECCIÓN DE FOTOGRAFÍA (ESTILO ESPECIAL MITAD-MITAD) ==================== -->
     <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
         <button class="photo-back-btn" onclick="goBackToMain()">← Back</button>
         <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
@@ -1170,109 +1300,91 @@
             
             <div class="photo-split-grid">
                 
-                <!-- 1. Horizontal: F1000007 -->
                 <div class="photo-item horizontal" onclick="openModal('F1000007', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000007.JPG?v=2', 'Serie documental y de archivo.')">
                     <img src="imagenes/F1000007.JPG?v=2" alt="F1000007">
                     <div class="photo-info-overlay"><div class="photo-title">F1000007</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <!-- 2. Vertical: 10.JPG -->
                 <div class="photo-item" onclick="openModal('10.JPG', 'Fotografía Fine Art', '50 x 70 cm', 'Disponible', '600 USD', 'imagenes/10.JPG?v=2', 'Captura fotográfica de taller.')">
                     <img src="imagenes/10.JPG?v=2" alt="10.JPG">
                     <div class="photo-info-overlay"><div class="photo-title">10.JPG</div><div class="photo-meta">Fine Art Print · 2026</div></div>
                 </div>
 
-                <!-- 3. Vertical: El salto -->
                 <div class="photo-item" onclick="openModal('El salto', 'Fotografía Fine Art', '60 x 80 cm', 'Disponible', '700 USD', 'imagenes/El salto.jpg?v=2', 'Registro fotográfico expresivo.')">
                     <img src="imagenes/El salto.jpg?v=2" alt="El salto">
                     <div class="photo-info-overlay"><div class="photo-title">El salto</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
 
-                <!-- 4. Horizontal: F1000014 -->
                 <div class="photo-item horizontal" onclick="openModal('F1000014', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1000014.JPG?v=2', 'Estudio de iluminación y sombras.')">
                     <img src="imagenes/F1000014.JPG?v=2" alt="F1000014">
                     <div class="photo-info-overlay"><div class="photo-title">F1000014</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <!-- 5. Vertical: F1000006 -->
                 <div class="photo-item" onclick="openModal('F1000006', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000006.JPG?v=2', 'Serie documental y de archivo.')">
                     <img src="imagenes/F1000006.JPG?v=2" alt="F1000006">
                     <div class="photo-info-overlay"><div class="photo-title">F1000006</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <!-- 6. Vertical: F1000019 -->
                 <div class="photo-item" onclick="openModal('F1000019', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000019.JPG?v=2', 'Captura de atelier.')">
                     <img src="imagenes/F1000019.JPG?v=2" alt="F1000019">
                     <div class="photo-info-overlay"><div class="photo-title">F1000019</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <!-- 7. Horizontal: F1000023 -->
                 <div class="photo-item horizontal" onclick="openModal('F1000023', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000023.JPG?v=2', 'Captura de atelier.')">
                     <img src="imagenes/F1000023.JPG?v=2" alt="F1000023">
                     <div class="photo-info-overlay"><div class="photo-title">F1000023</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <!-- 8. Horizontal: F1000024 -->
                 <div class="photo-item horizontal" onclick="openModal('F1000024', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1000024.JPG?v=2', 'Estudio compositivo.')">
                     <img src="imagenes/F1000024.JPG?v=2" alt="F1000024">
                     <div class="photo-info-overlay"><div class="photo-title">F1000024</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <!-- 9. Vertical: F1000026(1) -->
                 <div class="photo-item" onclick="openModal('F1000026(1)', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000026(1).JPG?v=3', 'Exploración visual en blanco y negro.')">
                     <img src="imagenes/F1000026(1).JPG?v=3" alt="F1000026(1)">
                     <div class="photo-info-overlay"><div class="photo-title">F1000026(1)</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <!-- 10. Horizontal: F1000031 -->
                 <div class="photo-item horizontal" onclick="openModal('F1000031', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000031.JPG?v=2', 'Registro fotográfico de obras.')">
                     <img src="imagenes/F1000031.JPG?v=2" alt="F1000031">
                     <div class="photo-info-overlay"><div class="photo-title">F1000031</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <!-- 11. Horizontal: F1000032 -->
                 <div class="photo-item horizontal" onclick="openModal('F1000032', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000032.JPG?v=2', 'Registro fotográfico de obras.')">
                     <img src="imagenes/F1000032.JPG?v=2" alt="F1000032">
                     <div class="photo-info-overlay"><div class="photo-title">F1000032</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <!-- 12. Horizontal: F1010012 -->
                 <div class="photo-item horizontal" onclick="openModal('F1010012', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1010012.JPG?v=2', 'Estudio de claroscuro fotográfico.')">
                     <img src="imagenes/F1010012.JPG?v=2" alt="F1010012">
                     <div class="photo-info-overlay"><div class="photo-title">F1010012</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <!-- 13. Vertical: F1010024 -->
                 <div class="photo-item" onclick="openModal('F1010024', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1010024.JPG?v=2', 'Composición de luz natural.')">
                     <img src="imagenes/F1010024.JPG?v=2" alt="F1010024">
                     <div class="photo-info-overlay"><div class="photo-title">F1010024</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <!-- 14. Vertical: F1010025 -->
                 <div class="photo-item" onclick="openModal('F1010025', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1010025.JPG?v=2', 'Composición de luz natural.')">
                     <img src="imagenes/F1010025.JPG?v=2" alt="F1010025">
                     <div class="photo-info-overlay"><div class="photo-title">F1010025</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <!-- 15. Vertical: F1010026 -->
                 <div class="photo-item" onclick="openModal('F1010026', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1010026.JPG?v=2', 'Estudio fotográfico de texturas.')">
                     <img src="imagenes/F1010026.JPG?v=2" alt="F1010026">
                     <div class="photo-info-overlay"><div class="photo-title">F1010026</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <!-- 16. Vertical: F1010036 -->
                 <div class="photo-item" onclick="openModal('F1010036', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1010036.JPG?v=2', 'Registro de taller y modelos.')">
                     <img src="imagenes/F1010036.JPG?v=2" alt="F1010036">
                     <div class="photo-info-overlay"><div class="photo-title">F1010036</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <!-- 17. Vertical: Satygne 1 -->
                 <div class="photo-item" onclick="openModal('Satygne 1', 'Fotografía Fine Art', '60 x 80 cm', 'Disponible', '800 USD', 'imagenes/Satygne_1.jpg?v=2', 'Composición inspirada en la mitología clásica.')">
                     <img src="imagenes/Satygne_1.jpg?v=2" alt="Satygne 1">
                     <div class="photo-info-overlay"><div class="photo-title">Satygne 1</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
 
-                <!-- 18. Vertical: Spiegel -->
                 <div class="photo-item" onclick="openModal('Spiegel', 'Fotografía Fine Art', '70 x 100 cm', 'Disponible', '900 USD', 'imagenes/Spiegel.jpg?v=2', 'Estudio de reflejos y perspectiva.')">
                     <img src="imagenes/Spiegel.jpg?v=2" alt="Spiegel">
                     <div class="photo-info-overlay"><div class="photo-title">Spiegel</div><div class="photo-meta">Fine Art Print · 2025</div></div>
@@ -1394,23 +1506,29 @@
         function filterGallery(category, year = null) {
             const gallerySection = document.getElementById('gallery');
             const galleryPhotoSection = document.getElementById('galleryPhoto');
+            const galleryDrawingSection = document.getElementById('galleryDrawing');
             const dynamicTitle = document.getElementById('dynamicSectionTitle');
 
             if (category === 'fotografia') {
                 gallerySection.style.display = 'none';
+                galleryDrawingSection.style.display = 'none';
                 galleryPhotoSection.style.display = 'block';
                 galleryPhotoSection.scrollIntoView({ behavior: 'smooth' });
                 return;
+            } else if (category === 'dibujo') {
+                gallerySection.style.display = 'none';
+                galleryPhotoSection.style.display = 'none';
+                galleryDrawingSection.style.display = 'block';
+                galleryDrawingSection.scrollIntoView({ behavior: 'smooth' });
+                return;
             } else {
                 galleryPhotoSection.style.display = 'none';
+                galleryDrawingSection.style.display = 'none';
                 gallerySection.style.display = 'block';
             }
 
-            // Actualizar título superior según categoría
             if (category === 'oleos') {
                 dynamicTitle.innerText = currentLang === 'EN' ? 'Oil Paintings' : 'Pinturas al Óleo';
-            } else if (category === 'dibujo') {
-                dynamicTitle.innerText = currentLang === 'EN' ? 'Drawing' : 'Dibujo';
             } else if (category === 'retratos') {
                 dynamicTitle.innerText = currentLang === 'EN' ? 'Portraits' : 'Retratos';
             } else {

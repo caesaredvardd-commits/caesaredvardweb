@@ -46,7 +46,7 @@
             text-decoration: none;
         }
 
-        /* HEADER PRINCIPAL (SIN LOGO SUPERIOR) */
+        /* HEADER PRINCIPAL (SIN ÍNDICE NI LOGO SUPERIOR) */
         header {
             position: fixed;
             top: 0;
@@ -54,7 +54,7 @@
             width: 100%;
             padding: 20px 30px;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             z-index: 100;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 100%);
@@ -62,47 +62,8 @@
             transition: color 0.3s ease;
         }
 
-        header.header-light .menu-btn,
         header.header-light .lang-select {
             color: #ffffff !important;
-        }
-        header.header-light .hamburger span {
-            background-color: #ffffff !important;
-        }
-
-        .menu-btn {
-            background: none;
-            border: none;
-            color: var(--text-main);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            z-index: 101;
-            transition: color 0.3s;
-        }
-
-        .menu-btn:hover, .menu-btn:active {
-            color: var(--accent-hover);
-        }
-
-        .hamburger {
-            width: 26px;
-            height: 18px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .hamburger span {
-            display: block;
-            height: 2px;
-            width: 100%;
-            background-color: var(--text-main);
-            transition: 0.3s ease;
         }
 
         .lang-select {
@@ -122,145 +83,6 @@
         .lang-select span.active {
             opacity: 1;
             text-decoration: underline;
-        }
-
-        /* --- MENÚ LATERAL DESPLEGABLE --- */
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
-            z-index: 150;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.4s ease;
-        }
-
-        .sidebar-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 320px;
-            height: 100%;
-            background-color: #ffffff;
-            border-right: 1px solid rgba(0, 0, 0, 0.1);
-            z-index: 160;
-            padding: 60px 30px 40px 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-            overflow-y: auto;
-        }
-
-        .sidebar.active {
-            left: 0;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            background: none;
-            border: none;
-            color: var(--text-main);
-            font-size: 1.8rem;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .close-btn:hover {
-            color: var(--accent-hover);
-        }
-
-        .sidebar-nav {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            padding-left: 0;
-        }
-
-        .sidebar-nav a, .submenu-trigger {
-            font-size: 1.35rem;
-            letter-spacing: 1px;
-            color: var(--text-main);
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-        }
-
-        .sidebar-nav a:hover, .submenu-trigger:hover {
-            padding-left: 6px;
-            color: var(--accent-hover);
-        }
-
-        /* --- SUBMENÚ DESPLEGABLE (AÑOS) --- */
-        .has-submenu {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .submenu-arrow {
-            font-size: 0.8rem;
-            transition: transform 0.3s ease;
-        }
-
-        .has-submenu.open .submenu-arrow {
-            transform: rotate(90deg);
-        }
-
-        .submenu-years {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.3s ease;
-            list-style: none;
-            padding-left: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            border-left: 1px solid rgba(0, 0, 0, 0.2);
-            margin-top: 5px;
-            margin-left: 5px;
-        }
-
-        .has-submenu.open .submenu-years {
-            max-height: 500px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-
-        .submenu-years a {
-            font-style: italic;
-            font-size: 1.1rem;
-            color: var(--text-main);
-            letter-spacing: 2px;
-        }
-
-        .submenu-years a:hover {
-            padding-left: 4px;
-            color: var(--accent-hover);
-        }
-
-        .sidebar-footer {
-            font-size: 0.95rem;
-            color: var(--text-main);
-            letter-spacing: 1px;
-            margin-top: 30px;
-        }
-
-        .sidebar-footer p {
-            margin-bottom: 8px;
         }
 
         /* --- HERO SECCIÓN --- */
@@ -359,7 +181,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN INTERACTIVA CON FONDO F1000014.JPG Y TARJETAS UNIFORMES --- */
+        /* --- SECCIÓN INTERACTIVA CON FONDO F1000014.JPG Y ESPACIADO AMPLIADO --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -395,7 +217,7 @@
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1300px;
             height: 520px;
             display: flex;
             align-items: center;
@@ -417,12 +239,12 @@
             transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* Medidas exactas e iguales para todas las tarjetas */
+        /* Medidas exactas y mayor separación (margen lateral ampliado a 45px) */
         .carousel-card {
             min-width: 320px;
             max-width: 320px;
             height: 440px;
-            margin: 0 25px;
+            margin: 0 45px;
             position: relative;
             cursor: pointer;
             border-radius: 4px;
@@ -452,7 +274,7 @@
             pointer-events: none;
         }
 
-        /* Botón "EXPLORE" flotante dentro de la tarjeta activa */
+        /* Botón "EXPLORE" flotante: Blanco con texto negro por defecto, transparente con texto blanco en hover */
         .card-explore-overlay {
             position: absolute;
             top: 0;
@@ -475,19 +297,20 @@
             padding: 14px 30px;
             background: #ffffff;
             color: #000000;
-            border: none;
+            border: 2px solid #ffffff;
             font-size: 1.1rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.3s, background 0.3s, color 0.3s;
+            transition: all 0.3s ease;
         }
 
         .btn-card-explore:hover {
+            background: transparent !important;
+            color: #ffffff !important;
+            border-color: #ffffff !important;
             transform: scale(1.05);
-            background: #000000;
-            color: #ffffff;
         }
 
         /* Nombre inferior de la categoría activa */
@@ -581,10 +404,6 @@
             border: 1px solid var(--text-main);
             color: var(--text-main);
             z-index: 2;
-        }
-
-        .badge-status.sold {
-            opacity: 0.7;
         }
 
         .art-info {
@@ -1006,64 +825,10 @@
 
     <!-- HEADER PRINCIPAL -->
     <header id="mainHeader">
-        <button class="menu-btn" id="openSidebar">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <span id="navIndexText">Índice</span>
-        </button>
-
         <div class="lang-select" id="langToggle" onclick="toggleLanguage()">
             <span class="active" id="langEs">ES</span> / <span id="langEn">EN</span>
         </div>
     </header>
-
-    <!-- MENÚ LATERAL DESPLEGABLE -->
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
-    <aside class="sidebar" id="sidebar">
-        <button class="close-btn" id="closeSidebar">&times;</button>
-        <div>
-            <div style="letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; color: var(--text-main);">BRUNELIO ARCHIVE</div>
-            <ul class="sidebar-nav" id="sidebarNavList">
-                <li><a href="#utopiaCarousel" onclick="filterGallery('disponible'); closeMenu();"><span class="menu-item-1">Obras Disponibles</span> <span>→</span></a></li>
-                
-                <!-- DESPLEGABLE PINTURAS AL ÓLEO POR AÑO -->
-                <li class="has-submenu" id="oleosSubmenu">
-                    <div class="submenu-trigger" onclick="toggleOleosSubmenu()">
-                        <span class="menu-item-2">Pinturas al Óleo</span>
-                        <span class="submenu-arrow">▶</span>
-                    </div>
-                    <ul class="submenu-years" id="submenuYearsList">
-                        <li><a href="#gallery" onclick="filterGallery('oleos'); closeMenu();">Ver Todo el Óleo</a></li>
-                        <li><a href="#gallery" onclick="filterGallery('oleos', '2026'); closeMenu();">2026</a></li>
-                        <li><a href="#gallery" onclick="filterGallery('oleos', '2025'); closeMenu();">2025</a></li>
-                        <li><a href="#gallery" onclick="filterGallery('oleos', '2024'); closeMenu();">2024</a></li>
-                        <li><a href="#gallery" onclick="filterGallery('oleos', '2023'); closeMenu();">2023</a></li>
-                        <li><a href="#gallery" onclick="filterGallery('oleos', '2022'); closeMenu();">2022</a></li>
-                        <li><a href="#gallery" onclick="filterGallery('oleos', '2021'); closeMenu();">2021</a></li>
-                        <li><a href="#gallery" onclick="filterGallery('oleos', '2020'); closeMenu();">2020</a></li>
-                        <li><a href="#gallery" onclick="filterGallery('oleos', '2019'); closeMenu();">2019</a></li>
-                        <li><a href="#gallery" onclick="filterGallery('oleos', '2018'); closeMenu();">2018</a></li>
-                        <li><a href="#gallery" onclick="filterGallery('oleos', '2017'); closeMenu();">2017</a></li>
-                        <li><a href="#gallery" onclick="filterGallery('oleos', '2016'); closeMenu();">2016</a></li>
-                        <li><a href="#gallery" onclick="filterGallery('oleos', '2015'); closeMenu();">2015</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#gallery" onclick="filterGallery('dibujo'); closeMenu();"><span class="menu-item-3">Dibujo</span> <span>→</span></a></li>
-                <li><a href="#gallery" onclick="filterGallery('fotografia'); closeMenu();"><span class="menu-item-4">Fotografía</span> <span>→</span></a></li>
-                <li><a href="#gallery" onclick="filterGallery('retratos'); closeMenu();"><span class="menu-item-5">Retratos</span> <span>→</span></a></li>
-                <li><a href="#bio" onclick="closeMenu();"><span class="menu-item-6">Biografía</span> <span>→</span></a></li>
-                <li><a href="#contact" onclick="closeMenu();"><span class="menu-item-7">Contacto / Encargos</span> <span>→</span></a></li>
-            </ul>
-        </div>
-        <div class="sidebar-footer">
-            <p>Atelier & Collection</p>
-            <p>cezzarostudio@gmail.com</p>
-        </div>
-    </aside>
 
     <!-- HERO / PORTADA -->
     <section class="hero">
@@ -1080,7 +845,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN INTERACTIVA CON SCROLL FLUIDO HORIZONTAL (DRAG, TRACKPAD, FLECHAS) -->
+    <!-- SECCIÓN INTERACTIVA CON SCROLL HORIZONTAL FLUIDO Y ESPACIADO -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack">
@@ -1123,11 +888,8 @@
         <div class="utopia-footer-title" id="carouselFooterTitle">PINTURAS AL ÓLEO</div>
     </section>
 
-    <!-- CATÁLOGO DE OBRAS -->
-    <section id="gallery">
-        <h2 class="section-title" id="galleryTitle">Colección Principal</h2>
-        <p class="section-subtitle" id="gallerySubtitle">Obras de taller y catálogo de adquisición</p>
-
+    <!-- CATÁLOGO DE OBRAS (SIN TÍTULO COLECCIÓN PRINCIPAL) -->
+    <section id="gallery" style="display:none;">
         <div class="gallery-container">
             <div class="gallery-grid" id="galleryGrid">
                 
@@ -1148,13 +910,13 @@
                     <div class="art-info"><div class="art-title">Virgen</div><div class="art-meta">Óleo sobre lienzo · 2024</div><div class="art-price">2,400 USD</div></div>
                 </div>
 
-                <div class="art-card" data-category="oleos" data-year="2024" onclick="openModal('Wvirgen', 'Óleo sobre lienzo', '50 x 70 cm', 'Vendido', 'Colección Privada', 'imagenes/wvirgen.DNG', 'Obra introspectiva que retrata la quietud y la sombra.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/wvirgen.DNG" alt="Wvirgen"></div>
+                <div class="art-card" data-category="oleos disponible" data-year="2024" onclick="openModal('Wvirgen', 'Óleo sobre lienzo', '50 x 70 cm', 'Disponible', 'Colección Privada', 'imagenes/wvirgen.DNG', 'Obra introspectiva que retrata la quietud y la sombra.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/wvirgen.DNG" alt="Wvirgen"></div>
                     <div class="art-info"><div class="art-title">Wvirgen</div><div class="art-meta">Óleo sobre lienzo · 2024</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
-                <div class="art-card" data-category="oleos retratos" data-year="2023" onclick="openModal('Sis', 'Óleo sobre lienzo', '60 x 80 cm', 'Vendido', 'Colección Privada', 'imagenes/sis.DNG', 'Estudio figurativo al óleo con técnica de claroscuro.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/sis.DNG" alt="Sis"></div>
+                <div class="art-card" data-category="oleos retratos disponible" data-year="2023" onclick="openModal('Sis', 'Óleo sobre lienzo', '60 x 80 cm', 'Disponible', 'Colección Privada', 'imagenes/sis.DNG', 'Estudio figurativo al óleo con técnica de claroscuro.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/sis.DNG" alt="Sis"></div>
                     <div class="art-info"><div class="art-title">Sis</div><div class="art-meta">Óleo sobre lienzo · 2023</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
@@ -1168,8 +930,8 @@
                     <div class="art-info"><div class="art-title">Hombre y paisaje 2</div><div class="art-meta">Óleo sobre lienzo · 2022</div><div class="art-price">2,800 USD</div></div>
                 </div>
 
-                <div class="art-card" data-category="oleos" data-year="2021" onclick="openModal('Hombre Verde', 'Óleo sobre lienzo', '60 x 90 cm', 'Vendido', 'Colección Privada', 'imagenes/hombre verde.jpg', 'Composición alegórica con tonalidades verdosos y terrosos.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/hombre verde.jpg" alt="Hombre Verde"></div>
+                <div class="art-card" data-category="oleos disponible" data-year="2021" onclick="openModal('Hombre Verde', 'Óleo sobre lienzo', '60 x 90 cm', 'Disponible', 'Colección Privada', 'imagenes/hombre verde.jpg', 'Composición alegórica con tonalidades verdosos y terrosos.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/hombre verde.jpg" alt="Hombre Verde"></div>
                     <div class="art-info"><div class="art-title">Hombre Verde</div><div class="art-meta">Óleo sobre lienzo · 2021</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
@@ -1178,8 +940,8 @@
                     <div class="art-info"><div class="art-title">Doll</div><div class="art-meta">Óleo sobre lienzo · 2020</div><div class="art-price">1,600 USD</div></div>
                 </div>
 
-                <div class="art-card" data-category="oleos" data-year="2019" onclick="openModal('Eva', 'Óleo sobre lienzo', '70 x 100 cm', 'Vendido', 'Colección Privada', 'imagenes/eva.jpeg', 'Obra alegórica de la serie mitológica.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/eva.jpeg" alt="Eva"></div>
+                <div class="art-card" data-category="oleos disponible" data-year="2019" onclick="openModal('Eva', 'Óleo sobre lienzo', '70 x 100 cm', 'Disponible', 'Colección Privada', 'imagenes/eva.jpeg', 'Obra alegórica de la serie mitológica.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/eva.jpeg" alt="Eva"></div>
                     <div class="art-info"><div class="art-title">Eva</div><div class="art-meta">Óleo sobre lienzo · 2019</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
@@ -1188,8 +950,8 @@
                     <div class="art-info"><div class="art-title">Adan</div><div class="art-meta">Óleo sobre tabla · 2018</div><div class="art-price">1,300 USD</div></div>
                 </div>
 
-                <div class="art-card" data-category="oleos" data-year="2017" onclick="openModal('Flower', 'Óleo sobre lienzo', '60 x 120 cm', 'Vendido', 'Colección Privada', 'imagenes/flower.DNG', 'Naturaleza muerta con simbolismo barroco.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/flower.DNG" alt="Flower"></div>
+                <div class="art-card" data-category="oleos disponible" data-year="2017" onclick="openModal('Flower', 'Óleo sobre lienzo', '60 x 120 cm', 'Disponible', 'Colección Privada', 'imagenes/flower.DNG', 'Naturaleza muerta con simbolismo barroco.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/flower.DNG" alt="Flower"></div>
                     <div class="art-info"><div class="art-title">Flower</div><div class="art-meta">Óleo sobre lienzo · 2017</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
@@ -1198,8 +960,8 @@
                     <div class="art-info"><div class="art-title">Rubia</div><div class="art-meta">Óleo sobre lienzo · 2016</div><div class="art-price">1,500 USD</div></div>
                 </div>
 
-                <div class="art-card" data-category="oleos" data-year="2016" onclick="openModal('Padre', 'Óleo sobre tabla', '40 x 60 cm', 'Vendido', 'Colección Privada', 'imagenes/padre 2.PNG', 'Retrato psicológico de carácter solemne.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/padre 2.PNG" alt="Padre"></div>
+                <div class="art-card" data-category="oleos disponible" data-year="2016" onclick="openModal('Padre', 'Óleo sobre tabla', '40 x 60 cm', 'Disponible', 'Colección Privada', 'imagenes/padre 2.PNG', 'Retrato psicológico de carácter solemne.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/padre 2.PNG" alt="Padre"></div>
                     <div class="art-info"><div class="art-title">Padre</div><div class="art-meta">Óleo sobre tabla · 2016</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
@@ -1208,8 +970,8 @@
                     <div class="art-info"><div class="art-title">Mujer 1</div><div class="art-meta">Óleo sobre lienzo · 2015</div><div class="art-price">1,800 USD</div></div>
                 </div>
 
-                <div class="art-card" data-category="oleos" data-year="2015" onclick="openModal('Estudio Inicial', 'Óleo sobre tabla', '35 x 45 cm', 'Vendido', 'Colección Privada', 'imagenes/flor w.jpg', 'Estudio fundacional de claroscuro.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/flor w.jpg" alt="Estudio Inicial"></div>
+                <div class="art-card" data-category="oleos disponible" data-year="2015" onclick="openModal('Estudio Inicial', 'Óleo sobre tabla', '35 x 45 cm', 'Disponible', 'Colección Privada', 'imagenes/flor w.jpg', 'Estudio fundacional de claroscuro.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/flor w.jpg" alt="Estudio Inicial"></div>
                     <div class="art-info"><div class="art-title">Estudio Inicial</div><div class="art-meta">Óleo sobre tabla · 2015</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
@@ -1229,8 +991,8 @@
                     <div class="art-info"><div class="art-title">Anatomía Cruzada</div><div class="art-meta">Carboncillo sobre papel · 2025</div><div class="art-price">950 USD</div></div>
                 </div>
 
-                <div class="art-card" data-category="dibujo retratos" onclick="openModal('Perfil Clásico', 'Grafito sobre papel', '30 x 40 cm', 'Vendido', 'Colección Privada', 'imagenes/9.jpeg', 'Estudio académico de perfil con claroscuro sutil.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/9.jpeg" alt="Perfil Clásico"></div>
+                <div class="art-card" data-category="dibujo retratos disponible" onclick="openModal('Perfil Clásico', 'Grafito sobre papel', '30 x 40 cm', 'Disponible', 'Colección Privada', 'imagenes/9.jpeg', 'Estudio académico de perfil con claroscuro sutil.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/9.jpeg" alt="Perfil Clásico"></div>
                     <div class="art-info"><div class="art-title">Perfil Clásico</div><div class="art-meta">Grafito sobre papel · 2024</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
@@ -1243,8 +1005,8 @@
                     <div class="art-info"><div class="art-title">Torsos en Penumbra</div><div class="art-meta">Sanguina · 2024</div><div class="art-price">900 USD</div></div>
                 </div>
 
-                <div class="art-card" data-category="dibujo retratos" onclick="openModal('Boceto de manos 2', 'Carboncillo', '35 x 50 cm', 'Vendido', 'Colección Privada', 'imagenes/8.jpeg', 'Análisis gestual rápido con trazos expresivos.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/8.jpeg" alt="Boceto de manos 2"></div>
+                <div class="art-card" data-category="dibujo retratos disponible" onclick="openModal('Boceto de manos 2', 'Carboncillo', '35 x 50 cm', 'Disponible', 'Colección Privada', 'imagenes/8.jpeg', 'Análisis gestual rápido con trazos expresivos.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/8.jpeg" alt="Boceto de manos 2"></div>
                     <div class="art-info"><div class="art-title">Boceto de manos 2</div><div class="art-meta">Carboncillo · 2023</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
@@ -1257,8 +1019,8 @@
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/silla.jpg" alt="Flora y Ceniza"></div>
                     <div class="art-info"><div class="art-title">Flora y Ceniza</div><div class="art-meta">Tinta · 2023</div><div class="art-price">650 USD</div></div>
                 </div>
-                <div class="art-card" data-category="dibujo" onclick="openModal('El Guía Nocturno', 'Pluma y bistre', '40 x 60 cm', 'Vendido', 'Colección Privada', 'imagenes/iglesia.JPG', 'Dibujo mitológico elaborado con tintas antiguas.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/iglesia.JPG" alt="El Guía Nocturno"></div>
+                <div class="art-card" data-category="dibujo disponible" onclick="openModal('El Guía Nocturno', 'Pluma y bistre', '40 x 60 cm', 'Disponible', 'Colección Privada', 'imagenes/iglesia.JPG', 'Dibujo mitológico elaborado con tintas antiguas.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/iglesia.JPG" alt="El Guía Nocturno"></div>
                     <div class="art-info"><div class="art-title">El Guía Nocturno</div><div class="art-meta">Tinta bistre · 2022</div><div class="art-price">Colección Privada</div></div>
                 </div>
                 <div class="art-card" data-category="dibujo disponible" onclick="openModal('Pliegues de Seda', 'Grafito sobre cartulina', '50 x 70 cm', 'Disponible', '980 USD', 'imagenes/venado.jpg', 'Estudio hiperrealista de drapería.')">
@@ -1270,8 +1032,8 @@
                     <div class="art-info"><div class="art-title">Estudio de Café</div><div class="art-meta">Técnica mixta · 2025</div><div class="art-price">850 USD</div></div>
                 </div>
 
-                <div class="art-card" data-category="dibujo retratos" onclick="openModal('Arquitectura del Resto', 'Tinta y aguada', '30 x 45 cm', 'Vendido', 'Colección Privada', 'imagenes/11.jpeg', 'Estudio estructural con aguadas suaves.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/11.jpeg" alt="Arquitectura del Resto"></div>
+                <div class="art-card" data-category="dibujo retratos disponible" onclick="openModal('Arquitectura del Resto', 'Tinta y aguada', '30 x 45 cm', 'Disponible', 'Colección Privada', 'imagenes/11.jpeg', 'Estudio estructural con aguadas suaves.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/11.jpeg" alt="Arquitectura del Resto"></div>
                     <div class="art-info"><div class="art-title">Arquitectura del Resto</div><div class="art-meta">Aguada · 2020</div><div class="art-price">Colección Privada</div></div>
                 </div>
                 
@@ -1280,8 +1042,8 @@
                     <div class="art-info"><div class="art-title">Estudio Anatómico Final</div><div class="art-meta">Carboncillo · 2025</div><div class="art-price">950 USD</div></div>
                 </div>
 
-                <div class="art-card" data-category="dibujo retratos" onclick="openModal('Trazo inicial 2018', 'Tinta sobre papel', '30 x 40 cm', 'Vendido', 'Colección Privada', 'imagenes/bigote.jpg', 'Uno de los primeros cuadernos de taller.')">
-                    <div class="art-img-wrapper"><span class="badge-status sold">Vendido</span><img src="imagenes/bigote.jpg" alt="Trazo inicial 2018"></div>
+                <div class="art-card" data-category="dibujo retratos disponible" onclick="openModal('Trazo inicial 2018', 'Tinta sobre papel', '30 x 40 cm', 'Disponible', 'Colección Privada', 'imagenes/bigote.jpg', 'Uno de los primeros cuadernos de taller.')">
+                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/bigote.jpg" alt="Trazo inicial 2018"></div>
                     <div class="art-info"><div class="art-title">Trazo inicial 2018</div><div class="art-meta">Tinta · 2018</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
@@ -1488,32 +1250,13 @@
 
     <!-- JAVASCRIPT / LÓGICA DE INTERACCIÓN -->
     <script>
-        const sidebar = document.getElementById('sidebar');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
-        const openSidebarBtn = document.getElementById('openSidebar');
-        const closeSidebarBtn = document.getElementById('closeSidebar');
         const mainHeader = document.getElementById('mainHeader');
         const utopiaSection = document.getElementById('utopiaCarousel');
 
-        openSidebarBtn.addEventListener('click', () => {
-            sidebar.classList.add('active');
-            sidebarOverlay.classList.add('active');
-        });
-
-        function closeMenu() {
-            sidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-        }
-
-        closeSidebarBtn.addEventListener('click', closeMenu);
-        sidebarOverlay.addEventListener('click', closeMenu);
-
-        function toggleOleosSubmenu() {
-            const oleosLi = document.getElementById('oleosSubmenu');
-            oleosLi.classList.toggle('open');
-        }
-
         function filterGallery(category, year = null) {
+            const gallerySection = document.getElementById('gallery');
+            gallerySection.style.display = 'block';
+
             const cards = document.querySelectorAll('.art-card');
             cards.forEach(card => {
                 const categories = card.getAttribute('data-category') ? card.getAttribute('data-category').split(' ') : [];
@@ -1545,7 +1288,7 @@
         });
 
 
-        /* --- LÓGICA DEL CARRUSEL EN BUCLE CON SCROLL HORIZONTAL FLUIDO (DRAG, TRACKPAD, FLECHAS) --- */
+        /* --- LÓGICA DEL CARRUSEL EN BUCLE CON SCROLL HORIZONTAL FLUIDO --- */
         const categoriesData = [
             { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', filterCat: 'oleos' },
             { titleEs: 'Dibujo', titleEn: 'Drawing', filterCat: 'dibujo' },
@@ -1565,7 +1308,7 @@
         let prevTranslate = 0;
 
         function getCardWidth() {
-            return cards[0].offsetWidth + 50; 
+            return cards[0].offsetWidth + 90; /* Margen ampliado para mayor separación */
         }
 
         function updateCarouselPosition() {
@@ -1704,19 +1447,8 @@
                 langEn.classList.add('active');
                 langEs.classList.remove('active');
                 
-                document.getElementById('navIndexText').innerText = 'Index';
-                document.querySelector('.menu-item-1').innerText = 'Available Works';
-                document.querySelector('.menu-item-2').innerText = 'Oil Paintings';
-                document.querySelector('.menu-item-3').innerText = 'Drawing';
-                document.querySelector('.menu-item-4').innerText = 'Photography';
-                document.querySelector('.menu-item-5').innerText = 'Portraits';
-                document.querySelector('.menu-item-6').innerText = 'Biography';
-                document.querySelector('.menu-item-7').innerText = 'Contact / Commissions';
-                
                 document.getElementById('heroDescText').innerText = 'Oil · Ink · Traditional Figurative Art';
                 document.getElementById('heroBtnText').innerText = 'Explore Gallery';
-                document.getElementById('galleryTitle').innerText = 'Main Collection';
-                document.getElementById('gallerySubtitle').innerText = 'Atelier works and acquisition catalog';
 
                 document.getElementById('labelClientType').innerText = 'Business or Individual';
                 document.getElementById('optIndividual').innerText = 'Individual Client';
@@ -1736,19 +1468,8 @@
                 langEs.classList.add('active');
                 langEn.classList.remove('active');
                 
-                document.getElementById('navIndexText').innerText = 'Índice';
-                document.querySelector('.menu-item-1').innerText = 'Obras Disponibles';
-                document.querySelector('.menu-item-2').innerText = 'Pinturas al Óleo';
-                document.querySelector('.menu-item-3').innerText = 'Dibujo';
-                document.querySelector('.menu-item-4').innerText = 'Fotografía';
-                document.querySelector('.menu-item-5').innerText = 'Retratos';
-                document.querySelector('.menu-item-6').innerText = 'Biografía';
-                document.querySelector('.menu-item-7').innerText = 'Contacto / Encargos';
-                
                 document.getElementById('heroDescText').innerText = 'Óleo · Tinta · Arte Figurativo Tradicional';
                 document.getElementById('heroBtnText').innerText = 'Explorar Galería';
-                document.getElementById('galleryTitle').innerText = 'Colección Principal';
-                document.getElementById('gallerySubtitle').innerText = 'Obras de taller y catálogo de adquisición';
 
                 document.getElementById('labelClientType').innerText = 'Empresa o Particular';
                 document.getElementById('optIndividual').innerText = 'Cliente Individual';

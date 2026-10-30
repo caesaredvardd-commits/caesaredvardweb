@@ -37,6 +37,8 @@
             color: var(--text-main);
             overflow-x: hidden;
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
         }
 
         a {
@@ -56,6 +58,21 @@
             align-items: center;
             z-index: 100;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 100%);
+            box-sizing: border-box;
+            transition: color 0.3s ease;
+        }
+
+        /* Cambiar color del header a blanco cuando entra a la zona oscura */
+        header.header-light .menu-btn,
+        header.header-light .logo,
+        header.header-light .lang-select {
+            color: #ffffff !important;
+        }
+        header.header-light .hamburger span {
+            background-color: #ffffff !important;
+        }
+        header.header-light .logo {
+            border-bottom-color: #ffffff !important;
         }
 
         .menu-btn {
@@ -94,10 +111,6 @@
             transition: 0.3s ease;
         }
 
-        .menu-btn:hover .hamburger span {
-            background-color: var(--accent-hover);
-        }
-
         .logo-container {
             justify-self: center;
             text-align: center;
@@ -111,6 +124,7 @@
             display: inline-block;
             border-bottom: 2px solid var(--text-main);
             padding-bottom: 0px;
+            transition: border-color 0.3s, color 0.3s;
         }
 
         .lang-select {
@@ -120,7 +134,7 @@
             justify-self: end;
             cursor: pointer;
             font-weight: 600;
-            margin-right: 40px;
+            transition: color 0.3s;
         }
 
         .lang-select span {
@@ -195,6 +209,7 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
+            padding-left: 0;
         }
 
         .sidebar-nav a, .submenu-trigger {
@@ -367,9 +382,10 @@
             box-shadow: none !important;
         }
 
-        /* --- NUEVA SECCIÓN: UTOPIA WORLD / CARRUSEL EN BUCLE --- */
+        /* --- SECCIÓN CARRUSEL INTERACTIVO SIN BORDES (PANTALLA COMPLETA) --- */
         .utopia-section {
             position: relative;
+            width: 100vw;
             min-height: 100vh;
             background-image: url('imagenes/F1000024.JPG');
             background-size: cover;
@@ -380,10 +396,12 @@
             justify-content: center;
             color: #ffffff;
             overflow: hidden;
-            padding: 60px 20px;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            box-sizing: border-box;
         }
 
-        /* Capa oscura sutil sobre el fondo */
+        /* Capa oscura sutil de fondo */
         .utopia-section::before {
             content: '';
             position: absolute;
@@ -391,65 +409,52 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.65);
+            background: rgba(0, 0, 0, 0.7);
             z-index: 1;
         }
 
-        .utopia-header {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .utopia-explore-tag {
-            font-size: 0.95rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            opacity: 0.8;
-        }
-
-        .utopia-main-title {
-            font-family: var(--font-titles) !important;
-            font-size: 2.8rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-        }
-
-        /* Contenedor del carrusel infinito en bucle */
-        .carousel-wrapper {
+        /* Contenedor principal del carrusel con arrastre por mouse */
+        .carousel-container-drag {
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 1100px;
-            height: 480px;
+            max-width: 1200px;
+            height: 520px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            cursor: grab;
+            user-select: none;
+        }
+
+        .carousel-container-drag:active {
+            cursor: grabbing;
         }
 
         .carousel-track {
             display: flex;
             align-items: center;
             position: absolute;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .carousel-card {
             min-width: 340px;
+            max-width: 340px;
             height: 440px;
-            margin: 0 20px;
+            margin: 0 25px;
             position: relative;
             cursor: pointer;
             border-radius: 4px;
             overflow: hidden;
             transition: transform 0.5s ease, filter 0.5s ease, opacity 0.5s ease;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            opacity: 0.4;
-            transform: scale(0.85);
-            filter: brightness(0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            opacity: 0.35;
+            transform: scale(0.82);
+            filter: brightness(0.5);
+            flex-shrink: 0;
         }
 
         .carousel-card.active {
@@ -457,13 +462,15 @@
             transform: scale(1);
             filter: brightness(1);
             z-index: 5;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
         .carousel-card img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* Evita que la imagen se recorte o deforme */
+            background-color: #111;
+            pointer-events: none;
         }
 
         /* Botón "EXPLORE" flotante dentro de la tarjeta activa */
@@ -473,7 +480,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.35);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -486,61 +493,35 @@
         }
 
         .btn-card-explore {
-            padding: 12px 28px;
+            padding: 14px 30px;
             background: #ffffff;
             color: #000000;
             border: none;
-            font-size: 1rem;
+            font-size: 1.1rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: transform 0.3s, background 0.3s, color 0.3s;
         }
 
         .btn-card-explore:hover {
             transform: scale(1.05);
-            background: var(--text-main);
+            background: #000000;
             color: #ffffff;
         }
 
+        /* Nombre inferior de la categoría activa */
         .utopia-footer-title {
             position: relative;
             z-index: 2;
             margin-top: 25px;
-            font-size: 1.1rem;
-            letter-spacing: 3px;
+            font-size: 1.25rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
             text-align: center;
             font-weight: 600;
         }
-
-        /* Controles de flechas laterales para navegar */
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: #ffffff;
-            font-size: 2rem;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s;
-        }
-
-        .carousel-btn:hover {
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        .carousel-btn.prev { left: 20px; }
-        .carousel-btn.next { right: 20px; }
 
 
         /* --- GALERÍA / CATÁLOGO --- */
@@ -902,6 +883,7 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
+            padding-left: 0;
         }
 
         .bio-awards-list li {
@@ -1036,7 +1018,7 @@
             .modal-content { grid-template-columns: 1fr; }
             .modal-img-container img { max-height: 40vh; }
             .gallery-grid { grid-template-columns: 1fr; }
-            .carousel-card { min-width: 260px; height: 350px; }
+            .carousel-card { min-width: 260px; max-width: 260px; height: 350px; }
             .btn-submit { width: 100%; }
         }
     </style>
@@ -1044,7 +1026,7 @@
 <body>
 
     <!-- HEADER PRINCIPAL -->
-    <header>
+    <header id="mainHeader">
         <button class="menu-btn" id="openSidebar">
             <div class="hamburger">
                 <span></span>
@@ -1070,7 +1052,7 @@
         <div>
             <div style="letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; color: var(--text-main);">BRUNELIO ARCHIVE</div>
             <ul class="sidebar-nav" id="sidebarNavList">
-                <li><a href="#gallery" onclick="filterGallery('disponible'); closeMenu();"><span class="menu-item-1">Obras Disponibles</span> <span>→</span></a></li>
+                <li><a href="#utopiaCarousel" onclick="filterGallery('disponible'); closeMenu();"><span class="menu-item-1">Obras Disponibles</span> <span>→</span></a></li>
                 
                 <!-- DESPLEGABLE PINTURAS AL ÓLEO POR AÑO -->
                 <li class="has-submenu" id="oleosSubmenu">
@@ -1123,51 +1105,44 @@
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN INTERACTIVA EN BUCLE (SUSTITUYENDO OBRAS DISPONIBLES) -->
+    <!-- SECCIÓN INTERACTIVA CON ARRASTRE DE MOUSE (BUCLE INFINITO Y PANTALLA COMPLETA) -->
     <section class="utopia-section" id="utopiaCarousel">
-        <div class="utopia-header">
-            <div class="utopia-explore-tag">EXPLORE</div>
-            <h2 class="utopia-main-title" id="carouselCategoryTitle">Pinturas al Óleo</h2>
-        </div>
-
-        <div class="carousel-wrapper" id="carouselWrapper">
-            <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#10094;</button>
+        <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack">
                 
                 <!-- Tarjeta 1: Pinturas al Óleo (eva.jpeg) -->
-                <div class="carousel-card active" onclick="selectCategoryCard(0)">
+                <div class="carousel-card active" onclick="jumpToCard(0)">
                     <img src="imagenes/eva.jpeg" alt="Pinturas al Óleo">
                     <div class="card-explore-overlay">
-                        <button class="btn-card-explore" onclick="goToCategory('oleos')">Explore</button>
+                        <button class="btn-card-explore" onclick="goToCategory('oleos', event)">Explore</button>
                     </div>
                 </div>
 
                 <!-- Tarjeta 2: Dibujo (bodegon gotico.JPG) -->
-                <div class="carousel-card" onclick="selectCategoryCard(1)">
+                <div class="carousel-card" onclick="jumpToCard(1)">
                     <img src="imagenes/bodegon gotico.JPG" alt="Dibujo">
                     <div class="card-explore-overlay">
-                        <button class="btn-card-explore" onclick="goToCategory('dibujo')">Explore</button>
+                        <button class="btn-card-explore" onclick="goToCategory('dibujo', event)">Explore</button>
                     </div>
                 </div>
 
                 <!-- Tarjeta 3: Retratos (niño2.jpg) -->
-                <div class="carousel-card" onclick="selectCategoryCard(2)">
+                <div class="carousel-card" onclick="jumpToCard(2)">
                     <img src="imagenes/niño2.jpg" alt="Retratos">
                     <div class="card-explore-overlay">
-                        <button class="btn-card-explore" onclick="goToCategory('retratos')">Explore</button>
+                        <button class="btn-card-explore" onclick="goToCategory('retratos', event)">Explore</button>
                     </div>
                 </div>
 
                 <!-- Tarjeta 4: Fotografía (F1000019.JPG) -->
-                <div class="carousel-card" onclick="selectCategoryCard(3)">
+                <div class="carousel-card" onclick="jumpToCard(3)">
                     <img src="imagenes/F1000019.JPG?v=2" alt="Fotografía">
                     <div class="card-explore-overlay">
-                        <button class="btn-card-explore" onclick="goToCategory('fotografia')">Explore</button>
+                        <button class="btn-card-explore" onclick="goToCategory('fotografia', event)">Explore</button>
                     </div>
                 </div>
 
             </div>
-            <button class="carousel-btn next" onclick="moveCarousel(1)">&#10095;</button>
         </div>
 
         <div class="utopia-footer-title" id="carouselFooterTitle">PINTURAS AL ÓLEO</div>
@@ -1464,7 +1439,7 @@
                 
                 <div class="bio-paragraphs" id="bioParagraphs">
                     <p>
-                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">BRUNELIO</span> has consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
+                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">BRUNELIO</span> ha consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
                     </p>
                     <p>
                         A lo largo de su trayectoria, su visión estética ha explorado simbolismos alegóricos, retratos psicológicos y composiciones de alta precisión, posicionándose como una de las voces emergentes más distintivas del realismo figurativo contemporáneo.
@@ -1542,6 +1517,8 @@
         const sidebarOverlay = document.getElementById('sidebarOverlay');
         const openSidebarBtn = document.getElementById('openSidebar');
         const closeSidebarBtn = document.getElementById('closeSidebar');
+        const mainHeader = document.getElementById('mainHeader');
+        const utopiaSection = document.getElementById('utopiaCarousel');
 
         openSidebarBtn.addEventListener('click', () => {
             sidebar.classList.add('active');
@@ -1582,7 +1559,19 @@
             });
         }
 
-        /* --- LÓGICA DEL CARRUSEL EN BUCLE INFINITO --- */
+        /* --- DETECTOR DE POSICIÓN PARA CAMBIAR COLOR DEL HEADER EN LA SECCIÓN OSCURA --- */
+        window.addEventListener('scroll', () => {
+            const rect = utopiaSection.getBoundingClientRect();
+            // Si la sección utopia está visible en la pantalla (cubre la parte superior)
+            if (rect.top <= 60 && rect.bottom >= 60) {
+                mainHeader.classList.add('header-light');
+            } else {
+                mainHeader.classList.remove('header-light');
+            }
+        });
+
+
+        /* --- LÓGICA DEL CARRUSEL EN BUCLE INFINITO CON ARRASTRE DE MOUSE (DRAG & TOUCH) --- */
         const categoriesData = [
             { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', filterCat: 'oleos' },
             { titleEs: 'Dibujo', titleEn: 'Drawing', filterCat: 'dibujo' },
@@ -1593,13 +1582,28 @@
         let currentIndex = 0;
         const track = document.getElementById('carouselTrack');
         const cards = document.querySelectorAll('.carousel-card');
-        const categoryTitle = document.getElementById('carouselCategoryTitle');
         const footerTitle = document.getElementById('carouselFooterTitle');
+        const dragContainer = document.getElementById('dragContainer');
 
-        function updateCarousel() {
-            const cardWidth = cards[0].offsetWidth + 40; // ancho + márgenes
-            const offset = -currentIndex * cardWidth;
-            track.style.transform = `translateX(${offset}px)`;
+        let isDragging = false;
+        let startPos = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        let animationID = 0;
+
+        function getCardWidth() {
+            return cards[0].offsetWidth + 50; // Ancho + márgenes
+        }
+
+        function updateCarouselPosition() {
+            const cardWidth = getCardWidth();
+            const containerWidth = dragContainer.offsetWidth;
+            const cardCenterOffset = (containerWidth / 2) - (cards[0].offsetWidth / 2);
+            
+            // Posicionar para que la tarjeta activa quede exactamente centrada
+            currentTranslate = (-currentIndex * cardWidth) + cardCenterOffset;
+            prevTranslate = currentTranslate;
+            track.style.transform = `translateX(${currentTranslate}px)`;
 
             cards.forEach((card, index) => {
                 if (index === currentIndex) {
@@ -1611,32 +1615,64 @@
 
             const currentData = categoriesData[currentIndex];
             if (currentLang === 'EN') {
-                categoryTitle.innerText = currentData.titleEn;
                 footerTitle.innerText = currentData.titleEn.toUpperCase();
             } else {
-                categoryTitle.innerText = currentData.titleEs;
                 footerTitle.innerText = currentData.titleEs.toUpperCase();
             }
         }
 
-        function moveCarousel(direction) {
-            currentIndex += direction;
-            if (currentIndex < 0) {
-                currentIndex = cards.length - 1; // bucle al final
-            } else if (currentIndex >= cards.length) {
-                currentIndex = 0; // bucle al inicio
-            }
-            updateCarousel();
-        }
-
-        function selectCategoryCard(index) {
+        function jumpToCard(index) {
             currentIndex = index;
-            updateCarousel();
+            updateCarouselPosition();
         }
 
-        function goToCategory(category) {
+        function goToCategory(category, event) {
+            event.stopPropagation();
             filterGallery(category);
             document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        /* Eventos táctiles y de mouse para arrastrar libremente */
+        dragContainer.addEventListener('mousedown', dragStart);
+        dragContainer.addEventListener('touchstart', dragStart, { passive: true });
+
+        dragContainer.addEventListener('mouseup', dragEnd);
+        dragContainer.addEventListener('mouseleave', dragEnd);
+        dragContainer.addEventListener('touchend', dragEnd);
+
+        dragContainer.addEventListener('mousemove', drag);
+        dragContainer.addEventListener('touchmove', drag, { passive: true });
+
+        function dragStart(e) {
+            isDragging = true;
+            startPos = getPositionX(e);
+            cancelAnimationFrame(animationID);
+        }
+
+        function drag(e) {
+            if (!isDragging) return;
+            const currentPosition = getPositionX(e);
+            const diff = currentPosition - startPos;
+            track.style.transform = `translateX(${prevTranslate + diff}px)`;
+        }
+
+        function dragEnd(e) {
+            if (!isDragging) return;
+            isDragging = false;
+            const movedBy = getPositionX(e) - startPos;
+
+            // Si se arrastró lo suficiente hacia la izquierda o derecha, cambia de tarjeta con bucle infinito
+            if (movedBy < -70) {
+                currentIndex = (currentIndex + 1) % cards.length;
+            } else if (movedBy > 70) {
+                currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+            }
+
+            updateCarouselPosition();
+        }
+
+        function getPositionX(e) {
+            return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
         }
 
 
@@ -1663,7 +1699,7 @@
             const langEs = document.getElementById('langEs');
             const langEn = document.getElementById('langEn');
             
-            updateCarousel(); // Actualiza textos del carrusel
+            updateCarouselPosition();
 
             if (currentLang === 'EN') {
                 langEn.classList.add('active');
@@ -1801,8 +1837,13 @@
             }
         });
 
-        // Inicializar carrusel
-        updateCarousel();
+        // Inicializar posición del carrusel centrado
+        window.addEventListener('load', () => {
+            updateCarouselPosition();
+        });
+        window.addEventListener('resize', () => {
+            updateCarouselPosition();
+        });
     </script>
 </body>
 </html>

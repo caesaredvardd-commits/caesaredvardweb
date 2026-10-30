@@ -46,20 +46,31 @@
             text-decoration: none;
         }
 
-        /* HEADER PRINCIPAL */
+        /* HEADER / BANNER BLANCO INTELIGENTE CON FIRMA */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 20px 30px;
+            height: 80px;
+            padding: 0 40px;
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             align-items: center;
             z-index: 100;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 100%);
+            background-color: #ffffff;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             box-sizing: border-box;
-            transition: color 0.3s ease;
+            transition: transform 0.4s ease, background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header.header-hidden {
+            transform: translateY(-100%);
+        }
+
+        .header-logo-firma {
+            height: 40px;
+            object-fit: contain;
         }
 
         header.header-light .lang-select {
@@ -96,6 +107,7 @@
             background-color: #ffffff;
             overflow: hidden;
             padding: 0 20px;
+            margin-top: 80px; /* Espacio por el nuevo banner blanco */
         }
 
         .hero-side-img {
@@ -320,7 +332,7 @@
         }
 
 
-        /* --- NUEVA SECCIÓN DE PINTURAS AL ÓLEO (ESTILO HORIZONTAL CON PANEL IZQUIERDO FIJO) --- */
+        /* --- SECCIÓN DE PINTURAS AL ÓLEO (ESTILO HORIZONTAL) --- */
         .oil-section-wrapper {
             position: relative;
             width: 100vw;
@@ -337,7 +349,6 @@
             overflow: hidden;
         }
 
-        /* Panel Izquierdo Fijo */
         .oil-left-panel {
             width: 380px;
             min-width: 380px;
@@ -385,7 +396,6 @@
             color: #ffffff;
         }
 
-        /* Panel Derecho del Scroll Horizontal */
         .oil-scroll-container {
             flex-grow: 1;
             overflow-x: auto;
@@ -399,7 +409,6 @@
             cursor: grabbing;
         }
 
-        /* Ocultar barra de scroll en navegadores */
         .oil-scroll-container::-webkit-scrollbar {
             height: 6px;
         }
@@ -427,7 +436,6 @@
             transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
         }
 
-        /* Efecto de realce al pasar el cursor */
         .oil-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
@@ -470,17 +478,10 @@
             font-style: italic;
             font-size: 1rem;
             color: #666;
-            margin-bottom: 8px;
-        }
-
-        .oil-card-price {
-            font-size: 1.05rem;
-            font-weight: 500;
-            color: var(--text-main);
         }
 
 
-        /* --- ESTRUCTURA ESPECIAL DE DIBUJO --- */
+        /* --- SECCIÓN DE DIBUJO (SUPERPOSICIÓN DE BANNER Y GRID UNIDO SIN ESPACIOS) --- */
         .drawing-section-wrapper {
             position: relative;
             width: 100vw;
@@ -488,7 +489,7 @@
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
             box-sizing: border-box;
-            padding-bottom: 100px;
+            overflow: hidden;
         }
 
         .drawing-hero-banner {
@@ -510,32 +511,32 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.25);
+            background: rgba(0, 0, 0, 0.3);
         }
 
+        /* Letras de dibujo blancas, más pequeñas, sin recuadro blanco */
         .drawing-banner-title {
             position: relative;
             z-index: 2;
-            background: #ffffff;
-            color: #000000;
-            padding: 12px 40px;
+            color: #ffffff;
             font-family: var(--font-titles) !important;
-            font-size: 2.2rem;
-            letter-spacing: 4px;
+            font-size: 1.5rem;
+            letter-spacing: 6px;
             text-transform: uppercase;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
         }
 
+        /* Botón back en la esquina inferior izquierda del banner de dibujo */
         .drawing-back-btn {
             position: absolute;
-            top: 40px;
+            bottom: 30px;
             left: 40px;
             z-index: 10;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.85);
             color: #000000;
             border: 1px solid #000000;
             padding: 10px 22px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
@@ -547,33 +548,29 @@
             color: #ffffff;
         }
 
+        /* Grid de dibujo unidas sin separaciones blancas y sin info abajo */
         .drawing-grid-3x3 {
+            position: relative;
+            z-index: 5;
             max-width: 1400px;
-            margin: 60px auto 0 auto;
-            padding: 0 30px;
+            margin: -80px auto 0 auto; /* Sube tapando el banner elegantemente */
+            padding: 0 30px 100px 30px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 0; /* Totalmente unidas sin separaciones */
         }
 
         .drawing-card {
-            background-color: var(--card-bg);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            background-color: #000;
             cursor: pointer;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        .drawing-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            position: relative;
         }
 
         .drawing-img-wrapper {
             position: relative;
             width: 100%;
-            height: 480px;
-            background: #f0f0f0;
+            height: 520px;
             overflow: hidden;
         }
 
@@ -581,15 +578,17 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s ease, filter 0.5s ease;
+            filter: brightness(0.95);
         }
 
         .drawing-card:hover .drawing-img-wrapper img {
             transform: scale(1.04);
+            filter: brightness(1.05);
         }
 
 
-        /* --- SECCIÓN DE FOTOGRAFÍA ESTILO MITAD-MITAD --- */
+        /* --- SECCIÓN DE FOTOGRAFÍA (IMÁGENES A ESPACIO COMPLETO SIN BORDES NEGROS) --- */
         .photo-section-wrapper {
             position: relative;
             width: 100vw;
@@ -614,7 +613,7 @@
         .photo-split-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 20px;
             max-width: 1500px;
             margin: 0 auto;
             padding: 0 40px;
@@ -623,7 +622,7 @@
         .photo-item {
             position: relative;
             width: 100%;
-            height: 70vh;
+            height: 75vh;
             background: #000;
             display: flex;
             align-items: center;
@@ -631,7 +630,6 @@
             overflow: hidden;
             cursor: pointer;
             border-radius: 2px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             transition: transform 0.4s ease;
         }
 
@@ -641,13 +639,14 @@
 
         .photo-item.horizontal {
             grid-column: span 2;
-            height: 80vh;
+            height: 85vh;
         }
 
+        /* Ocupar todo el espacio sin bordes negros sobrantes (object-fit: cover) */
         .photo-item img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             transition: transform 0.5s ease;
         }
 
@@ -709,7 +708,7 @@
         }
 
 
-        /* --- VISTA MODAL PARA VER DETALLES DE OBRA --- */
+        /* --- VISTA MODAL AMPLIADA CON LUPA A LA DERECHA INFERIOR --- */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -780,6 +779,7 @@
             transform-origin: center center;
         }
 
+        /* Lupa ubicada exactamente en la esquina inferior derecha */
         .zoom-toggle-btn {
             position: absolute;
             bottom: 12px;
@@ -842,12 +842,6 @@
             color: var(--text-main);
             margin-bottom: 25px;
             line-height: 1.8;
-        }
-
-        .modal-price {
-            font-size: 1.4rem;
-            color: var(--text-main);
-            margin-bottom: 25px;
         }
 
         .btn-inquire {
@@ -1102,8 +1096,10 @@
 </head>
 <body>
 
-    <!-- HEADER PRINCIPAL -->
+    <!-- BANNER BLANCO INTELIGENTE CON FIRMA -->
     <header id="mainHeader">
+        <div></div>
+        <img src="imagenes/firma.png" alt="Firma Brunelio" class="header-logo-firma">
         <div class="lang-select" id="langToggle" onclick="toggleLanguage()">
             <span class="active" id="langEs">ES</span> / <span id="langEn">EN</span>
         </div>
@@ -1136,8 +1132,9 @@
                     </div>
                 </div>
 
+                <!-- Imagen del índice de dibujo cambiada a silla.jpg -->
                 <div class="carousel-card" onclick="jumpToCard(1)">
-                    <img src="imagenes/bodegon gotico.JPG" alt="Dibujo">
+                    <img src="imagenes/silla.jpg" alt="Dibujo">
                     <div class="card-explore-overlay">
                         <button class="btn-card-explore" onclick="goToCategory('dibujo', event)">Explore</button>
                     </div>
@@ -1164,102 +1161,100 @@
     </section>
 
 
-    <!-- ==================== NUEVA SECCIÓN DE PINTURAS AL ÓLEO (ESTILO HORIZONTAL) ==================== -->
+    <!-- ==================== SECCIÓN DE PINTURAS AL ÓLEO (SIN PRECIOS) ==================== -->
     <section id="galleryOil" style="display:none;" class="oil-section-wrapper">
-        <!-- Lado Izquierdo Fijo con Título y Botón Back -->
         <div class="oil-left-panel">
             <h2 class="oil-section-title" id="oilTitleText">PINTURAS<br>AL ÓLEO</h2>
             <p class="oil-section-subtitle" id="oilSubText">Obras de taller y catálogo de adquisición reciente</p>
             <button class="oil-back-btn" onclick="goBackToMain()">← Back</button>
         </div>
 
-        <!-- Lado Derecho con Carrusel de Scroll Horizontal -->
         <div class="oil-scroll-container" id="oilScrollContainer">
             <div class="oil-track">
                 
-                <div class="oil-card" onclick="openModal('Nude 3', 'Óleo sobre lienzo', '70 x 90 cm', 'Disponible', '2,100 USD', 'imagenes/nude 3.DNG', 'Estudio contemporáneo de la figura humana y texturas en óleo.')">
+                <div class="oil-card" onclick="openModal('Nude 3', 'Óleo sobre lienzo', '70 x 90 cm', 'imagenes/nude 3.DNG', 'Estudio contemporáneo de la figura humana y texturas en óleo.')">
                     <div class="oil-img-wrapper"><img src="imagenes/nude 3.DNG" alt="Nude 3"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Nude 3</div><div class="oil-card-meta">Óleo sobre lienzo · 2026</div><div class="oil-card-price">2,100 USD</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Nude 3</div><div class="oil-card-meta">Óleo sobre lienzo · 2026</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openModal('Lyon', 'Óleo sobre lienzo', '65 x 85 cm', 'Disponible', '1,900 USD', 'imagenes/lyon.DNG', 'Composición de atmósfera profunda y tonos clásicos.')">
+                <div class="oil-card" onclick="openModal('Lyon', 'Óleo sobre lienzo', '65 x 85 cm', 'imagenes/lyon.DNG', 'Composición de atmósfera profunda y tonos clásicos.')">
                     <div class="oil-img-wrapper"><img src="imagenes/lyon.DNG" alt="Lyon"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Lyon</div><div class="oil-card-meta">Óleo sobre lienzo · 2025</div><div class="oil-card-price">1,900 USD</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Lyon</div><div class="oil-card-meta">Óleo sobre lienzo · 2025</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openModal('Virgen', 'Óleo sobre lienzo', '70 x 100 cm', 'Disponible', '2,400 USD', 'imagenes/virgen 3.PNG', 'Inspirado en la iconografía clásica y pigmentos intensos.')">
+                <div class="oil-card" onclick="openModal('Virgen', 'Óleo sobre lienzo', '70 x 100 cm', 'imagenes/virgen 3.PNG', 'Inspirado en la iconografía clásica y pigmentos intensos.')">
                     <div class="oil-img-wrapper"><img src="imagenes/virgen 3.PNG" alt="Virgen"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Virgen</div><div class="oil-card-meta">Óleo sobre lienzo · 2024</div><div class="oil-card-price">2,400 USD</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Virgen</div><div class="oil-card-meta">Óleo sobre lienzo · 2024</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openModal('Wvirgen', 'Óleo sobre lienzo', '50 x 70 cm', 'Disponible', 'Colección Privada', 'imagenes/wvirgen.DNG', 'Obra introspectiva que retrata la quietud y la sombra.')">
+                <div class="oil-card" onclick="openModal('Wvirgen', 'Óleo sobre lienzo', '50 x 70 cm', 'imagenes/wvirgen.DNG', 'Obra introspectiva que retrata la quietud y la sombra.')">
                     <div class="oil-img-wrapper"><img src="imagenes/wvirgen.DNG" alt="Wvirgen"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Wvirgen</div><div class="oil-card-meta">Óleo sobre lienzo · 2024</div><div class="oil-card-price">Colección Privada</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Wvirgen</div><div class="oil-card-meta">Óleo sobre lienzo · 2024</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openModal('Sis', 'Óleo sobre lienzo', '60 x 80 cm', 'Disponible', 'Colección Privada', 'imagenes/sis.DNG', 'Estudio figurativo al óleo con técnica de claroscuro.')">
+                <div class="oil-card" onclick="openModal('Sis', 'Óleo sobre lienzo', '60 x 80 cm', 'imagenes/sis.DNG', 'Estudio figurativo al óleo con técnica de claroscuro.')">
                     <div class="oil-img-wrapper"><img src="imagenes/sis.DNG" alt="Sis"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Sis</div><div class="oil-card-meta">Óleo sobre lienzo · 2023</div><div class="oil-card-price">Colección Privada</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Sis</div><div class="oil-card-meta">Óleo sobre lienzo · 2023</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openModal('Hombre y paisaje', 'Óleo sobre tabla', '40 x 50 cm', 'Disponible', '1,450 USD', 'imagenes/Hombre y paisaje.png', 'Diálogo entre la figura humana y el entorno natural.')">
+                <div class="oil-card" onclick="openModal('Hombre y paisaje', 'Óleo sobre tabla', '40 x 50 cm', 'imagenes/Hombre y paisaje.png', 'Diálogo entre la figura humana y el entorno natural.')">
                     <div class="oil-img-wrapper"><img src="imagenes/Hombre y paisaje.png" alt="Hombre y paisaje"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Hombre y paisaje</div><div class="oil-card-meta">Óleo sobre tabla · 2023</div><div class="oil-card-price">1,450 USD</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Hombre y paisaje</div><div class="oil-card-meta">Óleo sobre tabla · 2023</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openModal('Hombre y paisaje 2', 'Óleo sobre lienzo', '80 x 80 cm', 'Disponible', '2,800 USD', 'imagenes/Hombre y paisaje 2.jpg', 'Segunda parte de la serie de exploración paisajística.')">
+                <div class="oil-card" onclick="openModal('Hombre y paisaje 2', 'Óleo sobre lienzo', '80 x 80 cm', 'imagenes/Hombre y paisaje 2.jpg', 'Segunda parte de la serie de exploración paisajística.')">
                     <div class="oil-img-wrapper"><img src="imagenes/Hombre y paisaje 2.jpg" alt="Hombre y paisaje 2"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Hombre y paisaje 2</div><div class="oil-card-meta">Óleo sobre lienzo · 2022</div><div class="oil-card-price">2,800 USD</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Hombre y paisaje 2</div><div class="oil-card-meta">Óleo sobre lienzo · 2022</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openModal('Hombre Verde', 'Óleo sobre lienzo', '60 x 90 cm', 'Disponible', 'Colección Privada', 'imagenes/hombre verde.jpg', 'Composición alegórica con tonalidades verdosos y terrosos.')">
+                <div class="oil-card" onclick="openModal('Hombre Verde', 'Óleo sobre lienzo', '60 x 90 cm', 'imagenes/hombre verde.jpg', 'Composición alegórica con tonalidades verdosos y terrosos.')">
                     <div class="oil-img-wrapper"><img src="imagenes/hombre verde.jpg" alt="Hombre Verde"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Hombre Verde</div><div class="oil-card-meta">Óleo sobre lienzo · 2021</div><div class="oil-card-price">Colección Privada</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Hombre Verde</div><div class="oil-card-meta">Óleo sobre lienzo · 2021</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openModal('Doll', 'Óleo sobre lienzo', '50 x 60 cm', 'Disponible', '1,600 USD', 'imagenes/doll.DNG', 'Estudio figurativo minimalista con enfoque dramático.')">
+                <div class="oil-card" onclick="openModal('Doll', 'Óleo sobre lienzo', '50 x 60 cm', 'imagenes/doll.DNG', 'Estudio figurativo minimalista con enfoque dramático.')">
                     <div class="oil-img-wrapper"><img src="imagenes/doll.DNG" alt="Doll"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Doll</div><div class="oil-card-meta">Óleo sobre lienzo · 2020</div><div class="oil-card-price">1,600 USD</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Doll</div><div class="oil-card-meta">Óleo sobre lienzo · 2020</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openModal('Eva', 'Óleo sobre lienzo', '70 x 100 cm', 'Disponible', 'Colección Privada', 'imagenes/eva.jpeg', 'Obra alegórica de la serie mitológica.')">
+                <div class="oil-card" onclick="openModal('Eva', 'Óleo sobre lienzo', '70 x 100 cm', 'imagenes/eva.jpeg', 'Obra alegórica de la serie mitológica.')">
                     <div class="oil-img-wrapper"><img src="imagenes/eva.jpeg" alt="Eva"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Eva</div><div class="oil-card-meta">Óleo sobre lienzo · 2019</div><div class="oil-card-price">Colección Privada</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Eva</div><div class="oil-card-meta">Óleo sobre lienzo · 2019</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openModal('Adan', 'Óleo sobre tabla', '45 x 55 cm', 'Disponible', '1,300 USD', 'imagenes/adan 2.PNG', 'Estudio anatómico y de iluminación lateral.')">
+                <div class="oil-card" onclick="openModal('Adan', 'Óleo sobre tabla', '45 x 55 cm', 'imagenes/adan 2.PNG', 'Estudio anatómico y de iluminación lateral.')">
                     <div class="oil-img-wrapper"><img src="imagenes/adan 2.PNG" alt="Adan"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Adan</div><div class="oil-card-meta">Óleo sobre tabla · 2018</div><div class="oil-card-price">1,300 USD</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Adan</div><div class="oil-card-meta">Óleo sobre tabla · 2018</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openModal('Flower', 'Óleo sobre lienzo', '60 x 120 cm', 'Disponible', 'Colección Privada', 'imagenes/flower.DNG', 'Naturaleza muerta con simbolismo barroco.')">
+                <div class="oil-card" onclick="openModal('Flower', 'Óleo sobre lienzo', '60 x 120 cm', 'imagenes/flower.DNG', 'Naturaleza muerta con simbolismo barroco.')">
                     <div class="oil-img-wrapper"><img src="imagenes/flower.DNG" alt="Flower"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Flower</div><div class="oil-card-meta">Óleo sobre lienzo · 2017</div><div class="oil-card-price">Colección Privada</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Flower</div><div class="oil-card-meta">Óleo sobre lienzo · 2017</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openModal('Rubia', 'Óleo sobre lienzo', '50 x 70 cm', 'Disponible', '1,500 USD', 'imagenes/rubia.DNG', 'Retrato figurativo con paleta cálida.')">
+                <div class="oil-card" onclick="openModal('Rubia', 'Óleo sobre lienzo', '50 x 70 cm', 'imagenes/rubia.DNG', 'Retrato figurativo con paleta cálida.')">
                     <div class="oil-img-wrapper"><img src="imagenes/rubia.DNG" alt="Rubia"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Rubia</div><div class="oil-card-meta">Óleo sobre lienzo · 2016</div><div class="oil-card-price">1,500 USD</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Rubia</div><div class="oil-card-meta">Óleo sobre lienzo · 2016</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openModal('Padre', 'Óleo sobre tabla', '40 x 60 cm', 'Disponible', 'Colección Privada', 'imagenes/padre 2.PNG', 'Retrato psicológico de carácter solemne.')">
+                <div class="oil-card" onclick="openModal('Padre', 'Óleo sobre tabla', '40 x 60 cm', 'imagenes/padre 2.PNG', 'Retrato psicológico de carácter solemne.')">
                     <div class="oil-img-wrapper"><img src="imagenes/padre 2.PNG" alt="Padre"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Padre</div><div class="oil-card-meta">Óleo sobre tabla · 2016</div><div class="oil-card-price">Colección Privada</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Padre</div><div class="oil-card-meta">Óleo sobre tabla · 2016</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openModal('Mujer 1', 'Óleo sobre lienzo', '60 x 80 cm', 'Disponible', '1,800 USD', 'imagenes/mujer 1.DNG', 'Pieza clave de los primeros años de taller.')">
+                <div class="oil-card" onclick="openModal('Mujer 1', 'Óleo sobre lienzo', '60 x 80 cm', 'imagenes/mujer 1.DNG', 'Pieza clave de los primeros años de taller.')">
                     <div class="oil-img-wrapper"><img src="imagenes/mujer 1.DNG" alt="Mujer 1"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Mujer 1</div><div class="oil-card-meta">Óleo sobre lienzo · 2015</div><div class="oil-card-price">1,800 USD</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Mujer 1</div><div class="oil-card-meta">Óleo sobre lienzo · 2015</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openModal('Estudio Inicial', 'Óleo sobre tabla', '35 x 45 cm', 'Disponible', 'Colección Privada', 'imagenes/flor w.jpg', 'Estudio fundacional de claroscuro.')">
+                <div class="oil-card" onclick="openModal('Estudio Inicial', 'Óleo sobre tabla', '35 x 45 cm', 'imagenes/flor w.jpg', 'Estudio fundacional de claroscuro.')">
                     <div class="oil-img-wrapper"><img src="imagenes/flor w.jpg" alt="Estudio Inicial"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Estudio Inicial</div><div class="oil-card-meta">Óleo sobre tabla · 2015</div><div class="oil-card-price">Colección Privada</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Estudio Inicial</div><div class="oil-card-meta">Óleo sobre tabla · 2015</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openModal('Clelia Toledo', 'Óleo sobre lienzo', '60 x 80 cm', 'Disponible', '2,200 USD', 'imagenes/Clelia Toledo.jpg', 'Retrato pictórico detallado con maestría en el claroscuro y la expresión.')">
+                <div class="oil-card" onclick="openModal('Clelia Toledo', 'Óleo sobre lienzo', '60 x 80 cm', 'imagenes/Clelia Toledo.jpg', 'Retrato pictórico detallado con maestría en el claroscuro y la expresión.')">
                     <div class="oil-img-wrapper"><img src="imagenes/Clelia Toledo.jpg" alt="Clelia Toledo"></div>
-                    <div class="oil-card-info"><div class="oil-card-title">Clelia Toledo</div><div class="oil-card-meta">Óleo sobre lienzo · 2026</div><div class="oil-card-price">2,200 USD</div></div>
+                    <div class="oil-card-info"><div class="oil-card-title">Clelia Toledo</div><div class="oil-card-meta">Óleo sobre lienzo · 2026</div></div>
                 </div>
 
             </div>
@@ -1267,7 +1262,7 @@
     </section>
 
 
-    <!-- ==================== ESTRUCTURA ESPECIAL DE DIBUJO ==================== -->
+    <!-- ==================== SECCIÓN DE DIBUJO (SUPERPOSICIÓN Y SIN PRECIOS) ==================== -->
     <section id="galleryDrawing" style="display:none;" class="drawing-section-wrapper">
         <div class="drawing-hero-banner">
             <button class="drawing-back-btn" onclick="goBackToMain()">← Back</button>
@@ -1276,81 +1271,67 @@
 
         <div class="drawing-grid-3x3">
             
-            <div class="drawing-card" onclick="openModal('Estudio Mitológico 1', 'Tinta sobre papel', '40 x 50 cm', 'Disponible', '850 USD', 'imagenes/1.JPG', 'Trazo detallado en tinta negra sobre papel artesanal.')">
+            <div class="drawing-card" onclick="openModal('Estudio Mitológico 1', 'Tinta sobre papel', '40 x 50 cm', 'imagenes/1.JPG', 'Trazo detallado en tinta negra sobre papel artesanal.')">
                 <div class="drawing-img-wrapper"><img src="imagenes/1.JPG" alt="Estudio Mitológico 1"></div>
-                <div class="oil-card-info"><div class="oil-card-title">Estudio Mitológico 1</div><div class="oil-card-meta">Tinta sobre papel · 2025</div><div class="oil-card-price">850 USD</div></div>
             </div>
 
-            <div class="drawing-card" onclick="openModal('Anatomía Cruzada', 'Carboncillo y grafito', '50 x 70 cm', 'Disponible', '950 USD', 'imagenes/4.jpeg', 'Estudio anatómico detallado mediante trama fina.')">
+            <div class="drawing-card" onclick="openModal('Anatomía Cruzada', 'Carboncillo y grafito', '50 x 70 cm', 'imagenes/4.jpeg', 'Estudio anatómico detallado mediante trama fina.')">
                 <div class="drawing-img-wrapper"><img src="imagenes/4.jpeg" alt="Anatomía Cruzada"></div>
-                <div class="oil-card-info"><div class="oil-card-title">Anatomía Cruzada</div><div class="oil-card-meta">Carboncillo sobre papel · 2025</div><div class="oil-card-price">950 USD</div></div>
             </div>
 
-            <div class="drawing-card" onclick="openModal('Perfil Clásico', 'Grafito sobre papel', '30 x 40 cm', 'Disponible', 'Colección Privada', 'imagenes/9.jpeg', 'Estudio académico de perfil con claroscuro sutil.')">
+            <div class="drawing-card" onclick="openModal('Perfil Clásico', 'Grafito sobre papel', '30 x 40 cm', 'imagenes/9.jpeg', 'Estudio académico de perfil con claroscuro sutil.')">
                 <div class="drawing-img-wrapper"><img src="imagenes/9.jpeg" alt="Perfil Clásico"></div>
-                <div class="oil-card-info"><div class="oil-card-title">Perfil Clásico</div><div class="oil-card-meta">Grafito sobre papel · 2024</div><div class="oil-card-price">Colección Privada</div></div>
             </div>
 
-            <div class="drawing-card" onclick="openModal('Silueta e Inercia', 'Tinta china', '45 x 60 cm', 'Disponible', '780 USD', 'imagenes/bodegon gotico.JPG', 'Movimiento figurativo capturado a pluma fina.')">
+            <div class="drawing-card" onclick="openModal('Silueta e Inercia', 'Tinta china', '45 x 60 cm', 'imagenes/bodegon gotico.JPG', 'Movimiento figurativo capturado a pluma fina.')">
                 <div class="drawing-img-wrapper"><img src="imagenes/bodegon gotico.JPG" alt="Silueta e Inercia"></div>
-                <div class="oil-card-info"><div class="oil-card-title">Silueta e Inercia</div><div class="oil-card-meta">Tinta china · 2024</div><div class="oil-card-price">780 USD</div></div>
             </div>
 
-            <div class="drawing-card" onclick="openModal('Torsos en Penumbra', 'Sanguina sobre papel', '50 x 65 cm', 'Disponible', '900 USD', 'imagenes/hombre ilustrado.jpg', 'Técnica clásica de sanguina con tiza blanca.')">
+            <div class="drawing-card" onclick="openModal('Torsos en Penumbra', 'Sanguina sobre papel', '50 x 65 cm', 'imagenes/hombre ilustrado.jpg', 'Técnica clásica de sanguina con tiza blanca.')">
                 <div class="drawing-img-wrapper"><img src="imagenes/hombre ilustrado.jpg" alt="Torsos en Penumbra"></div>
-                <div class="oil-card-info"><div class="oil-card-title">Torsos en Penumbra</div><div class="oil-card-meta">Sanguina · 2024</div><div class="oil-card-price">900 USD</div></div>
             </div>
 
-            <div class="drawing-card" onclick="openModal('Boceto de manos 2', 'Carboncillo', '35 x 50 cm', 'Disponible', 'Colección Privada', 'imagenes/8.jpeg', 'Análisis gestual rápido con trazos expresivos.')">
+            <div class="drawing-card" onclick="openModal('Boceto de manos 2', 'Carboncillo', '35 x 50 cm', 'imagenes/8.jpeg', 'Análisis gestual rápido con trazos expresivos.')">
                 <div class="drawing-img-wrapper"><img src="imagenes/8.jpeg" alt="Boceto de manos 2"></div>
-                <div class="oil-card-info"><div class="oil-card-title">Boceto de manos 2</div><div class="oil-card-meta">Carboncillo · 2023</div><div class="oil-card-price">Colección Privada</div></div>
             </div>
 
-            <div class="drawing-card" onclick="openModal('Fragmento de Estatua', 'Grafito duro y suave', '40 x 50 cm', 'Disponible', '820 USD', 'imagenes/niño2.jpg', 'Estudio académico basado en la estatuaria clásica.')">
+            <div class="drawing-card" onclick="openModal('Fragmento de Estatua', 'Grafito duro y suave', '40 x 50 cm', 'imagenes/niño2.jpg', 'Estudio académico basado en la estatuaria clásica.')">
                 <div class="drawing-img-wrapper"><img src="imagenes/niño2.jpg" alt="Fragmento de Estatua"></div>
-                <div class="oil-card-info"><div class="oil-card-title">Fragmento de Estatua</div><div class="oil-card-meta">Grafito · 2023</div><div class="oil-card-price">820 USD</div></div>
             </div>
 
-            <div class="drawing-card" onclick="openModal('Flora y Ceniza', 'Tinta estilográfica', '30 x 40 cm', 'Disponible', '650 USD', 'imagenes/silla.jpg', 'Detalle botánico con trama de alta densidad.')">
+            <div class="drawing-card" onclick="openModal('Flora y Ceniza', 'Tinta estilográfica', '30 x 40 cm', 'imagenes/silla.jpg', 'Detalle botánico con trama de alta densidad.')">
                 <div class="drawing-img-wrapper"><img src="imagenes/silla.jpg" alt="Flora y Ceniza"></div>
-                <div class="oil-card-info"><div class="oil-card-title">Flora y Ceniza</div><div class="oil-card-meta">Tinta · 2023</div><div class="oil-card-price">650 USD</div></div>
             </div>
 
-            <div class="drawing-card" onclick="openModal('El Guía Nocturno', 'Pluma y bistre', '40 x 60 cm', 'Disponible', 'Colección Privada', 'imagenes/iglesia.JPG', 'Dibujo mitológico elaborado con tintas antiguas.')">
+            <div class="drawing-card" onclick="openModal('El Guía Nocturno', 'Pluma y bistre', '40 x 60 cm', 'imagenes/iglesia.JPG', 'Dibujo mitológico elaborado con tintas antiguas.')">
                 <div class="drawing-img-wrapper"><img src="imagenes/iglesia.JPG" alt="El Guía Nocturno"></div>
-                <div class="oil-card-info"><div class="oil-card-title">El Guía Nocturno</div><div class="oil-card-meta">Tinta bistre · 2022</div><div class="oil-card-price">Colección Privada</div></div>
             </div>
 
-            <div class="drawing-card" onclick="openModal('Pliegues de Seda', 'Grafito sobre cartulina', '50 x 70 cm', 'Disponible', '980 USD', 'imagenes/venado.jpg', 'Estudio hiperrealista de drapería.')">
+            <div class="drawing-card" onclick="openModal('Pliegues de Seda', 'Grafito sobre cartulina', '50 x 70 cm', 'imagenes/venado.jpg', 'Estudio hiperrealista de drapería.')">
                 <div class="drawing-img-wrapper"><img src="imagenes/venado.jpg" alt="Pliegues de Seda"></div>
-                <div class="oil-card-info"><div class="oil-card-title">Pliegues de Seda</div><div class="oil-card-meta">Grafito · 2022</div><div class="oil-card-price">980 USD</div></div>
             </div>
 
-            <div class="drawing-card" onclick="openModal('Estudio de Café', 'Tinta y técnica mixta', '40 x 50 cm', 'Disponible', '850 USD', 'imagenes/cofee 2.png', 'Estudio detallado de bodegón y texturas.')">
+            <div class="drawing-card" onclick="openModal('Estudio de Café', 'Tinta y técnica mixta', '40 x 50 cm', 'imagenes/cofee 2.png', 'Estudio detallado de bodegón y texturas.')">
                 <div class="drawing-img-wrapper"><img src="imagenes/cofee 2.png" alt="Estudio de Café"></div>
-                <div class="oil-card-info"><div class="oil-card-title">Estudio de Café</div><div class="oil-card-meta">Técnica mixta · 2025</div><div class="oil-card-price">850 USD</div></div>
             </div>
 
-            <div class="drawing-card" onclick="openModal('Arquitectura del Resto', 'Tinta y aguada', '30 x 45 cm', 'Disponible', 'Colección Privada', 'imagenes/11.jpeg', 'Estudio estructural con aguadas suaves.')">
+            <div class="drawing-card" onclick="openModal('Arquitectura del Resto', 'Tinta y aguada', '30 x 45 cm', 'imagenes/11.jpeg', 'Estudio estructural con aguadas suaves.')">
                 <div class="drawing-img-wrapper"><img src="imagenes/11.jpeg" alt="Arquitectura del Resto"></div>
-                <div class="oil-card-info"><div class="oil-card-title">Arquitectura del Resto</div><div class="oil-card-meta">Aguada · 2020</div><div class="oil-card-price">Colección Privada</div></div>
             </div>
 
-            <div class="drawing-card" onclick="openModal('Estudio Anatómico Final', 'Carboncillo', '50 x 70 cm', 'Disponible', '950 USD', 'imagenes/Tótem_final.JPG', 'Estudio académico profundo basado en la forma y composición figurativa.')">
+            <div class="drawing-card" onclick="openModal('Estudio Anatómico Final', 'Carboncillo', '50 x 70 cm', 'imagenes/Tótem_final.JPG', 'Estudio académico profundo basado en la forma y composición figurativa.')">
                 <div class="drawing-img-wrapper"><img src="imagenes/Tótem_final.JPG" alt="Estudio Anatómico Final"></div>
-                <div class="oil-card-info"><div class="oil-card-title">Estudio Anatómico Final</div><div class="oil-card-meta">Carboncillo · 2025</div><div class="oil-card-price">950 USD</div></div>
             </div>
 
-            <div class="drawing-card" onclick="openModal('Trazo inicial 2018', 'Tinta sobre papel', '30 x 40 cm', 'Disponible', 'Colección Privada', 'imagenes/bigote.jpg', 'Uno de los primeros cuadernos de taller.')">
+            <div class="drawing-card" onclick="openModal('Trazo inicial 2018', 'Tinta sobre papel', '30 x 40 cm', 'imagenes/bigote.jpg', 'Uno de los primeros cuadernos de taller.')">
                 <div class="drawing-img-wrapper"><img src="imagenes/bigote.jpg" alt="Trazo inicial 2018"></div>
-                <div class="oil-card-info"><div class="oil-card-title">Trazo inicial 2018</div><div class="oil-card-meta">Tinta · 2018</div><div class="oil-card-price">Colección Privada</div></div>
             </div>
 
         </div>
     </section>
 
 
-    <!-- ==================== SECCIÓN DE FOTOGRAFÍA (ESTILO ESPECIAL MITAD-MITAD) ==================== -->
+    <!-- ==================== SECCIÓN DE FOTOGRAFÍA (ESPACIO COMPLETO + IMAGEN ADICIONAL) ==================== -->
     <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
         <button class="photo-back-btn" onclick="goBackToMain()">← Back</button>
         <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
@@ -1358,92 +1339,98 @@
             
             <div class="photo-split-grid">
                 
-                <div class="photo-item horizontal" onclick="openModal('F1000007', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000007.JPG?v=2', 'Serie documental y de archivo.')">
+                <div class="photo-item horizontal" onclick="openModal('F1000007', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1000007.JPG?v=2', 'Serie documental y de archivo.')">
                     <img src="imagenes/F1000007.JPG?v=2" alt="F1000007">
                     <div class="photo-info-overlay"><div class="photo-title">F1000007</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('10.JPG', 'Fotografía Fine Art', '50 x 70 cm', 'Disponible', '600 USD', 'imagenes/10.JPG?v=2', 'Captura fotográfica de taller.')">
+                <div class="photo-item" onclick="openModal('10.JPG', 'Fotografía Fine Art', '50 x 70 cm', 'imagenes/10.JPG?v=2', 'Captura fotográfica de taller.')">
                     <img src="imagenes/10.JPG?v=2" alt="10.JPG">
                     <div class="photo-info-overlay"><div class="photo-title">10.JPG</div><div class="photo-meta">Fine Art Print · 2026</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('El salto', 'Fotografía Fine Art', '60 x 80 cm', 'Disponible', '700 USD', 'imagenes/El salto.jpg?v=2', 'Registro fotográfico expresivo.')">
+                <div class="photo-item" onclick="openModal('El salto', 'Fotografía Fine Art', '60 x 80 cm', 'imagenes/El salto.jpg?v=2', 'Registro fotográfico expresivo.')">
                     <img src="imagenes/El salto.jpg?v=2" alt="El salto">
                     <div class="photo-info-overlay"><div class="photo-title">El salto</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
 
-                <div class="photo-item horizontal" onclick="openModal('F1000014', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1000014.JPG?v=2', 'Estudio de iluminación y sombras.')">
+                <div class="photo-item horizontal" onclick="openModal('F1000014', 'Fotografía analógica', '60 x 80 cm', 'imagenes/F1000014.JPG?v=2', 'Estudio de iluminación y sombras.')">
                     <img src="imagenes/F1000014.JPG?v=2" alt="F1000014">
                     <div class="photo-info-overlay"><div class="photo-title">F1000014</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('F1000006', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000006.JPG?v=2', 'Serie documental y de archivo.')">
+                <div class="photo-item" onclick="openModal('F1000006', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1000006.JPG?v=2', 'Serie documental y de archivo.')">
                     <img src="imagenes/F1000006.JPG?v=2" alt="F1000006">
                     <div class="photo-info-overlay"><div class="photo-title">F1000006</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('F1000019', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000019.JPG?v=2', 'Captura de atelier.')">
+                <div class="photo-item" onclick="openModal('F1000019', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1000019.JPG?v=2', 'Captura de atelier.')">
                     <img src="imagenes/F1000019.JPG?v=2" alt="F1000019">
                     <div class="photo-info-overlay"><div class="photo-title">F1000019</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <div class="photo-item horizontal" onclick="openModal('F1000023', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000023.JPG?v=2', 'Captura de atelier.')">
+                <div class="photo-item horizontal" onclick="openModal('F1000023', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1000023.JPG?v=2', 'Captura de atelier.')">
                     <img src="imagenes/F1000023.JPG?v=2" alt="F1000023">
                     <div class="photo-info-overlay"><div class="photo-title">F1000023</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <div class="photo-item horizontal" onclick="openModal('F1000024', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1000024.JPG?v=2', 'Estudio compositivo.')">
+                <div class="photo-item horizontal" onclick="openModal('F1000024', 'Fotografía analógica', '60 x 80 cm', 'imagenes/F1000024.JPG?v=2', 'Estudio compositivo.')">
                     <img src="imagenes/F1000024.JPG?v=2" alt="F1000024">
                     <div class="photo-info-overlay"><div class="photo-title">F1000024</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('F1000026(1)', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000026(1).JPG?v=3', 'Exploración visual en blanco y negro.')">
+                <!-- Par de F1000026(1) con imagen adicional para llenar espacio -->
+                <div class="photo-item" onclick="openModal('F1000026(1)', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1000026(1).JPG?v=3', 'Exploración visual en blanco y negro.')">
                     <img src="imagenes/F1000026(1).JPG?v=3" alt="F1000026(1)">
                     <div class="photo-info-overlay"><div class="photo-title">F1000026(1)</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <div class="photo-item horizontal" onclick="openModal('F1000031', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000031.JPG?v=2', 'Registro fotográfico de obras.')">
+                <div class="photo-item" onclick="openModal('Complemento Fotográfico', 'Fotografía Fine Art', '50 x 70 cm', 'imagenes/10.JPG?v=2', 'Estudio adicional de archivo.')">
+                    <img src="imagenes/10.JPG?v=2" alt="Complemento Fotográfico">
+                    <div class="photo-info-overlay"><div class="photo-title">Estudio Adjunto</div><div class="photo-meta">Fine Art Print · 2024</div></div>
+                </div>
+
+                <div class="photo-item horizontal" onclick="openModal('F1000031', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1000031.JPG?v=2', 'Registro fotográfico de obras.')">
                     <img src="imagenes/F1000031.JPG?v=2" alt="F1000031">
                     <div class="photo-info-overlay"><div class="photo-title">F1000031</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <div class="photo-item horizontal" onclick="openModal('F1000032', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000032.JPG?v=2', 'Registro fotográfico de obras.')">
+                <div class="photo-item horizontal" onclick="openModal('F1000032', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1000032.JPG?v=2', 'Registro fotográfico de obras.')">
                     <img src="imagenes/F1000032.JPG?v=2" alt="F1000032">
                     <div class="photo-info-overlay"><div class="photo-title">F1000032</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <div class="photo-item horizontal" onclick="openModal('F1010012', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1010012.JPG?v=2', 'Estudio de claroscuro fotográfico.')">
+                <div class="photo-item horizontal" onclick="openModal('F1010012', 'Fotografía analógica', '60 x 80 cm', 'imagenes/F1010012.JPG?v=2', 'Estudio de claroscuro fotográfico.')">
                     <img src="imagenes/F1010012.JPG?v=2" alt="F1010012">
                     <div class="photo-info-overlay"><div class="photo-title">F1010012</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('F1010024', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1010024.JPG?v=2', 'Composición de luz natural.')">
+                <div class="photo-item" onclick="openModal('F1010024', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1010024.JPG?v=2', 'Composición de luz natural.')">
                     <img src="imagenes/F1010024.JPG?v=2" alt="F1010024">
                     <div class="photo-info-overlay"><div class="photo-title">F1010024</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('F1010025', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1010025.JPG?v=2', 'Composición de luz natural.')">
+                <div class="photo-item" onclick="openModal('F1010025', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1010025.JPG?v=2', 'Composición de luz natural.')">
                     <img src="imagenes/F1010025.JPG?v=2" alt="F1010025">
                     <div class="photo-info-overlay"><div class="photo-title">F1010025</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('F1010026', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1010026.JPG?v=2', 'Estudio fotográfico de texturas.')">
+                <div class="photo-item" onclick="openModal('F1010026', 'Fotografía analógica', '60 x 80 cm', 'imagenes/F1010026.JPG?v=2', 'Estudio fotográfico de texturas.')">
                     <img src="imagenes/F1010026.JPG?v=2" alt="F1010026">
                     <div class="photo-info-overlay"><div class="photo-title">F1010026</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('F1010036', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1010036.JPG?v=2', 'Registro de taller y modelos.')">
+                <div class="photo-item" onclick="openModal('F1010036', 'Fotografía analógica', '50 x 70 cm', 'imagenes/F1010036.JPG?v=2', 'Registro de taller y modelos.')">
                     <img src="imagenes/F1010036.JPG?v=2" alt="F1010036">
                     <div class="photo-info-overlay"><div class="photo-title">F1010036</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('Satygne 1', 'Fotografía Fine Art', '60 x 80 cm', 'Disponible', '800 USD', 'imagenes/Satygne_1.jpg?v=2', 'Composición inspirada en la mitología clásica.')">
+                <div class="photo-item" onclick="openModal('Satygne 1', 'Fotografía Fine Art', '60 x 80 cm', 'imagenes/Satygne_1.jpg?v=2', 'Composición inspirada en la mitología clásica.')">
                     <img src="imagenes/Satygne_1.jpg?v=2" alt="Satygne 1">
                     <div class="photo-info-overlay"><div class="photo-title">Satygne 1</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openModal('Spiegel', 'Fotografía Fine Art', '70 x 100 cm', 'Disponible', '900 USD', 'imagenes/Spiegel.jpg?v=2', 'Estudio de reflejos y perspectiva.')">
+                <div class="photo-item" onclick="openModal('Spiegel', 'Fotografía Fine Art', '70 x 100 cm', 'imagenes/Spiegel.jpg?v=2', 'Estudio de reflejos y perspectiva.')">
                     <img src="imagenes/Spiegel.jpg?v=2" alt="Spiegel">
                     <div class="photo-info-overlay"><div class="photo-title">Spiegel</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
@@ -1452,7 +1439,7 @@
         </div>
     </section>
 
-    <!-- VISTA MODAL PARA VER DETALLES DE OBRA -->
+    <!-- VISTA MODAL PARA VER DETALLES DE OBRA (CON LUPA DERECHA INFERIOR) -->
     <div class="modal-overlay" id="artModal">
         <div class="modal-content">
             <button class="modal-close" id="closeModal">&times;</button>
@@ -1466,7 +1453,6 @@
                 <h3 class="modal-title" id="mTitle">Título de la Obra</h3>
                 <div class="modal-tech" id="mTech">Técnica / Medidas</div>
                 <p class="modal-desc" id="mDesc">Descripción de la obra...</p>
-                <div class="modal-price" id="mPrice">0,00 USD</div>
                 <a id="mInquire" href="mailto:cezzarostudio@gmail.com" class="btn-inquire">Solicitar Adquisición vía Email</a>
             </div>
         </div>
@@ -1591,6 +1577,23 @@
             utopiaSection.scrollIntoView({ behavior: 'smooth' });
         }
 
+        /* --- CONTROL DE SCROLL INTELIGENTE PARA EL BANNER BLANCO --- */
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop <= 50) {
+                mainHeader.classList.remove('header-hidden');
+            } else if (scrollTop > lastScrollTop) {
+                // Bajando: Ocultar banner
+                mainHeader.classList.add('header-hidden');
+            } else {
+                // Subiendo: Mostrar banner
+                mainHeader.classList.remove('header-hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
         /* --- ARRASTRE Y SCROLL PARA LA SECCIÓN DE ÓLEO --- */
         const oilScrollContainer = document.getElementById('oilScrollContainer');
         let isOilDragging = false;
@@ -1619,16 +1622,6 @@
                 }
             }, { passive: false });
         }
-
-        /* --- DETECTOR DE POSICIÓN HEADER --- */
-        window.addEventListener('scroll', () => {
-            const rect = utopiaSection.getBoundingClientRect();
-            if (rect.top <= 60 && rect.bottom >= 60) {
-                mainHeader.classList.add('header-light');
-            } else {
-                mainHeader.classList.remove('header-light');
-            }
-        });
 
         /* --- CARRUSEL HORIZONTAL PRINCIPAL --- */
         const categoriesData = [
@@ -1840,11 +1833,10 @@
 
         let isZoomActive = false;
 
-        function openModal(title, tech, size, status, price, imgSrc, desc) {
+        function openModal(title, tech, size, imgSrc, desc) {
             document.getElementById('mTitle').innerText = title;
             document.getElementById('mTech').innerText = `${tech} · ${size}`;
             document.getElementById('mDesc').innerText = desc;
-            document.getElementById('mPrice').innerText = price;
             modalImg.src = imgSrc;
             
             isZoomActive = false;

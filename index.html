@@ -46,7 +46,7 @@
             text-decoration: none;
         }
 
-        /* HEADER / BANNER BLANCO INTELIGENTE CON FIRMA Y BOTÓN BACK SUPERIOR */
+        /* HEADER / BANNER BLANCO INTELIGENTE */
         header {
             position: fixed;
             top: 0;
@@ -84,7 +84,7 @@
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
-            display: none; /* Se muestra con JS en categorías */
+            display: none;
         }
 
         .header-back-btn:hover {
@@ -92,8 +92,9 @@
             color: #ffffff;
         }
 
+        /* Firma más grande en el header */
         .header-logo-firma {
-            height: 38px;
+            height: 52px;
             object-fit: contain;
         }
 
@@ -118,7 +119,7 @@
             text-decoration: underline;
         }
 
-        /* --- HERO SECCIÓN --- */
+        /* --- HERO SECCIÓN (POSICIÓN ORIGINAL RESTAURADA) --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -134,9 +135,9 @@
 
         .hero-side-img {
             position: absolute;
-            bottom: -40px;
-            width: 650px; 
-            opacity: 0.9;
+            bottom: -10px; /* Movidas más arriba a su posición original */
+            width: 580px; 
+            opacity: 0.95;
             pointer-events: none;
             transition: transform 0.1s ease-out;
             will-change: transform;
@@ -145,12 +146,12 @@
         }
 
         .hero-side-img.left {
-            left: -5%;
+            left: -3%;
             transform: scaleX(1);
         }
 
         .hero-side-img.right {
-            right: -5%;
+            right: -3%;
             transform: scaleX(-1);
         }
 
@@ -484,7 +485,7 @@
         }
 
 
-        /* --- SECCIÓN DE DIBUJO (SUPERPOSICIÓN PARALLAX LIMPIA) --- */
+        /* --- SECCIÓN DE DIBUJO (ESPACIO BLANCO SUPERIOR AÑADIDO) --- */
         .drawing-section-wrapper {
             position: relative;
             width: 100vw;
@@ -534,7 +535,7 @@
             position: relative;
             z-index: 10;
             max-width: 1400px;
-            margin: 0 auto;
+            margin: 40px auto 0 auto; /* Pequeño espacio en blanco superior solicitado */
             padding: 0 30px 100px 30px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -571,7 +572,7 @@
         }
 
 
-        /* --- SECCIÓN DE FOTOGRAFÍA (ESPACIO COMPLETO & ENCUADRE DE F1000019) --- */
+        /* --- SECCIÓN DE FOTOGRAFÍA --- */
         .photo-section-wrapper {
             position: relative;
             width: 100vw;
@@ -632,7 +633,6 @@
             transition: transform 0.5s ease;
         }
 
-        /* Ajuste específico para F1000019 (parte superior visible) */
         .photo-item img.img-focus-top {
             object-position: top center !important;
         }
@@ -672,7 +672,7 @@
         }
 
 
-        /* --- VISTA MODAL EXCLUSIVA PARA FOTOGRAFÍA (AMPLIADA CENTRADA + LUPA DERECHA INFERIOR) --- */
+        /* --- VISTA MODAL EXCLUSIVA PARA FOTOGRAFÍA --- */
         .photo-modal-overlay {
             position: fixed;
             top: 0;
@@ -1110,7 +1110,7 @@
 </head>
 <body>
 
-    <!-- HEADER / BANNER BLANCO INTELIGENTE CON FIRMA Y BOTÓN BACK -->
+    <!-- HEADER / BANNER BLANCO INTELIGENTE -->
     <header id="mainHeader">
         <div class="header-left-slot">
             <button class="header-back-btn" id="headerBackBtn" onclick="goBackToMain()">← Back</button>
@@ -1278,7 +1278,7 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE DIBUJO (CON PARALLAX LINDO) ==================== -->
+    <!-- ==================== SECCIÓN DE DIBUJO (ESPACIO BLANCO SUPERIOR) ==================== -->
     <section id="galleryDrawing" style="display:none;" class="drawing-section-wrapper">
         <div class="drawing-hero-banner">
             <div class="drawing-banner-title">DIBUJO</div>
@@ -1346,7 +1346,7 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE FOTOGRAFÍA ==================== -->
+    <!-- ==================== SECCIÓN DE FOTOGRAFÍA (INTERCAMBIO APLICADO) ==================== -->
     <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
         <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
             <h2 class="photo-section-title">Fotografía</h2>
@@ -1358,14 +1358,16 @@
                     <div class="photo-info-overlay"><div class="photo-title">F1000007</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openPhotoModal('imagenes/10.JPG?v=2')">
-                    <img src="imagenes/10.JPG?v=2" alt="10.JPG">
-                    <div class="photo-info-overlay"><div class="photo-title">10.JPG</div><div class="photo-meta">Fine Art Print · 2026</div></div>
+                <!-- Intercambiado: F1010026 en lugar de 10.jpg -->
+                <div class="photo-item" onclick="openPhotoModal('imagenes/F1010026.JPG?v=2')">
+                    <img src="imagenes/F1010026.JPG?v=2" alt="F1010026">
+                    <div class="photo-info-overlay"><div class="photo-title">F1010026</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openPhotoModal('imagenes/El salto.jpg?v=2')">
-                    <img src="imagenes/El salto.jpg?v=2" alt="El salto">
-                    <div class="photo-info-overlay"><div class="photo-title">El salto</div><div class="photo-meta">Fine Art Print · 2025</div></div>
+                <!-- Intercambiado: F1010036 en lugar de El salto -->
+                <div class="photo-item" onclick="openPhotoModal('imagenes/F1010036.JPG?v=2')">
+                    <img src="imagenes/F1010036.JPG?v=2" alt="F1010036">
+                    <div class="photo-info-overlay"><div class="photo-title">F1010036</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
                 <div class="photo-item horizontal" onclick="openPhotoModal('imagenes/F1000014.JPG?v=2')">
@@ -1378,7 +1380,6 @@
                     <div class="photo-info-overlay"><div class="photo-title">F1000006</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <!-- Foto F1000019 con encuadre en la parte superior -->
                 <div class="photo-item" onclick="openPhotoModal('imagenes/F1000019.JPG?v=2')">
                     <img src="imagenes/F1000019.JPG?v=2" alt="F1000019" class="img-focus-top">
                     <div class="photo-info-overlay"><div class="photo-title">F1000019</div><div class="photo-meta">Analógica · 2025</div></div>
@@ -1429,14 +1430,15 @@
                     <div class="photo-info-overlay"><div class="photo-title">F1010025</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openPhotoModal('imagenes/F1010026.JPG?v=2')">
-                    <img src="imagenes/F1010026.JPG?v=2" alt="F1010026">
-                    <div class="photo-info-overlay"><div class="photo-title">F1010026</div><div class="photo-meta">Analógica · 2023</div></div>
+                <!-- Aquí se reubicaron 10.jpg y El salto intercambiados -->
+                <div class="photo-item" onclick="openPhotoModal('imagenes/10.JPG?v=2')">
+                    <img src="imagenes/10.JPG?v=2" alt="10.JPG">
+                    <div class="photo-info-overlay"><div class="photo-title">10.JPG</div><div class="photo-meta">Fine Art Print · 2026</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openPhotoModal('imagenes/F1010036.JPG?v=2')">
-                    <img src="imagenes/F1010036.JPG?v=2" alt="F1010036">
-                    <div class="photo-info-overlay"><div class="photo-title">F1010036</div><div class="photo-meta">Analógica · 2023</div></div>
+                <div class="photo-item" onclick="openPhotoModal('imagenes/El salto.jpg?v=2')">
+                    <img src="imagenes/El salto.jpg?v=2" alt="El salto">
+                    <div class="photo-info-overlay"><div class="photo-title">El salto</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
 
                 <div class="photo-item" onclick="openPhotoModal('imagenes/Satygne_1.jpg?v=2')">
@@ -1453,7 +1455,7 @@
         </div>
     </section>
 
-    <!-- VISTA MODAL EXCLUSIVA PARA FOTOGRAFÍA (CENTRADAS CON LUPA EN ESQUINA INFERIOR DERECHA) -->
+    <!-- VISTA MODAL EXCLUSIVA PARA FOTOGRAFÍA -->
     <div class="photo-modal-overlay" id="photoModal">
         <div class="photo-modal-wrapper" id="photoModalWrapper">
             <button class="photo-modal-close" id="closePhotoModal">&times;</button>
@@ -1464,7 +1466,7 @@
         </div>
     </div>
 
-    <!-- VISTA MODAL PARA OTRAS SECCIONES (ÓLEO/DIBUJO) -->
+    <!-- VISTA MODAL PARA OTRAS SECCIONES -->
     <div class="modal-overlay" id="artModal">
         <div class="modal-content">
             <button class="modal-close" id="closeModal">&times;</button>
@@ -1575,7 +1577,6 @@
             const galleryDrawingSection = document.getElementById('galleryDrawing');
             const galleryOilSection = document.getElementById('galleryOil');
 
-            // Mostrar el botón ← Back en el header al entrar a cualquier categoría
             headerBackBtn.style.display = 'inline-block';
 
             if (category === 'fotografia') {
@@ -1601,7 +1602,6 @@
             utopiaSection.scrollIntoView({ behavior: 'smooth' });
         }
 
-        /* --- CONTROL DE SCROLL PARA HEADER BLANCO --- */
         let lastScrollTop = 0;
         window.addEventListener('scroll', () => {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -1615,7 +1615,6 @@
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
 
-        /* --- SCROLL Y DRAG EN ÓLEO --- */
         const oilScrollContainer = document.getElementById('oilScrollContainer');
         let isOilDragging = false;
         let oilStartX, oilScrollLeft;
@@ -1644,7 +1643,6 @@
             }, { passive: false });
         }
 
-        /* --- CARRUSEL PRINCIPAL --- */
         const categoriesData = [
             { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', filterCat: 'oleos' },
             { titleEs: 'Dibujo', titleEn: 'Drawing', filterCat: 'dibujo' },
@@ -1826,7 +1824,6 @@
             }
         }
 
-        /* --- LÓGICA MODAL FOTOGRAFÍA (AMPLIADA CENTRADA CON LUPA) --- */
         const photoModal = document.getElementById('photoModal');
         const pModalImg = document.getElementById('pModalImg');
         const photoModalWrapper = document.getElementById('photoModalWrapper');
@@ -1887,7 +1884,6 @@
             }
         });
 
-        /* --- LÓGICA MODAL ÓLEO / DIBUJO --- */
         const artModal = document.getElementById('artModal');
         const closeModalBtn = document.getElementById('closeModal');
         const modalImg = document.getElementById('mImg');

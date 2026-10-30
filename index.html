@@ -46,15 +46,15 @@
             text-decoration: none;
         }
 
-        /* HEADER PRINCIPAL */
+        /* HEADER PRINCIPAL (SIN LOGO SUPERIOR) */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             padding: 20px 30px;
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
             z-index: 100;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 100%);
@@ -62,17 +62,12 @@
             transition: color 0.3s ease;
         }
 
-        /* Cambiar color del header a blanco cuando entra a la zona oscura */
         header.header-light .menu-btn,
-        header.header-light .logo,
         header.header-light .lang-select {
             color: #ffffff !important;
         }
         header.header-light .hamburger span {
             background-color: #ffffff !important;
-        }
-        header.header-light .logo {
-            border-bottom-color: #ffffff !important;
         }
 
         .menu-btn {
@@ -86,7 +81,6 @@
             font-size: 1.1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            justify-self: start;
             z-index: 101;
             transition: color 0.3s;
         }
@@ -111,27 +105,10 @@
             transition: 0.3s ease;
         }
 
-        .logo-container {
-            justify-self: center;
-            text-align: center;
-        }
-
-        .logo {
-            font-family: var(--font-titles) !important;
-            font-size: 2.2rem;
-            letter-spacing: 4px;
-            color: var(--text-main);
-            display: inline-block;
-            border-bottom: 2px solid var(--text-main);
-            padding-bottom: 0px;
-            transition: border-color 0.3s, color 0.3s;
-        }
-
         .lang-select {
             font-size: 1.1rem;
             letter-spacing: 2px;
             color: var(--text-main);
-            justify-self: end;
             cursor: pointer;
             font-weight: 600;
             transition: color 0.3s;
@@ -382,12 +359,12 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN CARRUSEL INTERACTIVO SIN BORDES (PANTALLA COMPLETA) --- */
+        /* --- SECCIÓN INTERACTIVA CON FONDO F1000014.JPG Y TARJETAS UNIFORMES --- */
         .utopia-section {
             position: relative;
             width: 100vw;
             min-height: 100vh;
-            background-image: url('imagenes/F1000024.JPG');
+            background-image: url('imagenes/F1000014.JPG');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -413,7 +390,7 @@
             z-index: 1;
         }
 
-        /* Contenedor principal del carrusel con arrastre por mouse */
+        /* Contenedor principal del carrusel con scroll fluido */
         .carousel-container-drag {
             position: relative;
             z-index: 2;
@@ -440,9 +417,10 @@
             transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
+        /* Medidas exactas e iguales para todas las tarjetas */
         .carousel-card {
-            min-width: 340px;
-            max-width: 340px;
+            min-width: 320px;
+            max-width: 320px;
             height: 440px;
             margin: 0 25px;
             position: relative;
@@ -455,6 +433,7 @@
             transform: scale(0.82);
             filter: brightness(0.5);
             flex-shrink: 0;
+            background-color: #000000;
         }
 
         .carousel-card.active {
@@ -465,11 +444,11 @@
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
+        /* Imagen rellena por completo sin bordes negros ni recortes extraños */
         .carousel-card img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Evita que la imagen se recorte o deforme */
-            background-color: #111;
+            object-fit: cover;
             pointer-events: none;
         }
 
@@ -1036,10 +1015,6 @@
             <span id="navIndexText">Índice</span>
         </button>
 
-        <div class="logo-container">
-            <div class="logo">Brunelio</div>
-        </div>
-
         <div class="lang-select" id="langToggle" onclick="toggleLanguage()">
             <span class="active" id="langEs">ES</span> / <span id="langEn">EN</span>
         </div>
@@ -1105,7 +1080,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN INTERACTIVA CON ARRASTRE DE MOUSE (BUCLE INFINITO Y PANTALLA COMPLETA) -->
+    <!-- SECCIÓN INTERACTIVA CON SCROLL FLUIDO HORIZONTAL (DRAG, TRACKPAD, FLECHAS) -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack">
@@ -1562,7 +1537,6 @@
         /* --- DETECTOR DE POSICIÓN PARA CAMBIAR COLOR DEL HEADER EN LA SECCIÓN OSCURA --- */
         window.addEventListener('scroll', () => {
             const rect = utopiaSection.getBoundingClientRect();
-            // Si la sección utopia está visible en la pantalla (cubre la parte superior)
             if (rect.top <= 60 && rect.bottom >= 60) {
                 mainHeader.classList.add('header-light');
             } else {
@@ -1571,7 +1545,7 @@
         });
 
 
-        /* --- LÓGICA DEL CARRUSEL EN BUCLE INFINITO CON ARRASTRE DE MOUSE (DRAG & TOUCH) --- */
+        /* --- LÓGICA DEL CARRUSEL EN BUCLE CON SCROLL HORIZONTAL FLUIDO (DRAG, TRACKPAD, FLECHAS) --- */
         const categoriesData = [
             { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', filterCat: 'oleos' },
             { titleEs: 'Dibujo', titleEn: 'Drawing', filterCat: 'dibujo' },
@@ -1589,10 +1563,9 @@
         let startPos = 0;
         let currentTranslate = 0;
         let prevTranslate = 0;
-        let animationID = 0;
 
         function getCardWidth() {
-            return cards[0].offsetWidth + 50; // Ancho + márgenes
+            return cards[0].offsetWidth + 50; 
         }
 
         function updateCarouselPosition() {
@@ -1600,7 +1573,6 @@
             const containerWidth = dragContainer.offsetWidth;
             const cardCenterOffset = (containerWidth / 2) - (cards[0].offsetWidth / 2);
             
-            // Posicionar para que la tarjeta activa quede exactamente centrada
             currentTranslate = (-currentIndex * cardWidth) + cardCenterOffset;
             prevTranslate = currentTranslate;
             track.style.transform = `translateX(${currentTranslate}px)`;
@@ -1632,7 +1604,7 @@
             document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
         }
 
-        /* Eventos táctiles y de mouse para arrastrar libremente */
+        /* Arrastre con mouse / touch */
         dragContainer.addEventListener('mousedown', dragStart);
         dragContainer.addEventListener('touchstart', dragStart, { passive: true });
 
@@ -1646,7 +1618,6 @@
         function dragStart(e) {
             isDragging = true;
             startPos = getPositionX(e);
-            cancelAnimationFrame(animationID);
         }
 
         function drag(e) {
@@ -1661,10 +1632,9 @@
             isDragging = false;
             const movedBy = getPositionX(e) - startPos;
 
-            // Si se arrastró lo suficiente hacia la izquierda o derecha, cambia de tarjeta con bucle infinito
-            if (movedBy < -70) {
+            if (movedBy < -50) {
                 currentIndex = (currentIndex + 1) % cards.length;
-            } else if (movedBy > 70) {
+            } else if (movedBy > 50) {
                 currentIndex = (currentIndex - 1 + cards.length) % cards.length;
             }
 
@@ -1674,6 +1644,35 @@
         function getPositionX(e) {
             return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
         }
+
+        /* Desplazamiento lateral con trackpad, rueda de mouse o flechas de teclado */
+        let scrollTimeout;
+        dragContainer.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                if (e.deltaX > 20 || e.deltaY > 20) {
+                    currentIndex = (currentIndex + 1) % cards.length;
+                    updateCarouselPosition();
+                } else if (e.deltaX < -20 || e.deltaY < -20) {
+                    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+                    updateCarouselPosition();
+                }
+            }, 50);
+        }, { passive: false });
+
+        window.addEventListener('keydown', (e) => {
+            const rect = utopiaSection.getBoundingClientRect();
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                if (e.key === 'ArrowRight') {
+                    currentIndex = (currentIndex + 1) % cards.length;
+                    updateCarouselPosition();
+                } else if (e.key === 'ArrowLeft') {
+                    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+                    updateCarouselPosition();
+                }
+            }
+        });
 
 
         const sideImgLeft = document.getElementById('sideImgLeft');

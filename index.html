@@ -46,7 +46,7 @@
             text-decoration: none;
         }
 
-        /* HEADER PRINCIPAL (SIN ÍNDICE NI LOGO SUPERIOR) */
+        /* HEADER PRINCIPAL */
         header {
             position: fixed;
             top: 0;
@@ -181,7 +181,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN INTERACTIVA CON FONDO F1000014.JPG Y ESPACIADO AMPLIADO --- */
+        /* --- SECCIÓN INTERACTIVA CON FONDO F1000014.JPG --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -200,7 +200,6 @@
             box-sizing: border-box;
         }
 
-        /* Capa oscura sutil de fondo */
         .utopia-section::before {
             content: '';
             position: absolute;
@@ -212,7 +211,6 @@
             z-index: 1;
         }
 
-        /* Contenedor principal del carrusel con scroll fluido */
         .carousel-container-drag {
             position: relative;
             z-index: 2;
@@ -239,7 +237,6 @@
             transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* Medidas exactas y mayor separación (margen lateral ampliado a 45px) */
         .carousel-card {
             min-width: 320px;
             max-width: 320px;
@@ -266,7 +263,6 @@
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
-        /* Imagen rellena por completo sin bordes negros ni recortes extraños */
         .carousel-card img {
             width: 100%;
             height: 100%;
@@ -274,7 +270,6 @@
             pointer-events: none;
         }
 
-        /* Botón "EXPLORE" flotante: Blanco con texto negro por defecto, transparente con texto blanco en hover */
         .card-explore-overlay {
             position: absolute;
             top: 0;
@@ -313,7 +308,6 @@
             transform: scale(1.05);
         }
 
-        /* Nombre inferior de la categoría activa */
         .utopia-footer-title {
             position: relative;
             z-index: 2;
@@ -326,28 +320,23 @@
         }
 
 
-        /* --- GALERÍA / CATÁLOGO --- */
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            color: var(--text-main);
-            letter-spacing: 4px;
-            margin: 80px 0 15px 0;
-            text-transform: uppercase;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-style: italic;
-            color: var(--text-main);
-            font-size: 1.3rem;
-            margin-bottom: 50px;
-        }
-
+        /* --- GALERÍA ESTÁNDAR (ÓLEO Y DIBUJO) --- */
         .gallery-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 30px 100px 30px;
+            padding: 40px 30px 100px 30px;
+        }
+
+        .section-header-title {
+            font-family: var(--font-titles) !important;
+            font-size: 2.2rem;
+            text-align: center;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin: 60px 0 30px 0;
+            color: var(--text-main);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 15px;
         }
 
         .gallery-grid {
@@ -377,6 +366,7 @@
             width: 100%;
             height: 420px;
             overflow: hidden;
+            background: #111;
         }
 
         .art-img-wrapper img {
@@ -434,7 +424,130 @@
             letter-spacing: 1px;
         }
 
-        /* --- VISTA DETALLADA / MODAL CON LUPA DE IMAGEN --- */
+
+        /* --- SECCIÓN DE FOTOGRAFÍA ESTILO MITAD-MITAD / PANTALLA COMPLETA --- */
+        .photo-section-wrapper {
+            position: relative;
+            width: 100vw;
+            background-color: #0d0d0d;
+            color: #ffffff;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            padding: 60px 0;
+            box-sizing: border-box;
+        }
+
+        .photo-section-title {
+            font-family: var(--font-titles) !important;
+            font-size: 2.5rem;
+            text-align: center;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            color: #ffffff;
+        }
+
+        .photo-split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Mitad y mitad */
+            gap: 40px;
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .photo-item {
+            position: relative;
+            width: 100%;
+            height: 70vh; /* Altura generosa tipo galería inmersiva */
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 2px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.01);
+        }
+
+        /* Si la obra es horizontal, abarca las dos columnas completas */
+        .photo-item.horizontal {
+            grid-column: span 2;
+            height: 80vh;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* NO se recorta, se adapta completamente */
+            transition: transform 0.5s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.03);
+        }
+
+        .photo-info-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px;
+            background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-item:hover .photo-info-overlay {
+            opacity: 1;
+        }
+
+        .photo-title {
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .photo-meta {
+            font-style: italic;
+            font-size: 1rem;
+            color: #ccc;
+            letter-spacing: 1px;
+        }
+
+        /* Botón Back en la sección de fotografía (Esquina inferior izquierda) */
+        .photo-back-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 40px;
+            z-index: 150;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 12px 25px;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .photo-back-btn:hover {
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+        }
+
+
+        /* --- VISTA MODAL PARA VER DETALLES DE OBRA --- */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -804,11 +917,12 @@
             margin-top: 40px;
         }
 
-        /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
             .bio-grid { grid-template-columns: 1fr; gap: 40px; }
             .bio-image-wrapper { max-width: 400px; margin: 0 auto; }
             .hero-side-img { display: none; }
+            .photo-split-grid { grid-template-columns: 1fr; padding: 0 20px; }
+            .photo-item.horizontal { grid-column: span 1; height: 50vh; }
         }
 
         @media (max-width: 768px) {
@@ -845,12 +959,11 @@
         </div>
     </section>
 
-    <!-- SECCIÓN INTERACTIVA CON SCROLL HORIZONTAL FLUIDO Y ESPACIADO -->
+    <!-- SECCIÓN INTERACTIVA CON SCROLL HORIZONTAL FLUIDO -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack">
                 
-                <!-- Tarjeta 1: Pinturas al Óleo (eva.jpeg) -->
                 <div class="carousel-card active" onclick="jumpToCard(0)">
                     <img src="imagenes/eva.jpeg" alt="Pinturas al Óleo">
                     <div class="card-explore-overlay">
@@ -858,7 +971,6 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta 2: Dibujo (bodegon gotico.JPG) -->
                 <div class="carousel-card" onclick="jumpToCard(1)">
                     <img src="imagenes/bodegon gotico.JPG" alt="Dibujo">
                     <div class="card-explore-overlay">
@@ -866,7 +978,6 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta 3: Retratos (niño2.jpg) -->
                 <div class="carousel-card" onclick="jumpToCard(2)">
                     <img src="imagenes/niño2.jpg" alt="Retratos">
                     <div class="card-explore-overlay">
@@ -874,7 +985,6 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta 4: Fotografía (F1000019.JPG) -->
                 <div class="carousel-card" onclick="jumpToCard(3)">
                     <img src="imagenes/F1000019.JPG?v=2" alt="Fotografía">
                     <div class="card-explore-overlay">
@@ -888,13 +998,13 @@
         <div class="utopia-footer-title" id="carouselFooterTitle">PINTURAS AL ÓLEO</div>
     </section>
 
-    <!-- CATÁLOGO DE OBRAS (SIN TÍTULO COLECCIÓN PRINCIPAL) -->
+    <!-- GALERÍA ESTÁNDAR (ÓLEO / DIBUJO / RETRATOS) CON TÍTULO DE SECCIÓN SUPERIOR -->
     <section id="gallery" style="display:none;">
         <div class="gallery-container">
+            <h2 class="section-header-title" id="dynamicSectionTitle">Pinturas al Óleo</h2>
             <div class="gallery-grid" id="galleryGrid">
                 
                 <!-- ==================== PINTURAS AL ÓLEO ==================== -->
-                
                 <div class="art-card" data-category="oleos retratos disponible" data-year="2026" onclick="openModal('Nude 3', 'Óleo sobre lienzo', '70 x 90 cm', 'Disponible', '2,100 USD', 'imagenes/nude 3.DNG', 'Estudio contemporáneo de la figura humana y texturas en óleo.')">
                     <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/nude 3.DNG" alt="Nude 3"></div>
                     <div class="art-info"><div class="art-title">Nude 3</div><div class="art-meta">Óleo sobre lienzo · 2026</div><div class="art-price">2,100 USD</div></div>
@@ -1047,97 +1157,125 @@
                     <div class="art-info"><div class="art-title">Trazo inicial 2018</div><div class="art-meta">Tinta · 2018</div><div class="art-price">Colección Privada</div></div>
                 </div>
 
+            </div>
+        </div>
+    </section>
 
-                <!-- ==================== FOTOGRAFÍA ==================== -->
+
+    <!-- ==================== SECCIÓN DE FOTOGRAFÍA (ESTILO ESPECIAL MITAD-MITAD Y HORIZONTALES) ==================== -->
+    <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
+        <button class="photo-back-btn" onclick="goBackToMain()">← Back</button>
+        <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
+            <h2 class="photo-section-title">Fotografía</h2>
+            
+            <div class="photo-split-grid">
                 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('10.JPG', 'Fotografía Fine Art', '50 x 70 cm', 'Disponible', '600 USD', 'imagenes/10.JPG?v=2', 'Captura fotográfica de taller.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/10.JPG?v=2" alt="10.JPG"></div>
-                    <div class="art-info"><div class="art-title">10.JPG</div><div class="art-meta">Fine Art Print · 2026</div><div class="art-price">600 USD</div></div>
+                <!-- 1. Horizontal: F1000007 -->
+                <div class="photo-item horizontal" onclick="openModal('F1000007', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000007.JPG?v=2', 'Serie documental y de archivo.')">
+                    <img src="imagenes/F1000007.JPG?v=2" alt="F1000007">
+                    <div class="photo-info-overlay"><div class="photo-title">F1000007</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('El salto', 'Fotografía Fine Art', '60 x 80 cm', 'Disponible', '700 USD', 'imagenes/El salto.jpg?v=2', 'Registro fotográfico expresivo.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/El salto.jpg?v=2" alt="El salto"></div>
-                    <div class="art-info"><div class="art-title">El salto</div><div class="art-meta">Fine Art Print · 2025</div><div class="art-price">700 USD</div></div>
+                <!-- 2. Vertical: 10.JPG -->
+                <div class="photo-item" onclick="openModal('10.JPG', 'Fotografía Fine Art', '50 x 70 cm', 'Disponible', '600 USD', 'imagenes/10.JPG?v=2', 'Captura fotográfica de taller.')">
+                    <img src="imagenes/10.JPG?v=2" alt="10.JPG">
+                    <div class="photo-info-overlay"><div class="photo-title">10.JPG</div><div class="photo-meta">Fine Art Print · 2026</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000006', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000006.JPG?v=2', 'Serie documental y de archivo.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000006.JPG?v=2" alt="F1000006"></div>
-                    <div class="art-info"><div class="art-title">F1000006</div><div class="art-meta">Analógica · 2025</div><div class="art-price">650 USD</div></div>
+                <!-- 3. Vertical: El salto -->
+                <div class="photo-item" onclick="openModal('El salto', 'Fotografía Fine Art', '60 x 80 cm', 'Disponible', '700 USD', 'imagenes/El salto.jpg?v=2', 'Registro fotográfico expresivo.')">
+                    <img src="imagenes/El salto.jpg?v=2" alt="El salto">
+                    <div class="photo-info-overlay"><div class="photo-title">El salto</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000007', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000007.JPG?v=2', 'Serie documental y de archivo.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000007.JPG?v=2" alt="F1000007"></div>
-                    <div class="art-info"><div class="art-title">F1000007</div><div class="art-meta">Analógica · 2025</div><div class="art-price">650 USD</div></div>
+                <!-- 4. Horizontal: F1000014 -->
+                <div class="photo-item horizontal" onclick="openModal('F1000014', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1000014.JPG?v=2', 'Estudio de iluminación y sombras.')">
+                    <img src="imagenes/F1000014.JPG?v=2" alt="F1000014">
+                    <div class="photo-info-overlay"><div class="photo-title">F1000014</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000014', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1000014.JPG?v=2', 'Estudio de iluminación y sombras.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000014.JPG?v=2" alt="F1000014"></div>
-                    <div class="art-info"><div class="art-title">F1000014</div><div class="art-meta">Analógica · 2025</div><div class="art-price">750 USD</div></div>
+                <!-- 5. Vertical: F1000006 -->
+                <div class="photo-item" onclick="openModal('F1000006', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000006.JPG?v=2', 'Serie documental y de archivo.')">
+                    <img src="imagenes/F1000006.JPG?v=2" alt="F1000006">
+                    <div class="photo-info-overlay"><div class="photo-title">F1000006</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000019', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000019.JPG?v=2', 'Captura de atelier.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000019.JPG?v=2" alt="F1000019"></div>
-                    <div class="art-info"><div class="art-title">F1000019</div><div class="art-meta">Analógica · 2025</div><div class="art-price">650 USD</div></div>
+                <!-- 6. Vertical: F1000019 -->
+                <div class="photo-item" onclick="openModal('F1000019', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000019.JPG?v=2', 'Captura de atelier.')">
+                    <img src="imagenes/F1000019.JPG?v=2" alt="F1000019">
+                    <div class="photo-info-overlay"><div class="photo-title">F1000019</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000023', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000023.JPG?v=2', 'Captura de atelier.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000023.JPG?v=2" alt="F1000023"></div>
-                    <div class="art-info"><div class="art-title">F1000023</div><div class="art-meta">Analógica · 2024</div><div class="art-price">650 USD</div></div>
+                <!-- 7. Horizontal: F1000023 -->
+                <div class="photo-item horizontal" onclick="openModal('F1000023', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000023.JPG?v=2', 'Captura de atelier.')">
+                    <img src="imagenes/F1000023.JPG?v=2" alt="F1000023">
+                    <div class="photo-info-overlay"><div class="photo-title">F1000023</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000024', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1000024.JPG?v=2', 'Estudio compositivo.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000024.JPG?v=2" alt="F1000024"></div>
-                    <div class="art-info"><div class="art-title">F1000024</div><div class="art-meta">Analógica · 2024</div><div class="art-price">750 USD</div></div>
+                <!-- 8. Horizontal: F1000024 -->
+                <div class="photo-item horizontal" onclick="openModal('F1000024', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1000024.JPG?v=2', 'Estudio compositivo.')">
+                    <img src="imagenes/F1000024.JPG?v=2" alt="F1000024">
+                    <div class="photo-info-overlay"><div class="photo-title">F1000024</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000026(1)', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000026(1).JPG?v=3', 'Exploración visual en blanco y negro.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000026(1).JPG?v=3" alt="F1000026(1)"></div>
-                    <div class="art-info"><div class="art-title">F1000026(1)</div><div class="art-meta">Analógica · 2024</div><div class="art-price">650 USD</div></div>
+                <!-- 9. Vertical: F1000026(1) -->
+                <div class="photo-item" onclick="openModal('F1000026(1)', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000026(1).JPG?v=3', 'Exploración visual en blanco y negro.')">
+                    <img src="imagenes/F1000026(1).JPG?v=3" alt="F1000026(1)">
+                    <div class="photo-info-overlay"><div class="photo-title">F1000026(1)</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000031', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000031.JPG?v=2', 'Registro fotográfico de obras.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000031.JPG?v=2" alt="F1000031"></div>
-                    <div class="art-info"><div class="art-title">F1000031</div><div class="art-meta">Analógica · 2024</div><div class="art-price">650 USD</div></div>
+                <!-- 10. Horizontal: F1000031 -->
+                <div class="photo-item horizontal" onclick="openModal('F1000031', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000031.JPG?v=2', 'Registro fotográfico de obras.')">
+                    <img src="imagenes/F1000031.JPG?v=2" alt="F1000031">
+                    <div class="photo-info-overlay"><div class="photo-title">F1000031</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1000032', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000032.JPG?v=2', 'Registro fotográfico de obras.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1000032.JPG?v=2" alt="F1000032"></div>
-                    <div class="art-info"><div class="art-title">F1000032</div><div class="art-meta">Analógica · 2024</div><div class="art-price">650 USD</div></div>
+                <!-- 11. Horizontal: F1000032 -->
+                <div class="photo-item horizontal" onclick="openModal('F1000032', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1000032.JPG?v=2', 'Registro fotográfico de obras.')">
+                    <img src="imagenes/F1000032.JPG?v=2" alt="F1000032">
+                    <div class="photo-info-overlay"><div class="photo-title">F1000032</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1010012', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1010012.JPG?v=2', 'Estudio de claroscuro fotográfico.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1010012.JPG?v=2" alt="F1010012"></div>
-                    <div class="art-info"><div class="art-title">F1010012</div><div class="art-meta">Analógica · 2023</div><div class="art-price">750 USD</div></div>
+                <!-- 12. Horizontal: F1010012 -->
+                <div class="photo-item horizontal" onclick="openModal('F1010012', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1010012.JPG?v=2', 'Estudio de claroscuro fotográfico.')">
+                    <img src="imagenes/F1010012.JPG?v=2" alt="F1010012">
+                    <div class="photo-info-overlay"><div class="photo-title">F1010012</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1010024', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1010024.JPG?v=2', 'Composición de luz natural.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1010024.JPG?v=2" alt="F1010024"></div>
-                    <div class="art-info"><div class="art-title">F1010024</div><div class="art-meta">Analógica · 2023</div><div class="art-price">650 USD</div></div>
+                <!-- 13. Vertical: F1010024 -->
+                <div class="photo-item" onclick="openModal('F1010024', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1010024.JPG?v=2', 'Composición de luz natural.')">
+                    <img src="imagenes/F1010024.JPG?v=2" alt="F1010024">
+                    <div class="photo-info-overlay"><div class="photo-title">F1010024</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1010025', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1010025.JPG?v=2', 'Composición de luz natural.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1010025.JPG?v=2" alt="F1010025"></div>
-                    <div class="art-info"><div class="art-title">F1010025</div><div class="art-meta">Analógica · 2023</div><div class="art-price">650 USD</div></div>
+                <!-- 14. Vertical: F1010025 -->
+                <div class="photo-item" onclick="openModal('F1010025', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1010025.JPG?v=2', 'Composición de luz natural.')">
+                    <img src="imagenes/F1010025.JPG?v=2" alt="F1010025">
+                    <div class="photo-info-overlay"><div class="photo-title">F1010025</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1010026', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1010026.JPG?v=2', 'Estudio fotográfico de texturas.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1010026.JPG?v=2" alt="F1010026"></div>
-                    <div class="art-info"><div class="art-title">F1010026</div><div class="art-meta">Analógica · 2023</div><div class="art-price">750 USD</div></div>
+                <!-- 15. Vertical: F1010026 -->
+                <div class="photo-item" onclick="openModal('F1010026', 'Fotografía analógica', '60 x 80 cm', 'Disponible', '750 USD', 'imagenes/F1010026.JPG?v=2', 'Estudio fotográfico de texturas.')">
+                    <img src="imagenes/F1010026.JPG?v=2" alt="F1010026">
+                    <div class="photo-info-overlay"><div class="photo-title">F1010026</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('F1010036', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1010036.JPG?v=2', 'Registro de taller y modelos.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/F1010036.JPG?v=2" alt="F1010036"></div>
-                    <div class="art-info"><div class="art-title">F1010036</div><div class="art-meta">Analógica · 2023</div><div class="art-price">650 USD</div></div>
+                <!-- 16. Vertical: F1010036 -->
+                <div class="photo-item" onclick="openModal('F1010036', 'Fotografía analógica', '50 x 70 cm', 'Disponible', '650 USD', 'imagenes/F1010036.JPG?v=2', 'Registro de taller y modelos.')">
+                    <img src="imagenes/F1010036.JPG?v=2" alt="F1010036">
+                    <div class="photo-info-overlay"><div class="photo-title">F1010036</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Satygne 1', 'Fotografía Fine Art', '60 x 80 cm', 'Disponible', '800 USD', 'imagenes/Satygne_1.jpg?v=2', 'Composición inspirada en la mitología clásica.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/Satygne_1.jpg?v=2" alt="Satygne 1"></div>
-                    <div class="art-info"><div class="art-title">Satygne 1</div><div class="art-meta">Fine Art Print · 2025</div><div class="art-price">800 USD</div></div>
+                <!-- 17. Vertical: Satygne 1 -->
+                <div class="photo-item" onclick="openModal('Satygne 1', 'Fotografía Fine Art', '60 x 80 cm', 'Disponible', '800 USD', 'imagenes/Satygne_1.jpg?v=2', 'Composición inspirada en la mitología clásica.')">
+                    <img src="imagenes/Satygne_1.jpg?v=2" alt="Satygne 1">
+                    <div class="photo-info-overlay"><div class="photo-title">Satygne 1</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
 
-                <div class="art-card" data-category="fotografia disponible" onclick="openModal('Spiegel', 'Fotografía Fine Art', '70 x 100 cm', 'Disponible', '900 USD', 'imagenes/Spiegel.jpg?v=2', 'Estudio de reflejos y perspectiva.')">
-                    <div class="art-img-wrapper"><span class="badge-status">Disponible</span><img src="imagenes/Spiegel.jpg?v=2" alt="Spiegel"></div>
-                    <div class="art-info"><div class="art-title">Spiegel</div><div class="art-meta">Fine Art Print · 2025</div><div class="art-price">900 USD</div></div>
+                <!-- 18. Vertical: Spiegel -->
+                <div class="photo-item" onclick="openModal('Spiegel', 'Fotografía Fine Art', '70 x 100 cm', 'Disponible', '900 USD', 'imagenes/Spiegel.jpg?v=2', 'Estudio de reflejos y perspectiva.')">
+                    <img src="imagenes/Spiegel.jpg?v=2" alt="Spiegel">
+                    <div class="photo-info-overlay"><div class="photo-title">Spiegel</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
 
             </div>
@@ -1255,9 +1393,31 @@
 
         function filterGallery(category, year = null) {
             const gallerySection = document.getElementById('gallery');
-            gallerySection.style.display = 'block';
+            const galleryPhotoSection = document.getElementById('galleryPhoto');
+            const dynamicTitle = document.getElementById('dynamicSectionTitle');
 
-            const cards = document.querySelectorAll('.art-card');
+            if (category === 'fotografia') {
+                gallerySection.style.display = 'none';
+                galleryPhotoSection.style.display = 'block';
+                galleryPhotoSection.scrollIntoView({ behavior: 'smooth' });
+                return;
+            } else {
+                galleryPhotoSection.style.display = 'none';
+                gallerySection.style.display = 'block';
+            }
+
+            // Actualizar título superior según categoría
+            if (category === 'oleos') {
+                dynamicTitle.innerText = currentLang === 'EN' ? 'Oil Paintings' : 'Pinturas al Óleo';
+            } else if (category === 'dibujo') {
+                dynamicTitle.innerText = currentLang === 'EN' ? 'Drawing' : 'Dibujo';
+            } else if (category === 'retratos') {
+                dynamicTitle.innerText = currentLang === 'EN' ? 'Portraits' : 'Retratos';
+            } else {
+                dynamicTitle.innerText = currentLang === 'EN' ? 'Main Collection' : 'Colección Principal';
+            }
+
+            const cards = document.querySelectorAll('.gallery-grid .art-card');
             cards.forEach(card => {
                 const categories = card.getAttribute('data-category') ? card.getAttribute('data-category').split(' ') : [];
                 const cardYear = card.getAttribute('data-year');
@@ -1275,6 +1435,12 @@
                     }
                 }
             });
+
+            gallerySection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function goBackToMain() {
+            utopiaSection.scrollIntoView({ behavior: 'smooth' });
         }
 
         /* --- DETECTOR DE POSICIÓN PARA CAMBIAR COLOR DEL HEADER EN LA SECCIÓN OSCURA --- */
@@ -1287,8 +1453,7 @@
             }
         });
 
-
-        /* --- LÓGICA DEL CARRUSEL EN BUCLE CON SCROLL HORIZONTAL FLUIDO --- */
+        /* --- CARRUSEL HORIZONTAL FLUIDO --- */
         const categoriesData = [
             { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', filterCat: 'oleos' },
             { titleEs: 'Dibujo', titleEn: 'Drawing', filterCat: 'dibujo' },
@@ -1308,7 +1473,7 @@
         let prevTranslate = 0;
 
         function getCardWidth() {
-            return cards[0].offsetWidth + 90; /* Margen ampliado para mayor separación */
+            return cards[0].offsetWidth + 90;
         }
 
         function updateCarouselPosition() {
@@ -1344,10 +1509,8 @@
         function goToCategory(category, event) {
             event.stopPropagation();
             filterGallery(category);
-            document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
         }
 
-        /* Arrastre con mouse / touch */
         dragContainer.addEventListener('mousedown', dragStart);
         dragContainer.addEventListener('touchstart', dragStart, { passive: true });
 
@@ -1388,7 +1551,6 @@
             return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
         }
 
-        /* Desplazamiento lateral con trackpad, rueda de mouse o flechas de teclado */
         let scrollTimeout;
         dragContainer.addEventListener('wheel', (e) => {
             e.preventDefault();
@@ -1416,7 +1578,6 @@
                 }
             }
         });
-
 
         const sideImgLeft = document.getElementById('sideImgLeft');
         const sideImgRight = document.getElementById('sideImgRight');
@@ -1557,7 +1718,6 @@
             }
         });
 
-        // Inicializar posición del carrusel centrado
         window.addEventListener('load', () => {
             updateCarouselPosition();
         });

@@ -46,7 +46,7 @@
             text-decoration: none;
         }
 
-        /* HEADER / BANNER ORIGINAL ESTILIZADO Y DELGADO */
+        /* HEADER ORIGINAL DE 80px */
         header {
             position: fixed;
             top: 0;
@@ -92,10 +92,12 @@
             color: #ffffff;
         }
 
-        /* FIRMA CON TAMAÑO INTERMEDIO Y ELEGANTE */
+        /* FIRMA CON HEIGHT DE 140px PERO HEADER INMUTABLE */
         .header-logo-firma {
-            height: 60px;
+            height: 140px;
             object-fit: contain;
+            position: relative;
+            z-index: 101;
         }
 
         .lang-select {
@@ -216,7 +218,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN INTERACTIVA PRINCIPAL CON CARRUSEL DE SENSIBILIDAD REGULADA --- */
+        /* --- SECCIÓN INTERACTIVA PRINCIPAL CON CARRUSEL --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -1157,7 +1159,7 @@
 </head>
 <body>
 
-    <!-- HEADER / BANNER ORIGINAL ESTILIZADO -->
+    <!-- HEADER ORIGINAL DE 80px CON FIRMA DE 140px -->
     <header id="mainHeader">
         <div class="header-left-slot">
             <button class="header-back-btn" id="headerBackBtn" onclick="goBackToMain()">← Back</button>
@@ -1547,7 +1549,7 @@
                 
                 <div class="bio-paragraphs" id="bioParagraphs">
                     <p>
-                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">BRUNELIO</span> ha consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
+                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">BRUNELIO</span> has consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
                     </p>
                     <p>
                         A lo largo de su trayectoria, su visión estética ha explorado simbolismos alegóricos, retratos psicológicos y composiciones de alta precisión, posicionándose como una de las voces emergentes más distintivas del realismo figurativo contemporáneo.

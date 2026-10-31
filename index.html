@@ -570,7 +570,7 @@
         }
 
 
-        /* ==================== SECCIÓN DE RETRATOS (MASONRY ASIMÉTRICO ESTILO PINTEREST) ==================== */
+        /* ==================== SECCIÓN DE RETRATOS (MODIFICADA) ==================== */
         .portraits-section-wrapper {
             position: relative;
             width: 100vw;
@@ -592,7 +592,6 @@
             color: #ffffff;
         }
 
-        /* Diseños en Multi-columna Masonry Asimétrico */
         .portraits-masonry-grid {
             max-width: 1550px;
             margin: 0 auto;
@@ -615,7 +614,6 @@
             box-sizing: border-box;
         }
 
-        /* Iluminación tenue y bordes blancos encendidos al pasar el mouse */
         .portrait-item:hover {
             border-color: #ffffff;
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.45);
@@ -629,7 +627,6 @@
             position: relative;
         }
 
-        /* Variaciones de altura y proporción para dinamismo abstracto */
         .portrait-item.h-tall .portrait-img-wrapper { height: 650px; }
         .portrait-item.h-medium .portrait-img-wrapper { height: 500px; }
         .portrait-item.h-short .portrait-img-wrapper { height: 380px; }
@@ -650,25 +647,94 @@
             transform: scale(1.04);
         }
 
+        /* Overlay al pasar el mouse en retratos */
+        .portrait-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portrait-item:hover .portrait-overlay {
+            opacity: 1;
+        }
+
+        .portrait-overlay-top {
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: #ffffff;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+        }
+
+        .portrait-overlay-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            width: 100%;
+        }
+
+        .portrait-btn-email {
+            background: rgba(255, 255, 255, 0.9);
+            color: #000000;
+            border: none;
+            padding: 8px 12px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .portrait-btn-email:hover {
+            background: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .portrait-mini-lupa {
+            width: 34px;
+            height: 34px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            padding: 7px;
+        }
+
+        .portrait-mini-lupa img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: none !important;
+            transform: none !important;
+        }
+
         .portrait-info {
-            padding: 22px 25px;
+            padding: 18px 22px;
             background-color: #121212;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .portrait-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             letter-spacing: 2px;
             font-weight: 600;
             color: #ffffff;
-            margin-bottom: 6px;
-        }
-
-        .portrait-meta {
-            font-style: italic;
-            font-size: 1.05rem;
-            color: #aaa;
-            letter-spacing: 1px;
+            margin: 0;
         }
 
         @media (max-width: 1024px) {
@@ -1466,7 +1532,7 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE RETRATOS (MASONRY ASIMÉTRICO) ==================== -->
+    <!-- ==================== SECCIÓN DE RETRATOS (MODIFICADA) ==================== -->
     <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper">
         <h2 class="portraits-section-title">Retratos</h2>
         
@@ -1476,10 +1542,16 @@
             <div class="portrait-item h-extra-tall" onclick="openModal('Niño 1', 'Óleo sobre lienzo', '50 x 70 cm', 'imagenes/niño1.jpg', 'Estudio de retrato figurativo centrado en la expresión y la atmósfera luminosa.')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/niño1.jpg" alt="Niño 1">
+                    <div class="portrait-overlay">
+                        <div class="portrait-overlay-top">Niño 1</div>
+                        <div class="portrait-overlay-bottom">
+                            <button class="portrait-btn-email" onclick="event.stopPropagation(); location.href='mailto:cezzarostudio@gmail.com?subject=Consulta%2520sobre%2520obra:%2520Niño%25201'">Solicitar adquisición vía email</button>
+                            <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="portrait-info">
                     <div class="portrait-title">Niño 1</div>
-                    <div class="portrait-meta">Óleo sobre lienzo · 2026</div>
                 </div>
             </div>
 
@@ -1487,10 +1559,16 @@
             <div class="portrait-item h-short" onclick="openModal('Mujer 1', 'Óleo sobre lienzo', '60 x 80 cm', 'imagenes/mujer 1.DNG', 'Pieza clave de los primeros años de taller.')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/mujer 1.DNG" alt="Mujer 1">
+                    <div class="portrait-overlay">
+                        <div class="portrait-overlay-top">Mujer 1</div>
+                        <div class="portrait-overlay-bottom">
+                            <button class="portrait-btn-email" onclick="event.stopPropagation(); location.href='mailto:cezzarostudio@gmail.com?subject=Consulta%2520sobre%2520obra:%2520Mujer%25201'">Solicitar adquisición vía email</button>
+                            <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="portrait-info">
                     <div class="portrait-title">Mujer 1</div>
-                    <div class="portrait-meta">Óleo sobre lienzo · 2015</div>
                 </div>
             </div>
 
@@ -1498,10 +1576,16 @@
             <div class="portrait-item h-tall" onclick="openModal('Clelia Toledo', 'Óleo sobre lienzo', '60 x 80 cm', 'imagenes/Clelia Toledo.jpg', 'Retrato pictórico detallado con maestría en el claroscuro y la expresión.')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/Clelia Toledo.jpg" alt="Clelia Toledo">
+                    <div class="portrait-overlay">
+                        <div class="portrait-overlay-top">Clelia Toledo</div>
+                        <div class="portrait-overlay-bottom">
+                            <button class="portrait-btn-email" onclick="event.stopPropagation(); location.href='mailto:cezzarostudio@gmail.com?subject=Consulta%2520sobre%2520obra:%2520Clelia%2520Toledo'">Solicitar adquisición vía email</button>
+                            <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="portrait-info">
                     <div class="portrait-title">Clelia Toledo</div>
-                    <div class="portrait-meta">Óleo sobre lienzo · 2026</div>
                 </div>
             </div>
 
@@ -1509,10 +1593,16 @@
             <div class="portrait-item h-wide" onclick="openModal('Hombre y paisaje 2', 'Óleo sobre lienzo', '80 x 80 cm', 'imagenes/Hombre y paisaje 2.jpg', 'Segunda parte de la serie de exploración paisajística.')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/Hombre y paisaje 2.jpg" alt="Hombre y paisaje 2">
+                    <div class="portrait-overlay">
+                        <div class="portrait-overlay-top">Hombre y paisaje 2</div>
+                        <div class="portrait-overlay-bottom">
+                            <button class="portrait-btn-email" onclick="event.stopPropagation(); location.href='mailto:cezzarostudio@gmail.com?subject=Consulta%2520sobre%2520obra:%2520Hombre%2520y%2520paisaje%25202'">Solicitar adquisición vía email</button>
+                            <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="portrait-info">
                     <div class="portrait-title">Hombre y paisaje 2</div>
-                    <div class="portrait-meta">Óleo sobre lienzo · 2022</div>
                 </div>
             </div>
 
@@ -1520,10 +1610,16 @@
             <div class="portrait-item h-medium" onclick="openModal('Sis', 'Óleo sobre lienzo', '60 x 80 cm', 'imagenes/sis.DNG', 'Estudio figurativo al óleo con técnica de claroscuro.')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/sis.DNG" alt="Sis">
+                    <div class="portrait-overlay">
+                        <div class="portrait-overlay-top">Sis</div>
+                        <div class="portrait-overlay-bottom">
+                            <button class="portrait-btn-email" onclick="event.stopPropagation(); location.href='mailto:cezzarostudio@gmail.com?subject=Consulta%2520sobre%2520obra:%2520Sis'">Solicitar adquisición vía email</button>
+                            <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="portrait-info">
                     <div class="portrait-title">Sis</div>
-                    <div class="portrait-meta">Óleo sobre lienzo · 2023</div>
                 </div>
             </div>
 
@@ -1531,10 +1627,16 @@
             <div class="portrait-item h-tall" onclick="openModal('Hombre Verde', 'Óleo sobre lienzo', '60 x 90 cm', 'imagenes/hombre verde.jpg', 'Composición alegórica con tonalidades verdosos y terrosos.')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/hombre verde.jpg" alt="Hombre Verde">
+                    <div class="portrait-overlay">
+                        <div class="portrait-overlay-top">Hombre Verde</div>
+                        <div class="portrait-overlay-bottom">
+                            <button class="portrait-btn-email" onclick="event.stopPropagation(); location.href='mailto:cezzarostudio@gmail.com?subject=Consulta%2520sobre%2520obra:%2520Hombre%2520Verde'">Solicitar adquisición vía email</button>
+                            <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="portrait-info">
                     <div class="portrait-title">Hombre Verde</div>
-                    <div class="portrait-meta">Óleo sobre lienzo · 2021</div>
                 </div>
             </div>
 
@@ -1542,10 +1644,16 @@
             <div class="portrait-item h-short" onclick="openModal('Hombre y paisaje', 'Óleo sobre tabla', '40 x 50 cm', 'imagenes/Hombre y paisaje.png', 'Diálogo entre la figura humana y el entorno natural.')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/Hombre y paisaje.png" alt="Hombre y paisaje">
+                    <div class="portrait-overlay">
+                        <div class="portrait-overlay-top">Hombre y paisaje</div>
+                        <div class="portrait-overlay-bottom">
+                            <button class="portrait-btn-email" onclick="event.stopPropagation(); location.href='mailto:cezzarostudio@gmail.com?subject=Consulta%2520sobre%2520obra:%2520Hombre%2520y%2520paisaje'">Solicitar adquisición vía email</button>
+                            <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="portrait-info">
                     <div class="portrait-title">Hombre y paisaje</div>
-                    <div class="portrait-meta">Óleo sobre tabla · 2023</div>
                 </div>
             </div>
 

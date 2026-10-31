@@ -647,18 +647,19 @@
             transform: scale(1.04);
         }
 
-        /* Overlay al pasar el mouse en retratos */
+        /* Overlay actualizado sin fondo blanco y nombre centrado */
         .portrait-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.45);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 20px;
+            align-items: center;
+            padding: 25px;
             box-sizing: border-box;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -669,72 +670,74 @@
         }
 
         .portrait-overlay-top {
-            font-size: 1.5rem;
-            letter-spacing: 2px;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
             font-weight: 600;
             color: #ffffff;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+            text-align: center;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+            margin-top: 10px;
         }
 
         .portrait-overlay-bottom {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: flex-end;
+            gap: 15px;
             width: 100%;
         }
 
         .portrait-btn-email {
-            background: rgba(255, 255, 255, 0.9);
-            color: #000000;
-            border: none;
-            padding: 8px 12px;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 8px 14px;
             font-size: 0.75rem;
             letter-spacing: 1px;
             text-transform: uppercase;
             font-weight: 600;
             cursor: pointer;
             border-radius: 2px;
-            transition: background 0.3s, transform 0.2s;
+            transition: all 0.3s ease;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.8);
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
 
         .portrait-btn-email:hover {
             background: #ffffff;
+            color: #000000;
             transform: scale(1.05);
         }
 
         .portrait-mini-lupa {
-            width: 34px;
-            height: 34px;
-            background: rgba(255, 255, 255, 0.9);
+            width: 38px;
+            height: 38px;
+            background: transparent;
+            border: 1px solid #ffffff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            padding: 7px;
+            padding: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .portrait-mini-lupa:hover {
+            background: #ffffff;
+            transform: scale(1.05);
         }
 
         .portrait-mini-lupa img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            filter: none !important;
+            filter: invert(1);
             transform: none !important;
         }
 
-        .portrait-info {
-            padding: 18px 22px;
-            background-color: #121212;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .portrait-title {
-            font-size: 1.4rem;
-            letter-spacing: 2px;
-            font-weight: 600;
-            color: #ffffff;
-            margin: 0;
+        .portrait-mini-lupa:hover img {
+            filter: none;
         }
 
         @media (max-width: 1024px) {
@@ -1550,9 +1553,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="portrait-info">
-                    <div class="portrait-title">Niño 1</div>
-                </div>
             </div>
 
             <!-- Obra 2: Mujer 1 -->
@@ -1566,9 +1566,6 @@
                             <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
                         </div>
                     </div>
-                </div>
-                <div class="portrait-info">
-                    <div class="portrait-title">Mujer 1</div>
                 </div>
             </div>
 
@@ -1584,9 +1581,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="portrait-info">
-                    <div class="portrait-title">Clelia Toledo</div>
-                </div>
             </div>
 
             <!-- Obra 4: Hombre y paisaje 2 -->
@@ -1600,9 +1594,6 @@
                             <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
                         </div>
                     </div>
-                </div>
-                <div class="portrait-info">
-                    <div class="portrait-title">Hombre y paisaje 2</div>
                 </div>
             </div>
 
@@ -1618,9 +1609,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="portrait-info">
-                    <div class="portrait-title">Sis</div>
-                </div>
             </div>
 
             <!-- Obra 6: Hombre Verde -->
@@ -1635,9 +1623,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="portrait-info">
-                    <div class="portrait-title">Hombre Verde</div>
-                </div>
             </div>
 
             <!-- Obra 7: Hombre y paisaje -->
@@ -1651,9 +1636,6 @@
                             <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
                         </div>
                     </div>
-                </div>
-                <div class="portrait-info">
-                    <div class="portrait-title">Hombre y paisaje</div>
                 </div>
             </div>
 
@@ -1806,7 +1788,7 @@
                 
                 <div class="bio-paragraphs" id="bioParagraphs">
                     <p>
-                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">BRUNELIO</span> ha consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
+                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">BRUNELIO</span> has consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
                     </p>
                     <p>
                         A lo largo de su trayectoria, su visión estética ha explorado simbolismos alegóricos, retratos psicológicos y composiciones de alta precisión, posicionándose como una de las voces emergentes más distintivas del realismo figurativo contemporáneo.

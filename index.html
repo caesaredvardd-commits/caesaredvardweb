@@ -46,7 +46,7 @@
             text-decoration: none;
         }
 
-        /* HEADER ORIGINAL DE 80px */
+        /* HEADER ORIGINAL DE 80px CON FIRMA DE 140px */
         header {
             position: fixed;
             top: 0;
@@ -92,7 +92,7 @@
             color: #ffffff;
         }
 
-        /* FIRMA CON HEIGHT DE 140px PERO HEADER INMUTABLE */
+        /* FIRMA DE 140px SIN CAMBIAR EL HEADER */
         .header-logo-firma {
             height: 140px;
             object-fit: contain;
@@ -570,54 +570,93 @@
         }
 
 
-        /* --- SECCIÓN DE RETRATOS --- */
+        /* ==================== SECCIÓN DE RETRATOS (ESTILO GALERÍA OSCURA CON ILUMINACIÓN BLANCA EN HOVER) ==================== */
         .portraits-section-wrapper {
             position: relative;
             width: 100vw;
-            height: 350vh;
-            background-color: #111;
+            background-color: #0a0a0a; /* Fondo oscuro */
+            color: #ffffff;
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
+            padding: 80px 40px;
             box-sizing: border-box;
         }
 
-        .portraits-sticky-container {
-            position: sticky;
-            top: 80px;
-            width: 100vw;
-            height: calc(100vh - 80px);
-            overflow: hidden;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .portraits-section-title {
+            font-family: var(--font-titles) !important;
+            font-size: 2.8rem;
+            text-align: center;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            color: #ffffff;
         }
 
-        .portraits-sticky-container img {
+        .portraits-grid {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+        }
+
+        .portrait-item {
+            position: relative;
+            background-color: #121212;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        /* Iluminación y bordes blancos al pasar el mouse */
+        .portrait-item:hover {
+            border-color: #ffffff;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .portrait-img-wrapper {
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .portrait-img-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top center !important;
-            filter: brightness(0.9);
-            transition: filter 0.3s ease;
+            object-position: top center !important; /* Enfocado en rostros y parte superior */
+            filter: brightness(0.65); /* Imagen un poco oscura de base */
+            transition: filter 0.4s ease, transform 0.5s ease;
         }
 
-        .portraits-sticky-container:hover img {
-            filter: brightness(1);
+        /* Se ilumina al hacer hover */
+        .portrait-item:hover .portrait-img-wrapper img {
+            filter: brightness(1.05);
+            transform: scale(1.03);
         }
 
-        .portraits-corner-label {
-            position: absolute;
-            bottom: 40px;
-            right: 50px;
-            z-index: 10;
+        .portrait-info {
+            padding: 25px;
+            background-color: #121212;
+        }
+
+        .portrait-title {
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            font-weight: 600;
             color: #ffffff;
-            font-family: var(--font-titles) !important;
-            font-size: 2.2rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.8);
-            pointer-events: none;
+            margin-bottom: 6px;
+        }
+
+        .portrait-meta {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #aaa;
+            letter-spacing: 1px;
         }
 
 
@@ -1145,6 +1184,7 @@
             .drawing-grid-3x3 { grid-template-columns: 1fr 1fr; }
             .oil-section-wrapper { flex-direction: column; align-items: flex-start; }
             .oil-left-panel { width: 100%; min-width: 100%; margin-bottom: 20px; }
+            .portraits-grid { grid-template-columns: 1fr; padding: 0 20px; }
         }
 
         @media (max-width: 768px) {
@@ -1395,11 +1435,72 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE RETRATOS ==================== -->
-    <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper" id="portraitsSection">
-        <div class="portraits-sticky-container" onclick="openCurrentPortraitModal()">
-            <img id="portraitsBannerImg" src="imagenes/mujer 1.DNG" alt="Retratos">
-            <div class="portraits-corner-label">RETRATOS</div>
+    <!-- ==================== SECCIÓN DE RETRATOS (GALERÍA OSCURA, BORDES Y LUZ BLANCA EN HOVER) ==================== -->
+    <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper">
+        <h2 class="portraits-section-title">Retratos</h2>
+        
+        <div class="portraits-grid">
+            
+            <div class="portrait-item" onclick="openModal('Mujer 1', 'Óleo sobre lienzo', '60 x 80 cm', 'imagenes/mujer 1.DNG', 'Pieza clave de los primeros años de taller.')">
+                <div class="portrait-img-wrapper">
+                    <img src="imagenes/mujer 1.DNG" alt="Mujer 1">
+                </div>
+                <div class="portrait-info">
+                    <div class="portrait-title">Mujer 1</div>
+                    <div class="portrait-meta">Óleo sobre lienzo · 2015</div>
+                </div>
+            </div>
+
+            <div class="portrait-item" onclick="openModal('Clelia Toledo', 'Óleo sobre lienzo', '60 x 80 cm', 'imagenes/Clelia Toledo.jpg', 'Retrato pictórico detallado con maestría en el claroscuro y la expresión.')">
+                <div class="portrait-img-wrapper">
+                    <img src="imagenes/Clelia Toledo.jpg" alt="Clelia Toledo">
+                </div>
+                <div class="portrait-info">
+                    <div class="portrait-title">Clelia Toledo</div>
+                    <div class="portrait-meta">Óleo sobre lienzo · 2026</div>
+                </div>
+            </div>
+
+            <div class="portrait-item" onclick="openModal('Hombre y paisaje 2', 'Óleo sobre lienzo', '80 x 80 cm', 'imagenes/Hombre y paisaje 2.jpg', 'Segunda parte de la serie de exploración paisajística.')">
+                <div class="portrait-img-wrapper">
+                    <img src="imagenes/Hombre y paisaje 2.jpg" alt="Hombre y paisaje 2">
+                </div>
+                <div class="portrait-info">
+                    <div class="portrait-title">Hombre y paisaje 2</div>
+                    <div class="portrait-meta">Óleo sobre lienzo · 2022</div>
+                </div>
+            </div>
+
+            <div class="portrait-item" onclick="openModal('Sis', 'Óleo sobre lienzo', '60 x 80 cm', 'imagenes/sis.DNG', 'Estudio figurativo al óleo con técnica de claroscuro.')">
+                <div class="portrait-img-wrapper">
+                    <img src="imagenes/sis.DNG" alt="Sis">
+                </div>
+                <div class="portrait-info">
+                    <div class="portrait-title">Sis</div>
+                    <div class="portrait-meta">Óleo sobre lienzo · 2023</div>
+                </div>
+            </div>
+
+            <div class="portrait-item" onclick="openModal('Hombre Verde', 'Óleo sobre lienzo', '60 x 90 cm', 'imagenes/hombre verde.jpg', 'Composición alegórica con tonalidades verdosos y terrosos.')">
+                <div class="portrait-img-wrapper">
+                    <img src="imagenes/hombre verde.jpg" alt="Hombre Verde">
+                </div>
+                <div class="portrait-info">
+                    <div class="portrait-title">Hombre Verde</div>
+                    <div class="portrait-meta">Óleo sobre lienzo · 2021</div>
+                </div>
+            </div>
+
+            <div class="portrait-item" onclick="openModal('Hombre y paisaje', 'Óleo sobre tabla', '40 x 50 cm', 'imagenes/Hombre y paisaje.png', 'Diálogo entre la figura humana y el entorno natural.')">
+                <div class="portrait-img-wrapper">
+                    <img src="imagenes/Hombre y paisaje.png" alt="Hombre y paisaje">
+                </div>
+                <div class="portrait-info">
+                    <div class="portrait-title">Hombre y paisaje</div>
+                    <div class="portrait-meta">Óleo sobre tabla · 2023</div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -1549,7 +1650,7 @@
                 
                 <div class="bio-paragraphs" id="bioParagraphs">
                     <p>
-                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">BRUNELIO</span> has consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
+                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">BRUNELIO</span> ha consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
                     </p>
                     <p>
                         A lo largo de su trayectoria, su visión estética ha explorado simbolismos alegóricos, retratos psicológicos y composiciones de alta precisión, posicionándose como una de las voces emergentes más distintivas del realismo figurativo contemporáneo.
@@ -1788,35 +1889,10 @@
             }
         });
 
-        /* --- LÓGICA DE RETRATOS ORDENADOS Y ENFOCADOS --- */
-        const portraitsData = [
-            { title: 'Mujer 1', tech: 'Óleo sobre lienzo', size: '60 x 80 cm', src: 'imagenes/mujer 1.DNG', desc: 'Pieza clave de los primeros años de taller.' },
-            { title: 'Clelia Toledo', tech: 'Óleo sobre lienzo', size: '60 x 80 cm', src: 'imagenes/Clelia Toledo.jpg', desc: 'Retrato pictórico detallado con maestría en el claroscuro y la expresión.' },
-            { title: 'Hombre y paisaje 2', tech: 'Óleo sobre lienzo', size: '80 x 80 cm', src: 'imagenes/Hombre y paisaje 2.jpg', desc: 'Segunda parte de la serie de exploración paisajística.' },
-            { title: 'Sis', tech: 'Óleo sobre lienzo', size: '60 x 80 cm', src: 'imagenes/sis.DNG', desc: 'Estudio figurativo al óleo con técnica de claroscuro.' },
-            { title: 'Hombre Verde', tech: 'Óleo sobre lienzo', size: '60 x 90 cm', src: 'imagenes/hombre verde.jpg', desc: 'Composición alegórica con tonalidades verdosos y terrosos.' },
-            { title: 'Hombre y paisaje', tech: 'Óleo sobre tabla', size: '40 x 50 cm', src: 'imagenes/Hombre y paisaje.png', desc: 'Diálogo entre la figura humana y el entorno natural.' }
-        ];
-
-        const portraitsSection = document.getElementById('galleryPortraits');
-        const portraitsBannerImg = document.getElementById('portraitsBannerImg');
+        const sideImgLeft = document.getElementById('sideImgLeft');
+        const sideImgRight = document.getElementById('sideImgRight');
 
         window.addEventListener('scroll', () => {
-            if (portraitsSection.style.display !== 'none' && portraitsSection.style.display !== '') {
-                const rect = portraitsSection.getBoundingClientRect();
-                const totalHeight = portraitsSection.offsetHeight - window.innerHeight;
-                const currentScroll = -rect.top;
-                
-                if (currentScroll >= 0 && currentScroll <= totalHeight) {
-                    const progress = currentScroll / totalHeight;
-                    let index = Math.floor(progress * portraitsData.length);
-                    if (index >= portraitsData.length) index = portraitsData.length - 1;
-                    if (index < 0) index = 0;
-
-                    portraitsBannerImg.src = portraitsData[index].src;
-                }
-            }
-
             const scrollY = window.scrollY;
             if (scrollY <= window.innerHeight) {
                 const scaleValue = 1 + scrollY * 0.0015;
@@ -1825,21 +1901,6 @@
                 if(sideImgRight) sideImgRight.style.transform = `scaleX(-1) scale(${scaleValue}) translateY(${translateYValue}px)`;
             }
         });
-
-        function openCurrentPortraitModal() {
-            const rect = portraitsSection.getBoundingClientRect();
-            const totalHeight = portraitsSection.offsetHeight - window.innerHeight;
-            const currentScroll = -rect.top;
-            const progress = Math.max(0, Math.min(1, currentScroll / totalHeight));
-            let index = Math.floor(progress * portraitsData.length);
-            if (index >= portraitsData.length) index = portraitsData.length - 1;
-
-            const item = portraitsData[index];
-            openModal(item.title, item.tech, item.size, item.src, item.desc);
-        }
-
-        const sideImgLeft = document.getElementById('sideImgLeft');
-        const sideImgRight = document.getElementById('sideImgRight');
 
         let currentLang = 'ES';
         function toggleLanguage() {

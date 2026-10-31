@@ -570,7 +570,7 @@
         }
 
 
-        /* ==================== SECCIÓN DE RETRATOS (MODIFICADA) ==================== */
+        /* ==================== SECCIÓN DE RETRATOS (MODIFICADA SEGÚN ESPECIFICACIONES) ==================== */
         .portraits-section-wrapper {
             position: relative;
             width: 100vw;
@@ -647,8 +647,8 @@
             transform: scale(1.04);
         }
 
-        /* Overlay actualizado sin fondo blanco y nombre centrado */
-        .portrait-overlay {
+        /* Hover de la tarjeta: ÚNICAMENTE EL NOMBRE CENTRADO EN MEDIO DE LA IMAGEN */
+        .portrait-hover-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -656,88 +656,144 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.45);
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
             align-items: center;
-            padding: 25px;
-            box-sizing: border-box;
+            justify-content: center;
             opacity: 0;
             transition: opacity 0.3s ease;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
-        .portrait-item:hover .portrait-overlay {
+        .portrait-item:hover .portrait-hover-overlay {
             opacity: 1;
         }
 
-        .portrait-overlay-top {
-            font-size: 1.8rem;
+        .portrait-hover-title {
+            font-size: 2.2rem;
             letter-spacing: 3px;
             font-weight: 600;
             color: #ffffff;
             text-align: center;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
-            margin-top: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.9);
         }
 
-        .portrait-overlay-bottom {
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
-            gap: 15px;
+        /* MODAL EXCLUSIVO PARA RETRATOS (SIN RECUADRO BLANCO) */
+        .portrait-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(10px);
+            z-index: 260;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.35s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
-        .portrait-btn-email {
-            background: transparent;
+        .portrait-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .portrait-modal-wrapper {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portrait-modal-wrapper img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+            transition: transform 0.1s ease-out;
+            transform-origin: center center;
+        }
+
+        .portrait-modal-close {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 2.2rem;
+            cursor: pointer;
+        }
+
+        .portrait-modal-actions {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        .portrait-modal-btn-email {
+            pointer-events: auto;
+            background: rgba(0, 0, 0, 0.7);
             color: #ffffff;
             border: 1px solid #ffffff;
-            padding: 8px 14px;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
+            padding: 10px 18px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 600;
             cursor: pointer;
             border-radius: 2px;
             transition: all 0.3s ease;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.8);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
         }
 
-        .portrait-btn-email:hover {
+        .portrait-modal-btn-email:hover {
             background: #ffffff;
             color: #000000;
             transform: scale(1.05);
         }
 
-        .portrait-mini-lupa {
-            width: 38px;
-            height: 38px;
-            background: transparent;
+        .portrait-modal-zoom-btn {
+            pointer-events: auto;
+            background: rgba(255, 255, 255, 0.9);
             border: 1px solid #ffffff;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.6);
             padding: 8px;
-            transition: all 0.3s ease;
         }
 
-        .portrait-mini-lupa:hover {
-            background: #ffffff;
-            transform: scale(1.05);
-        }
-
-        .portrait-mini-lupa img {
+        .portrait-modal-zoom-btn img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            filter: invert(1);
-            transform: none !important;
+            box-shadow: none;
         }
 
-        .portrait-mini-lupa:hover img {
-            filter: none;
+        .portrait-modal-zoom-btn.active {
+            background: #000000;
+            border-color: #000000;
+        }
+
+        .portrait-modal-zoom-btn.active img {
+            filter: invert(1);
         }
 
         @media (max-width: 1024px) {
@@ -1542,105 +1598,92 @@
         <div class="portraits-masonry-grid">
             
             <!-- Obra 1: Niño 1 -->
-            <div class="portrait-item h-extra-tall" onclick="openModal('Niño 1', 'Óleo sobre lienzo', '50 x 70 cm', 'imagenes/niño1.jpg', 'Estudio de retrato figurativo centrado en la expresión y la atmósfera luminosa.')">
+            <div class="portrait-item h-extra-tall" onclick="openPortraitModal('Niño 1', 'imagenes/niño1.jpg')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/niño1.jpg" alt="Niño 1">
-                    <div class="portrait-overlay">
-                        <div class="portrait-overlay-top">Niño 1</div>
-                        <div class="portrait-overlay-bottom">
-                            <button class="portrait-btn-email" onclick="event.stopPropagation(); location.href='mailto:cezzarostudio@gmail.com?subject=Consulta%2520sobre%2520obra:%2520Niño%25201'">Solicitar adquisición vía email</button>
-                            <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
-                        </div>
+                    <div class="portrait-hover-overlay">
+                        <div class="portrait-hover-title">Niño 1</div>
                     </div>
                 </div>
             </div>
 
             <!-- Obra 2: Mujer 1 -->
-            <div class="portrait-item h-short" onclick="openModal('Mujer 1', 'Óleo sobre lienzo', '60 x 80 cm', 'imagenes/mujer 1.DNG', 'Pieza clave de los primeros años de taller.')">
+            <div class="portrait-item h-short" onclick="openPortraitModal('Mujer 1', 'imagenes/mujer 1.DNG')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/mujer 1.DNG" alt="Mujer 1">
-                    <div class="portrait-overlay">
-                        <div class="portrait-overlay-top">Mujer 1</div>
-                        <div class="portrait-overlay-bottom">
-                            <button class="portrait-btn-email" onclick="event.stopPropagation(); location.href='mailto:cezzarostudio@gmail.com?subject=Consulta%2520sobre%2520obra:%2520Mujer%25201'">Solicitar adquisición vía email</button>
-                            <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
-                        </div>
+                    <div class="portrait-hover-overlay">
+                        <div class="portrait-hover-title">Mujer 1</div>
                     </div>
                 </div>
             </div>
 
             <!-- Obra 3: Clelia Toledo -->
-            <div class="portrait-item h-tall" onclick="openModal('Clelia Toledo', 'Óleo sobre lienzo', '60 x 80 cm', 'imagenes/Clelia Toledo.jpg', 'Retrato pictórico detallado con maestría en el claroscuro y la expresión.')">
+            <div class="portrait-item h-tall" onclick="openPortraitModal('Clelia Toledo', 'imagenes/Clelia Toledo.jpg')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/Clelia Toledo.jpg" alt="Clelia Toledo">
-                    <div class="portrait-overlay">
-                        <div class="portrait-overlay-top">Clelia Toledo</div>
-                        <div class="portrait-overlay-bottom">
-                            <button class="portrait-btn-email" onclick="event.stopPropagation(); location.href='mailto:cezzarostudio@gmail.com?subject=Consulta%2520sobre%2520obra:%2520Clelia%2520Toledo'">Solicitar adquisición vía email</button>
-                            <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
-                        </div>
+                    <div class="portrait-hover-overlay">
+                        <div class="portrait-hover-title">Clelia Toledo</div>
                     </div>
                 </div>
             </div>
 
             <!-- Obra 4: Hombre y paisaje 2 -->
-            <div class="portrait-item h-wide" onclick="openModal('Hombre y paisaje 2', 'Óleo sobre lienzo', '80 x 80 cm', 'imagenes/Hombre y paisaje 2.jpg', 'Segunda parte de la serie de exploración paisajística.')">
+            <div class="portrait-item h-wide" onclick="openPortraitModal('Hombre y paisaje 2', 'imagenes/Hombre y paisaje 2.jpg')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/Hombre y paisaje 2.jpg" alt="Hombre y paisaje 2">
-                    <div class="portrait-overlay">
-                        <div class="portrait-overlay-top">Hombre y paisaje 2</div>
-                        <div class="portrait-overlay-bottom">
-                            <button class="portrait-btn-email" onclick="event.stopPropagation(); location.href='mailto:cezzarostudio@gmail.com?subject=Consulta%2520sobre%2520obra:%2520Hombre%2520y%2520paisaje%25202'">Solicitar adquisición vía email</button>
-                            <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
-                        </div>
+                    <div class="portrait-hover-overlay">
+                        <div class="portrait-hover-title">Hombre y paisaje 2</div>
                     </div>
                 </div>
             </div>
 
             <!-- Obra 5: Sis -->
-            <div class="portrait-item h-medium" onclick="openModal('Sis', 'Óleo sobre lienzo', '60 x 80 cm', 'imagenes/sis.DNG', 'Estudio figurativo al óleo con técnica de claroscuro.')">
+            <div class="portrait-item h-medium" onclick="openPortraitModal('Sis', 'imagenes/sis.DNG')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/sis.DNG" alt="Sis">
-                    <div class="portrait-overlay">
-                        <div class="portrait-overlay-top">Sis</div>
-                        <div class="portrait-overlay-bottom">
-                            <button class="portrait-btn-email" onclick="event.stopPropagation(); location.href='mailto:cezzarostudio@gmail.com?subject=Consulta%2520sobre%2520obra:%2520Sis'">Solicitar adquisición vía email</button>
-                            <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
-                        </div>
+                    <div class="portrait-hover-overlay">
+                        <div class="portrait-hover-title">Sis</div>
                     </div>
                 </div>
             </div>
 
             <!-- Obra 6: Hombre Verde -->
-            <div class="portrait-item h-tall" onclick="openModal('Hombre Verde', 'Óleo sobre lienzo', '60 x 90 cm', 'imagenes/hombre verde.jpg', 'Composición alegórica con tonalidades verdosos y terrosos.')">
+            <div class="portrait-item h-tall" onclick="openPortraitModal('Hombre Verde', 'imagenes/hombre verde.jpg')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/hombre verde.jpg" alt="Hombre Verde">
-                    <div class="portrait-overlay">
-                        <div class="portrait-overlay-top">Hombre Verde</div>
-                        <div class="portrait-overlay-bottom">
-                            <button class="portrait-btn-email" onclick="event.stopPropagation(); location.href='mailto:cezzarostudio@gmail.com?subject=Consulta%2520sobre%2520obra:%2520Hombre%2520Verde'">Solicitar adquisición vía email</button>
-                            <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
-                        </div>
+                    <div class="portrait-hover-overlay">
+                        <div class="portrait-hover-title">Hombre Verde</div>
                     </div>
                 </div>
             </div>
 
             <!-- Obra 7: Hombre y paisaje -->
-            <div class="portrait-item h-short" onclick="openModal('Hombre y paisaje', 'Óleo sobre tabla', '40 x 50 cm', 'imagenes/Hombre y paisaje.png', 'Diálogo entre la figura humana y el entorno natural.')">
+            <div class="portrait-item h-short" onclick="openPortraitModal('Hombre y paisaje', 'imagenes/Hombre y paisaje.png')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/Hombre y paisaje.png" alt="Hombre y paisaje">
-                    <div class="portrait-overlay">
-                        <div class="portrait-overlay-top">Hombre y paisaje</div>
-                        <div class="portrait-overlay-bottom">
-                            <button class="portrait-btn-email" onclick="event.stopPropagation(); location.href='mailto:cezzarostudio@gmail.com?subject=Consulta%2520sobre%2520obra:%2520Hombre%2520y%2520paisaje'">Solicitar adquisición vía email</button>
-                            <div class="portrait-mini-lupa"><img src="imagenes/lupa.png" alt="Lupa"></div>
-                        </div>
+                    <div class="portrait-hover-overlay">
+                        <div class="portrait-hover-title">Hombre y paisaje</div>
                     </div>
                 </div>
             </div>
 
         </div>
     </section>
+
+    <!-- MODAL EXCLUSIVO PARA RETRATOS (IMAGEN AMPLIADA SIN RECUADRO BLANCO) -->
+    <div class="portrait-modal-overlay" id="portraitModal">
+        <div class="portrait-modal-wrapper" id="portraitModalWrapper">
+            <button class="portrait-modal-close" id="closePortraitModal">&times;</button>
+            <img id="ptModalImg" src="" alt="Retrato ampliado">
+            
+            <div class="portrait-modal-actions">
+                <button class="portrait-modal-btn-email" id="ptModalEmailBtn">Solicitar adquisición vía email</button>
+                <button class="portrait-modal-zoom-btn" id="portraitZoomBtn" title="Activar/Desactivar Lupa" onclick="togglePortraitZoom()">
+                    <img src="imagenes/lupa.png" alt="Lupa">
+                </button>
+            </div>
+        </div>
+    </div>
 
 
     <!-- ==================== SECCIÓN DE FOTOGRAFÍA ==================== -->
@@ -1788,7 +1831,7 @@
                 
                 <div class="bio-paragraphs" id="bioParagraphs">
                     <p>
-                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">BRUNELIO</span> has consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
+                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">BRUNELIO</span> ha consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
                     </p>
                     <p>
                         A lo largo de su trayectoria, su visión estética ha explorado simbolismos alegóricos, retratos psicológicos y composiciones de alta precisión, posicionándose como una de las voces emergentes más distintivas del realismo figurativo contemporáneo.
@@ -2093,6 +2136,73 @@
             }
         }
 
+        /* --- LÓGICA EXCLUSIVA DE INTERACCIÓN Y MODAL PARA RETRATOS --- */
+        const portraitModal = document.getElementById('portraitModal');
+        const ptModalImg = document.getElementById('ptModalImg');
+        const portraitModalWrapper = document.getElementById('portraitModalWrapper');
+        const portraitZoomBtn = document.getElementById('portraitZoomBtn');
+        const closePortraitModalBtn = document.getElementById('closePortraitModal');
+        const ptModalEmailBtn = document.getElementById('ptModalEmailBtn');
+
+        let isPortraitZoomActive = false;
+
+        function openPortraitModal(title, imgSrc) {
+            ptModalImg.src = imgSrc;
+            ptModalEmailBtn.onclick = () => {
+                location.href = `mailto:cezzarostudio@gmail.com?subject=Consulta%20sobre%20obra:%20${encodeURIComponent(title)}`;
+            };
+            isPortraitZoomActive = false;
+            portraitZoomBtn.classList.remove('active');
+            ptModalImg.style.transform = 'scale(1)';
+            ptModalImg.style.transformOrigin = 'center center';
+            ptModalImg.style.cursor = 'default';
+            portraitModal.classList.add('active');
+        }
+
+        function togglePortraitZoom() {
+            isPortraitZoomActive = !isPortraitZoomActive;
+            if (isPortraitZoomActive) {
+                portraitZoomBtn.classList.add('active');
+                ptModalImg.style.cursor = 'crosshair';
+            } else {
+                portraitZoomBtn.classList.remove('active');
+                ptModalImg.style.transform = 'scale(1)';
+                ptModalImg.style.transformOrigin = 'center center';
+                ptModalImg.style.cursor = 'default';
+            }
+        }
+
+        portraitModalWrapper.addEventListener('mousemove', (e) => {
+            if (!isPortraitZoomActive) return;
+            const rect = ptModalImg.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const xPercent = (x / rect.width) * 100;
+            const yPercent = (y / rect.height) * 100;
+
+            ptModalImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+            ptModalImg.style.transform = 'scale(2.2)';
+        });
+
+        portraitModalWrapper.addEventListener('mouseleave', () => {
+            if (isPortraitZoomActive) {
+                ptModalImg.style.transform = 'scale(1)';
+            }
+        });
+
+        closePortraitModalBtn.addEventListener('click', () => {
+            portraitModal.classList.remove('active');
+        });
+
+        portraitModal.addEventListener('click', (e) => {
+            if (e.target === portraitModal) {
+                portraitModal.classList.remove('active');
+            }
+        });
+
+
+        /* --- VISTA MODAL EXCLUSIVA PARA FOTOGRAFÍA --- */
         const photoModal = document.getElementById('photoModal');
         const pModalImg = document.getElementById('pModalImg');
         const photoModalWrapper = document.getElementById('photoModalWrapper');
@@ -2153,6 +2263,7 @@
             }
         });
 
+        /* --- MODAL ESTÁNDAR PARA OTRAS SECCIONES --- */
         const artModal = document.getElementById('artModal');
         const closeModalBtn = document.getElementById('closeModal');
         const modalImg = document.getElementById('mImg');

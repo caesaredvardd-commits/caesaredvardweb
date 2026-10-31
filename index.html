@@ -46,13 +46,13 @@
             text-decoration: none;
         }
 
-        /* HEADER / BANNER BLANCO CON ALTURA PARA FIRMA DE 200px */
+        /* HEADER / BANNER ORIGINAL ESTILIZADO Y DELGADO */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 215px;
+            height: 80px;
             padding: 0 40px;
             display: flex;
             justify-content: space-between;
@@ -92,9 +92,9 @@
             color: #ffffff;
         }
 
-        /* FIRMA CON HEIGHT DE 200px EXACTO */
+        /* FIRMA CON TAMAÑO INTERMEDIO Y ELEGANTE */
         .header-logo-firma {
-            height: 200px;
+            height: 60px;
             object-fit: contain;
         }
 
@@ -130,7 +130,7 @@
             background-color: #ffffff;
             overflow: hidden;
             padding: 0 20px;
-            margin-top: 215px;
+            margin-top: 80px;
         }
 
         .hero-side-img {
@@ -502,7 +502,7 @@
             align-items: center;
             justify-content: center;
             position: sticky;
-            top: 215px;
+            top: 80px;
             z-index: 1;
         }
 
@@ -568,7 +568,7 @@
         }
 
 
-        /* --- SECCIÓN DE RETRATOS (BANNER SCROLL DINÁMICO CON ENFOQUE SUPERIOR) --- */
+        /* --- SECCIÓN DE RETRATOS --- */
         .portraits-section-wrapper {
             position: relative;
             width: 100vw;
@@ -581,9 +581,9 @@
 
         .portraits-sticky-container {
             position: sticky;
-            top: 215px;
+            top: 80px;
             width: 100vw;
-            height: calc(100vh - 215px);
+            height: calc(100vh - 80px);
             overflow: hidden;
             cursor: pointer;
             display: flex;
@@ -595,7 +595,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top center !important; /* Enfoque en caras y parte superior como se pidió */
+            object-position: top center !important;
             filter: brightness(0.9);
             transition: filter 0.3s ease;
         }
@@ -1157,7 +1157,7 @@
 </head>
 <body>
 
-    <!-- HEADER / BANNER CON FIRMA DE 200px -->
+    <!-- HEADER / BANNER ORIGINAL ESTILIZADO -->
     <header id="mainHeader">
         <div class="header-left-slot">
             <button class="header-back-btn" id="headerBackBtn" onclick="goBackToMain()">← Back</button>
@@ -1185,7 +1185,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN INTERACTIVA PRINCIPAL CON CARRUSEL DE SENSIBILIDAD REGULADA -->
+    <!-- SECCIÓN INTERACTIVA PRINCIPAL CON CARRUSEL -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack">
@@ -1393,7 +1393,7 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE RETRATOS (CON ORDEN Y ENFOQUE SUPERIOR EN CARAS) ==================== -->
+    <!-- ==================== SECCIÓN DE RETRATOS ==================== -->
     <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper" id="portraitsSection">
         <div class="portraits-sticky-container" onclick="openCurrentPortraitModal()">
             <img id="portraitsBannerImg" src="imagenes/mujer 1.DNG" alt="Retratos">
@@ -1699,7 +1699,7 @@
             }, { passive: false });
         }
 
-        /* --- CARRUSEL PRINCIPAL CON SENSIBILIDAD REGULADA PARA EVITAR SALTOS BRUSCOS --- */
+        /* --- CARRUSEL PRINCIPAL CON SENSIBILIDAD REGULADA --- */
         const categoriesData = [
             { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', filterCat: 'oleos' },
             { titleEs: 'Dibujo', titleEn: 'Drawing', filterCat: 'dibujo' },
@@ -1755,11 +1755,9 @@
         dragContainer.addEventListener('wheel', (e) => {
             const rect = utopiaSection.getBoundingClientRect();
             if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-                // Si el gesto es predominantemente horizontal o trackpad suave
                 if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || Math.abs(e.deltaY) < 40) {
                     e.preventDefault();
                     wheelAccumulator += (e.deltaX || e.deltaY);
-                    // Umbral alto (120) para que no sea hiper sensible
                     if (wheelAccumulator > 120) {
                         currentIndex = (currentIndex + 1) % cards.length;
                         updateCarouselPosition();

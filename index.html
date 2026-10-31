@@ -570,7 +570,7 @@
         }
 
 
-        /* ==================== SECCIÓN DE RETRATOS (MASONRY MODERNO Y ASIMÉTRICO) ==================== */
+        /* ==================== SECCIÓN DE RETRATOS (MASONRY ASIMÉTRICO ESTILO PINTEREST) ==================== */
         .portraits-section-wrapper {
             position: relative;
             width: 100vw;
@@ -592,6 +592,7 @@
             color: #ffffff;
         }
 
+        /* Diseños en Multi-columna Masonry Asimétrico */
         .portraits-masonry-grid {
             max-width: 1550px;
             margin: 0 auto;
@@ -602,7 +603,7 @@
         .portrait-item {
             position: relative;
             background-color: #121212;
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 4px;
             overflow: hidden;
             cursor: pointer;
@@ -614,6 +615,7 @@
             box-sizing: border-box;
         }
 
+        /* Iluminación tenue y bordes blancos encendidos al pasar el mouse */
         .portrait-item:hover {
             border-color: #ffffff;
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.45);
@@ -627,6 +629,7 @@
             position: relative;
         }
 
+        /* Variaciones de altura y proporción para dinamismo abstracto */
         .portrait-item.h-tall .portrait-img-wrapper { height: 650px; }
         .portrait-item.h-medium .portrait-img-wrapper { height: 500px; }
         .portrait-item.h-short .portrait-img-wrapper { height: 380px; }
@@ -647,86 +650,45 @@
             transform: scale(1.04);
         }
 
-        /* OVERLAY TEXTO AL PASAR EL MOUSE (HOVER) */
-        .portrait-hover-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 30px;
-            box-sizing: border-box;
-            opacity: 0;
-            transition: opacity 0.4s ease;
+        .portrait-info {
+            padding: 22px 25px;
+            background-color: #121212;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .portrait-item:hover .portrait-hover-overlay {
-            opacity: 1;
-        }
-
-        .portrait-hover-title {
-            font-size: 1.8rem;
+        .portrait-title {
+            font-size: 1.5rem;
             letter-spacing: 2px;
             font-weight: 600;
             color: #ffffff;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
-        .portrait-hover-meta {
+        .portrait-meta {
             font-style: italic;
-            font-size: 1.1rem;
-            color: #cccccc;
+            font-size: 1.05rem;
+            color: #aaa;
             letter-spacing: 1px;
         }
 
-        /* ESPACIO PARA BANNER DENTRO DE LA GALERÍA */
-        .portrait-banner-item {
-            break-inside: avoid;
-            margin-bottom: 35px;
-            display: inline-block;
-            width: 100%;
-            box-sizing: border-box;
-            background: linear-gradient(135deg, #1a1a1a 0%, #050505 100%);
-            border: 1px dashed rgba(255, 255, 255, 0.25);
-            border-radius: 4px;
-            padding: 40px 30px;
-            text-align: center;
+        @media (max-width: 1024px) {
+            .portraits-masonry-grid {
+                column-count: 2;
+                column-gap: 25px;
+            }
         }
 
-        .portrait-banner-title {
-            font-family: var(--font-titles) !important;
-            font-size: 2.2rem;
-            letter-spacing: 4px;
-            color: #ffffff;
-            margin-bottom: 12px;
-        }
-
-        .portrait-banner-sub {
-            font-style: italic;
-            font-size: 1.1rem;
-            color: #aaaaaa;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .btn-portrait-banner {
-            display: inline-block;
-            padding: 12px 28px;
-            border: 1px solid #ffffff;
-            color: #ffffff;
-            font-size: 0.95rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-
-        .btn-portrait-banner:hover {
-            background: #ffffff;
-            color: #000000;
+        @media (max-width: 600px) {
+            .portraits-masonry-grid {
+                column-count: 1;
+            }
+            .portrait-item.h-tall .portrait-img-wrapper,
+            .portrait-item.h-medium .portrait-img-wrapper,
+            .portrait-item.h-short .portrait-img-wrapper,
+            .portrait-item.h-wide .portrait-img-wrapper,
+            .portrait-item.h-extra-tall .portrait-img-wrapper {
+                height: 480px;
+            }
         }
 
 
@@ -830,7 +792,7 @@
         }
 
 
-        /* --- VISTA MODAL EXCLUSIVA PARA FOTOGRAFÍA Y RETRATOS --- */
+        /* --- VISTA MODAL EXCLUSIVA PARA FOTOGRAFÍA --- */
         .photo-modal-overlay {
             position: fixed;
             top: 0;
@@ -883,7 +845,6 @@
             cursor: pointer;
         }
 
-        /* Lupa lado derecho inferior */
         .photo-zoom-btn {
             position: absolute;
             bottom: 20px;
@@ -917,31 +878,6 @@
 
         .photo-zoom-btn.active img {
             filter: invert(1);
-        }
-
-        /* Botón de Adquisición lado izquierdo inferior */
-        .modal-inquire-left-btn {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: rgba(0, 0, 0, 0.75);
-            color: #ffffff;
-            border: 1px solid #ffffff;
-            padding: 12px 24px;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            z-index: 20;
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            display: none;
-        }
-
-        .modal-inquire-left-btn:hover {
-            background: #ffffff;
-            color: #000000;
         }
 
         /* --- MODAL ESTÁNDAR PARA OTRAS SECCIONES --- */
@@ -1271,13 +1207,6 @@
             margin-top: 40px;
         }
 
-        @media (max-width: 1024px) {
-            .portraits-masonry-grid {
-                column-count: 2;
-                column-gap: 25px;
-            }
-        }
-
         @media (max-width: 900px) {
             .bio-grid { grid-template-columns: 1fr; gap: 40px; }
             .bio-image-wrapper { max-width: 400px; margin: 0 auto; }
@@ -1287,23 +1216,6 @@
             .drawing-grid-3x3 { grid-template-columns: 1fr 1fr; }
             .oil-section-wrapper { flex-direction: column; align-items: flex-start; }
             .oil-left-panel { width: 100%; min-width: 100%; margin-bottom: 20px; }
-        }
-
-        @media (max-width: 600px) {
-            .portraits-masonry-grid {
-                column-count: 1;
-            }
-            .portrait-item.h-tall .portrait-img-wrapper,
-            .portrait-item.h-medium .portrait-img-wrapper,
-            .portrait-item.h-short .portrait-img-wrapper,
-            .portrait-item.h-wide .portrait-img-wrapper,
-            .portrait-item.h-extra-tall .portrait-img-wrapper {
-                height: 480px;
-            }
-            .modal-inquire-left-btn {
-                font-size: 0.75rem;
-                padding: 8px 14px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -1554,93 +1466,86 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE RETRATOS (NUEVO VISOR FULLSCREEN + OVERLAY + BANNER) ==================== -->
+    <!-- ==================== SECCIÓN DE RETRATOS (MASONRY ASIMÉTRICO) ==================== -->
     <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper">
         <h2 class="portraits-section-title">Retratos</h2>
         
         <div class="portraits-masonry-grid">
             
             <!-- Obra 1: Niño 1 -->
-            <div class="portrait-item h-extra-tall" onclick="openPhotoModal('imagenes/niño1.jpg', 'Niño 1')">
+            <div class="portrait-item h-extra-tall" onclick="openModal('Niño 1', 'Óleo sobre lienzo', '50 x 70 cm', 'imagenes/niño1.jpg', 'Estudio de retrato figurativo centrado en la expresión y la atmósfera luminosa.')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/niño1.jpg" alt="Niño 1">
-                    <div class="portrait-hover-overlay">
-                        <div class="portrait-hover-title">Niño 1</div>
-                        <div class="portrait-hover-meta">Óleo sobre lienzo · 2026</div>
-                    </div>
+                </div>
+                <div class="portrait-info">
+                    <div class="portrait-title">Niño 1</div>
+                    <div class="portrait-meta">Óleo sobre lienzo · 2026</div>
                 </div>
             </div>
 
             <!-- Obra 2: Mujer 1 -->
-            <div class="portrait-item h-short" onclick="openPhotoModal('imagenes/mujer 1.DNG', 'Mujer 1')">
+            <div class="portrait-item h-short" onclick="openModal('Mujer 1', 'Óleo sobre lienzo', '60 x 80 cm', 'imagenes/mujer 1.DNG', 'Pieza clave de los primeros años de taller.')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/mujer 1.DNG" alt="Mujer 1">
-                    <div class="portrait-hover-overlay">
-                        <div class="portrait-hover-title">Mujer 1</div>
-                        <div class="portrait-hover-meta">Óleo sobre lienzo · 2015</div>
-                    </div>
+                </div>
+                <div class="portrait-info">
+                    <div class="portrait-title">Mujer 1</div>
+                    <div class="portrait-meta">Óleo sobre lienzo · 2015</div>
                 </div>
             </div>
 
-            <!-- BANNER INTERACTIVO EN LA GALERÍA -->
-            <div class="portrait-banner-item">
-                <div class="portrait-banner-title">Encargos Privados</div>
-                <div class="portrait-banner-sub">Retratos por comisión personalizada al óleo o carbón directamente en taller.</div>
-                <a href="#contact" class="btn-portrait-banner" onclick="goBackToMain()">Consultar Agenda</a>
-            </div>
-
             <!-- Obra 3: Clelia Toledo -->
-            <div class="portrait-item h-tall" onclick="openPhotoModal('imagenes/Clelia Toledo.jpg', 'Clelia Toledo')">
+            <div class="portrait-item h-tall" onclick="openModal('Clelia Toledo', 'Óleo sobre lienzo', '60 x 80 cm', 'imagenes/Clelia Toledo.jpg', 'Retrato pictórico detallado con maestría en el claroscuro y la expresión.')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/Clelia Toledo.jpg" alt="Clelia Toledo">
-                    <div class="portrait-hover-overlay">
-                        <div class="portrait-hover-title">Clelia Toledo</div>
-                        <div class="portrait-hover-meta">Óleo sobre lienzo · 2026</div>
-                    </div>
+                </div>
+                <div class="portrait-info">
+                    <div class="portrait-title">Clelia Toledo</div>
+                    <div class="portrait-meta">Óleo sobre lienzo · 2026</div>
                 </div>
             </div>
 
             <!-- Obra 4: Hombre y paisaje 2 -->
-            <div class="portrait-item h-wide" onclick="openPhotoModal('imagenes/Hombre y paisaje 2.jpg', 'Hombre y paisaje 2')">
+            <div class="portrait-item h-wide" onclick="openModal('Hombre y paisaje 2', 'Óleo sobre lienzo', '80 x 80 cm', 'imagenes/Hombre y paisaje 2.jpg', 'Segunda parte de la serie de exploración paisajística.')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/Hombre y paisaje 2.jpg" alt="Hombre y paisaje 2">
-                    <div class="portrait-hover-overlay">
-                        <div class="portrait-hover-title">Hombre y paisaje 2</div>
-                        <div class="portrait-hover-meta">Óleo sobre lienzo · 2022</div>
-                    </div>
+                </div>
+                <div class="portrait-info">
+                    <div class="portrait-title">Hombre y paisaje 2</div>
+                    <div class="portrait-meta">Óleo sobre lienzo · 2022</div>
                 </div>
             </div>
 
             <!-- Obra 5: Sis -->
-            <div class="portrait-item h-medium" onclick="openPhotoModal('imagenes/sis.DNG', 'Sis')">
+            <div class="portrait-item h-medium" onclick="openModal('Sis', 'Óleo sobre lienzo', '60 x 80 cm', 'imagenes/sis.DNG', 'Estudio figurativo al óleo con técnica de claroscuro.')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/sis.DNG" alt="Sis">
-                    <div class="portrait-hover-overlay">
-                        <div class="portrait-hover-title">Sis</div>
-                        <div class="portrait-hover-meta">Óleo sobre lienzo · 2023</div>
-                    </div>
+                </div>
+                <div class="portrait-info">
+                    <div class="portrait-title">Sis</div>
+                    <div class="portrait-meta">Óleo sobre lienzo · 2023</div>
                 </div>
             </div>
 
             <!-- Obra 6: Hombre Verde -->
-            <div class="portrait-item h-tall" onclick="openPhotoModal('imagenes/hombre verde.jpg', 'Hombre Verde')">
+            <div class="portrait-item h-tall" onclick="openModal('Hombre Verde', 'Óleo sobre lienzo', '60 x 90 cm', 'imagenes/hombre verde.jpg', 'Composición alegórica con tonalidades verdosos y terrosos.')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/hombre verde.jpg" alt="Hombre Verde">
-                    <div class="portrait-hover-overlay">
-                        <div class="portrait-hover-title">Hombre Verde</div>
-                        <div class="portrait-hover-meta">Óleo sobre lienzo · 2021</div>
-                    </div>
+                </div>
+                <div class="portrait-info">
+                    <div class="portrait-title">Hombre Verde</div>
+                    <div class="portrait-meta">Óleo sobre lienzo · 2021</div>
                 </div>
             </div>
 
             <!-- Obra 7: Hombre y paisaje -->
-            <div class="portrait-item h-short" onclick="openPhotoModal('imagenes/Hombre y paisaje.png', 'Hombre y paisaje')">
+            <div class="portrait-item h-short" onclick="openModal('Hombre y paisaje', 'Óleo sobre tabla', '40 x 50 cm', 'imagenes/Hombre y paisaje.png', 'Diálogo entre la figura humana y el entorno natural.')">
                 <div class="portrait-img-wrapper">
                     <img src="imagenes/Hombre y paisaje.png" alt="Hombre y paisaje">
-                    <div class="portrait-hover-overlay">
-                        <div class="portrait-hover-title">Hombre y paisaje</div>
-                        <div class="portrait-hover-meta">Óleo sobre tabla · 2023</div>
-                    </div>
+                </div>
+                <div class="portrait-info">
+                    <div class="portrait-title">Hombre y paisaje</div>
+                    <div class="portrait-meta">Óleo sobre tabla · 2023</div>
                 </div>
             </div>
 
@@ -1754,18 +1659,11 @@
         </div>
     </section>
 
-    <!-- VISTA MODAL EXCLUSIVA PARA FOTOGRAFÍA Y RETRATOS -->
+    <!-- VISTA MODAL EXCLUSIVA PARA FOTOGRAFÍA -->
     <div class="photo-modal-overlay" id="photoModal">
         <div class="photo-modal-wrapper" id="photoModalWrapper">
             <button class="photo-modal-close" id="closePhotoModal">&times;</button>
-            <img id="pModalImg" src="" alt="Ampliada">
-            
-            <!-- Botón Solicitar Adquisición Lado Izquierdo Inferior -->
-            <a id="pModalInquireBtn" href="mailto:cezzarostudio@gmail.com" class="modal-inquire-left-btn">
-                Solicitar Adquisición vía Email
-            </a>
-            
-            <!-- Botón Lupa Lado Derecho Inferior -->
+            <img id="pModalImg" src="" alt="Fotografía ampliada">
             <button class="photo-zoom-btn" id="photoZoomBtn" title="Activar/Desactivar Lupa" onclick="togglePhotoZoom()">
                 <img src="imagenes/lupa.png" alt="Lupa">
             </button>
@@ -2001,4 +1899,198 @@
 
         function goToCategory(category, event) {
             event.stopPropagation();
-            filterGallery(
+            filterGallery(category);
+        }
+
+        let wheelAccumulator = 0;
+        dragContainer.addEventListener('wheel', (e) => {
+            const rect = utopiaSection.getBoundingClientRect();
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || Math.abs(e.deltaY) < 40) {
+                    e.preventDefault();
+                    wheelAccumulator += (e.deltaX || e.deltaY);
+                    if (wheelAccumulator > 120) {
+                        currentIndex = (currentIndex + 1) % cards.length;
+                        updateCarouselPosition();
+                        wheelAccumulator = 0;
+                    } else if (wheelAccumulator < -120) {
+                        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+                        updateCarouselPosition();
+                        wheelAccumulator = 0;
+                    }
+                }
+            }
+        }, { passive: false });
+
+        window.addEventListener('keydown', (e) => {
+            const rect = utopiaSection.getBoundingClientRect();
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
+                    e.preventDefault();
+                    currentIndex = (currentIndex + 1) % cards.length;
+                    updateCarouselPosition();
+                } else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+                    e.preventDefault();
+                    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+                    updateCarouselPosition();
+                }
+            }
+        });
+
+        const sideImgLeft = document.getElementById('sideImgLeft');
+        const sideImgRight = document.getElementById('sideImgRight');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            if (scrollY <= window.innerHeight) {
+                const scaleValue = 1 + scrollY * 0.0015;
+                const translateYValue = -scrollY * 0.35;
+                if(sideImgLeft) sideImgLeft.style.transform = `scaleX(1) scale(${scaleValue}) translateY(${translateYValue}px)`;
+                if(sideImgRight) sideImgRight.style.transform = `scaleX(-1) scale(${scaleValue}) translateY(${translateYValue}px)`;
+            }
+        });
+
+        let currentLang = 'ES';
+        function toggleLanguage() {
+            currentLang = currentLang === 'ES' ? 'EN' : 'ES';
+            const langEs = document.getElementById('langEs');
+            const langEn = document.getElementById('langEn');
+            
+            updateCarouselPosition();
+
+            if (currentLang === 'EN') {
+                langEn.classList.add('active');
+                langEs.classList.remove('active');
+                
+                document.getElementById('heroDescText').innerText = 'Oil · Ink · Traditional Figurative Art';
+                document.getElementById('heroBtnText').innerText = 'Explore Gallery';
+                document.getElementById('oilTitleText').innerHTML = 'OIL<br>PAINTINGS';
+                document.getElementById('oilSubText').innerText = 'Atelier works and recent acquisition catalog';
+                document.getElementById('labelClientType').innerText = 'Business or Individual';
+                document.getElementById('optIndividual').innerText = 'Individual Client';
+                document.getElementById('optGallery').innerText = 'Gallery / Business / Collector';
+                document.getElementById('optPress').innerText = 'Press / Media';
+                document.getElementById('labelFirstName').innerText = 'First name';
+                document.getElementById('labelLastName').innerText = 'Last name';
+                document.getElementById('labelEmail').innerText = 'Email *';
+                document.getElementById('labelMessage').innerText = 'Message *';
+                document.getElementById('submitBtnText').innerText = 'Submit';
+                document.getElementById('contactSectionTitle').innerText = 'CONTACT / COMMISSIONS';
+                document.getElementById('contactSubText').innerText = 'For inquiries regarding collection works, private commission requests, or collaborations, please fill out the form below:';
+                document.getElementById('directEmailText').innerText = 'Direct Studio Email';
+                document.getElementById('copyrightText').innerText = '© BRUNELIO. ALL RIGHTS RESERVED.';
+            } else {
+                langEs.classList.add('active');
+                langEn.classList.remove('active');
+                
+                document.getElementById('heroDescText').innerText = 'Óleo · Tinta · Arte Figurativo Tradicional';
+                document.getElementById('heroBtnText').innerText = 'Explorar Galería';
+                document.getElementById('oilTitleText').innerHTML = 'PINTURAS<br>AL ÓLEO';
+                document.getElementById('oilSubText').innerText = 'Obras de taller y catálogo de adquisición reciente';
+                document.getElementById('labelClientType').innerText = 'Empresa o Particular';
+                document.getElementById('optIndividual').innerText = 'Cliente Individual';
+                document.getElementById('optGallery').innerText = 'Galería / Empresa / Coleccionista';
+                document.getElementById('optPress').innerText = 'Prensa / Medios';
+                document.getElementById('labelFirstName').innerText = 'Nombre';
+                document.getElementById('labelLastName').innerText = 'Apellido';
+                document.getElementById('labelEmail').innerText = 'Correo electrónico *';
+                document.getElementById('labelMessage').innerText = 'Mensaje *';
+                document.getElementById('submitBtnText').innerText = 'Submit';
+                document.getElementById('contactSectionTitle').innerText = 'CONTACTO / ENCARGOS';
+                document.getElementById('contactSubText').innerText = 'Para consultas sobre adquisición de obras de colección, solicitudes de encargos privados o comisiones, completa el siguiente formulario:';
+                document.getElementById('directEmailText').innerText = 'Correo Directo del Taller';
+                document.getElementById('copyrightText').innerText = '© BRUNELIO. TODOS LOS DERECHOS RESERVADOS.';
+            }
+        }
+
+        const photoModal = document.getElementById('photoModal');
+        const pModalImg = document.getElementById('pModalImg');
+        const photoModalWrapper = document.getElementById('photoModalWrapper');
+        const photoZoomBtn = document.getElementById('photoZoomBtn');
+        const closePhotoModalBtn = document.getElementById('closePhotoModal');
+
+        let isPhotoZoomActive = false;
+
+        function openPhotoModal(imgSrc) {
+            pModalImg.src = imgSrc;
+            isPhotoZoomActive = false;
+            photoZoomBtn.classList.remove('active');
+            pModalImg.style.transform = 'scale(1)';
+            pModalImg.style.transformOrigin = 'center center';
+            pModalImg.style.cursor = 'default';
+            photoModal.classList.add('active');
+        }
+
+        function togglePhotoZoom() {
+            isPhotoZoomActive = !isPhotoZoomActive;
+            if (isPhotoZoomActive) {
+                photoZoomBtn.classList.add('active');
+                pModalImg.style.cursor = 'crosshair';
+            } else {
+                photoZoomBtn.classList.remove('active');
+                pModalImg.style.transform = 'scale(1)';
+                pModalImg.style.transformOrigin = 'center center';
+                pModalImg.style.cursor = 'default';
+            }
+        }
+
+        photoModalWrapper.addEventListener('mousemove', (e) => {
+            if (!isPhotoZoomActive) return;
+            const rect = pModalImg.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const xPercent = (x / rect.width) * 100;
+            const yPercent = (y / rect.height) * 100;
+
+            pModalImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+            pModalImg.style.transform = 'scale(2.2)';
+        });
+
+        photoModalWrapper.addEventListener('mouseleave', () => {
+            if (isPhotoZoomActive) {
+                pModalImg.style.transform = 'scale(1)';
+            }
+        });
+
+        closePhotoModalBtn.addEventListener('click', () => {
+            photoModal.classList.remove('active');
+        });
+
+        photoModal.addEventListener('click', (e) => {
+            if (e.target === photoModal) {
+                photoModal.classList.remove('active');
+            }
+        });
+
+        const artModal = document.getElementById('artModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const modalImg = document.getElementById('mImg');
+
+        function openModal(title, tech, size, imgSrc, desc) {
+            document.getElementById('mTitle').innerText = title;
+            document.getElementById('mTech').innerText = `${tech} · ${size}`;
+            document.getElementById('mDesc').innerText = desc;
+            modalImg.src = imgSrc;
+
+            const inquireBtn = document.getElementById('mInquire');
+            inquireBtn.href = `mailto:cezzarostudio@gmail.com?subject=Consulta%20sobre%20obra:%20${encodeURIComponent(title)}`;
+            
+            artModal.classList.add('active');
+        }
+
+        closeModalBtn.addEventListener('click', () => {
+            artModal.classList.remove('active');
+        });
+
+        artModal.addEventListener('click', (e) => {
+            if (e.target === artModal) {
+                artModal.classList.remove('active');
+            }
+        });
+
+        window.addEventListener('load', () => { updateCarouselPosition(); });
+        window.addEventListener('resize', () => { updateCarouselPosition(); });
+    </script>
+</body>
+</html>

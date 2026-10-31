@@ -46,13 +46,13 @@
             text-decoration: none;
         }
 
-        /* HEADER / BANNER BLANCO INTELIGENTE */
+        /* HEADER / BANNER BLANCO CON ALTURA PARA FIRMA DE 200px */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 105px;
+            height: 215px;
             padding: 0 40px;
             display: flex;
             justify-content: space-between;
@@ -92,9 +92,9 @@
             color: #ffffff;
         }
 
-        /* FIRMA GIGANTE OCUPANDO EL ESPACIO DELIMITADO */
+        /* FIRMA CON HEIGHT DE 200px EXACTO */
         .header-logo-firma {
-            height: 85px;
+            height: 200px;
             object-fit: contain;
         }
 
@@ -130,7 +130,7 @@
             background-color: #ffffff;
             overflow: hidden;
             padding: 0 20px;
-            margin-top: 105px;
+            margin-top: 215px;
         }
 
         .hero-side-img {
@@ -216,7 +216,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN INTERACTIVA PRINCIPAL CON CARRUSEL LIBRE DE SCROLL --- */
+        /* --- SECCIÓN INTERACTIVA PRINCIPAL CON CARRUSEL DE SENSIBILIDAD REGULADA --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -502,7 +502,7 @@
             align-items: center;
             justify-content: center;
             position: sticky;
-            top: 105px;
+            top: 215px;
             z-index: 1;
         }
 
@@ -568,11 +568,11 @@
         }
 
 
-        /* --- NUEVA SECCIÓN DE RETRATOS (BANNER SCROLL DINÁMICO) --- */
+        /* --- SECCIÓN DE RETRATOS (BANNER SCROLL DINÁMICO CON ENFOQUE SUPERIOR) --- */
         .portraits-section-wrapper {
             position: relative;
             width: 100vw;
-            height: 350vh; /* Altura para permitir scroll fluido y cambio de imágenes */
+            height: 350vh;
             background-color: #111;
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
@@ -581,9 +581,9 @@
 
         .portraits-sticky-container {
             position: sticky;
-            top: 105px;
+            top: 215px;
             width: 100vw;
-            height: calc(100vh - 105px);
+            height: calc(100vh - 215px);
             overflow: hidden;
             cursor: pointer;
             display: flex;
@@ -595,6 +595,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: top center !important; /* Enfoque en caras y parte superior como se pidió */
             filter: brightness(0.9);
             transition: filter 0.3s ease;
         }
@@ -1156,7 +1157,7 @@
 </head>
 <body>
 
-    <!-- HEADER / BANNER BLANCO INTELIGENTE CON FIRMA GIGANTE -->
+    <!-- HEADER / BANNER CON FIRMA DE 200px -->
     <header id="mainHeader">
         <div class="header-left-slot">
             <button class="header-back-btn" id="headerBackBtn" onclick="goBackToMain()">← Back</button>
@@ -1184,7 +1185,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN INTERACTIVA PRINCIPAL CON CARRUSEL (DESPLAZAMIENTO LIBRE POR TECLADO Y MOUSE/TRACKPAD) -->
+    <!-- SECCIÓN INTERACTIVA PRINCIPAL CON CARRUSEL DE SENSIBILIDAD REGULADA -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack">
@@ -1392,10 +1393,10 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE RETRATOS (BANNER INTERACTIVO DINÁMICO POR SCROLL) ==================== -->
+    <!-- ==================== SECCIÓN DE RETRATOS (CON ORDEN Y ENFOQUE SUPERIOR EN CARAS) ==================== -->
     <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper" id="portraitsSection">
         <div class="portraits-sticky-container" onclick="openCurrentPortraitModal()">
-            <img id="portraitsBannerImg" src="imagenes/Hombre y paisaje.png" alt="Retratos">
+            <img id="portraitsBannerImg" src="imagenes/mujer 1.DNG" alt="Retratos">
             <div class="portraits-corner-label">RETRATOS</div>
         </div>
     </section>
@@ -1698,7 +1699,7 @@
             }, { passive: false });
         }
 
-        /* --- CARRUSEL PRINCIPAL CON SOPORTE COMPLETO DE DESPLAZAMIENTO LIBRE (MOUSE / TRACKPAD / FLECHAS / WASD) --- */
+        /* --- CARRUSEL PRINCIPAL CON SENSIBILIDAD REGULADA PARA EVITAR SALTOS BRUSCOS --- */
         const categoriesData = [
             { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', filterCat: 'oleos' },
             { titleEs: 'Dibujo', titleEn: 'Drawing', filterCat: 'dibujo' },
@@ -1750,27 +1751,28 @@
             filterGallery(category);
         }
 
-        /* Desplazamiento fluido libre con trackpad/mouse (wheel horizontal o vertical ligera) */
         let wheelAccumulator = 0;
         dragContainer.addEventListener('wheel', (e) => {
             const rect = utopiaSection.getBoundingClientRect();
-            // Permitir scroll vertical normal de la página si el usuario hace scroll fuerte hacia arriba/abajo fuera del carrusel estricto, o capturar deslizamiento suave lateral
-            if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || Math.abs(e.deltaY) < 30) {
-                e.preventDefault();
-                wheelAccumulator += (e.deltaX || e.deltaY);
-                if (wheelAccumulator > 40) {
-                    currentIndex = (currentIndex + 1) % cards.length;
-                    updateCarouselPosition();
-                    wheelAccumulator = 0;
-                } else if (wheelAccumulator < -40) {
-                    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-                    updateCarouselPosition();
-                    wheelAccumulator = 0;
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                // Si el gesto es predominantemente horizontal o trackpad suave
+                if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || Math.abs(e.deltaY) < 40) {
+                    e.preventDefault();
+                    wheelAccumulator += (e.deltaX || e.deltaY);
+                    // Umbral alto (120) para que no sea hiper sensible
+                    if (wheelAccumulator > 120) {
+                        currentIndex = (currentIndex + 1) % cards.length;
+                        updateCarouselPosition();
+                        wheelAccumulator = 0;
+                    } else if (wheelAccumulator < -120) {
+                        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+                        updateCarouselPosition();
+                        wheelAccumulator = 0;
+                    }
                 }
             }
         }, { passive: false });
 
-        /* Soporte para teclado (Flechas y WASD) */
         window.addEventListener('keydown', (e) => {
             const rect = utopiaSection.getBoundingClientRect();
             if (rect.top <= window.innerHeight && rect.bottom >= 0) {
@@ -1786,16 +1788,14 @@
             }
         });
 
-        /* --- LÓGICA DE RETRATOS DINÁMICOS POR SCROLL --- */
+        /* --- LÓGICA DE RETRATOS ORDENADOS Y ENFOCADOS --- */
         const portraitsData = [
-            { title: 'Hombre y paisaje', tech: 'Óleo sobre tabla', size: '40 x 50 cm', src: 'imagenes/Hombre y paisaje.png', desc: 'Diálogo entre la figura humana y el entorno natural.' },
-            { title: 'Sis', tech: 'Óleo sobre lienzo', size: '60 x 80 cm', src: 'imagenes/sis.DNG', desc: 'Estudio figurativo al óleo con técnica de claroscuro.' },
-            { title: 'Padre', tech: 'Óleo sobre tabla', size: '40 x 60 cm', src: 'imagenes/padre 2.PNG', desc: 'Retrato psicológico de carácter solemne.' },
-            { title: 'Hombre Verde', tech: 'Óleo sobre lienzo', size: '60 x 90 cm', src: 'imagenes/hombre verde.jpg', desc: 'Composición alegórica con tonalidades verdosos y terrosos.' },
-            { title: 'Hombre y paisaje 2', tech: 'Óleo sobre lienzo', size: '80 x 80 cm', src: 'imagenes/Hombre y paisaje 2.jpg', desc: 'Segunda parte de la serie de exploración paisajística.' },
-            { title: 'Clelia Toledo', tech: 'Óleo sobre lienzo', size: '60 x 80 cm', src: 'imagenes/Clelia Toledo.jpg', desc: 'Retrato pictórico detallado con maestría en el claroscuro y la expresión.' },
             { title: 'Mujer 1', tech: 'Óleo sobre lienzo', size: '60 x 80 cm', src: 'imagenes/mujer 1.DNG', desc: 'Pieza clave de los primeros años de taller.' },
-            { title: 'Niño', tech: 'Óleo sobre tabla', size: '35 x 45 cm', src: 'imagenes/niño2.jpg', desc: 'Estudio fundacional de retrato infantil y luz lateral.' }
+            { title: 'Clelia Toledo', tech: 'Óleo sobre lienzo', size: '60 x 80 cm', src: 'imagenes/Clelia Toledo.jpg', desc: 'Retrato pictórico detallado con maestría en el claroscuro y la expresión.' },
+            { title: 'Hombre y paisaje 2', tech: 'Óleo sobre lienzo', size: '80 x 80 cm', src: 'imagenes/Hombre y paisaje 2.jpg', desc: 'Segunda parte de la serie de exploración paisajística.' },
+            { title: 'Sis', tech: 'Óleo sobre lienzo', size: '60 x 80 cm', src: 'imagenes/sis.DNG', desc: 'Estudio figurativo al óleo con técnica de claroscuro.' },
+            { title: 'Hombre Verde', tech: 'Óleo sobre lienzo', size: '60 x 90 cm', src: 'imagenes/hombre verde.jpg', desc: 'Composición alegórica con tonalidades verdosos y terrosos.' },
+            { title: 'Hombre y paisaje', tech: 'Óleo sobre tabla', size: '40 x 50 cm', src: 'imagenes/Hombre y paisaje.png', desc: 'Diálogo entre la figura humana y el entorno natural.' }
         ];
 
         const portraitsSection = document.getElementById('galleryPortraits');

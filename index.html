@@ -307,7 +307,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN ÍNDICE (CARRUSEL INFINITO Y CENTRADO PERFECTO) --- */
+        /* --- SECCIÓN ÍNDICE (CARRUSEL INFINITO CON TAMAÑO 600px x 800px) --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -322,7 +322,7 @@
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
             box-sizing: border-box;
-            padding-bottom: 80px;
+            padding-bottom: 40px;
         }
 
         .carousel-container-drag {
@@ -330,7 +330,7 @@
             z-index: 2;
             width: 100%;
             max-width: 100%;
-            height: 520px;
+            height: 900px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -344,23 +344,22 @@
             position: absolute;
             left: 50%;
             will-change: transform;
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* TAMAÑO MEDIANO PERFECTO (LIGERAMENTE MÁS GRANDE QUE EL BOTÓN EXPLORE) */
         .carousel-card {
-            min-width: 320px;
-            max-width: 320px;
-            height: 420px;
-            margin: 0 20px;
+            min-width: 600px;
+            max-width: 600px;
+            height: 800px;
+            margin: 0 25px;
             position: relative;
             cursor: pointer;
             border: none;
             border-radius: 0;
             overflow: visible;
-            transition: transform 0.4s ease, opacity 0.4s ease;
+            transition: transform 0.5s ease, opacity 0.5s ease;
             box-shadow: none;
-            opacity: 0.35;
+            opacity: 0.3;
             transform: scale(0.8);
             background: transparent;
             flex-shrink: 0;
@@ -404,12 +403,12 @@
         }
 
         .btn-card-explore {
-            padding: 12px 26px;
+            padding: 14px 30px;
             background: #000000;
             color: #ffffff;
             border: 2px solid #000000;
-            font-size: 1rem;
-            letter-spacing: 2px;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
             font-weight: 600;
             cursor: pointer;
@@ -423,11 +422,10 @@
             transform: scale(1.05);
         }
 
-        /* TEXTO INFERIOR SUBIDO Y CENTRADO */
         .utopia-footer-title {
             position: relative;
             z-index: 2;
-            margin-top: -10px;
+            margin-top: 10px;
             font-size: 1.4rem;
             letter-spacing: 4px;
             text-transform: uppercase;
@@ -1555,7 +1553,7 @@
             .hero-title { font-size: 3.2rem; letter-spacing: 2px; }
             .modal-content { grid-template-columns: 1fr; }
             .modal-img-container img { max-height: 40vh; }
-            .carousel-card { min-width: 240px; max-width: 240px; height: 320px; }
+            .carousel-card { min-width: 300px; max-width: 300px; height: 400px; }
             .btn-submit { width: 100%; }
             .drawing-grid-3x3 { grid-template-columns: 1fr; }
             .collection-grid { grid-template-columns: 1fr; }
@@ -1602,11 +1600,11 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ÍNDICE (CARRUSEL INFINITO Y CENTRADO) -->
+    <!-- SECCIÓN ÍNDICE (CARRUSEL CON TRANSICIÓN Y TAMAÑO 600px x 800px) -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack">
-                <!-- Las tarjetas se generan dinámicamente mediante JS para lograr el efecto infinito perfecto -->
+                <!-- Las tarjetas se generan dinámicamente mediante JS -->
             </div>
         </div>
 
@@ -2439,13 +2437,13 @@
             });
         }
 
-        /* --- LÓGICA DE CARRUSEL INFINITO CON TRANSICIÓN FLUIDA Y SENSIBILIDAD CONTROLADA --- */
+        /* --- LÓGICA DE CARRUSEL INFINITO Y TRANSICIÓN ORIGINAL --- */
         const categoriesData = [
             { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', filterCat: 'oleos' },
             { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', filterCat: 'dibujo' },
             { titleEs: 'Retratos', titleEn: 'Portraits', img: 'imagenes/pretratos.png', filterCat: 'retratos' },
             { titleEs: 'Fotografía', titleEn: 'Photography', img: 'imagenes/pphotos.png', filterCat: 'fotografia' },
-            { titleEs: 'Cinematografía', titleEn: 'Cinematography', img: 'imagenes/ppcine.png', filterCat: 'cinematografia' }
+            { titleEs: 'Cinematografía', titleEn: 'Cinematography', img: 'imagenes/pcine.png', filterCat: 'cinematografia' }
         ];
 
         let centerIndex = 0;
@@ -2491,13 +2489,13 @@
             const cardElement = track.children[10]; 
             if (!cardElement) return;
 
-            const cardWidth = cardElement.offsetWidth + 40; // Ancho + márgenes ajustados
+            const cardWidth = cardElement.offsetWidth + 50; // Ancho + márgenes originales
             const translateOffset = -10 * cardWidth - (cardWidth / 2); 
 
             if (!smooth) {
                 track.style.transition = 'none';
             } else {
-                track.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+                track.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
             }
 
             track.style.transform = `translateX(${translateOffset}px)`;
@@ -2537,11 +2535,10 @@
                 if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || Math.abs(e.deltaY) < 40) {
                     e.preventDefault();
                     wheelAccumulator += (e.deltaX || e.deltaY);
-                    // Sensibilidad controlada para transiciones suaves
-                    if (wheelAccumulator > 60) {
+                    if (wheelAccumulator > 100) {
                         rotateCarousel(1);
                         wheelAccumulator = 0;
-                    } else if (wheelAccumulator < -60) {
+                    } else if (wheelAccumulator < -100) {
                         rotateCarousel(-1);
                         wheelAccumulator = 0;
                     }

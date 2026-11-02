@@ -105,7 +105,8 @@
             background: transparent;
             border: none;
             color: var(--text-main);
-            font-size: 0.95rem;
+            font-family: var(--font-body) !important; /* ASEGURANDO GARAMOND EN HEADER */
+            font-size: 1.05rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
@@ -309,7 +310,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN ÍNDICE (PORTADAS AMPLIADAS Y ARMONIOSAS) --- */
+        /* --- SECCIÓN ÍNDICE (IMAGEN COMPLETA SIN RECORTAR, TAMAÑO MANTENIDO) --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -377,11 +378,11 @@
         .carousel-card img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* CAMBIADO A CONTAIN PARA QUE SE VEA LA IMAGEN COMPLETA SIN RECORTES */
             pointer-events: none;
             border: none;
             outline: none;
-            box-shadow: 0 20px 35px rgba(0,0,0,0.18);
+            background-color: transparent; /* Fondo limpio */
         }
 
         .card-explore-overlay {
@@ -1074,7 +1075,7 @@
         }
 
 
-        /* ==================== SECCIÓN MI COLECCIÓN (GARAMOND EN TÍTULO) ==================== */
+        /* ==================== SECCIÓN MI COLECCIÓN ==================== */
         .collection-section-wrapper {
             position: relative;
             width: 100vw;
@@ -1571,7 +1572,7 @@
         <img src="imagenes/foto para pagina principal.png" alt="Brunelio Atelier">
     </div>
 
-    <!-- HEADER ORIGINAL CON FIRMA CENTRADA Y BOTONES DE NAVEGACIÓN -->
+    <!-- HEADER ORIGINAL CON FIRMA CENTRADA Y FUENTE GARAMOND EN BOTONES -->
     <header id="mainHeader">
         <div class="header-left-slot">
             <button class="header-back-btn" id="headerBackBtn" onclick="goBackToMain()">← Back</button>
@@ -1603,7 +1604,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ÍNDICE (PORTADAS EN PNG AMPLIADAS Y CON RUTAS CORRECTAS) -->
+    <!-- SECCIÓN ÍNDICE (PORTADAS PNG COMPLETAS Y AMPLIADAS) -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack">
@@ -2206,7 +2207,7 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN MI COLECCIÓN (GUARDADOS) ==================== -->
+    <!-- ==================== SECCIÓN MI COLECCIÓN ==================== -->
     <section id="galleryCollection" style="display:none;" class="collection-section-wrapper">
         <h2 class="collection-title">Mi Colección</h2>
         <p class="collection-sub">Obras y registros visuales guardados por el usuario</p>

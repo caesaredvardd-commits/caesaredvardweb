@@ -96,17 +96,20 @@
 
         .header-left-slot {
             display: flex;
-            align-main: center;
             align-items: center;
             gap: 24px;
             width: 250px;
         }
 
-        .header-nav-btn {
+        /* FORZAR GARAMOND EXPLÍCITAMENTE EN LOS BOTONES DEL HEADER */
+        header button, 
+        header .header-nav-btn, 
+        header .header-back-btn {
+            font-family: 'EB Garamond 08', 'Georgia', serif !important;
             background: transparent;
             border: none;
             color: var(--text-main);
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
@@ -119,21 +122,15 @@
         }
 
         .header-back-btn {
-            background: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--text-main);
-            padding: 6px 16px;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            border: 1px solid var(--text-main) !important;
+            padding: 6px 16px !important;
+            font-size: 0.85rem !important;
             display: none;
         }
 
         .header-back-btn:hover {
-            background: var(--text-main);
-            color: #ffffff;
+            background: var(--text-main) !important;
+            color: #ffffff !important;
         }
 
         /* LOGO FIRMA CENTRADO EXACTO EN HEADER */
@@ -178,10 +175,10 @@
         /* --- BOTÓN DE GUARDADO FLOTANTE SUTIL (PIN) --- */
         .bookmark-btn {
             position: absolute;
-            top: 12px;
-            right: 12px;
-            width: 32px;
-            height: 32px;
+            top: 15px;
+            right: 15px;
+            width: 36px;
+            height: 36px;
             background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(4px);
             border: 1px solid rgba(255, 255, 255, 0.4);
@@ -200,8 +197,8 @@
         }
 
         .bookmark-btn svg {
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             fill: none;
             stroke: #ffffff;
             stroke-width: 2;
@@ -310,7 +307,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN ÍNDICE (PORTADAS MUCHO MÁS GRANDES Y COMPLETAS) --- */
+        /* --- SECCIÓN ÍNDICE (CARRUSEL INFINITO Y CENTRADO PERFECTO) --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -325,14 +322,15 @@
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
             box-sizing: border-box;
+            padding-bottom: 40px;
         }
 
         .carousel-container-drag {
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 1600px;
-            height: 800px; /* Aumentado para dar cabida a las portadas gigantes */
+            max-width: 100%;
+            height: 720px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -344,15 +342,16 @@
             display: flex;
             align-items: center;
             position: absolute;
+            left: 50%;
             will-change: transform;
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .carousel-card {
-            min-width: 550px;  /* PORTADAS MUCHO MÁS GRANDES */
-            max-width: 550px;
-            height: 750px;     /* ALTURA AMPLIADA */
-            margin: 0 45px;
+            min-width: 460px;
+            max-width: 460px;
+            height: 620px;
+            margin: 0 25px;
             position: relative;
             cursor: pointer;
             border: none;
@@ -360,8 +359,8 @@
             overflow: visible;
             transition: transform 0.5s ease, opacity 0.5s ease;
             box-shadow: none;
-            opacity: 0.35;
-            transform: scale(0.85);
+            opacity: 0.3;
+            transform: scale(0.8);
             background: transparent;
             flex-shrink: 0;
             display: flex;
@@ -372,7 +371,7 @@
         .carousel-card.active {
             opacity: 1;
             transform: scale(1);
-            z-index: 5;
+            z-index: 10;
         }
 
         .carousel-card img {
@@ -426,8 +425,8 @@
         .utopia-footer-title {
             position: relative;
             z-index: 2;
-            margin-top: 30px;
-            font-size: 1.35rem;
+            margin-top: 20px;
+            font-size: 1.4rem;
             letter-spacing: 4px;
             text-transform: uppercase;
             text-align: center;
@@ -607,7 +606,6 @@
             position: relative;
             z-index: 2;
             color: #ffffff;
-            font-family: var(--font-body) !important;
             font-size: 2.2rem;
             letter-spacing: 6px;
             text-transform: uppercase;
@@ -1090,7 +1088,6 @@
         }
 
         .collection-title {
-            font-family: var(--font-body) !important;
             font-size: 2.8rem;
             text-align: center;
             letter-spacing: 6px;
@@ -1380,7 +1377,6 @@
         }
 
         .bio-artist-name {
-            font-family: var(--font-body) !important;
             font-size: 3.2rem;
             font-weight: normal;
             letter-spacing: 3px;
@@ -1557,7 +1553,7 @@
             .hero-title { font-size: 3.2rem; letter-spacing: 2px; }
             .modal-content { grid-template-columns: 1fr; }
             .modal-img-container img { max-height: 40vh; }
-            .carousel-card { min-width: 320px; max-width: 320px; height: 460px; }
+            .carousel-card { min-width: 280px; max-width: 280px; height: 400px; }
             .btn-submit { width: 100%; }
             .drawing-grid-3x3 { grid-template-columns: 1fr; }
             .collection-grid { grid-template-columns: 1fr; }
@@ -1572,7 +1568,7 @@
         <img src="imagenes/foto para pagina principal.png" alt="Brunelio Atelier">
     </div>
 
-    <!-- HEADER ORIGINAL CON FIRMA CENTRADA Y FUENTE GARAMOND EN BOTONES -->
+    <!-- HEADER ORIGINAL CON FUENTE GARAMOND FORZADA LOCALMENTE -->
     <header id="mainHeader">
         <div class="header-left-slot">
             <button class="header-back-btn" id="headerBackBtn" onclick="goBackToMain()">← Back</button>
@@ -1604,46 +1600,11 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ÍNDICE (PORTADAS PNG GIGANTES Y COMPLETAS) -->
+    <!-- SECCIÓN ÍNDICE (CARRUSEL INFINITO Y CENTRADO) -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack">
-                
-                <div class="carousel-card active" onclick="jumpToCard(0)">
-                    <img src="imagenes/ppintura.png" alt="Pinturas al Óleo">
-                    <div class="card-explore-overlay">
-                        <button class="btn-card-explore" onclick="goToCategory('oleos', event)">Explore</button>
-                    </div>
-                </div>
-
-                <div class="carousel-card" onclick="jumpToCard(1)">
-                    <img src="imagenes/pdibujo.png" alt="Dibujo">
-                    <div class="card-explore-overlay">
-                        <button class="btn-card-explore" onclick="goToCategory('dibujo', event)">Explore</button>
-                    </div>
-                </div>
-
-                <div class="carousel-card" onclick="jumpToCard(2)">
-                    <img src="imagenes/pretratos.png" alt="Retratos">
-                    <div class="card-explore-overlay">
-                        <button class="btn-card-explore" onclick="goToCategory('retratos', event)">Explore</button>
-                    </div>
-                </div>
-
-                <div class="carousel-card" onclick="jumpToCard(3)">
-                    <img src="imagenes/pfotos.png" alt="Fotografía">
-                    <div class="card-explore-overlay">
-                        <button class="btn-card-explore" onclick="goToCategory('fotografia', event)">Explore</button>
-                    </div>
-                </div>
-
-                <div class="carousel-card" onclick="jumpToCard(4)">
-                    <img src="imagenes/pcine.png" alt="Cinematografía">
-                    <div class="card-explore-overlay">
-                        <button class="btn-card-explore" onclick="goToCategory('cinematografia', event)">Explore</button>
-                    </div>
-                </div>
-
+                <!-- Las tarjetas se generan dinámicamente mediante JS para lograr el efecto infinito perfecto -->
             </div>
         </div>
 
@@ -2334,6 +2295,7 @@
             setTimeout(() => {
                 preloader.classList.add('hidden');
             }, 600);
+            initInfiniteCarousel();
         });
 
         const mainHeader = document.getElementById('mainHeader');
@@ -2475,51 +2437,93 @@
             });
         }
 
+        /* --- LÓGICA DE CARRUSEL INFINITO REAL --- */
         const categoriesData = [
-            { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', filterCat: 'oleos' },
-            { titleEs: 'Dibujo', titleEn: 'Drawing', filterCat: 'dibujo' },
-            { titleEs: 'Retratos', titleEn: 'Portraits', filterCat: 'retratos' },
-            { titleEs: 'Fotografía', titleEn: 'Photography', filterCat: 'fotografia' },
-            { titleEs: 'Cinematografía', titleEn: 'Cinematography', filterCat: 'cinematografia' }
+            { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', filterCat: 'oleos' },
+            { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', filterCat: 'dibujo' },
+            { titleEs: 'Retratos', titleEn: 'Portraits', img: 'imagenes/pretratos.png', filterCat: 'retratos' },
+            { titleEs: 'Fotografía', titleEn: 'Photography', img: 'imagenes/pfotos.png', filterCat: 'fotografia' },
+            { titleEs: 'Cinematografía', titleEn: 'Cinematography', img: 'imagenes/pcine.png', filterCat: 'cinematografia' }
         ];
 
-        let currentIndex = 0;
+        let centerIndex = 0;
         const track = document.getElementById('carouselTrack');
-        const cards = document.querySelectorAll('.carousel-card');
         const footerTitle = document.getElementById('carouselFooterTitle');
         const dragContainer = document.getElementById('dragContainer');
 
-        function getCardWidth() {
-            return cards[0].offsetWidth + 90; // Ajustado al nuevo margen
+        function initInfiniteCarousel() {
+            renderInfiniteTrack();
+            updateInfinitePosition(false);
         }
 
-        function updateCarouselPosition() {
-            const cardWidth = getCardWidth();
-            const containerWidth = dragContainer.offsetWidth;
-            const cardCenterOffset = (containerWidth / 2) - (cards[0].offsetWidth / 2);
+        function renderInfiniteTrack() {
+            track.innerHTML = '';
+            // Renderizamos varias copias para simular el infinito perfecto en ambas direcciones
+            const totalCards = categoriesData.length;
             
-            const currentTranslate = (-currentIndex * cardWidth) + cardCenterOffset;
-            track.style.transform = `translateX(${currentTranslate}px)`;
+            // Creamos un rango amplio de índices (-10 a +10)
+            for (let i = -10; i <= 10; i++) {
+                let dataIndex = (centerIndex + i) % totalCards;
+                if (dataIndex < 0) dataIndex += totalCards;
 
-            cards.forEach((card, index) => {
-                if (index === currentIndex) {
-                    card.classList.add('active');
-                } else {
-                    card.classList.remove('active');
-                }
-            });
+                const item = categoriesData[dataIndex];
+                const card = document.createElement('div');
+                card.className = `carousel-card ${i === 0 ? 'active' : ''}`;
+                card.onclick = () => {
+                    if (i !== 0) {
+                        centerIndex = dataIndex;
+                        renderInfiniteTrack();
+                        updateInfinitePosition(true);
+                    }
+                };
 
-            const currentData = categoriesData[currentIndex];
-            if (currentLang === 'EN') {
-                footerTitle.innerText = currentData.titleEn.toUpperCase();
-            } else {
-                footerTitle.innerText = currentData.titleEs.toUpperCase();
+                card.innerHTML = `
+                    <img src="${item.img}" alt="${item.titleEs}">
+                    <div class="card-explore-overlay">
+                        <button class="btn-card-explore" onclick="goToCategory('${item.filterCat}', event)">Explore</button>
+                    </div>
+                `;
+                track.appendChild(card);
             }
         }
 
-        function jumpToCard(index) {
-            currentIndex = index;
-            updateCarouselPosition();
+        function updateInfinitePosition(smooth = true) {
+            const cardElement = track.children[10]; // El elemento central (i = 0)
+            if (!cardElement) return;
+
+            const cardWidth = cardElement.offsetWidth + 50; // Ancho + márgenes
+            const translateOffset = -10 * cardWidth - (cardWidth / 2); 
+
+            if (!smooth) {
+                track.style.transition = 'none';
+            } else {
+                track.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+            }
+
+            track.style.transform = `translateX(${translateOffset}px)`;
+
+            // Actualizar clases active y texto inferior
+            Array.from(track.children).forEach((child, idx) => {
+                if (idx === 10) {
+                    child.classList.add('active');
+                } else {
+                    child.classList.remove('active');
+                }
+            });
+
+            const activeData = categoriesData[centerIndex];
+            if (currentLang === 'EN') {
+                footerTitle.innerText = activeData.titleEn.toUpperCase();
+            } else {
+                footerTitle.innerText = activeData.titleEs.toUpperCase();
+            }
+        }
+
+        function rotateCarousel(direction) {
+            const totalCards = categoriesData.length;
+            centerIndex = (centerIndex + direction + totalCards) % totalCards;
+            renderInfiniteTrack();
+            updateInfinitePosition(true);
         }
 
         function goToCategory(category, event) {
@@ -2534,13 +2538,11 @@
                 if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || Math.abs(e.deltaY) < 40) {
                     e.preventDefault();
                     wheelAccumulator += (e.deltaX || e.deltaY);
-                    if (wheelAccumulator > 120) {
-                        currentIndex = (currentIndex + 1) % cards.length;
-                        updateCarouselPosition();
+                    if (wheelAccumulator > 100) {
+                        rotateCarousel(1);
                         wheelAccumulator = 0;
-                    } else if (wheelAccumulator < -120) {
-                        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-                        updateCarouselPosition();
+                    } else if (wheelAccumulator < -100) {
+                        rotateCarousel(-1);
                         wheelAccumulator = 0;
                     }
                 }
@@ -2552,12 +2554,10 @@
             if (rect.top <= window.innerHeight && rect.bottom >= 0) {
                 if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
                     e.preventDefault();
-                    currentIndex = (currentIndex + 1) % cards.length;
-                    updateCarouselPosition();
+                    rotateCarousel(1);
                 } else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
                     e.preventDefault();
-                    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-                    updateCarouselPosition();
+                    rotateCarousel(-1);
                 }
             }
         });
@@ -2581,7 +2581,7 @@
             const langEs = document.getElementById('langEs');
             const langEn = document.getElementById('langEn');
             
-            updateCarouselPosition();
+            updateInfinitePosition(false);
 
             if (currentLang === 'EN') {
                 langEn.classList.add('active');
@@ -2732,8 +2732,7 @@
         closeModalBtn.addEventListener('click', () => { artModal.classList.remove('active'); });
         artModal.addEventListener('click', (e) => { if (e.target === artModal) artModal.classList.remove('active'); });
 
-        window.addEventListener('load', () => { updateCarouselPosition(); });
-        window.addEventListener('resize', () => { updateCarouselPosition(); });
+        window.addEventListener('resize', () => { updateInfinitePosition(false); });
     </script>
 </body>
 </html>

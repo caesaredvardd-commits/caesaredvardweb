@@ -72,7 +72,7 @@
             visibility: hidden;
         }
 
-        /* HEADER ESTRUCTURA ORIGINAL RESTAURADA Y FIRMA CENTRADA */
+        /* HEADER ESTRUCTURA ORIGINAL Y FIRMA CENTRADA */
         header {
             position: fixed;
             top: 0;
@@ -309,7 +309,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN ÍNDICE CON TAMAÑO ORIGINAL RESTAURADO Y SIN BORDES --- */
+        /* --- SECCIÓN ÍNDICE (PORTADAS AMPLIADAS Y ARMONIOSAS) --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -330,8 +330,8 @@
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 1400px;
-            height: 540px;
+            max-width: 1550px;
+            height: 620px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -348,10 +348,10 @@
         }
 
         .carousel-card {
-            min-width: 320px;
-            max-width: 320px;
-            height: 460px;
-            margin: 0 35px;
+            min-width: 400px;
+            max-width: 400px;
+            height: 550px;
+            margin: 0 40px;
             position: relative;
             cursor: pointer;
             border: none;
@@ -377,11 +377,11 @@
         .carousel-card img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             pointer-events: none;
             border: none;
             outline: none;
-            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.12));
+            box-shadow: 0 20px 35px rgba(0,0,0,0.18);
         }
 
         .card-explore-overlay {
@@ -390,7 +390,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -425,8 +425,8 @@
         .utopia-footer-title {
             position: relative;
             z-index: 2;
-            margin-top: 25px;
-            font-size: 1.25rem;
+            margin-top: 30px;
+            font-size: 1.35rem;
             letter-spacing: 4px;
             text-transform: uppercase;
             text-align: center;
@@ -435,7 +435,7 @@
         }
 
 
-        /* --- SECCIÓN DE PINTURAS AL ÓLEO ORIGINAL --- */
+        /* --- SECCIÓN DE PINTURAS AL ÓLEO --- */
         .oil-section-wrapper {
             position: relative;
             width: 100vw;
@@ -566,7 +566,7 @@
         }
 
 
-        /* --- SECCIÓN DE DIBUJO CON BANNER EN GARAMOND --- */
+        /* --- SECCIÓN DE DIBUJO --- */
         .drawing-section-wrapper {
             position: relative;
             width: 100vw;
@@ -606,7 +606,7 @@
             position: relative;
             z-index: 2;
             color: #ffffff;
-            font-family: var(--font-body) !important; /* GARAMOND APLICADA */
+            font-family: var(--font-body) !important;
             font-size: 2.2rem;
             letter-spacing: 6px;
             text-transform: uppercase;
@@ -890,13 +890,6 @@
             .portraits-masonry-grid {
                 column-count: 1;
             }
-            .portrait-item.h-tall .portrait-img-wrapper,
-            .portrait-item.h-medium .portrait-img-wrapper,
-            .portrait-item.h-short .portrait-img-wrapper,
-            .portrait-item.h-wide .portrait-img-wrapper,
-            .portrait-item.h-extra-tall .portrait-img-wrapper {
-                height: 480px;
-            }
         }
 
 
@@ -1081,7 +1074,7 @@
         }
 
 
-        /* ==================== SECCIÓN MI COLECCIÓN (GUARDADOS) ==================== */
+        /* ==================== SECCIÓN MI COLECCIÓN (GARAMOND EN TÍTULO) ==================== */
         .collection-section-wrapper {
             position: relative;
             width: 100vw;
@@ -1096,12 +1089,13 @@
         }
 
         .collection-title {
-            font-family: var(--font-titles) !important;
+            font-family: var(--font-body) !important;
             font-size: 2.8rem;
             text-align: center;
             letter-spacing: 6px;
             text-transform: uppercase;
             margin-bottom: 20px;
+            font-weight: normal;
         }
 
         .collection-sub {
@@ -1130,7 +1124,7 @@
         }
 
 
-        /* --- VISTA MODAL EXCLUSIVA PARA FOTOGRAFÍA --- */
+        /* --- VISTA MODAL FOTOGRAFÍA --- */
         .photo-modal-overlay {
             position: fixed;
             top: 0;
@@ -1218,7 +1212,7 @@
             filter: invert(1);
         }
 
-        /* --- MODAL ESTÁNDAR PARA OTRAS SECCIONES --- */
+        /* --- MODAL ESTÁNDAR --- */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -1335,7 +1329,7 @@
             border-color: #000000 !important;
         }
 
-        /* --- BIOGRAFÍA --- */
+        /* --- SECCIÓN BIOGRAFÍA --- */
         .bio-section {
             padding: 120px 30px;
             background-color: #f7f7f7;
@@ -1385,8 +1379,8 @@
         }
 
         .bio-artist-name {
-            font-family: var(--font-titles) !important;
-            font-size: 3.5rem;
+            font-family: var(--font-body) !important;
+            font-size: 3.2rem;
             font-weight: normal;
             letter-spacing: 3px;
             color: var(--text-main);
@@ -1562,7 +1556,7 @@
             .hero-title { font-size: 3.2rem; letter-spacing: 2px; }
             .modal-content { grid-template-columns: 1fr; }
             .modal-img-container img { max-height: 40vh; }
-            .carousel-card { min-width: 260px; max-width: 260px; height: 350px; }
+            .carousel-card { min-width: 280px; max-width: 280px; height: 380px; }
             .btn-submit { width: 100%; }
             .drawing-grid-3x3 { grid-template-columns: 1fr; }
             .collection-grid { grid-template-columns: 1fr; }
@@ -1609,41 +1603,41 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ÍNDICE (TAMAÑO ORIGINAL RESTAURADO Y SIN BORDES) -->
+    <!-- SECCIÓN ÍNDICE (PORTADAS EN PNG AMPLIADAS Y CON RUTAS CORRECTAS) -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack">
                 
                 <div class="carousel-card active" onclick="jumpToCard(0)">
-                    <img src="imagenes/pinturai.png" alt="Pinturas al Óleo">
+                    <img src="imagenes/ppintura.png" alt="Pinturas al Óleo">
                     <div class="card-explore-overlay">
                         <button class="btn-card-explore" onclick="goToCategory('oleos', event)">Explore</button>
                     </div>
                 </div>
 
                 <div class="carousel-card" onclick="jumpToCard(1)">
-                    <img src="imagenes/dibujoi.png" alt="Dibujo">
+                    <img src="imagenes/pdibujo.png" alt="Dibujo">
                     <div class="card-explore-overlay">
                         <button class="btn-card-explore" onclick="goToCategory('dibujo', event)">Explore</button>
                     </div>
                 </div>
 
                 <div class="carousel-card" onclick="jumpToCard(2)">
-                    <img src="imagenes/retratoi.png" alt="Retratos">
+                    <img src="imagenes/pretratos.png" alt="Retratos">
                     <div class="card-explore-overlay">
                         <button class="btn-card-explore" onclick="goToCategory('retratos', event)">Explore</button>
                     </div>
                 </div>
 
                 <div class="carousel-card" onclick="jumpToCard(3)">
-                    <img src="imagenes/fotografiai.png" alt="Fotografía">
+                    <img src="imagenes/pfotos.png" alt="Fotografía">
                     <div class="card-explore-overlay">
                         <button class="btn-card-explore" onclick="goToCategory('fotografia', event)">Explore</button>
                     </div>
                 </div>
 
                 <div class="carousel-card" onclick="jumpToCard(4)">
-                    <img src="imagenes/cinei.png" alt="Cinematografía">
+                    <img src="imagenes/pcine.png" alt="Cinematografía">
                     <div class="card-explore-overlay">
                         <button class="btn-card-explore" onclick="goToCategory('cinematografia', event)">Explore</button>
                     </div>
@@ -1656,7 +1650,7 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE PINTURAS AL ÓLEO (COMPLETA) ==================== -->
+    <!-- ==================== SECCIÓN DE PINTURAS AL ÓLEO ==================== -->
     <section id="galleryOil" style="display:none;" class="oil-section-wrapper">
         <div class="oil-left-panel">
             <h2 class="oil-section-title" id="oilTitleText">PINTURAS<br>AL ÓLEO</h2>
@@ -1807,7 +1801,7 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE DIBUJO (COMPLETA) ==================== -->
+    <!-- ==================== SECCIÓN DE DIBUJO ==================== -->
     <section id="galleryDrawing" style="display:none;" class="drawing-section-wrapper">
         <div class="drawing-hero-banner">
             <div class="drawing-banner-title">DIBUJO</div>
@@ -1917,7 +1911,7 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE RETRATOS (COMPLETA) ==================== -->
+    <!-- ==================== SECCIÓN DE RETRATOS ==================== -->
     <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper">
         <h2 class="portraits-section-title">Retratos</h2>
         
@@ -2026,7 +2020,7 @@
     </div>
 
 
-    <!-- ==================== SECCIÓN DE FOTOGRAFÍA (COMPLETA) ==================== -->
+    <!-- ==================== SECCIÓN DE FOTOGRAFÍA ==================== -->
     <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
         <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
             <h2 class="photo-section-title">Fotografía</h2>
@@ -2221,7 +2215,7 @@
         </div>
     </section>
 
-    <!-- VISTA MODAL EXCLUSIVA PARA FOTOGRAFÍA -->
+    <!-- VISTA MODAL FOTOGRAFÍA -->
     <div class="photo-modal-overlay" id="photoModal">
         <div class="photo-modal-wrapper" id="photoModalWrapper">
             <button class="photo-modal-close" id="closePhotoModal">&times;</button>
@@ -2232,7 +2226,7 @@
         </div>
     </div>
 
-    <!-- VISTA MODAL PARA OTRAS SECCIONES -->
+    <!-- VISTA MODAL ESTÁNDAR -->
     <div class="modal-overlay" id="artModal">
         <div class="modal-content">
             <button class="modal-close" id="closeModal">&times;</button>
@@ -2334,7 +2328,6 @@
 
     <!-- JAVASCRIPT Y LÓGICA -->
     <script>
-        // MANEJO DEL PRELOADER
         window.addEventListener('load', () => {
             const preloader = document.getElementById('preloader');
             setTimeout(() => {
@@ -2435,7 +2428,6 @@
             }, { passive: false });
         }
 
-        /* --- LÓGICA DE GUARDAR EN MI COLECCIÓN --- */
         let savedItems = [];
 
         function toggleSaveItem(e, title, meta, imgSrc) {
@@ -2482,7 +2474,6 @@
             });
         }
 
-        /* --- CARRUSEL PRINCIPAL DE 5 CATEGORÍAS CON TEXTO NEGRO --- */
         const categoriesData = [
             { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', filterCat: 'oleos' },
             { titleEs: 'Dibujo', titleEn: 'Drawing', filterCat: 'dibujo' },
@@ -2498,7 +2489,7 @@
         const dragContainer = document.getElementById('dragContainer');
 
         function getCardWidth() {
-            return cards[0].offsetWidth + 70;
+            return cards[0].offsetWidth + 80;
         }
 
         function updateCarouselPosition() {
@@ -2640,7 +2631,6 @@
             }
         }
 
-        /* --- LÓGICA DE INTERACCIÓN Y MODALES --- */
         const portraitModal = document.getElementById('portraitModal');
         const ptModalImg = document.getElementById('ptModalImg');
         const portraitModalWrapper = document.getElementById('portraitModalWrapper');
@@ -2658,8 +2648,6 @@
             isPortraitZoomActive = false;
             portraitZoomBtn.classList.remove('active');
             ptModalImg.style.transform = 'scale(1)';
-            ptModalImg.style.transformOrigin = 'center center';
-            ptModalImg.style.cursor = 'default';
             portraitModal.classList.add('active');
         }
 
@@ -2671,7 +2659,6 @@
             } else {
                 portraitZoomBtn.classList.remove('active');
                 ptModalImg.style.transform = 'scale(1)';
-                ptModalImg.style.transformOrigin = 'center center';
                 ptModalImg.style.cursor = 'default';
             }
         }
@@ -2681,31 +2668,13 @@
             const rect = ptModalImg.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-
-            const xPercent = (x / rect.width) * 100;
-            const yPercent = (y / rect.height) * 100;
-
-            ptModalImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+            ptModalImg.style.transformOrigin = `${(x / rect.width) * 100}% ${(y / rect.height) * 100}%`;
             ptModalImg.style.transform = 'scale(2.2)';
         });
 
-        portraitModalWrapper.addEventListener('mouseleave', () => {
-            if (isPortraitZoomActive) {
-                ptModalImg.style.transform = 'scale(1)';
-            }
-        });
+        closePortraitModalBtn.addEventListener('click', () => { portraitModal.classList.remove('active'); });
+        portraitModal.addEventListener('click', (e) => { if (e.target === portraitModal) portraitModal.classList.remove('active'); });
 
-        closePortraitModalBtn.addEventListener('click', () => {
-            portraitModal.classList.remove('active');
-        });
-
-        portraitModal.addEventListener('click', (e) => {
-            if (e.target === portraitModal) {
-                portraitModal.classList.remove('active');
-            }
-        });
-
-        /* --- VISTA MODAL EXCLUSIVA PARA FOTOGRAFÍA --- */
         const photoModal = document.getElementById('photoModal');
         const pModalImg = document.getElementById('pModalImg');
         const photoModalWrapper = document.getElementById('photoModalWrapper');
@@ -2719,8 +2688,6 @@
             isPhotoZoomActive = false;
             photoZoomBtn.classList.remove('active');
             pModalImg.style.transform = 'scale(1)';
-            pModalImg.style.transformOrigin = 'center center';
-            pModalImg.style.cursor = 'default';
             photoModal.classList.add('active');
         }
 
@@ -2732,7 +2699,6 @@
             } else {
                 photoZoomBtn.classList.remove('active');
                 pModalImg.style.transform = 'scale(1)';
-                pModalImg.style.transformOrigin = 'center center';
                 pModalImg.style.cursor = 'default';
             }
         }
@@ -2742,31 +2708,13 @@
             const rect = pModalImg.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-
-            const xPercent = (x / rect.width) * 100;
-            const yPercent = (y / rect.height) * 100;
-
-            pModalImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+            pModalImg.style.transformOrigin = `${(x / rect.width) * 100}% ${(y / rect.height) * 100}%`;
             pModalImg.style.transform = 'scale(2.2)';
         });
 
-        photoModalWrapper.addEventListener('mouseleave', () => {
-            if (isPhotoZoomActive) {
-                pModalImg.style.transform = 'scale(1)';
-            }
-        });
+        closePhotoModalBtn.addEventListener('click', () => { photoModal.classList.remove('active'); });
+        photoModal.addEventListener('click', (e) => { if (e.target === photoModal) photoModal.classList.remove('active'); });
 
-        closePhotoModalBtn.addEventListener('click', () => {
-            photoModal.classList.remove('active');
-        });
-
-        photoModal.addEventListener('click', (e) => {
-            if (e.target === photoModal) {
-                photoModal.classList.remove('active');
-            }
-        });
-
-        /* --- MODAL ESTÁNDAR PARA OTRAS SECCIONES --- */
         const artModal = document.getElementById('artModal');
         const closeModalBtn = document.getElementById('closeModal');
         const modalImg = document.getElementById('mImg');
@@ -2776,22 +2724,12 @@
             document.getElementById('mTech').innerText = size ? `${tech} · ${size}` : tech;
             document.getElementById('mDesc').innerText = desc;
             modalImg.src = imgSrc;
-
-            const inquireBtn = document.getElementById('mInquire');
-            inquireBtn.href = `mailto:cezzarostudio@gmail.com?subject=Consulta%20sobre%20obra:%20${encodeURIComponent(title)}`;
-            
+            document.getElementById('mInquire').href = `mailto:cezzarostudio@gmail.com?subject=Consulta%20sobre%20obra:%20${encodeURIComponent(title)}`;
             artModal.classList.add('active');
         }
 
-        closeModalBtn.addEventListener('click', () => {
-            artModal.classList.remove('active');
-        });
-
-        artModal.addEventListener('click', (e) => {
-            if (e.target === artModal) {
-                artModal.classList.remove('active');
-            }
-        });
+        closeModalBtn.addEventListener('click', () => { artModal.classList.remove('active'); });
+        artModal.addEventListener('click', (e) => { if (e.target === artModal) artModal.classList.remove('active'); });
 
         window.addEventListener('load', () => { updateCarouselPosition(); });
         window.addEventListener('resize', () => { updateCarouselPosition(); });

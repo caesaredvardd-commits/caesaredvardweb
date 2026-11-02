@@ -569,38 +569,8 @@
             filter: brightness(1.05);
         }
 
-        /* Hover para tarjetas de dibujo (similar a retratos) */
-        .drawing-hover-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.45);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            padding: 20px;
-            box-sizing: border-box;
-        }
 
-        .drawing-card:hover .drawing-hover-overlay {
-            opacity: 1;
-        }
-
-        .drawing-hover-title {
-            font-size: 2rem;
-            letter-spacing: 3px;
-            font-weight: 600;
-            color: #ffffff;
-            text-align: center;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.9);
-        }
-
-
-        /* ==================== SECCIÓN DE RETRATOS ==================== */
+        /* ==================== SECCIÓN DE RETRATOS (MODIFICADA SEGÚN ESPECIFICACIONES) ==================== */
         .portraits-section-wrapper {
             position: relative;
             width: 100vw;
@@ -608,55 +578,25 @@
             color: #ffffff;
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
+            padding: 90px 40px;
             box-sizing: border-box;
-            padding-top: 60px;
         }
 
-        .portraits-hero-banner {
-            position: relative;
-            width: 100%;
-            height: 70vh;
-            background-image: url('imagenes/niño1.jpg');
-            background-size: cover;
-            background-position: top center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: sticky;
-            top: 80px;
-            z-index: 1;
-        }
-
-        .portraits-hero-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.45);
-        }
-
-        .portraits-banner-title {
-            position: relative;
-            z-index: 2;
-            color: #ffffff;
+        .portraits-section-title {
             font-family: var(--font-titles) !important;
-            font-size: 1.4rem;
+            font-size: 2.8rem;
+            text-align: center;
             letter-spacing: 6px;
             text-transform: uppercase;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+            margin-bottom: 60px;
+            color: #ffffff;
         }
 
         .portraits-masonry-grid {
-            position: relative;
-            z-index: 10;
             max-width: 1550px;
-            margin: 40px auto 0 auto;
-            padding: 0 40px 100px 40px;
+            margin: 0 auto;
             column-count: 3;
             column-gap: 35px;
-            background-color: #0a0a0a;
         }
 
         .portrait-item {
@@ -707,6 +647,7 @@
             transform: scale(1.04);
         }
 
+        /* Hover de la tarjeta: ÚNICAMENTE EL NOMBRE CENTRADO EN MEDIO DE LA IMAGEN */
         .portrait-hover-overlay {
             position: absolute;
             top: 0;
@@ -736,7 +677,7 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.9);
         }
 
-        /* MODAL EXCLUSIVO PARA RETRATOS Y DIBUJOS (SIN RECUADRO BLANCO) */
+        /* MODAL EXCLUSIVO PARA RETRATOS (SIN RECUADRO BLANCO) */
         .portrait-modal-overlay {
             position: fixed;
             top: 0;
@@ -1062,6 +1003,123 @@
 
         .photo-zoom-btn.active img {
             filter: invert(1);
+        }
+
+        /* --- MODAL ESTÁNDAR PARA OTRAS SECCIONES --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 200;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            border: 1px solid var(--text-main);
+            max-width: 1000px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            position: relative;
+            padding: 30px;
+            border-radius: 2px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 2.2rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .modal-img-container {
+            position: relative;
+            width: 100%;
+            max-height: 70vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-img-container img {
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            object-fit: contain;
+        }
+
+        .modal-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .modal-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .modal-tech {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .modal-desc {
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--text-main);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .btn-inquire {
+            padding: 14px 28px;
+            background-color: #000000;
+            color: #ffffff;
+            border: 2px solid #000000;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-align: center;
+        }
+
+        .btn-inquire:hover, .btn-inquire:active {
+            background-color: transparent !important;
+            color: #000000 !important;
+            border-color: #000000 !important;
         }
 
         /* --- BIOGRAFÍA --- */
@@ -1465,7 +1523,7 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE DIBUJO (MODIFICADA CON MODAL OSCURO) ==================== -->
+    <!-- ==================== SECCIÓN DE DIBUJO ==================== -->
     <section id="galleryDrawing" style="display:none;" class="drawing-section-wrapper">
         <div class="drawing-hero-banner">
             <div class="drawing-banner-title">DIBUJO</div>
@@ -1473,113 +1531,69 @@
 
         <div class="drawing-grid-3x3">
             
-            <div class="drawing-card" onclick="openPortraitModal('Estudio Mitológico 1', 'imagenes/1.JPG')">
-                <div class="drawing-img-wrapper">
-                    <img src="imagenes/1.JPG" alt="Estudio Mitológico 1">
-                    <div class="drawing-hover-overlay"><div class="drawing-hover-title">Estudio Mitológico 1</div></div>
-                </div>
+            <div class="drawing-card" onclick="openModal('Estudio Mitológico 1', 'Tinta sobre papel', '40 x 50 cm', 'imagenes/1.JPG', 'Trazo detallado en tinta negra sobre papel artesanal.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/1.JPG" alt="Estudio Mitológico 1"></div>
             </div>
 
-            <div class="drawing-card" onclick="openPortraitModal('Anatomía Cruzada', 'imagenes/4.jpeg')">
-                <div class="drawing-img-wrapper">
-                    <img src="imagenes/4.jpeg" alt="Anatomía Cruzada">
-                    <div class="drawing-hover-overlay"><div class="drawing-hover-title">Anatomía Cruzada</div></div>
-                </div>
+            <div class="drawing-card" onclick="openModal('Anatomía Cruzada', 'Carboncillo y grafito', '50 x 70 cm', 'imagenes/4.jpeg', 'Estudio anatómico detallado mediante trama fina.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/4.jpeg" alt="Anatomía Cruzada"></div>
             </div>
 
-            <div class="drawing-card" onclick="openPortraitModal('Perfil Clásico', 'imagenes/9.jpeg')">
-                <div class="drawing-img-wrapper">
-                    <img src="imagenes/9.jpeg" alt="Perfil Clásico">
-                    <div class="drawing-hover-overlay"><div class="drawing-hover-title">Perfil Clásico</div></div>
-                </div>
+            <div class="drawing-card" onclick="openModal('Perfil Clásico', 'Grafito sobre papel', '30 x 40 cm', 'imagenes/9.jpeg', 'Estudio académico de perfil con claroscuro sutil.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/9.jpeg" alt="Perfil Clásico"></div>
             </div>
 
-            <div class="drawing-card" onclick="openPortraitModal('Silueta e Inercia', 'imagenes/bodegon gotico.JPG')">
-                <div class="drawing-img-wrapper">
-                    <img src="imagenes/bodegon gotico.JPG" alt="Silueta e Inercia">
-                    <div class="drawing-hover-overlay"><div class="drawing-hover-title">Silueta e Inercia</div></div>
-                </div>
+            <div class="drawing-card" onclick="openModal('Silueta e Inercia', 'Tinta china', '45 x 60 cm', 'imagenes/bodegon gotico.JPG', 'Movimiento figurativo capturado a pluma fina.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/bodegon gotico.JPG" alt="Silueta e Inercia"></div>
             </div>
 
-            <div class="drawing-card" onclick="openPortraitModal('Torsos en Penumbra', 'imagenes/hombre ilustrado.jpg')">
-                <div class="drawing-img-wrapper">
-                    <img src="imagenes/hombre ilustrado.jpg" alt="Torsos en Penumbra">
-                    <div class="drawing-hover-overlay"><div class="drawing-hover-title">Torsos en Penumbra</div></div>
-                </div>
+            <div class="drawing-card" onclick="openModal('Torsos en Penumbra', 'Sanguina sobre papel', '50 x 65 cm', 'imagenes/hombre ilustrado.jpg', 'Técnica clásica de sanguina con tiza blanca.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/hombre ilustrado.jpg" alt="Torsos en Penumbra"></div>
             </div>
 
-            <div class="drawing-card" onclick="openPortraitModal('Boceto de manos 2', 'imagenes/8.jpeg')">
-                <div class="drawing-img-wrapper">
-                    <img src="imagenes/8.jpeg" alt="Boceto de manos 2">
-                    <div class="drawing-hover-overlay"><div class="drawing-hover-title">Boceto de manos 2</div></div>
-                </div>
+            <div class="drawing-card" onclick="openModal('Boceto de manos 2', 'Carboncillo', '35 x 50 cm', 'imagenes/8.jpeg', 'Análisis gestual rápido con trazos expresivos.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/8.jpeg" alt="Boceto de manos 2"></div>
             </div>
 
-            <div class="drawing-card" onclick="openPortraitModal('Fragmento de Estatua', 'imagenes/niño2.jpg')">
-                <div class="drawing-img-wrapper">
-                    <img src="imagenes/niño2.jpg" alt="Fragmento de Estatua">
-                    <div class="drawing-hover-overlay"><div class="drawing-hover-title">Fragmento de Estatua</div></div>
-                </div>
+            <div class="drawing-card" onclick="openModal('Fragmento de Estatua', 'Grafito duro y suave', '40 x 50 cm', 'imagenes/niño2.jpg', 'Estudio académico basado en la estatuaria clásica.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/niño2.jpg" alt="Fragmento de Estatua"></div>
             </div>
 
-            <div class="drawing-card" onclick="openPortraitModal('Flora y Ceniza', 'imagenes/silla.jpg')">
-                <div class="drawing-img-wrapper">
-                    <img src="imagenes/silla.jpg" alt="Flora y Ceniza">
-                    <div class="drawing-hover-overlay"><div class="drawing-hover-title">Flora y Ceniza</div></div>
-                </div>
+            <div class="drawing-card" onclick="openModal('Flora y Ceniza', 'Tinta estilográfica', '30 x 40 cm', 'imagenes/silla.jpg', 'Detalle botánico con trama de alta densidad.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/silla.jpg" alt="Flora y Ceniza"></div>
             </div>
 
-            <div class="drawing-card" onclick="openPortraitModal('El Guía Nocturno', 'imagenes/iglesia.JPG')">
-                <div class="drawing-img-wrapper">
-                    <img src="imagenes/iglesia.JPG" alt="El Guía Nocturno">
-                    <div class="drawing-hover-overlay"><div class="drawing-hover-title">El Guía Nocturno</div></div>
-                </div>
+            <div class="drawing-card" onclick="openModal('El Guía Nocturno', 'Pluma y bistre', '40 x 60 cm', 'imagenes/iglesia.JPG', 'Dibujo mitológico elaborado con tintas antiguas.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/iglesia.JPG" alt="El Guía Nocturno"></div>
             </div>
 
-            <div class="drawing-card" onclick="openPortraitModal('Pliegues de Seda', 'imagenes/venado.jpg')">
-                <div class="drawing-img-wrapper">
-                    <img src="imagenes/venado.jpg" alt="Pliegues de Seda">
-                    <div class="drawing-hover-overlay"><div class="drawing-hover-title">Pliegues de Seda</div></div>
-                </div>
+            <div class="drawing-card" onclick="openModal('Pliegues de Seda', 'Grafito sobre cartulina', '50 x 70 cm', 'imagenes/venado.jpg', 'Estudio hiperrealista de drapería.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/venado.jpg" alt="Pliegues de Seda"></div>
             </div>
 
-            <div class="drawing-card" onclick="openPortraitModal('Estudio de Café', 'imagenes/cofee 2.png')">
-                <div class="drawing-img-wrapper">
-                    <img src="imagenes/cofee 2.png" alt="Estudio de Café">
-                    <div class="drawing-hover-overlay"><div class="drawing-hover-title">Estudio de Café</div></div>
-                </div>
+            <div class="drawing-card" onclick="openModal('Estudio de Café', 'Tinta y técnica mixta', '40 x 50 cm', 'imagenes/cofee 2.png', 'Estudio detallado de bodegón y texturas.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/cofee 2.png" alt="Estudio de Café"></div>
             </div>
 
-            <div class="drawing-card" onclick="openPortraitModal('Arquitectura del Resto', 'imagenes/11.jpeg')">
-                <div class="drawing-img-wrapper">
-                    <img src="imagenes/11.jpeg" alt="Arquitectura del Resto">
-                    <div class="drawing-hover-overlay"><div class="drawing-hover-title">Arquitectura del Resto</div></div>
-                </div>
+            <div class="drawing-card" onclick="openModal('Arquitectura del Resto', 'Tinta y aguada', '30 x 45 cm', 'imagenes/11.jpeg', 'Estudio estructural con aguadas suaves.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/11.jpeg" alt="Arquitectura del Resto"></div>
             </div>
 
-            <div class="drawing-card" onclick="openPortraitModal('Estudio Anatómico Final', 'imagenes/Tótem_final.JPG')">
-                <div class="drawing-img-wrapper">
-                    <img src="imagenes/Tótem_final.JPG" alt="Estudio Anatómico Final">
-                    <div class="drawing-hover-overlay"><div class="drawing-hover-title">Estudio Anatómico Final</div></div>
-                </div>
+            <div class="drawing-card" onclick="openModal('Estudio Anatómico Final', 'Carboncillo', '50 x 70 cm', 'imagenes/Tótem_final.JPG', 'Estudio académico profundo basado en la forma y composición figurativa.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/Tótem_final.JPG" alt="Estudio Anatómico Final"></div>
             </div>
 
-            <div class="drawing-card" onclick="openPortraitModal('Trazo inicial 2018', 'imagenes/bigote.jpg')">
-                <div class="drawing-img-wrapper">
-                    <img src="imagenes/bigote.jpg" alt="Trazo inicial 2018">
-                    <div class="drawing-hover-overlay"><div class="drawing-hover-title">Trazo inicial 2018</div></div>
-                </div>
+            <div class="drawing-card" onclick="openModal('Trazo inicial 2018', 'Tinta sobre papel', '30 x 40 cm', 'imagenes/bigote.jpg', 'Uno de los primeros cuadernos de taller.')">
+                <div class="drawing-img-wrapper"><img src="imagenes/bigote.jpg" alt="Trazo inicial 2018"></div>
             </div>
 
         </div>
     </section>
 
 
-    <!-- ==================== SECCIÓN DE RETRATOS (CON BANNER Y NUEVA ESTRUCTURA) ==================== -->
+    <!-- ==================== SECCIÓN DE RETRATOS (MODIFICADA) ==================== -->
     <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper">
-        <div class="portraits-hero-banner">
-            <div class="portraits-banner-title">Retratos</div>
-        </div>
+        <h2 class="portraits-section-title">Retratos</h2>
         
         <div class="portraits-masonry-grid">
             
@@ -1656,11 +1670,11 @@
         </div>
     </section>
 
-    <!-- MODAL COMPARTIDO PARA RETRATOS Y DIBUJOS (SIN RECUADRO BLANCO) -->
+    <!-- MODAL EXCLUSIVO PARA RETRATOS (IMAGEN AMPLIADA SIN RECUADRO BLANCO) -->
     <div class="portrait-modal-overlay" id="portraitModal">
         <div class="portrait-modal-wrapper" id="portraitModalWrapper">
             <button class="portrait-modal-close" id="closePortraitModal">&times;</button>
-            <img id="ptModalImg" src="" alt="Obra ampliada">
+            <img id="ptModalImg" src="" alt="Retrato ampliado">
             
             <div class="portrait-modal-actions">
                 <button class="portrait-modal-btn-email" id="ptModalEmailBtn">Solicitar adquisición vía email</button>
@@ -1789,7 +1803,7 @@
         </div>
     </div>
 
-    <!-- VISTA MODAL PARA OTRAS SECCIONES (Óleos) -->
+    <!-- VISTA MODAL PARA OTRAS SECCIONES -->
     <div class="modal-overlay" id="artModal">
         <div class="modal-content">
             <button class="modal-close" id="closeModal">&times;</button>
@@ -2122,7 +2136,7 @@
             }
         }
 
-        /* --- LÓGICA EXCLUSIVA DE INTERACCIÓN Y MODAL PARA RETRATOS Y DIBUJOS --- */
+        /* --- LÓGICA EXCLUSIVA DE INTERACCIÓN Y MODAL PARA RETRATOS --- */
         const portraitModal = document.getElementById('portraitModal');
         const ptModalImg = document.getElementById('ptModalImg');
         const portraitModalWrapper = document.getElementById('portraitModalWrapper');
@@ -2249,7 +2263,7 @@
             }
         });
 
-        /* --- MODAL ESTÁNDAR PARA OTRAS SECCIONES (Óleos) --- */
+        /* --- MODAL ESTÁNDAR PARA OTRAS SECCIONES --- */
         const artModal = document.getElementById('artModal');
         const closeModalBtn = document.getElementById('closeModal');
         const modalImg = document.getElementById('mImg');

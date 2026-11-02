@@ -309,7 +309,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN ÍNDICE CON IMÁGENES COMPLETAS SIN BORDES NI RECUADROS --- */
+        /* --- SECCIÓN ÍNDICE CON TAMAÑO ORIGINAL RESTAURADO Y SIN BORDES --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -435,7 +435,7 @@
         }
 
 
-        /* --- SECCIÓN DE PINTURAS AL ÓLEO ORIGINAL (DESLIZANTE HORIZONTAL) --- */
+        /* --- SECCIÓN DE PINTURAS AL ÓLEO ORIGINAL --- */
         .oil-section-wrapper {
             position: relative;
             width: 100vw;
@@ -566,7 +566,7 @@
         }
 
 
-        /* --- SECCIÓN DE DIBUJO --- */
+        /* --- SECCIÓN DE DIBUJO CON BANNER EN GARAMOND --- */
         .drawing-section-wrapper {
             position: relative;
             width: 100vw;
@@ -606,8 +606,8 @@
             position: relative;
             z-index: 2;
             color: #ffffff;
-            font-family: var(--font-titles) !important;
-            font-size: 1.4rem;
+            font-family: var(--font-body) !important; /* GARAMOND APLICADA */
+            font-size: 2.2rem;
             letter-spacing: 6px;
             text-transform: uppercase;
             text-shadow: 0 2px 10px rgba(0,0,0,0.6);
@@ -1577,7 +1577,7 @@
         <img src="imagenes/foto para pagina principal.png" alt="Brunelio Atelier">
     </div>
 
-    <!-- HEADER ESTRUCTURA CENTRADA RESTAURADA CON NAVEGACIÓN -->
+    <!-- HEADER ORIGINAL CON FIRMA CENTRADA Y BOTONES DE NAVEGACIÓN -->
     <header id="mainHeader">
         <div class="header-left-slot">
             <button class="header-back-btn" id="headerBackBtn" onclick="goBackToMain()">← Back</button>
@@ -1609,7 +1609,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ÍNDICE / CARRUSEL (IMÁGENES COMPLETAS SIN BORDES/RECUADROS) -->
+    <!-- SECCIÓN ÍNDICE (TAMAÑO ORIGINAL RESTAURADO Y SIN BORDES) -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack">
@@ -1656,7 +1656,7 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE PINTURAS AL ÓLEO (COMPLETA RESTAURADA) ==================== -->
+    <!-- ==================== SECCIÓN DE PINTURAS AL ÓLEO (COMPLETA) ==================== -->
     <section id="galleryOil" style="display:none;" class="oil-section-wrapper">
         <div class="oil-left-panel">
             <h2 class="oil-section-title" id="oilTitleText">PINTURAS<br>AL ÓLEO</h2>
@@ -1807,7 +1807,7 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE DIBUJO (COMPLETA RESTAURADA) ==================== -->
+    <!-- ==================== SECCIÓN DE DIBUJO (COMPLETA) ==================== -->
     <section id="galleryDrawing" style="display:none;" class="drawing-section-wrapper">
         <div class="drawing-hero-banner">
             <div class="drawing-banner-title">DIBUJO</div>
@@ -1917,7 +1917,7 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE RETRATOS (COMPLETA RESTAURADA) ==================== -->
+    <!-- ==================== SECCIÓN DE RETRATOS (COMPLETA) ==================== -->
     <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper">
         <h2 class="portraits-section-title">Retratos</h2>
         
@@ -2026,7 +2026,7 @@
     </div>
 
 
-    <!-- ==================== SECCIÓN DE FOTOGRAFÍA (COMPLETA RESTAURADA) ==================== -->
+    <!-- ==================== SECCIÓN DE FOTOGRAFÍA (COMPLETA) ==================== -->
     <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
         <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
             <h2 class="photo-section-title">Fotografía</h2>
@@ -2332,7 +2332,7 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT Y LÓGICA COMPLETA -->
+    <!-- JAVASCRIPT Y LÓGICA -->
     <script>
         // MANEJO DEL PRELOADER
         window.addEventListener('load', () => {
@@ -2407,7 +2407,6 @@
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
 
-        // DESPLAZAMIENTO CÓMODO ÓLEO
         const oilScrollContainer = document.getElementById('oilScrollContainer');
         let isOilDragging = false;
         let oilStartX, oilScrollLeft;

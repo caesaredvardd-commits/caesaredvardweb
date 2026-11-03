@@ -49,7 +49,7 @@
             text-decoration: none;
         }
 
-        /* --- PRELOADER ANIMADO ULTRA FLUIDO (GIRA CONSTANTEMENTE DESDE EL INICIO) --- */
+        /* --- PRELOADER ANIMADO ULTRA FLUIDO (1 A 42 CON requestAnimationFrame) --- */
         #preloader {
             position: fixed;
             top: 0;
@@ -216,7 +216,7 @@
             stroke: #ffffff;
         }
 
-        /* --- HERO SECCIÓN MODIFICADA (ESTILO SEGUNDA IMAGEN) --- */
+        /* --- HERO SECCIÓN CON RÍO ARRIBA Y SIMETRÍA CORREGIDA --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -230,12 +230,13 @@
             margin-top: 80px;
         }
 
+        /* Contenedor corregido para elevar las ilustraciones y asegurar visibilidad de ambos lados */
         .hero-river-container {
             position: absolute;
-            top: 0;
+            top: -80px;
             left: 0;
             width: 100%;
-            height: 75vh;
+            height: 80vh;
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -244,7 +245,7 @@
         }
 
         .hero-bg-river {
-            width: 48vw;
+            width: 46vw;
             height: 100%;
             object-fit: cover;
             opacity: 0.95;
@@ -258,12 +259,12 @@
 
         .hero-bg-river.right {
             transform: scaleX(-1);
-            object-position: left top;
+            object-position: left top; /* CORREGIDO: Evita que la imagen derecha desaparezca */
         }
 
         .hero-side-img {
             position: absolute;
-            bottom: 0;
+            bottom: 15px;
             width: 680px; 
             opacity: 0.95;
             pointer-events: none;
@@ -287,7 +288,7 @@
             position: relative;
             z-index: 2;
             max-width: 800px;
-            margin-top: 30px;
+            margin-left: 15px;
         }
 
         .hero-subtitle {
@@ -1348,12 +1349,12 @@
 </head>
 <body>
 
-    <!-- PANTALLA DE CARGA / PRELOADER INDEPENDIENTE Y CONSTANTE -->
+    <!-- PANTALLA DE CARGA / PRELOADER ULTRA FLUIDO -->
     <div id="preloader">
         <img id="preloaderImg" src="preloadicon/1.png" alt="Brunelio Atelier Preloader">
     </div>
 
-    <!-- SCRIPT DE ANIMACIÓN DEL PRELOADER INDEPENDIENTE -->
+    <!-- SCRIPT DE ANIMACIÓN DEL PRELOADER ULTRA FLUIDO -->
     <script>
         (function() {
             const preloaderImg = document.getElementById('preloaderImg');
@@ -1367,11 +1368,13 @@
                 preloadedImages.push(img);
             }
 
+            let lastTime = 0;
             const fps = 24;
             const interval = 1000 / fps;
-            let lastTime = performance.now();
+            let animId;
 
-            function animatePreloader(currentTime) {
+            function animate(currentTime) {
+                animId = requestAnimationFrame(animate);
                 const delta = currentTime - lastTime;
                 if (delta > interval) {
                     lastTime = currentTime - (delta % interval);
@@ -1380,18 +1383,18 @@
                         preloaderImg.src = preloadedImages[currentFrame - 1].src;
                     }
                 }
-                requestAnimationFrame(animatePreloader);
             }
 
-            requestAnimationFrame(animatePreloader);
+            requestAnimationFrame(animate);
 
             window.addEventListener('load', () => {
                 setTimeout(() => {
+                    cancelAnimationFrame(animId);
                     const preloader = document.getElementById('preloader');
                     if (preloader) {
                         preloader.classList.add('hidden');
                     }
-                }, 600);
+                }, 800);
             });
         })();
     </script>
@@ -1413,7 +1416,7 @@
         </div>
     </header>
 
-    <!-- HERO / PORTADA MODIFICADA -->
+    <!-- HERO / PORTADA CON RÍO ELEVADO Y AMBOS LADOS VISIBLES -->
     <section class="hero">
         <div class="hero-river-container">
             <img src="imagenes/river.png" alt="Textura de río en marco izquierdo" class="hero-bg-river left">

@@ -32,6 +32,10 @@
             font-family: var(--font-body) !important;
         }
 
+        h1, h2, h3, .hero-title, .oil-editorial-title, .portraits-section-title, .photo-section-title, .cinema-title, .collection-title, .bio-artist-name {
+            font-family: var(--font-titles) !important;
+        }
+
         body {
             background-color: var(--bg-main);
             color: var(--text-main);
@@ -98,18 +102,17 @@
             display: flex;
             align-items: center;
             gap: 24px;
-            width: 250px;
+            width: 280px;
         }
 
-        /* FORZAR GARAMOND EXPLÍCITAMENTE EN LOS BOTONES DEL HEADER */
         header button, 
-        header .header-nav-btn, 
+        header .header-nav-link, 
         header .header-back-btn {
-            font-family: 'EB Garamond 08', 'Georgia', serif !important;
+            font-family: var(--font-titles) !important;
             background: transparent;
             border: none;
             color: var(--text-main);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
@@ -117,7 +120,7 @@
             transition: opacity 0.3s ease;
         }
 
-        .header-nav-btn:hover {
+        .header-nav-link:hover {
             opacity: 0.6;
         }
 
@@ -152,7 +155,7 @@
         }
 
         .lang-select {
-            width: 250px;
+            width: 280px;
             text-align: right;
             font-size: 1.1rem;
             letter-spacing: 2px;
@@ -254,10 +257,9 @@
         }
 
         .hero-subtitle {
-            font-style: normal;
             font-size: 1.2rem;
             color: var(--text-main);
-            margin-bottom: 8px;
+            margin-bottom: 18px; /* Bajado un poco más para separarlo del título de Brunelio */
             letter-spacing: 3px;
             text-transform: uppercase;
         }
@@ -268,7 +270,6 @@
         }
 
         .hero-title {
-            font-family: var(--font-titles) !important;
             font-size: 5.2rem;
             font-weight: normal;
             letter-spacing: 4px;
@@ -279,11 +280,10 @@
         }
 
         .hero-desc {
-            font-style: normal;
             font-size: 1.2rem;
             color: var(--text-main);
             letter-spacing: 3px;
-            margin-top: 8px;
+            margin-top: 12px;
             margin-bottom: 25px;
             text-transform: uppercase;
         }
@@ -307,7 +307,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN ÍNDICE (CARRUSEL INFINITO CON TAMAÑO 600px x 800px) --- */
+        /* --- SECCIÓN ÍNDICE (CARRUSEL INFINITO CON TAMAÑO 630px x 830px) --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -322,7 +322,7 @@
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
             box-sizing: border-box;
-            padding-bottom: 40px;
+            padding-bottom: 20px;
         }
 
         .carousel-container-drag {
@@ -344,20 +344,21 @@
             position: absolute;
             left: 50%;
             will-change: transform;
-            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            /* Transición más smooth y suave al cambiar de sección */
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .carousel-card {
-            min-width: 600px;
-            max-width: 600px;
-            height: 800px;
+            min-width: 630px;
+            max-width: 630px;
+            height: 830px;
             margin: 0 25px;
             position: relative;
             cursor: pointer;
             border: none;
             border-radius: 0;
             overflow: visible;
-            transition: transform 0.5s ease, opacity 0.5s ease;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
             box-shadow: none;
             opacity: 0.3;
             transform: scale(0.8);
@@ -425,7 +426,7 @@
         .utopia-footer-title {
             position: relative;
             z-index: 2;
-            margin-top: 10px;
+            margin-top: -20px; /* Subido más cerca de las portadas del índice */
             font-size: 1.4rem;
             letter-spacing: 4px;
             text-transform: uppercase;
@@ -464,7 +465,6 @@
         }
 
         .oil-section-title {
-            font-family: var(--font-titles) !important;
             font-size: 2.8rem;
             letter-spacing: 4px;
             text-transform: uppercase;
@@ -666,7 +666,6 @@
         }
 
         .portraits-section-title {
-            font-family: var(--font-titles) !important;
             font-size: 2.8rem;
             text-align: center;
             letter-spacing: 6px;
@@ -905,7 +904,6 @@
         }
 
         .photo-section-title {
-            font-family: var(--font-titles) !important;
             font-size: 2.5rem;
             text-align: center;
             letter-spacing: 5px;
@@ -1006,7 +1004,6 @@
         }
 
         .cinema-title {
-            font-family: var(--font-titles) !important;
             font-size: 2.8rem;
             text-align: center;
             letter-spacing: 6px;
@@ -1568,12 +1565,12 @@
         <img src="imagenes/foto para pagina principal.png" alt="Brunelio Atelier">
     </div>
 
-    <!-- HEADER ORIGINAL CON FUENTE GARAMOND FORZADA LOCALMENTE -->
+    <!-- HEADER CON TIPOGRAFÍA DE TÍTULOS EN BOTONES -->
     <header id="mainHeader">
         <div class="header-left-slot">
             <button class="header-back-btn" id="headerBackBtn" onclick="goBackToMain()">← Back</button>
-            <button class="header-nav-btn" id="navBioBtn" onclick="scrollToBio()">Biografía</button>
-            <button class="header-nav-btn" id="navCollectionBtn" onclick="filterGallery('coleccion')">Mi Colección</button>
+            <button class="header-nav-link" id="navBioBtn" onclick="scrollToBio()">Biografía</button>
+            <button class="header-nav-link" id="navCollectionBtn" onclick="filterGallery('coleccion')">Mi Colección</button>
         </div>
         
         <div class="header-logo-container">
@@ -1600,7 +1597,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ÍNDICE (CARRUSEL CON TRANSICIÓN Y TAMAÑO 600px x 800px) -->
+    <!-- SECCIÓN ÍNDICE (CARRUSEL 630px x 830px CON TRANSICIÓN SUAVE) -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack">
@@ -2146,17 +2143,17 @@
     </section>
 
 
-    <!-- ==================== SECCIÓN DE CINEMATOGRAFÍA ==================== -->
+    <!-- ==================== SECCIÓN DE CINEMATOGRAFÍA (CORRECTA) ==================== -->
     <section id="galleryCinema" style="display:none;" class="cinema-section-wrapper">
         <h2 class="cinema-title">Cinematografía</h2>
         <div class="cinema-grid">
             
-            <div class="cinema-card" onclick="openModal('Estudio en Movimiento I', 'Fotograma 35mm', '1920x1080', 'imagenes/cinei.png', 'Secuencia cinematográfica de ensayo figurativo.')">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio en Movimiento I', 'Fotograma 35mm · 2026', 'imagenes/cinei.png')">
+            <div class="cinema-card" onclick="openModal('Estudio en Movimiento I', 'Fotograma 35mm', '1920x1080', 'imagenes/pccine.png', 'Secuencia cinematográfica de ensayo figurativo.')">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio en Movimiento I', 'Fotograma 35mm · 2026', 'imagenes/pccine.png')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="cinema-img-wrapper">
-                    <img src="imagenes/cinei.png" alt="Estudio en Movimiento I">
+                    <img src="imagenes/pccine.png" alt="Estudio en Movimiento I">
                 </div>
                 <div class="cinema-info">
                     <div class="cinema-card-title">Estudio en Movimiento I</div>
@@ -2437,13 +2434,13 @@
             });
         }
 
-        /* --- LÓGICA DE CARRUSEL INFINITO Y TRANSICIÓN ORIGINAL --- */
+        /* --- LÓGICA DE CARRUSEL INFINITO CON PORTADA DE CINEMATOGRAFÍA CORRECTA --- */
         const categoriesData = [
-            { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', filterCat: 'oleos' },
-            { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', filterCat: 'dibujo' },
-            { titleEs: 'Retratos', titleEn: 'Portraits', img: 'imagenes/pretratos.png', filterCat: 'retratos' },
-            { titleEs: 'Fotografía', titleEn: 'Photography', img: 'imagenes/pphotos.png', filterCat: 'fotografia' },
-            { titleEs: 'Cinematografía', titleEn: 'Cinematography', img: 'imagenes/pcine.png', filterCat: 'cinematografia' }
+            { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/pinturai.png', filterCat: 'oleos' },
+            { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/dibujoi.png', filterCat: 'dibujo' },
+            { titleEs: 'Retratos', titleEn: 'Portraits', img: 'imagenes/retratoi.png', filterCat: 'retratos' },
+            { titleEs: 'Fotografía', titleEn: 'Photography', img: 'imagenes/fotografiai.png', filterCat: 'fotografia' },
+            { titleEs: 'Cinematografía', titleEn: 'Cinematography', img: 'imagenes/pccine.png', filterCat: 'cinematografia' }
         ];
 
         let centerIndex = 0;
@@ -2489,13 +2486,13 @@
             const cardElement = track.children[10]; 
             if (!cardElement) return;
 
-            const cardWidth = cardElement.offsetWidth + 50; // Ancho + márgenes originales
+            const cardWidth = cardElement.offsetWidth + 50; /* Ancho (630px) + márgenes */
             const translateOffset = -10 * cardWidth - (cardWidth / 2); 
 
             if (!smooth) {
                 track.style.transition = 'none';
             } else {
-                track.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+                track.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
             }
 
             track.style.transform = `translateX(${translateOffset}px)`;

@@ -21,7 +21,7 @@
             --bg-main: #ffffff;           
             --text-main: #000000;         
             --accent-hover: #4a2e2b;      
-            --card-bg: #f9f9f9;           
+            --card-bg: transparent;           
 
             --font-titles: 'Dominican Small Caps', serif;
             --font-body: 'EB Garamond 08', 'Georgia', serif;
@@ -49,24 +49,24 @@
             text-decoration: none;
         }
 
-        /* --- PRELOADER (PANTALLA DE CARGA CON SECUENCIA INFINITA 1-42) --- */
+        /* --- PRELOADER ANIMADO INFINITO (IMÁGENES 1 A 42) --- */
         #preloader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: #000000;
+            background-color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 99999;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
         }
 
         #preloader img {
-            max-width: 320px;
-            max-height: 80vh;
+            max-width: 280px;
+            max-height: 70vh;
             object-fit: contain;
         }
 
@@ -100,8 +100,8 @@
         .header-left-slot {
             display: flex;
             align-items: center;
-            gap: 35px; /* Distancia modificada entre biografía y mi colección */
-            width: 380px;
+            gap: 65px; /* ESPACIO AUMENTADO ENTRE BIOGRAFÍA Y MI COLECCIÓN */
+            width: 450px;
         }
 
         /* TAMAÑO DE LETRA EXACTO DE 0.75rem PARA BIOGRAFÍA Y MI COLECCIÓN */
@@ -315,11 +315,11 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN ÍNDICE (CARRUSEL MODIFICADO SIN GRIS AL PASAR EL MOUSE Y TEXTO ABAJO CERCANO) --- */
+        /* --- SECCIÓN ÍNDICE (CARRUSEL MODIFICADO: SIN FONDO GRIS NUNCA) --- */
         .utopia-section {
             position: relative;
             width: 100vw;
-            min-height: 100vh;
+            min-height: 90vh;
             background-color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -330,6 +330,7 @@
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
             box-sizing: border-box;
+            padding-bottom: 40px;
         }
 
         .carousel-container-drag {
@@ -337,12 +338,13 @@
             z-index: 2;
             width: 100%;
             max-width: 100%;
-            height: 800px;
+            height: 720px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             user-select: none;
+            background: transparent !important;
         }
 
         .carousel-track {
@@ -352,6 +354,7 @@
             left: 50%;
             will-change: transform;
             transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+            background: transparent !important;
         }
 
         .carousel-card {
@@ -366,24 +369,27 @@
             overflow: visible;
             transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease;
             box-shadow: none;
-            opacity: 0.3;
+            opacity: 0.35;
             transform: scale(0.8);
-            background: transparent;
+            background: transparent !important;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
+            filter: none !important; /* SE ELIMINA EL FILTRO GRIS */
         }
 
         .carousel-card.active {
             opacity: 1;
             transform: scale(1);
             z-index: 10;
+            filter: none !important;
         }
 
-        /* EFECTO NORMAL AL PASAR EL MOUSE (SIN CAMBIO A GRIS) */
-        .carousel-card.active:hover {
-            transform: scale(1.02);
+        /* NADA SE PONE GRIS AL PASAR EL MOUSE EN NINGÚN ESTADO */
+        .carousel-card:hover, .carousel-card.active:hover {
+            background: transparent !important;
+            filter: none !important;
         }
 
         .carousel-card img {
@@ -393,7 +399,8 @@
             pointer-events: none;
             border: none;
             outline: none;
-            background-color: transparent;
+            background: transparent !important;
+            filter: none !important;
         }
 
         .card-explore-overlay {
@@ -402,16 +409,18 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.15);
+            background: transparent; /* SIN CAPA OSCURA NI GRIS */
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
         }
 
         .carousel-card.active:hover .card-explore-overlay {
             opacity: 1;
+            pointer-events: auto;
         }
 
         .btn-card-explore {
@@ -425,19 +434,20 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .btn-card-explore:hover {
-            background: transparent !important;
+            background: #ffffff !important;
             color: #000000 !important;
             border-color: #000000 !important;
             transform: scale(1.05);
         }
 
-        /* TEXTO DEL CARRUSEL ABAJO DE LA IMAGEN Y CERCANO */
+        /* TEXTO ABAJO MUY CERCANO A LA IMAGEN */
         .utopia-footer-title {
             position: relative;
-            margin-top: 20px;
+            margin-top: -20px; /* ACERCADO MÁS A LA IMAGEN */
             z-index: 20;
             font-size: 1.4rem;
             letter-spacing: 6px;
@@ -446,8 +456,8 @@
             font-weight: 600;
             color: #000000;
             pointer-events: none;
-            background: rgba(255, 255, 255, 0.85);
-            padding: 4px 16px;
+            background: transparent;
+            padding: 0;
         }
 
         /* --- SECCIÓN DE PINTURAS AL ÓLEO --- */
@@ -533,7 +543,7 @@
             cursor: pointer;
             flex-shrink: 0;
             position: relative;
-            transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
         .oil-card:hover {
@@ -657,13 +667,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease, filter 0.5s ease;
-            filter: brightness(0.95);
+            transition: transform 0.5s ease;
         }
 
         .drawing-card:hover .drawing-img-wrapper img {
             transform: scale(1.04);
-            filter: brightness(1.05);
         }
 
         /* ==================== SECCIÓN DE RETRATOS ==================== */
@@ -734,12 +742,10 @@
             height: 100%;
             object-fit: cover;
             object-position: top center !important;
-            filter: brightness(0.65);
-            transition: filter 0.4s ease, transform 0.5s ease;
+            transition: transform 0.5s ease;
         }
 
         .portrait-item:hover .portrait-img-wrapper img {
-            filter: brightness(1.08);
             transform: scale(1.04);
         }
 
@@ -1149,12 +1155,7 @@
             width: 100%;
             height: auto;
             display: block;
-            filter: grayscale(20%) contrast(1.05);
             transition: filter 0.5s ease;
-        }
-
-        .bio-image-wrapper:hover img {
-            filter: grayscale(0%) contrast(1.1);
         }
 
         .bio-content-wrapper {
@@ -1188,11 +1189,6 @@
             flex-direction: column;
             gap: 20px;
             margin-bottom: 45px;
-        }
-
-        .bio-paragraphs p span.highlight {
-            font-style: normal;
-            font-weight: bold;
         }
 
         .bio-awards-title {
@@ -1355,10 +1351,48 @@
 </head>
 <body>
 
-    <!-- PANTALLA DE CARGA / PRELOADER CON SECUENCIA INFINITA (1 al 42) -->
+    <!-- PANTALLA DE CARGA / PRELOADER (CUBRIRÁ LA PÁGINA MIENTRAS ROTA DE LA 1 A LA 42 INFINITAMENTE) -->
     <div id="preloader">
-        <img id="preloaderImg" src="preloadicon/1.png" alt="Brunelio Atelier">
+        <img id="preloaderImg" src="preloadicon/1.png" alt="Brunelio Atelier Preloader">
     </div>
+
+    <!-- SCRIPT DE ANIMACIÓN DEL PRELOADER DE 1 A 42 -->
+    <script>
+        (function() {
+            const preloaderImg = document.getElementById('preloaderImg');
+            let currentFrame = 1;
+            const totalFrames = 42;
+            const preloadedImages = [];
+
+            // Pre-cargar imágenes para una animación fluida
+            for (let i = 1; i <= totalFrames; i++) {
+                const img = new Image();
+                img.src = `preloadicon/${i}.png`;
+                preloadedImages.push(img);
+            }
+
+            // Rotación infinita cada 45ms
+            const animInterval = setInterval(() => {
+                currentFrame++;
+                if (currentFrame > totalFrames) {
+                    currentFrame = 1;
+                }
+                if (preloaderImg) {
+                    preloaderImg.src = `preloadicon/${currentFrame}.png`;
+                }
+            }, 45);
+
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    clearInterval(animInterval);
+                    const preloader = document.getElementById('preloader');
+                    if (preloader) {
+                        preloader.classList.add('hidden');
+                    }
+                }, 1000);
+            });
+        })();
+    </script>
 
     <!-- HEADER -->
     <header id="mainHeader">
@@ -1392,7 +1426,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ÍNDICE (CARRUSEL CON TEXTO ABAJO) -->
+    <!-- SECCIÓN ÍNDICE (CARRUSEL LIMPIO SIN FONDO GRIS Y CON TEXTO PEGADO ABAJO) -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack"></div>
@@ -1752,7 +1786,7 @@
         </div>
     </section>
 
-    <!-- ==================== SECCIÓN DE FOTOGRAFÍA (MODIFICADA: f1010024 y f1010025 arriba de f1010012 + NUEVO RECUADRO JUNTO A Spiegel) ==================== -->
+    <!-- ==================== SECCIÓN DE FOTOGRAFÍA ==================== -->
     <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
         <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
             <h2 class="photo-section-title">Fotografía</h2>
@@ -1855,7 +1889,6 @@
                     <div class="photo-info-overlay"><div class="photo-title">F1000032</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <!-- f1010024 y f1010025 posicionadas por encima de f1010012 -->
                 <div class="photo-item" onclick="openUniversalModal('F1010024', 'Analógica · 2023', 'imagenes/F1010024.JPG?v=2')">
                     <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010024', 'Analógica · 2023', 'imagenes/F1010024.JPG?v=2')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -1904,7 +1937,6 @@
                     <div class="photo-info-overlay"><div class="photo-title">Spiegel</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
 
-                <!-- Nuevo recuadro agregado a la par de Spiegel -->
                 <div class="photo-item" onclick="openUniversalModal('Estudio Espejo', 'Fine Art Print · 2025', 'imagenes/Spiegel.jpg?v=2')">
                     <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio Espejo', 'Fine Art Print · 2025', 'imagenes/Spiegel.jpg?v=2')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -1962,7 +1994,7 @@
         </div>
     </div>
 
-    <!-- SECCIÓN BIOGRAFÍA (MODIFICADA CON EL TEXTO DEL WORD DE text/) -->
+    <!-- SECCIÓN BIOGRAFÍA -->
     <section class="bio-section" id="bio">
         <div class="bio-grid">
             <div class="bio-image-wrapper" onclick="openUniversalModal('BRUNELIO', 'Artista · Retrato', 'imagenes/foto cesar.JPG')">
@@ -2046,28 +2078,9 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT PRINCIPAL -->
     <script>
-        /* PRELOADER ANIMADO INFINITO CON IMÁGENES 1 a 42 */
-        let preloadInterval;
         window.addEventListener('load', () => {
-            const preloaderImg = document.getElementById('preloaderImg');
-            let currentPreloadFrame = 1;
-            
-            preloadInterval = setInterval(() => {
-                currentPreloadFrame++;
-                if (currentPreloadFrame > 42) {
-                    currentPreloadFrame = 1;
-                }
-                preloaderImg.src = `preloadicon/${currentPreloadFrame}.png`;
-            }, 80); // Velocidad de cambio de fotogramas
-
-            const preloader = document.getElementById('preloader');
-            setTimeout(() => {
-                clearInterval(preloadInterval);
-                preloader.classList.add('hidden');
-            }, 2500); // Se oculta tras la carga completa simulada/real
-
             initInfiniteCarousel();
         });
 

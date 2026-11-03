@@ -49,7 +49,7 @@
             text-decoration: none;
         }
 
-        /* --- PRELOADER ANIMADO ULTRA FLUIDO (1 A 42 CON requestAnimationFrame) --- */
+        /* --- PRELOADER ANIMADO ULTRA FLUIDO (DESDE EL INICIO) --- */
         #preloader {
             position: fixed;
             top: 0;
@@ -216,7 +216,7 @@
             stroke: #ffffff;
         }
 
-        /* --- HERO SECCIÓN CON RÍO ARRIBA Y SIMETRÍA CORREGIDA --- */
+        /* --- HERO SECCIÓN MODIFICADA (SIN RÍO ARRIBA) --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -230,41 +230,9 @@
             margin-top: 80px;
         }
 
-        /* Contenedor corregido para elevar las ilustraciones y asegurar visibilidad de ambos lados */
-        .hero-river-container {
-            position: absolute;
-            top: -80px;
-            left: 0;
-            width: 100%;
-            height: 80vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .hero-bg-river {
-            width: 46vw;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.95;
-            mix-blend-mode: multiply;
-        }
-
-        .hero-bg-river.left {
-            transform: scaleX(1);
-            object-position: right top;
-        }
-
-        .hero-bg-river.right {
-            transform: scaleX(-1);
-            object-position: left top; /* CORREGIDO: Evita que la imagen derecha desaparezca */
-        }
-
         .hero-side-img {
             position: absolute;
-            bottom: 15px;
+            bottom: 0;
             width: 680px; 
             opacity: 0.95;
             pointer-events: none;
@@ -288,7 +256,7 @@
             position: relative;
             z-index: 2;
             max-width: 800px;
-            margin-left: 15px;
+            margin-top: 30px;
         }
 
         .hero-subtitle {
@@ -451,9 +419,10 @@
             pointer-events: auto;
         }
 
+        /* BOTÓN EXPLORE CON FONDO TRANSPARENTE AL PASAR EL MOUSE / TOCAR */
         .btn-card-explore {
             padding: 14px 32px;
-            background: rgba(0, 0, 0, 0.7);
+            background: transparent;
             color: #ffffff;
             border: 2px solid #ffffff;
             font-size: 1.05rem;
@@ -462,15 +431,15 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(2px);
         }
 
-        .btn-card-explore:hover {
-            background: #000000 !important;
+        .btn-card-explore:hover, .btn-card-explore:active {
+            background: transparent !important;
             color: #ffffff !important;
             border-color: #ffffff !important;
             transform: scale(1.08);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
         }
 
         .utopia-footer-title {
@@ -486,6 +455,7 @@
             pointer-events: none;
             background: transparent;
             padding: 0;
+            transition: color 0.8s ease;
         }
 
         /* --- SECCIÓN DE PINTURAS AL ÓLEO --- */
@@ -1153,10 +1123,10 @@
             filter: invert(1);
         }
 
-        /* --- SECCIÓN BIOGRAFÍA --- */
+        /* --- SECCIÓN BIOGRAFÍA CON FONDO BLANCO --- */
         .bio-section {
             padding: 120px 30px;
-            background-color: #f7f7f7;
+            background-color: #ffffff;
             border-top: 1px solid rgba(0, 0, 0, 0.1);
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
@@ -1327,7 +1297,6 @@
             .bio-grid { grid-template-columns: 1fr; gap: 40px; }
             .bio-image-wrapper { max-width: 400px; margin: 0 auto; }
             .hero-side-img { display: none; }
-            .hero-river-container { height: 40vh; }
             .photo-split-grid { grid-template-columns: 1fr; padding: 0 20px; }
             .photo-item.horizontal { grid-column: span 1; height: 50vh; }
             .drawing-grid-3x3 { grid-template-columns: 1fr 1fr; }
@@ -1349,12 +1318,12 @@
 </head>
 <body>
 
-    <!-- PANTALLA DE CARGA / PRELOADER ULTRA FLUIDO -->
+    <!-- PANTALLA DE CARGA / PRELOADER INDEPENDIENTE Y CONSTANTE -->
     <div id="preloader">
         <img id="preloaderImg" src="preloadicon/1.png" alt="Brunelio Atelier Preloader">
     </div>
 
-    <!-- SCRIPT DE ANIMACIÓN DEL PRELOADER ULTRA FLUIDO -->
+    <!-- SCRIPT DE ANIMACIÓN DEL PRELOADER INDEPENDIENTE -->
     <script>
         (function() {
             const preloaderImg = document.getElementById('preloaderImg');
@@ -1368,13 +1337,11 @@
                 preloadedImages.push(img);
             }
 
-            let lastTime = 0;
             const fps = 24;
             const interval = 1000 / fps;
-            let animId;
+            let lastTime = performance.now();
 
-            function animate(currentTime) {
-                animId = requestAnimationFrame(animate);
+            function animatePreloader(currentTime) {
                 const delta = currentTime - lastTime;
                 if (delta > interval) {
                     lastTime = currentTime - (delta % interval);
@@ -1383,18 +1350,18 @@
                         preloaderImg.src = preloadedImages[currentFrame - 1].src;
                     }
                 }
+                requestAnimationFrame(animatePreloader);
             }
 
-            requestAnimationFrame(animate);
+            requestAnimationFrame(animatePreloader);
 
             window.addEventListener('load', () => {
                 setTimeout(() => {
-                    cancelAnimationFrame(animId);
                     const preloader = document.getElementById('preloader');
                     if (preloader) {
                         preloader.classList.add('hidden');
                     }
-                }, 800);
+                }, 600);
             });
         })();
     </script>
@@ -1416,13 +1383,8 @@
         </div>
     </header>
 
-    <!-- HERO / PORTADA CON RÍO ELEVADO Y AMBOS LADOS VISIBLES -->
+    <!-- HERO / PORTADA MODIFICADA (SIN EL MARCO DE RÍO SUPERIOR) -->
     <section class="hero">
-        <div class="hero-river-container">
-            <img src="imagenes/river.png" alt="Textura de río en marco izquierdo" class="hero-bg-river left">
-            <img src="imagenes/river.png" alt="Textura de río en marco derecho" class="hero-bg-river right">
-        </div>
-
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral derecha" class="hero-side-img right" id="sideImgRight">
 
@@ -1436,7 +1398,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ÍNDICE (CARRUSEL ESTILO UTOPIA WORLD) -->
+    <!-- SECCIÓN ÍNDICE (CARRUSEL ESTILO UTOPIA WORLD CON TRANSICIONES DINÁMICAS) -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack"></div>
@@ -2004,7 +1966,7 @@
         </div>
     </div>
 
-    <!-- SECCIÓN BIOGRAFÍA -->
+    <!-- SECCIÓN BIOGRAFÍA (CON FONDO BLANCO RESTAURADO) -->
     <section class="bio-section" id="bio">
         <div class="bio-grid">
             <div class="bio-image-wrapper" onclick="openUniversalModal('BRUNELIO', 'Artista · Retrato', 'imagenes/foto cesar.JPG')">
@@ -2226,11 +2188,11 @@
         }
 
         const categoriesData = [
-            { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', filterCat: 'oleos', ambientBg: '#181515' },
-            { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', filterCat: 'dibujo', ambientBg: '#121619' },
-            { titleEs: 'Retratos', titleEn: 'Portraits', img: 'imagenes/pretratos.png', filterCat: 'retratos', ambientBg: '#151318' },
-            { titleEs: 'Fotografía', titleEn: 'Photography', img: 'imagenes/pphotos.png', filterCat: 'fotografia', ambientBg: '#111816' },
-            { titleEs: 'Cinematografía', titleEn: 'Cinematography', img: 'imagenes/pccine.png', filterCat: 'cinematografia', ambientBg: '#191713' }
+            { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', filterCat: 'oleos', ambientBg: '#ffffff', textColor: '#000000' },
+            { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', filterCat: 'dibujo', ambientBg: '#ffffff', textColor: '#000000' },
+            { titleEs: 'Retratos', titleEn: 'Portraits', img: 'imagenes/pretratos.png', filterCat: 'retratos', ambientBg: '#ffffff', textColor: '#000000' },
+            { titleEs: 'Fotografía', titleEn: 'Photography', img: 'imagenes/pphotos.png', filterCat: 'fotografia', ambientBg: '#ffffff', textColor: '#000000' },
+            { titleEs: 'Cinematografía', titleEn: 'Cinematography', img: 'imagenes/pccine.png', filterCat: 'cinematografia', ambientBg: '#ffffff', textColor: '#000000' }
         ];
 
         let centerIndex = 0;
@@ -2296,6 +2258,9 @@
             });
 
             const activeData = categoriesData[centerIndex];
+            utopiaSection.style.backgroundColor = activeData.ambientBg;
+            footerTitle.style.color = activeData.textColor;
+
             if (currentLang === 'EN') {
                 footerTitle.innerText = activeData.titleEn.toUpperCase();
             } else {

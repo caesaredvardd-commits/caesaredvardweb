@@ -315,7 +315,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN ÍNDICE (CARRUSEL SIN FONDOS GRISES) --- */
+        /* --- SECCIÓN ÍNDICE (CARRUSEL 700px x 800px CON TEXTO SUPERPUESTO/CERCANO) --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -343,7 +343,6 @@
             justify-content: center;
             overflow: hidden;
             user-select: none;
-            background: transparent !important;
         }
 
         .carousel-track {
@@ -353,7 +352,6 @@
             left: 50%;
             will-change: transform;
             transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
-            background: transparent !important;
         }
 
         .carousel-card {
@@ -370,7 +368,7 @@
             box-shadow: none;
             opacity: 0.22;
             transform: scale(0.8);
-            background: transparent !important;
+            background: transparent;
             flex-shrink: 0;
             display: flex;
             align-items: center;
@@ -383,7 +381,6 @@
             transform: scale(1);
             filter: grayscale(0%);
             z-index: 10;
-            background: transparent !important;
         }
 
         .carousel-card.active:hover {
@@ -398,7 +395,7 @@
             pointer-events: none;
             border: none;
             outline: none;
-            background: transparent !important;
+            background-color: transparent;
         }
 
         .card-explore-overlay {
@@ -1399,7 +1396,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ÍNDICE (CARRUSEL SIN FONDOS) -->
+    <!-- SECCIÓN ÍNDICE (CARRUSEL 700px x 800px) -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="utopia-footer-title" id="carouselFooterTitle">PINTURAS AL ÓLEO</div>
         <div class="carousel-container-drag" id="dragContainer">

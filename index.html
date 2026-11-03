@@ -27,9 +27,11 @@
             --font-body: 'EB Garamond 08', 'Georgia', serif;
         }
 
-        /* FORZAR LA TIPOGRAFÍA EN TODO EL SITIO */
+        /* FORZAR LA TIPOGRAFÍA Y ELIMINAR BORDES/FONDOS DE SELECCIÓN GRIS */
         *, html, body, p, span, div, a, button, input, select, textarea, label, h2, h3, h4, h5, h6 {
             font-family: var(--font-body) !important;
+            -webkit-tap-highlight-color: transparent;
+            outline: none;
         }
 
         body {
@@ -39,6 +41,7 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            user-select: none;
         }
 
         a {
@@ -101,13 +104,13 @@
             width: 320px;
         }
 
-        /* LETRA SÚPER PEQUEÑA EN HEADER (0.60rem) Y 1 SOLA LÍNEA */
+        /* TAMAÑO DE LETRA EXACTO DE 0.75rem PARA BIOGRAFÍA Y MI COLECCIÓN */
         header .header-nav-btn {
             font-family: var(--font-titles) !important;
             background: transparent;
             border: none;
             color: var(--text-main);
-            font-size: 0.60rem; 
+            font-size: 0.75rem; 
             letter-spacing: 1.5px;
             text-transform: uppercase;
             cursor: pointer;
@@ -122,7 +125,7 @@
             color: var(--text-main);
             border: 1px solid var(--text-main) !important;
             padding: 4px 12px !important;
-            font-size: 0.60rem !important;
+            font-size: 0.75rem !important;
             display: none;
             letter-spacing: 1.5px;
             text-transform: uppercase;
@@ -312,7 +315,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN ÍNDICE (CARRUSEL 700px x 800px CON TRANSICIÓN LENTA Y SUAVE) --- */
+        /* --- SECCIÓN ÍNDICE (CARRUSEL 700px x 800px CON TEXTO SUPERPUESTO/CERCANO) --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -327,7 +330,6 @@
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
             box-sizing: border-box;
-            padding-bottom: 10px;
         }
 
         .carousel-container-drag {
@@ -335,7 +337,7 @@
             z-index: 2;
             width: 100%;
             max-width: 100%;
-            height: 850px;
+            height: 900px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -349,11 +351,9 @@
             position: absolute;
             left: 50%;
             will-change: transform;
-            /* Transición suave y lenta (1.2 segundos con cubic-bezier refinado) */
             transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* TAMAÑO EXACTO 700px x 800px */
         .carousel-card {
             min-width: 700px;
             max-width: 700px;
@@ -364,7 +364,7 @@
             border: none;
             border-radius: 0;
             overflow: visible;
-            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease, filter 0.5s ease, box-shadow 0.5s ease;
+            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease, filter 0.5s ease;
             box-shadow: none;
             opacity: 0.22;
             transform: scale(0.8);
@@ -383,7 +383,6 @@
             z-index: 10;
         }
 
-        /* REALCE AL PASAR EL MOUSE (SIN ACLARADO EXCESIVO) */
         .carousel-card.active:hover {
             transform: scale(1.02);
             filter: brightness(1.06) contrast(1.02);
@@ -405,7 +404,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.15); /* Oscurecimiento sutil de realce */
+            background: rgba(0, 0, 0, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -437,17 +436,22 @@
             transform: scale(1.05);
         }
 
-        /* TEXTO PEGADO CERCA DE LA IMAGEN */
+        /* TEXTO DEL CARRUSEL SUPERPUESTO JUSTO ARRIBA CON MÁXIMA CERCANÍA VISUAL */
         .utopia-footer-title {
-            position: relative;
-            z-index: 5;
-            margin-top: -30px; 
-            font-size: 1.35rem;
-            letter-spacing: 5px;
+            position: absolute;
+            top: 14vh;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            font-size: 1.4rem;
+            letter-spacing: 6px;
             text-transform: uppercase;
             text-align: center;
             font-weight: 600;
             color: #000000;
+            pointer-events: none;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 4px 16px;
         }
 
         /* --- SECCIÓN DE PINTURAS AL ÓLEO --- */
@@ -999,7 +1003,7 @@
             padding: 60px 0;
         }
 
-        /* --- MODALES UNIVERSALES (CON LUPA EN TODAS LAS SECCIONES) --- */
+        /* --- MODALES UNIVERSALES --- */
         .universal-modal-overlay {
             position: fixed;
             top: 0;
@@ -1394,11 +1398,10 @@
 
     <!-- SECCIÓN ÍNDICE (CARRUSEL 700px x 800px) -->
     <section class="utopia-section" id="utopiaCarousel">
+        <div class="utopia-footer-title" id="carouselFooterTitle">PINTURAS AL ÓLEO</div>
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack"></div>
         </div>
-
-        <div class="utopia-footer-title" id="carouselFooterTitle">PINTURAS AL ÓLEO</div>
     </section>
 
     <!-- ==================== SECCIÓN DE PINTURAS AL ÓLEO ==================== -->
@@ -2238,7 +2241,6 @@
             const cardElement = track.children[10]; 
             if (!cardElement) return;
 
-            // TAMAÑO 700px + 60px MÁRGENES (30px CADA LADO) = 760px
             const cardWidth = 700 + 60; 
             const translateOffset = -10 * cardWidth - (cardWidth / 2); 
 
@@ -2387,7 +2389,6 @@
             }
         }
 
-        /* --- LÓGICA DE MODAL UNIVERSAL CON LUPA PARA TODAS LAS SECCIONES --- */
         const universalModal = document.getElementById('universalModal');
         const uModalImg = document.getElementById('uModalImg');
         const universalModalWrapper = document.getElementById('universalModalWrapper');

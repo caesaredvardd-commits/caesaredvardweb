@@ -216,7 +216,7 @@
             stroke: #ffffff;
         }
 
-        /* --- HERO SECCIÓN CON VIDEO INTEGRADO EN AMBOS LADOS (ARCO BILATERAL) --- */
+        /* --- HERO SECCIÓN CON IMAGEN RIVER.PNG EN ARCO BILATERAL --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -230,13 +230,13 @@
             margin-top: 80px;
         }
 
-        /* Contenedor del video en arco */
-        .hero-video-container {
+        /* Contenedor del marco superior con river.png en ambos lados */
+        .hero-river-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 42vh;
+            height: 48vh;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -244,20 +244,20 @@
             pointer-events: none;
         }
 
-        .hero-bg-video {
+        .hero-bg-river {
             width: 50vw;
             height: 100%;
             object-fit: cover;
-            opacity: 0.9;
+            opacity: 0.95;
             mix-blend-mode: multiply;
         }
 
-        .hero-bg-video.left {
+        .hero-bg-river.left {
             transform: scaleX(1);
             object-position: right top;
         }
 
-        .hero-bg-video.right {
+        .hero-bg-river.right {
             transform: scaleX(-1);
             object-position: right top;
         }
@@ -346,7 +346,7 @@
             box-shadow: none !important;
         }
 
-        /* --- CARRUSEL ESTILO UTOPIA WORLD (SIN RECUADROS NI SOMBRAS) --- */
+        /* --- CARRUSEL ESTILO UTOPIA WORLD --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -430,13 +430,14 @@
             box-shadow: none !important;
         }
 
+        /* OVERLAY SIN FONDO GRIS / TRANSPARENTE EN HOVER */
         .card-explore-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.2);
+            background: transparent !important; /* SE ELIMINÓ EL RECUADRO GRIS EN HOVER */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -451,10 +452,10 @@
             pointer-events: auto;
         }
 
-        /* BOTÓN EXPLORE CON HOVER TRANSPARENTE CONSERVADO */
+        /* BOTÓN EXPLORE */
         .btn-card-explore {
             padding: 14px 32px;
-            background: transparent;
+            background: rgba(0, 0, 0, 0.7);
             color: #ffffff;
             border: 2px solid #ffffff;
             font-size: 1.05rem;
@@ -467,11 +468,11 @@
         }
 
         .btn-card-explore:hover {
-            background: transparent !important;
+            background: #000000 !important;
             color: #ffffff !important;
             border-color: #ffffff !important;
             transform: scale(1.08);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
         }
 
         /* TEXTO ACERCADO ABAJO DE LA IMAGEN */
@@ -1329,7 +1330,7 @@
             .bio-grid { grid-template-columns: 1fr; gap: 40px; }
             .bio-image-wrapper { max-width: 400px; margin: 0 auto; }
             .hero-side-img { display: none; }
-            .hero-video-container { height: 30vh; }
+            .hero-river-container { height: 32vh; }
             .photo-split-grid { grid-template-columns: 1fr; padding: 0 20px; }
             .photo-item.horizontal { grid-column: span 1; height: 50vh; }
             .drawing-grid-3x3 { grid-template-columns: 1fr 1fr; }
@@ -1419,15 +1420,11 @@
         </div>
     </header>
 
-    <!-- HERO / PORTADA (CON RIVER VIDEO EN AMBOS LADOS MÁS PEQUEÑO Y EN ARCO) -->
+    <!-- HERO / PORTADA CON RIVER.PNG INCORPORADO EN AMBOS LADOS (ARCO BILATERAL EXACTO) -->
     <section class="hero">
-        <div class="hero-video-container">
-            <video class="hero-bg-video left" autoplay loop muted playsinline>
-                <source src="imagenes/river video.mp4" type="video/mp4">
-            </video>
-            <video class="hero-bg-video right" autoplay loop muted playsinline>
-                <source src="imagenes/river video.mp4" type="video/mp4">
-            </video>
+        <div class="hero-river-container">
+            <img src="imagenes/river.png" alt="Textura de río en marco izquierdo" class="hero-bg-river left">
+            <img src="imagenes/river.png" alt="Textura de río en marco derecho" class="hero-bg-river right">
         </div>
 
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
@@ -1443,7 +1440,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ÍNDICE (CARRUSEL ESTILO UTOPIA WORLD - SOLO IMAGEN SIN RECUADRO) -->
+    <!-- SECCIÓN ÍNDICE (CARRUSEL ESTILO UTOPIA WORLD - SIN RECUADRO GRIS EN HOVER) -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack"></div>

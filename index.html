@@ -216,7 +216,7 @@
             stroke: #ffffff;
         }
 
-        /* --- HERO SECCIÓN CON IMAGEN RIVER.PNG EN ARCO BILATERAL --- */
+        /* --- HERO SECCIÓN CON ARCO BILATERAL AMPLIADO (REFERENCIA EXACTA) --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -230,13 +230,13 @@
             margin-top: 80px;
         }
 
-        /* Contenedor del marco superior con river.png en ambos lados */
+        /* Contenedor ampliado y más largo para formar el arco superior completo */
         .hero-river-container {
             position: absolute;
-            top: 0;
+            top: -10px;
             left: 0;
             width: 100%;
-            height: 48vh;
+            height: 60vh;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -245,7 +245,7 @@
         }
 
         .hero-bg-river {
-            width: 50vw;
+            width: 62vw;
             height: 100%;
             object-fit: cover;
             opacity: 0.95;
@@ -437,7 +437,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: transparent !important; /* SE ELIMINÓ EL RECUADRO GRIS EN HOVER */
+            background: transparent !important;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1330,7 +1330,7 @@
             .bio-grid { grid-template-columns: 1fr; gap: 40px; }
             .bio-image-wrapper { max-width: 400px; margin: 0 auto; }
             .hero-side-img { display: none; }
-            .hero-river-container { height: 32vh; }
+            .hero-river-container { height: 35vh; }
             .photo-split-grid { grid-template-columns: 1fr; padding: 0 20px; }
             .photo-item.horizontal { grid-column: span 1; height: 50vh; }
             .drawing-grid-3x3 { grid-template-columns: 1fr 1fr; }
@@ -1420,7 +1420,7 @@
         </div>
     </header>
 
-    <!-- HERO / PORTADA CON RIVER.PNG INCORPORADO EN AMBOS LADOS (ARCO BILATERAL EXACTO) -->
+    <!-- HERO / PORTADA CON ARCO BILATERAL AMPLIADO (REFERENCIA EXACTA) -->
     <section class="hero">
         <div class="hero-river-container">
             <img src="imagenes/river.png" alt="Textura de río en marco izquierdo" class="hero-bg-river left">
@@ -1440,7 +1440,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ÍNDICE (CARRUSEL ESTILO UTOPIA WORLD - SIN RECUADRO GRIS EN HOVER) -->
+    <!-- SECCIÓN ÍNDICE (CARRUSEL ESTILO UTOPIA WORLD) -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack"></div>

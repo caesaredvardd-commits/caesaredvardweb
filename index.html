@@ -216,7 +216,7 @@
             stroke: #ffffff;
         }
 
-        /* --- HERO SECCIÓN CON ARCO BILATERAL AMPLIADO Y CORREGIDO --- */
+        /* --- HERO SECCIÓN CON RÍO ARRIBA Y SIMETRÍA CORREGIDA --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -230,22 +230,22 @@
             margin-top: 80px;
         }
 
-        /* Contenedor optimizado para un arco más grande, largo y simétrico */
+        /* Contenedor corregido para elevar las ilustraciones y asegurar visibilidad de ambos lados */
         .hero-river-container {
             position: absolute;
-            top: -25px;
+            top: -80px;
             left: 0;
             width: 100%;
-            height: 76vh;
+            height: 80vh;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: flex-start;
             z-index: 0;
             pointer-events: none;
         }
 
         .hero-bg-river {
-            width: 80vw;
+            width: 46vw;
             height: 100%;
             object-fit: cover;
             opacity: 0.95;
@@ -259,7 +259,7 @@
 
         .hero-bg-river.right {
             transform: scaleX(-1);
-            object-position: left top; /* CORREGIDO: simetría exacta en el lado derecho */
+            object-position: left top; /* CORREGIDO: Evita que la imagen derecha desaparezca */
         }
 
         .hero-side-img {
@@ -430,7 +430,6 @@
             box-shadow: none !important;
         }
 
-        /* OVERLAY SIN FONDO GRIS / TRANSPARENTE EN HOVER */
         .card-explore-overlay {
             position: absolute;
             top: 0;
@@ -452,7 +451,6 @@
             pointer-events: auto;
         }
 
-        /* BOTÓN EXPLORE */
         .btn-card-explore {
             padding: 14px 32px;
             background: rgba(0, 0, 0, 0.7);
@@ -475,7 +473,6 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
         }
 
-        /* TEXTO ACERCADO ABAJO DE LA IMAGEN */
         .utopia-footer-title {
             position: relative;
             margin-top: -55px;
@@ -1156,7 +1153,7 @@
             filter: invert(1);
         }
 
-        /* --- SECCIÓN BIOGRAFÍA (RECONOCIMIENTOS ELIMINADOS) --- */
+        /* --- SECCIÓN BIOGRAFÍA --- */
         .bio-section {
             padding: 120px 30px;
             background-color: #f7f7f7;
@@ -1365,7 +1362,6 @@
             const totalFrames = 42;
             const preloadedImages = [];
 
-            // Pre-cargas en memoria
             for (let i = 1; i <= totalFrames; i++) {
                 const img = new Image();
                 img.src = `preloadicon/${i}.png`;
@@ -1373,7 +1369,7 @@
             }
 
             let lastTime = 0;
-            const fps = 24; // 24 fotogramas por segundo
+            const fps = 24;
             const interval = 1000 / fps;
             let animId;
 
@@ -1420,7 +1416,7 @@
         </div>
     </header>
 
-    <!-- HERO / PORTADA CON ARCO BILATERAL AMPLIADO Y SIMETRÍA CORREGIDA -->
+    <!-- HERO / PORTADA CON RÍO ELEVADO Y AMBOS LADOS VISIBLES -->
     <section class="hero">
         <div class="hero-river-container">
             <img src="imagenes/river.png" alt="Textura de río en marco izquierdo" class="hero-bg-river left">
@@ -2008,7 +2004,7 @@
         </div>
     </div>
 
-    <!-- SECCIÓN BIOGRAFÍA (SIN RECONOCIMIENTOS) -->
+    <!-- SECCIÓN BIOGRAFÍA -->
     <section class="bio-section" id="bio">
         <div class="bio-grid">
             <div class="bio-image-wrapper" onclick="openUniversalModal('BRUNELIO', 'Artista · Retrato', 'imagenes/foto cesar.JPG')">
@@ -2229,7 +2225,6 @@
             });
         }
 
-        /* --- CARRUSEL ESTILO UTOPIA WORLD CON AMBIENTE DINÁMICO --- */
         const categoriesData = [
             { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', filterCat: 'oleos', ambientBg: '#181515' },
             { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', filterCat: 'dibujo', ambientBg: '#121619' },

@@ -49,7 +49,7 @@
             text-decoration: none;
         }
 
-        /* --- PRELOADER (PANTALLA DE CARGA) --- */
+        /* --- PRELOADER (PANTALLA DE CARGA CON SECUENCIA INFINITA 1-42) --- */
         #preloader {
             position: fixed;
             top: 0;
@@ -100,8 +100,8 @@
         .header-left-slot {
             display: flex;
             align-items: center;
-            gap: 20px;
-            width: 320px;
+            gap: 35px; /* Distancia modificada entre biografía y mi colección */
+            width: 380px;
         }
 
         /* TAMAÑO DE LETRA EXACTO DE 0.75rem PARA BIOGRAFÍA Y MI COLECCIÓN */
@@ -315,7 +315,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN ÍNDICE (CARRUSEL 700px x 800px CON TEXTO SUPERPUESTO/CERCANO) --- */
+        /* --- SECCIÓN ÍNDICE (CARRUSEL MODIFICADO SIN GRIS AL PASAR EL MOUSE Y TEXTO ABAJO CERCANO) --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -337,7 +337,7 @@
             z-index: 2;
             width: 100%;
             max-width: 100%;
-            height: 900px;
+            height: 800px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -357,35 +357,33 @@
         .carousel-card {
             min-width: 700px;
             max-width: 700px;
-            height: 800px;
+            height: 700px;
             margin: 0 30px;
             position: relative;
             cursor: pointer;
             border: none;
             border-radius: 0;
             overflow: visible;
-            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease, filter 0.5s ease;
+            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease;
             box-shadow: none;
-            opacity: 0.22;
+            opacity: 0.3;
             transform: scale(0.8);
             background: transparent;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: grayscale(40%);
         }
 
         .carousel-card.active {
             opacity: 1;
             transform: scale(1);
-            filter: grayscale(0%);
             z-index: 10;
         }
 
+        /* EFECTO NORMAL AL PASAR EL MOUSE (SIN CAMBIO A GRIS) */
         .carousel-card.active:hover {
             transform: scale(1.02);
-            filter: brightness(1.06) contrast(1.02);
         }
 
         .carousel-card img {
@@ -436,12 +434,10 @@
             transform: scale(1.05);
         }
 
-        /* TEXTO DEL CARRUSEL SUPERPUESTO JUSTO ARRIBA CON MÁXIMA CERCANÍA VISUAL */
+        /* TEXTO DEL CARRUSEL ABAJO DE LA IMAGEN Y CERCANO */
         .utopia-footer-title {
-            position: absolute;
-            top: 14vh;
-            left: 50%;
-            transform: translateX(-50%);
+            position: relative;
+            margin-top: 20px;
             z-index: 20;
             font-size: 1.4rem;
             letter-spacing: 6px;
@@ -1359,9 +1355,9 @@
 </head>
 <body>
 
-    <!-- PANTALLA DE CARGA / PRELOADER -->
+    <!-- PANTALLA DE CARGA / PRELOADER CON SECUENCIA INFINITA (1 al 42) -->
     <div id="preloader">
-        <img src="imagenes/foto para pagina principal.png" alt="Brunelio Atelier">
+        <img id="preloaderImg" src="preloadicon/1.png" alt="Brunelio Atelier">
     </div>
 
     <!-- HEADER -->
@@ -1396,12 +1392,12 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ÍNDICE (CARRUSEL 700px x 800px) -->
+    <!-- SECCIÓN ÍNDICE (CARRUSEL CON TEXTO ABAJO) -->
     <section class="utopia-section" id="utopiaCarousel">
-        <div class="utopia-footer-title" id="carouselFooterTitle">PINTURAS AL ÓLEO</div>
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack"></div>
         </div>
+        <div class="utopia-footer-title" id="carouselFooterTitle">PINTURAS AL ÓLEO</div>
     </section>
 
     <!-- ==================== SECCIÓN DE PINTURAS AL ÓLEO ==================== -->
@@ -1756,7 +1752,7 @@
         </div>
     </section>
 
-    <!-- ==================== SECCIÓN DE FOTOGRAFÍA ==================== -->
+    <!-- ==================== SECCIÓN DE FOTOGRAFÍA (MODIFICADA: f1010024 y f1010025 arriba de f1010012 + NUEVO RECUADRO JUNTO A Spiegel) ==================== -->
     <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
         <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
             <h2 class="photo-section-title">Fotografía</h2>
@@ -1859,14 +1855,7 @@
                     <div class="photo-info-overlay"><div class="photo-title">F1000032</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <div class="photo-item horizontal" onclick="openUniversalModal('F1010012', 'Analógica · 2023', 'imagenes/F1010012.JPG?v=2')">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010012', 'Analógica · 2023', 'imagenes/F1010012.JPG?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
-                    <img src="imagenes/F1010012.JPG?v=2" alt="F1010012">
-                    <div class="photo-info-overlay"><div class="photo-title">F1010012</div><div class="photo-meta">Analógica · 2023</div></div>
-                </div>
-
+                <!-- f1010024 y f1010025 posicionadas por encima de f1010012 -->
                 <div class="photo-item" onclick="openUniversalModal('F1010024', 'Analógica · 2023', 'imagenes/F1010024.JPG?v=2')">
                     <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010024', 'Analógica · 2023', 'imagenes/F1010024.JPG?v=2')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -1881,6 +1870,14 @@
                     </div>
                     <img src="imagenes/F1010025.JPG?v=2" alt="F1010025">
                     <div class="photo-info-overlay"><div class="photo-title">F1010025</div><div class="photo-meta">Analógica · 2023</div></div>
+                </div>
+
+                <div class="photo-item horizontal" onclick="openUniversalModal('F1010012', 'Analógica · 2023', 'imagenes/F1010012.JPG?v=2')">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010012', 'Analógica · 2023', 'imagenes/F1010012.JPG?v=2')">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <img src="imagenes/F1010012.JPG?v=2" alt="F1010012">
+                    <div class="photo-info-overlay"><div class="photo-title">F1010012</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
 
                 <div class="photo-item" onclick="openUniversalModal('El salto', 'Fine Art Print · 2025', 'imagenes/El salto.jpg?v=2')">
@@ -1905,6 +1902,15 @@
                     </div>
                     <img src="imagenes/Spiegel.jpg?v=2" alt="Spiegel">
                     <div class="photo-info-overlay"><div class="photo-title">Spiegel</div><div class="photo-meta">Fine Art Print · 2025</div></div>
+                </div>
+
+                <!-- Nuevo recuadro agregado a la par de Spiegel -->
+                <div class="photo-item" onclick="openUniversalModal('Estudio Espejo', 'Fine Art Print · 2025', 'imagenes/Spiegel.jpg?v=2')">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio Espejo', 'Fine Art Print · 2025', 'imagenes/Spiegel.jpg?v=2')">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <img src="imagenes/Spiegel.jpg?v=2" alt="Estudio Espejo">
+                    <div class="photo-info-overlay"><div class="photo-title">Estudio Espejo</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
 
             </div>
@@ -1956,7 +1962,7 @@
         </div>
     </div>
 
-    <!-- SECCIÓN BIOGRAFÍA -->
+    <!-- SECCIÓN BIOGRAFÍA (MODIFICADA CON EL TEXTO DEL WORD DE text/) -->
     <section class="bio-section" id="bio">
         <div class="bio-grid">
             <div class="bio-image-wrapper" onclick="openUniversalModal('BRUNELIO', 'Artista · Retrato', 'imagenes/foto cesar.JPG')">
@@ -1967,14 +1973,14 @@
                 <h2 class="bio-artist-name">Brunelio</h2>
                 
                 <div class="bio-paragraphs" id="bioParagraphs">
-                    <p>
-                        Iniciando su camino dentro del arte figurativo tradicional, <span class="highlight">BRUNELIO</span> ha consolidado una propuesta visual marcada por el estudio riguroso de la figura humana, la anatomía y el drama del claroscuro. Su producción abarca desde técnicas clásicas de óleo sobre lienzo hasta el uso meticuloso de la tinta y el grabado sobre papel artesanal.
+                    <p style="font-style: normal; font-size: 1.1rem; margin-bottom: 5px;">
+                        <em>«El acto de pintar se trata de un corazón contándole a otro corazón dónde halló su salvación».</em> Francisco de Goya y Lucientes.
                     </p>
                     <p>
-                        A lo largo de su trayectoria, su visión estética ha explorado simbolismos alegóricos, retratos psicológicos y composiciones de alta precisión, posicionándose como una de las voces emergentes más distintivas del realismo figurativo contemporáneo.
+                        Soy un artista emergente interesado en explorar posibilidades pictóricas a través del retrato, la religión, el erotismo y el estudio histórico de la iconografía occidental. Nací en la Ciudad de Guatemala en 1996 y desde los seis años recibí una formación artística en dibujo y pintura. A los diez años asistí a clases en otra academia artística, situada en la zona 1 capitalina. Durante mi adolescencia, tuve la oportunidad de exponer fotografías digitales en concursos estudiantiles, entre los cuales obtuve el primer lugar en varias ocasiones.
                     </p>
                     <p>
-                        Su obra forma parte de colecciones privadas internacionalmente y sus publicaciones de catálogo continúan inspirando a entusiastas del arte figurativo y la estética clásica alrededor del mundo.
+                        Tuve una formación universitaria especializada en artes visuales y cinematografía, lo cual me permitió explorar diversos medios de analógicos y digitales. Una formación que me ha permitido experimentar con diferentes lenguajes visuales, sonoros y narrativos. Igualmente, me he dedicado a la escritura de guiones y a la literatura. Por más de seis años, me dediqué al negocio de los libros, interés que me llevó a laborar en una de las librerías más prestigiosas del país. Desde entonces, he experimentado con diversas técnicas, métodos y discursos visuales para hallar una voz en el mundo del arte.
                     </p>
                 </div>
 
@@ -2042,11 +2048,26 @@
 
     <!-- JAVASCRIPT -->
     <script>
+        /* PRELOADER ANIMADO INFINITO CON IMÁGENES 1 a 42 */
+        let preloadInterval;
         window.addEventListener('load', () => {
+            const preloaderImg = document.getElementById('preloaderImg');
+            let currentPreloadFrame = 1;
+            
+            preloadInterval = setInterval(() => {
+                currentPreloadFrame++;
+                if (currentPreloadFrame > 42) {
+                    currentPreloadFrame = 1;
+                }
+                preloaderImg.src = `preloadicon/${currentPreloadFrame}.png`;
+            }, 80); // Velocidad de cambio de fotogramas
+
             const preloader = document.getElementById('preloader');
             setTimeout(() => {
+                clearInterval(preloadInterval);
                 preloader.classList.add('hidden');
-            }, 600);
+            }, 2500); // Se oculta tras la carga completa simulada/real
+
             initInfiniteCarousel();
         });
 
@@ -2189,7 +2210,7 @@
             });
         }
 
-        /* --- CARRUSEL 700px x 800px CON pccine.png --- */
+        /* --- CARRUSEL --- */
         const categoriesData = [
             { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', filterCat: 'oleos' },
             { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', filterCat: 'dibujo' },

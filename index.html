@@ -32,10 +32,6 @@
             font-family: var(--font-body) !important;
         }
 
-        h1, h2, h3, .hero-title, .oil-editorial-title, .portraits-section-title, .photo-section-title, .cinema-title, .collection-title, .bio-artist-name {
-            font-family: var(--font-titles) !important;
-        }
-
         body {
             background-color: var(--bg-main);
             color: var(--text-main);
@@ -101,34 +97,40 @@
         .header-left-slot {
             display: flex;
             align-items: center;
-            gap: 24px;
-            width: 280px;
+            gap: 28px;
+            width: 320px;
         }
 
-        header button, 
-        header .header-nav-link, 
-        header .header-back-btn {
+        /* TIPOGRAFÍA DOMINICAN SMALL CAPS APLICADA A BIOGRAFÍA Y MI COLECCIÓN */
+        header .header-nav-btn {
             font-family: var(--font-titles) !important;
             background: transparent;
             border: none;
             color: var(--text-main);
-            font-size: 1.05rem;
+            font-size: 1.25rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
             padding: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
-        .header-nav-link:hover {
-            opacity: 0.6;
-        }
-
-        .header-back-btn {
+        header .header-back-btn {
+            font-family: 'EB Garamond 08', 'Georgia', serif !important;
+            background: transparent;
+            color: var(--text-main);
             border: 1px solid var(--text-main) !important;
             padding: 6px 16px !important;
             font-size: 0.85rem !important;
             display: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .header-nav-btn:hover {
+            opacity: 0.6;
         }
 
         .header-back-btn:hover {
@@ -155,7 +157,7 @@
         }
 
         .lang-select {
-            width: 280px;
+            width: 250px;
             text-align: right;
             font-size: 1.1rem;
             letter-spacing: 2px;
@@ -256,11 +258,13 @@
             margin-left: 15px;
         }
 
+        /* SUBTÍTULO ACERCADO MÁS AL TÍTULO CENTRAL BRUNELIO */
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-style: normal;
+            font-size: 1.15rem;
             color: var(--text-main);
-            margin-bottom: 18px; /* Bajado un poco más para separarlo del título de Brunelio */
-            letter-spacing: 3px;
+            margin-bottom: 2px; /* Reducido para acoplarlo visualmente */
+            letter-spacing: 4px;
             text-transform: uppercase;
         }
 
@@ -270,6 +274,7 @@
         }
 
         .hero-title {
+            font-family: var(--font-titles) !important;
             font-size: 5.2rem;
             font-weight: normal;
             letter-spacing: 4px;
@@ -277,9 +282,11 @@
             display: inline-block;
             border-bottom: 2px solid var(--text-main);
             padding-bottom: 0px;
+            margin: 0;
         }
 
         .hero-desc {
+            font-style: normal;
             font-size: 1.2rem;
             color: var(--text-main);
             letter-spacing: 3px;
@@ -307,7 +314,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN ÍNDICE (CARRUSEL INFINITO CON TAMAÑO 630px x 830px) --- */
+        /* --- SECCIÓN ÍNDICE (CARRUSEL INFINITO DE 603px x 830px CON TRANSICIÓN SUAVE PRO) --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -322,7 +329,7 @@
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
             box-sizing: border-box;
-            padding-bottom: 20px;
+            padding-bottom: 40px;
         }
 
         .carousel-container-drag {
@@ -330,7 +337,7 @@
             z-index: 2;
             width: 100%;
             max-width: 100%;
-            height: 900px;
+            height: 920px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -344,34 +351,38 @@
             position: absolute;
             left: 50%;
             will-change: transform;
-            /* Transición más smooth y suave al cambiar de sección */
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            /* Transición fluida estilo bezier cinematográfico */
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        /* TARJETAS CON TAMAÑO EXACTO: 603px x 830px */
         .carousel-card {
-            min-width: 630px;
-            max-width: 630px;
+            min-width: 603px;
+            max-width: 603px;
             height: 830px;
-            margin: 0 25px;
+            margin: 0 30px;
             position: relative;
             cursor: pointer;
             border: none;
             border-radius: 0;
             overflow: visible;
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+            /* Transición suave de escala, opacidad y filtro */
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.7s ease;
             box-shadow: none;
-            opacity: 0.3;
-            transform: scale(0.8);
+            opacity: 0.25;
+            transform: scale(0.82);
             background: transparent;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
+            filter: grayscale(30%);
         }
 
         .carousel-card.active {
             opacity: 1;
             transform: scale(1);
+            filter: grayscale(0%);
             z-index: 10;
         }
 
@@ -396,7 +407,7 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
         }
 
         .carousel-card.active:hover .card-explore-overlay {
@@ -426,15 +437,15 @@
         .utopia-footer-title {
             position: relative;
             z-index: 2;
-            margin-top: -20px; /* Subido más cerca de las portadas del índice */
-            font-size: 1.4rem;
-            letter-spacing: 4px;
+            margin-top: 15px;
+            font-size: 1.45rem;
+            letter-spacing: 5px;
             text-transform: uppercase;
             text-align: center;
             font-weight: 600;
             color: #000000;
+            transition: opacity 0.4s ease;
         }
-
 
         /* --- SECCIÓN DE PINTURAS AL ÓLEO --- */
         .oil-section-wrapper {
@@ -465,6 +476,7 @@
         }
 
         .oil-section-title {
+            font-family: var(--font-titles) !important;
             font-size: 2.8rem;
             letter-spacing: 4px;
             text-transform: uppercase;
@@ -565,7 +577,6 @@
             color: #666;
         }
 
-
         /* --- SECCIÓN DE DIBUJO --- */
         .drawing-section-wrapper {
             position: relative;
@@ -652,7 +663,6 @@
             filter: brightness(1.05);
         }
 
-
         /* ==================== SECCIÓN DE RETRATOS ==================== */
         .portraits-section-wrapper {
             position: relative;
@@ -666,6 +676,7 @@
         }
 
         .portraits-section-title {
+            font-family: var(--font-titles) !important;
             font-size: 2.8rem;
             text-align: center;
             letter-spacing: 6px;
@@ -890,7 +901,6 @@
             }
         }
 
-
         /* --- SECCIÓN DE FOTOGRAFÍA --- */
         .photo-section-wrapper {
             position: relative;
@@ -904,6 +914,7 @@
         }
 
         .photo-section-title {
+            font-family: var(--font-titles) !important;
             font-size: 2.5rem;
             text-align: center;
             letter-spacing: 5px;
@@ -989,7 +1000,6 @@
             letter-spacing: 1px;
         }
 
-
         /* --- SECCIÓN CINEMATOGRAFÍA --- */
         .cinema-section-wrapper {
             position: relative;
@@ -1004,6 +1014,7 @@
         }
 
         .cinema-title {
+            font-family: var(--font-titles) !important;
             font-size: 2.8rem;
             text-align: center;
             letter-spacing: 6px;
@@ -1069,7 +1080,6 @@
             margin-top: 4px;
         }
 
-
         /* ==================== SECCIÓN MI COLECCIÓN ==================== */
         .collection-section-wrapper {
             position: relative;
@@ -1117,7 +1127,6 @@
             color: #888;
             padding: 60px 0;
         }
-
 
         /* --- VISTA MODAL FOTOGRAFÍA --- */
         .photo-modal-overlay {
@@ -1550,7 +1559,7 @@
             .hero-title { font-size: 3.2rem; letter-spacing: 2px; }
             .modal-content { grid-template-columns: 1fr; }
             .modal-img-container img { max-height: 40vh; }
-            .carousel-card { min-width: 300px; max-width: 300px; height: 400px; }
+            .carousel-card { min-width: 320px; max-width: 320px; height: 440px; }
             .btn-submit { width: 100%; }
             .drawing-grid-3x3 { grid-template-columns: 1fr; }
             .collection-grid { grid-template-columns: 1fr; }
@@ -1565,12 +1574,12 @@
         <img src="imagenes/foto para pagina principal.png" alt="Brunelio Atelier">
     </div>
 
-    <!-- HEADER CON TIPOGRAFÍA DE TÍTULOS EN BOTONES -->
+    <!-- HEADER CON FUENTE DOMINICAN EN BIOGRAFÍA Y MI COLECCIÓN -->
     <header id="mainHeader">
         <div class="header-left-slot">
             <button class="header-back-btn" id="headerBackBtn" onclick="goBackToMain()">← Back</button>
-            <button class="header-nav-link" id="navBioBtn" onclick="scrollToBio()">Biografía</button>
-            <button class="header-nav-link" id="navCollectionBtn" onclick="filterGallery('coleccion')">Mi Colección</button>
+            <button class="header-nav-btn" id="navBioBtn" onclick="scrollToBio()">Biografía</button>
+            <button class="header-nav-btn" id="navCollectionBtn" onclick="filterGallery('coleccion')">Mi Colección</button>
         </div>
         
         <div class="header-logo-container">
@@ -1582,7 +1591,7 @@
         </div>
     </header>
 
-    <!-- HERO / PORTADA ORIGINAL -->
+    <!-- HERO / PORTADA -->
     <section class="hero">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral derecha" class="hero-side-img right" id="sideImgRight">
@@ -1597,7 +1606,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ÍNDICE (CARRUSEL 630px x 830px CON TRANSICIÓN SUAVE) -->
+    <!-- SECCIÓN ÍNDICE (CARRUSEL DE 603px x 830px CON TRANSICIÓN SUAVE PRO) -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack">
@@ -1607,7 +1616,6 @@
 
         <div class="utopia-footer-title" id="carouselFooterTitle">PINTURAS AL ÓLEO</div>
     </section>
-
 
     <!-- ==================== SECCIÓN DE PINTURAS AL ÓLEO ==================== -->
     <section id="galleryOil" style="display:none;" class="oil-section-wrapper">
@@ -1759,7 +1767,6 @@
         </div>
     </section>
 
-
     <!-- ==================== SECCIÓN DE DIBUJO ==================== -->
     <section id="galleryDrawing" style="display:none;" class="drawing-section-wrapper">
         <div class="drawing-hero-banner">
@@ -1869,7 +1876,6 @@
         </div>
     </section>
 
-
     <!-- ==================== SECCIÓN DE RETRATOS ==================== -->
     <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper">
         <h2 class="portraits-section-title">Retratos</h2>
@@ -1977,7 +1983,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- ==================== SECCIÓN DE FOTOGRAFÍA ==================== -->
     <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
@@ -2142,18 +2147,17 @@
         </div>
     </section>
 
-
-    <!-- ==================== SECCIÓN DE CINEMATOGRAFÍA (CORRECTA) ==================== -->
+    <!-- ==================== SECCIÓN DE CINEMATOGRAFÍA ==================== -->
     <section id="galleryCinema" style="display:none;" class="cinema-section-wrapper">
         <h2 class="cinema-title">Cinematografía</h2>
         <div class="cinema-grid">
             
-            <div class="cinema-card" onclick="openModal('Estudio en Movimiento I', 'Fotograma 35mm', '1920x1080', 'imagenes/pccine.png', 'Secuencia cinematográfica de ensayo figurativo.')">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio en Movimiento I', 'Fotograma 35mm · 2026', 'imagenes/pccine.png')">
+            <div class="cinema-card" onclick="openModal('Estudio en Movimiento I', 'Fotograma 35mm', '1920x1080', 'imagenes/cinei.png', 'Secuencia cinematográfica de ensayo figurativo.')">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio en Movimiento I', 'Fotograma 35mm · 2026', 'imagenes/cinei.png')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="cinema-img-wrapper">
-                    <img src="imagenes/pccine.png" alt="Estudio en Movimiento I">
+                    <img src="imagenes/cinei.png" alt="Estudio en Movimiento I">
                 </div>
                 <div class="cinema-info">
                     <div class="cinema-card-title">Estudio en Movimiento I</div>
@@ -2163,7 +2167,6 @@
 
         </div>
     </section>
-
 
     <!-- ==================== SECCIÓN MI COLECCIÓN ==================== -->
     <section id="galleryCollection" style="display:none;" class="collection-section-wrapper">
@@ -2199,7 +2202,7 @@
                 <a id="mInquire" href="mailto:cezzarostudio@gmail.com" class="btn-inquire">Solicitar Adquisición vía Email</a>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- SECCIÓN BIOGRAFÍA -->
     <section class="bio-section" id="bio">
@@ -2434,12 +2437,12 @@
             });
         }
 
-        /* --- LÓGICA DE CARRUSEL INFINITO CON PORTADA DE CINEMATOGRAFÍA CORRECTA --- */
+        /* --- LÓGICA DE CARRUSEL INFINITO CON TRANSICIÓN PRO Y RUTA CORREGIDA (pccine.png) --- */
         const categoriesData = [
-            { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/pinturai.png', filterCat: 'oleos' },
-            { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/dibujoi.png', filterCat: 'dibujo' },
-            { titleEs: 'Retratos', titleEn: 'Portraits', img: 'imagenes/retratoi.png', filterCat: 'retratos' },
-            { titleEs: 'Fotografía', titleEn: 'Photography', img: 'imagenes/fotografiai.png', filterCat: 'fotografia' },
+            { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', filterCat: 'oleos' },
+            { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', filterCat: 'dibujo' },
+            { titleEs: 'Retratos', titleEn: 'Portraits', img: 'imagenes/pretratos.png', filterCat: 'retratos' },
+            { titleEs: 'Fotografía', titleEn: 'Photography', img: 'imagenes/pphotos.png', filterCat: 'fotografia' },
             { titleEs: 'Cinematografía', titleEn: 'Cinematography', img: 'imagenes/pccine.png', filterCat: 'cinematografia' }
         ];
 
@@ -2486,13 +2489,14 @@
             const cardElement = track.children[10]; 
             if (!cardElement) return;
 
-            const cardWidth = cardElement.offsetWidth + 50; /* Ancho (630px) + márgenes */
+            // ANCHO 603px + 60px DE MÁRGENES (30px A CADA LADO) = 663px POR TARJETA
+            const cardWidth = 603 + 60; 
             const translateOffset = -10 * cardWidth - (cardWidth / 2); 
 
             if (!smooth) {
                 track.style.transition = 'none';
             } else {
-                track.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+                track.style.transition = 'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
             }
 
             track.style.transform = `translateX(${translateOffset}px)`;

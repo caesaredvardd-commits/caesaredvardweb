@@ -76,7 +76,7 @@
             visibility: hidden;
         }
 
-        /* HEADER ESTRUCTURA ORIGINAL Y FIRMA CENTRADA */
+        /* HEADER */
         header {
             position: fixed;
             top: 0;
@@ -101,8 +101,9 @@
         .header-left-slot {
             display: flex;
             align-items: center;
-            gap: 24px;
-            width: 280px;
+            gap: 20px;
+            width: 340px;
+            white-space: nowrap;
         }
 
         header button, 
@@ -112,8 +113,8 @@
             background: transparent;
             border: none;
             color: var(--text-main);
-            font-size: 1.05rem;
-            letter-spacing: 2px;
+            font-size: 0.85rem !important; /* Letra más pequeña como pediste */
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             cursor: pointer;
             padding: 0;
@@ -126,8 +127,8 @@
 
         .header-back-btn {
             border: 1px solid var(--text-main) !important;
-            padding: 6px 16px !important;
-            font-size: 0.85rem !important;
+            padding: 5px 12px !important;
+            font-size: 0.8rem !important;
             display: none;
         }
 
@@ -154,7 +155,7 @@
         }
 
         .lang-select {
-            width: 280px;
+            width: 340px;
             text-align: right;
             font-size: 1.1rem;
             letter-spacing: 2px;
@@ -1566,7 +1567,7 @@
         </div>
     </header>
 
-    <!-- HERO / PORTADA -->
+    <!-- HERO / PORTADA CON FIGURAS LATERALES ANIMADAS -->
     <section class="hero">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral derecha" class="hero-side-img right" id="sideImgRight">
@@ -1581,7 +1582,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CARRUSEL INFINITO (630px x 830px) -->
+    <!-- SECCIÓN CARRUSEL INFINITO DE 5 CATEGORÍAS (630px x 830px) -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack">
@@ -1754,7 +1755,7 @@
     </section>
 
 
-    <!-- SECCIÓN CINEMATOGRAFÍA (CORREGIDA CON pccine.png) -->
+    <!-- SECCIÓN CINEMATOGRAFÍA -->
     <section id="galleryCinema" style="display:none;" class="cinema-section-wrapper">
         <h2 class="cinema-title">Cinematografía</h2>
         <div class="cinema-grid">
@@ -1911,6 +1912,33 @@
             utopiaSection.scrollIntoView({ behavior: 'smooth' });
         }
 
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop <= 50) {
+                mainHeader.classList.remove('header-hidden');
+            } else if (scrollTop > lastScrollTop) {
+                mainHeader.classList.add('header-hidden');
+            } else {
+                mainHeader.classList.remove('header-hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
+        /* --- ANIMACIÓN DE LAS FIGURAS LATERALES DEL HERO --- */
+        const sideImgLeft = document.getElementById('sideImgLeft');
+        const sideImgRight = document.getElementById('sideImgRight');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            if (scrollY <= window.innerHeight) {
+                const scaleValue = 1 + scrollY * 0.0015;
+                const translateYValue = -scrollY * 0.35;
+                if(sideImgLeft) sideImgLeft.style.transform = `scaleX(1) scale(${scaleValue}) translateY(${translateYValue}px)`;
+                if(sideImgRight) sideImgRight.style.transform = `scaleX(-1) scale(${scaleValue}) translateY(${translateYValue}px)`;
+            }
+        });
+
         let savedItems = [];
         function toggleSaveItem(e, title, meta, imgSrc) {
             e.stopPropagation();
@@ -1948,7 +1976,7 @@
             });
         }
 
-        /* --- CARRUSEL INFINITO CON TAMAÑO 630px x 830px --- */
+        /* --- CARRUSEL INFINITO CON LAS 5 CATEGORÍAS (630px x 830px) --- */
         const categoriesData = [
             { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/pinturai.png', filterCat: 'oleos' },
             { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/dibujoi.png', filterCat: 'dibujo' },
@@ -2052,6 +2080,18 @@
             currentLang = currentLang === 'ES' ? 'EN' : 'ES';
             document.getElementById('langEs').classList.toggle('active', currentLang === 'ES');
             document.getElementById('langEn').classList.toggle('active', currentLang === 'EN');
+            
+            if (currentLang === 'EN') {
+                document.getElementById('navBioBtn').innerText = 'Biography';
+                document.getElementById('navCollectionBtn').innerText = 'My Collection';
+                document.getElementById('heroDescText').innerText = 'Oil · Ink · Traditional Figurative Art';
+                document.getElementById('heroBtnText').innerText = 'Explore Gallery';
+            } else {
+                document.getElementById('navBioBtn').innerText = 'Biografía';
+                document.getElementById('navCollectionBtn').innerText = 'Mi Colección';
+                document.getElementById('heroDescText').innerText = 'Óleo · Tinta · Arte Figurativo Tradicional';
+                document.getElementById('heroBtnText').innerText = 'Explorar Galería';
+            }
             updateInfinitePosition(false);
         }
 

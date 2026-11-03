@@ -72,7 +72,7 @@
             visibility: hidden;
         }
 
-        /* HEADER ESTRUCTURA ORIGINAL Y FIRMA CENTRADA */
+        /* HEADER ESTRUCTURA Y FIRMA CENTRADA */
         header {
             position: fixed;
             top: 0;
@@ -97,22 +97,23 @@
         .header-left-slot {
             display: flex;
             align-items: center;
-            gap: 28px;
+            gap: 25px;
             width: 320px;
         }
 
-        /* TIPOGRAFÍA DOMINICAN SMALL CAPS APLICADA A BIOGRAFÍA Y MI COLECCIÓN */
+        /* FUENTE PEQUEÑA EN 1 SOLA LÍNEA PARA MI COLECCIÓN Y BIOGRAFÍA */
         header .header-nav-btn {
             font-family: var(--font-titles) !important;
             background: transparent;
             border: none;
             color: var(--text-main);
-            font-size: 1.25rem;
+            font-size: 0.95rem; /* Tamaño reducido según petición */
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
             padding: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            white-space: nowrap; /* Fuerza estar en una sola línea */
+            transition: opacity 0.3s ease;
         }
 
         header .header-back-btn {
@@ -138,7 +139,6 @@
             color: #ffffff !important;
         }
 
-        /* LOGO FIRMA CENTRADO EXACTO EN HEADER */
         .header-logo-container {
             position: absolute;
             left: 50%;
@@ -177,7 +177,6 @@
             text-decoration: underline;
         }
 
-        /* --- BOTÓN DE GUARDADO FLOTANTE SUTIL (PIN) --- */
         .bookmark-btn {
             position: absolute;
             top: 15px;
@@ -215,7 +214,7 @@
             stroke: #ffffff;
         }
 
-        /* --- HERO SECCIÓN --- */
+        /* --- HERO SECCIÓN CON FIGURAS SEPARADAS --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -241,13 +240,14 @@
             mix-blend-mode: multiply;
         }
 
+        /* SEPARACIÓN LIGERA DE FIGURAS LATERALES */
         .hero-side-img.left {
-            left: -2%;
+            left: -4.5%; /* Separado un poco más para no tocar el texto */
             transform: scaleX(1);
         }
 
         .hero-side-img.right {
-            right: -2%;
+            right: -4.5%; /* Separado un poco más para no tocar el texto */
             transform: scaleX(-1);
         }
 
@@ -258,12 +258,11 @@
             margin-left: 15px;
         }
 
-        /* SUBTÍTULO ACERCADO MÁS AL TÍTULO CENTRAL BRUNELIO */
         .hero-subtitle {
             font-style: normal;
             font-size: 1.15rem;
             color: var(--text-main);
-            margin-bottom: 2px; /* Reducido para acoplarlo visualmente */
+            margin-bottom: 2px;
             letter-spacing: 4px;
             text-transform: uppercase;
         }
@@ -314,7 +313,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN ÍNDICE (CARRUSEL INFINITO DE 603px x 830px CON TRANSICIÓN SUAVE PRO) --- */
+        /* --- SECCIÓN ÍNDICE (CARRUSEL 660px x 860px CON TRANSICIÓN PRO Y REALCE) --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -329,7 +328,7 @@
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
             box-sizing: border-box;
-            padding-bottom: 40px;
+            padding-bottom: 10px;
         }
 
         .carousel-container-drag {
@@ -337,7 +336,7 @@
             z-index: 2;
             width: 100%;
             max-width: 100%;
-            height: 920px;
+            height: 870px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -351,32 +350,30 @@
             position: absolute;
             left: 50%;
             will-change: transform;
-            /* Transición fluida estilo bezier cinematográfico */
-            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* TARJETAS CON TAMAÑO EXACTO: 603px x 830px */
+        /* TARJETAS CON TAMAÑO EXACTO 660px x 860px */
         .carousel-card {
-            min-width: 603px;
-            max-width: 603px;
-            height: 830px;
-            margin: 0 30px;
+            min-width: 660px;
+            max-width: 660px;
+            height: 860px;
+            margin: 0 35px;
             position: relative;
             cursor: pointer;
             border: none;
             border-radius: 0;
             overflow: visible;
-            /* Transición suave de escala, opacidad y filtro */
-            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.7s ease;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease, filter 0.5s ease, box-shadow 0.5s ease;
             box-shadow: none;
-            opacity: 0.25;
-            transform: scale(0.82);
+            opacity: 0.22;
+            transform: scale(0.8);
             background: transparent;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: grayscale(30%);
+            filter: grayscale(40%);
         }
 
         .carousel-card.active {
@@ -386,14 +383,21 @@
             z-index: 10;
         }
 
+        /* EFECTO DE REALCE AL PASAR EL MOUSE POR LA IMAGEN */
+        .carousel-card.active:hover {
+            transform: scale(1.02);
+            filter: brightness(1.08) contrast(1.03);
+        }
+
         .carousel-card img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* IMAGEN COMPLETA SIN RECORTAR */
+            object-fit: contain;
             pointer-events: none;
             border: none;
             outline: none;
             background-color: transparent;
+            transition: transform 0.5s ease;
         }
 
         .card-explore-overlay {
@@ -402,7 +406,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -434,11 +438,12 @@
             transform: scale(1.05);
         }
 
+        /* TEXTO PEGADO MUCHO MÁS CERCA DE LAS IMÁGENES */
         .utopia-footer-title {
             position: relative;
-            z-index: 2;
-            margin-top: 15px;
-            font-size: 1.45rem;
+            z-index: 5;
+            margin-top: -35px; /* Subido y pegado a la imagen activa */
+            font-size: 1.35rem;
             letter-spacing: 5px;
             text-transform: uppercase;
             text-align: center;
@@ -1333,7 +1338,7 @@
             border-color: #000000 !important;
         }
 
-        /* --- SECCIÓN BIOGRAFÍA --- */
+        /* --- SECCIÓN BIOGRAFÍA (RECUPERADA TOTALMENTE) --- */
         .bio-section {
             padding: 120px 30px;
             background-color: #f7f7f7;
@@ -1437,7 +1442,7 @@
             font-size: 1.5rem;
         }
 
-        /* --- FOOTER Y FORMULARIO DE CONTACTO --- */
+        /* --- FOOTER Y FORMULARIO DE CONTACTO (RECUPERADO TOTALMENTE) --- */
         footer {
             padding: 100px 30px 40px 30px;
             background-color: var(--bg-main);
@@ -1574,7 +1579,7 @@
         <img src="imagenes/foto para pagina principal.png" alt="Brunelio Atelier">
     </div>
 
-    <!-- HEADER CON FUENTE DOMINICAN EN BIOGRAFÍA Y MI COLECCIÓN -->
+    <!-- HEADER ORIGINAL -->
     <header id="mainHeader">
         <div class="header-left-slot">
             <button class="header-back-btn" id="headerBackBtn" onclick="goBackToMain()">← Back</button>
@@ -1591,7 +1596,7 @@
         </div>
     </header>
 
-    <!-- HERO / PORTADA -->
+    <!-- HERO / PORTADA CON FIGURAS SEPARADAS -->
     <section class="hero">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral derecha" class="hero-side-img right" id="sideImgRight">
@@ -1606,11 +1611,11 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ÍNDICE (CARRUSEL DE 603px x 830px CON TRANSICIÓN SUAVE PRO) -->
+    <!-- SECCIÓN ÍNDICE (CARRUSEL 660px x 860px CON TEXTO PEGADO Y TRANSICIÓN SUAVE PRO) -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack">
-                <!-- Las tarjetas se generan dinámicamente mediante JS -->
+                <!-- Tarjetas dinámicas -->
             </div>
         </div>
 
@@ -2202,9 +2207,9 @@
                 <a id="mInquire" href="mailto:cezzarostudio@gmail.com" class="btn-inquire">Solicitar Adquisición vía Email</a>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- SECCIÓN BIOGRAFÍA -->
+    <!-- ==================== SECCIÓN BIOGRAFÍA (RECUPERADA) ==================== -->
     <section class="bio-section" id="bio">
         <div class="bio-grid">
             <div class="bio-image-wrapper">
@@ -2237,7 +2242,7 @@
         </div>
     </section>
 
-    <!-- FOOTER Y FORMULARIO DE CONTACTO -->
+    <!-- ==================== FOOTER Y CONTACTO (RECUPERADO) ==================== -->
     <footer id="contact">
         <div class="contact-container">
             <h2 class="section-title" id="contactSectionTitle" style="margin-top: 0; text-align: left;">CONTACTO / ENCARGOS</h2>
@@ -2288,7 +2293,7 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT Y LÓGICA -->
+    <!-- JAVASCRIPT CON TRANSICIÓN SUAVE PRO Y CONTROL DE SENSIBILIDAD EN TOUCHPAD -->
     <script>
         window.addEventListener('load', () => {
             const preloader = document.getElementById('preloader');
@@ -2437,7 +2442,7 @@
             });
         }
 
-        /* --- LÓGICA DE CARRUSEL INFINITO CON TRANSICIÓN PRO Y RUTA CORREGIDA (pccine.png) --- */
+        /* --- CARRUSEL 660px x 860px CON RUTA CORREGIDA (pccine.png) --- */
         const categoriesData = [
             { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', filterCat: 'oleos' },
             { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', filterCat: 'dibujo' },
@@ -2489,14 +2494,14 @@
             const cardElement = track.children[10]; 
             if (!cardElement) return;
 
-            // ANCHO 603px + 60px DE MÁRGENES (30px A CADA LADO) = 663px POR TARJETA
-            const cardWidth = 603 + 60; 
+            // TAMAÑO 660px + 70px MÁRGENES (35px A CADA LADO) = 730px TOTAL POR TARJETA
+            const cardWidth = 660 + 70; 
             const translateOffset = -10 * cardWidth - (cardWidth / 2); 
 
             if (!smooth) {
                 track.style.transition = 'none';
             } else {
-                track.style.transition = 'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
+                track.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
             }
 
             track.style.transform = `translateX(${translateOffset}px)`;
@@ -2529,19 +2534,29 @@
             filterGallery(category);
         }
 
+        /* TRANSICIÓN LIMPIA DE TOUCHPAD SIN SUPERSENSIBILIDAD */
         let wheelAccumulator = 0;
+        let isWheelCooldown = false;
+
         dragContainer.addEventListener('wheel', (e) => {
             const rect = utopiaSection.getBoundingClientRect();
             if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-                if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || Math.abs(e.deltaY) < 40) {
+                if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || Math.abs(e.deltaY) < 50) {
                     e.preventDefault();
+                    if (isWheelCooldown) return;
+
                     wheelAccumulator += (e.deltaX || e.deltaY);
-                    if (wheelAccumulator > 100) {
-                        rotateCarousel(1);
+                    
+                    if (Math.abs(wheelAccumulator) > 120) {
+                        const dir = wheelAccumulator > 0 ? 1 : -1;
+                        rotateCarousel(dir);
                         wheelAccumulator = 0;
-                    } else if (wheelAccumulator < -100) {
-                        rotateCarousel(-1);
-                        wheelAccumulator = 0;
+                        isWheelCooldown = true;
+
+                        // Retardo para evitar que el gesto continuo pase múltiples tarjetas de golpe
+                        setTimeout(() => {
+                            isWheelCooldown = false;
+                        }, 500);
                     }
                 }
             }

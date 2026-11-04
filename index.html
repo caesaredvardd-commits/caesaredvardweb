@@ -49,7 +49,7 @@
             text-decoration: none;
         }
 
-        /* --- PRELOADER ANIMADO ULTRA FLUIDO (DESDE EL INICIO) --- */
+        /* --- PRELOADER ANIMADO ULTRA FLUIDO --- */
         #preloader {
             position: fixed;
             top: 0;
@@ -75,7 +75,7 @@
             visibility: hidden;
         }
 
-        /* HEADER ESTRUCTURA Y FIRMA CENTRADA */
+        /* HEADER ESTRUCTURA Y SUBRAYADO ANIMADO */
         header {
             position: fixed;
             top: 0;
@@ -115,7 +115,23 @@
             cursor: pointer;
             padding: 0;
             white-space: nowrap;
-            transition: opacity 0.3s ease;
+            position: relative;
+        }
+
+        /* Animación de subrayado de izquierda a derecha */
+        header .header-nav-btn::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1.5px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--text-main);
+            transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        header .header-nav-btn:hover::after {
+            width: 100%;
         }
 
         header .header-back-btn {
@@ -130,10 +146,6 @@
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
-        }
-
-        .header-nav-btn:hover {
-            opacity: 0.6;
         }
 
         .header-back-btn:hover {
@@ -216,7 +228,7 @@
             stroke: #ffffff;
         }
 
-        /* --- HERO SECCIÓN MODIFICADA (SIN RÍO ARRIBA) --- */
+        /* --- HERO SECCIÓN (LIMPIA, SIN RÍOS ARRIBA) --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -314,11 +326,11 @@
             box-shadow: none !important;
         }
 
-        /* --- CARRUSEL ESTILO UTOPIA WORLD --- */
+        /* --- SECCIÓN CARRUSEL (CON TEXTO SUPERIOR) --- */
         .utopia-section {
             position: relative;
             width: 100vw;
-            min-height: 90vh;
+            min-height: 95vh;
             background-color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -329,8 +341,30 @@
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
             box-sizing: border-box;
-            padding-bottom: 30px;
+            padding: 40px 0;
             transition: background-color 0.8s ease;
+        }
+
+        .carousel-header-box {
+            text-align: center;
+            z-index: 10;
+            margin-bottom: -20px;
+        }
+
+        .carousel-main-heading {
+            font-size: 2.6rem;
+            font-weight: normal;
+            letter-spacing: 1px;
+            color: #000000;
+            margin: 0 0 10px 0;
+        }
+
+        .carousel-sub-heading {
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #666666;
+            margin: 0;
         }
 
         .carousel-container-drag {
@@ -338,7 +372,7 @@
             z-index: 2;
             width: 100%;
             max-width: 100%;
-            height: 700px;
+            height: 650px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -358,10 +392,10 @@
         }
 
         .carousel-card {
-            min-width: 600px;
-            max-width: 600px;
-            height: 600px;
-            margin: 0 40px;
+            min-width: 580px;
+            max-width: 580px;
+            height: 580px;
+            margin: 0 35px;
             position: relative;
             cursor: pointer;
             border: none !important;
@@ -380,7 +414,7 @@
 
         .carousel-card.active {
             opacity: 1;
-            transform: scale(1);
+            transform: scale(1.05);
             z-index: 10;
             box-shadow: none !important;
             background: transparent !important;
@@ -419,10 +453,10 @@
             pointer-events: auto;
         }
 
-        /* BOTÓN EXPLORE CON FONDO TRANSPARENTE AL PASAR EL MOUSE / TOCAR */
+        /* BOTÓN EXPLORE 100% TRANSPARENTE AL PASAR EL MOUSE */
         .btn-card-explore {
             padding: 14px 32px;
-            background: transparent;
+            background: transparent !important;
             color: #ffffff;
             border: 2px solid #ffffff;
             font-size: 1.05rem;
@@ -440,22 +474,6 @@
             border-color: #ffffff !important;
             transform: scale(1.08);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-        }
-
-        .utopia-footer-title {
-            position: relative;
-            margin-top: -55px;
-            z-index: 20;
-            font-size: 1.35rem;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            text-align: center;
-            font-weight: 600;
-            color: #000000;
-            pointer-events: none;
-            background: transparent;
-            padding: 0;
-            transition: color 0.8s ease;
         }
 
         /* --- SECCIÓN DE PINTURAS AL ÓLEO --- */
@@ -1123,7 +1141,7 @@
             filter: invert(1);
         }
 
-        /* --- SECCIÓN BIOGRAFÍA CON FONDO BLANCO --- */
+        /* --- SECCIÓN BIOGRAFÍA (FONDO BLANCO) --- */
         .bio-section {
             padding: 120px 30px;
             background-color: #ffffff;
@@ -1323,7 +1341,7 @@
         <img id="preloaderImg" src="preloadicon/1.png" alt="Brunelio Atelier Preloader">
     </div>
 
-    <!-- SCRIPT DE ANIMACIÓN DEL PRELOADER INDEPENDIENTE -->
+    <!-- SCRIPT DE ANIMACIÓN DEL PRELOADER -->
     <script>
         (function() {
             const preloaderImg = document.getElementById('preloaderImg');
@@ -1383,7 +1401,7 @@
         </div>
     </header>
 
-    <!-- HERO / PORTADA MODIFICADA (SIN EL MARCO DE RÍO SUPERIOR) -->
+    <!-- HERO / PORTADA -->
     <section class="hero">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral derecha" class="hero-side-img right" id="sideImgRight">
@@ -1398,12 +1416,16 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ÍNDICE (CARRUSEL ESTILO UTOPIA WORLD CON TRANSICIONES DINÁMICAS) -->
+    <!-- SECCIÓN CARRUSEL CON TÍTULO SUPERIOR -->
     <section class="utopia-section" id="utopiaCarousel">
+        <div class="carousel-header-box">
+            <h2 class="carousel-main-heading" id="carouselMainTitle">Un archivo de miradas.</h2>
+            <p class="carousel-sub-heading" id="carouselSubHeading">PERSONAJES · HISTORIAS · EXPRESIONES</p>
+        </div>
+
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack"></div>
         </div>
-        <div class="utopia-footer-title" id="carouselFooterTitle">PINTURAS AL ÓLEO</div>
     </section>
 
     <!-- ==================== SECCIÓN DE PINTURAS AL ÓLEO ==================== -->
@@ -1966,7 +1988,7 @@
         </div>
     </div>
 
-    <!-- SECCIÓN BIOGRAFÍA (CON FONDO BLANCO RESTAURADO) -->
+    <!-- SECCIÓN BIOGRAFÍA (CON FONDO BLANCO) -->
     <section class="bio-section" id="bio">
         <div class="bio-grid">
             <div class="bio-image-wrapper" onclick="openUniversalModal('BRUNELIO', 'Artista · Retrato', 'imagenes/foto cesar.JPG')">
@@ -2188,16 +2210,17 @@
         }
 
         const categoriesData = [
-            { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', filterCat: 'oleos', ambientBg: '#ffffff', textColor: '#000000' },
-            { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', filterCat: 'dibujo', ambientBg: '#ffffff', textColor: '#000000' },
-            { titleEs: 'Retratos', titleEn: 'Portraits', img: 'imagenes/pretratos.png', filterCat: 'retratos', ambientBg: '#ffffff', textColor: '#000000' },
-            { titleEs: 'Fotografía', titleEn: 'Photography', img: 'imagenes/pphotos.png', filterCat: 'fotografia', ambientBg: '#ffffff', textColor: '#000000' },
-            { titleEs: 'Cinematografía', titleEn: 'Cinematography', img: 'imagenes/pccine.png', filterCat: 'cinematografia', ambientBg: '#ffffff', textColor: '#000000' }
+            { titleEs: 'Un archivo de miradas.', titleEn: 'An archive of glances.', subEs: 'PERSONAJES · HISTORIAS · EXPRESIONES', subEn: 'CHARACTERS · STORIES · EXPRESSIONS', img: 'imagenes/ppintura.png', filterCat: 'oleos', ambientBg: '#ffffff' },
+            { titleEs: 'Un archivo de miradas.', titleEn: 'An archive of glances.', subEs: 'PERSONAJES · HISTORIAS · EXPRESIONES', subEn: 'CHARACTERS · STORIES · EXPRESSIONS', img: 'imagenes/pdibujo.png', filterCat: 'dibujo', ambientBg: '#ffffff' },
+            { titleEs: 'Un archivo de miradas.', titleEn: 'An archive of glances.', subEs: 'PERSONAJES · HISTORIAS · EXPRESIONES', subEn: 'CHARACTERS · STORIES · EXPRESSIONS', img: 'imagenes/pretratos.png', filterCat: 'retratos', ambientBg: '#ffffff' },
+            { titleEs: 'Un archivo de miradas.', titleEn: 'An archive of glances.', subEs: 'PERSONAJES · HISTORIAS · EXPRESIONES', subEn: 'CHARACTERS · STORIES · EXPRESSIONS', img: 'imagenes/pphotos.png', filterCat: 'fotografia', ambientBg: '#ffffff' },
+            { titleEs: 'Un archivo de miradas.', titleEn: 'An archive of glances.', subEs: 'PERSONAJES · HISTORIAS · EXPRESIONES', subEn: 'CHARACTERS · STORIES · EXPRESSIONS', img: 'imagenes/pccine.png', filterCat: 'cinematografia', ambientBg: '#ffffff' }
         ];
 
         let centerIndex = 0;
         const track = document.getElementById('carouselTrack');
-        const footerTitle = document.getElementById('carouselFooterTitle');
+        const carouselMainTitle = document.getElementById('carouselMainTitle');
+        const carouselSubHeading = document.getElementById('carouselSubHeading');
         const dragContainer = document.getElementById('dragContainer');
 
         function initInfiniteCarousel() {
@@ -2225,7 +2248,7 @@
                 };
 
                 card.innerHTML = `
-                    <img src="${item.img}" alt="${item.titleEs}">
+                    <img src="${item.img}" alt="Categoría">
                     <div class="card-explore-overlay">
                         <button class="btn-card-explore" onclick="goToCategory('${item.filterCat}', event)">Explore</button>
                     </div>
@@ -2238,7 +2261,7 @@
             const cardElement = track.children[10]; 
             if (!cardElement) return;
 
-            const cardWidth = 600 + 80; 
+            const cardWidth = 580 + 70; 
             const translateOffset = -10 * cardWidth - (cardWidth / 2); 
 
             if (!smooth) {
@@ -2259,12 +2282,13 @@
 
             const activeData = categoriesData[centerIndex];
             utopiaSection.style.backgroundColor = activeData.ambientBg;
-            footerTitle.style.color = activeData.textColor;
 
             if (currentLang === 'EN') {
-                footerTitle.innerText = activeData.titleEn.toUpperCase();
+                carouselMainTitle.innerText = activeData.titleEn;
+                carouselSubHeading.innerText = activeData.subEn;
             } else {
-                footerTitle.innerText = activeData.titleEs.toUpperCase();
+                carouselMainTitle.innerText = activeData.titleEs;
+                carouselSubHeading.innerText = activeData.subEs;
             }
         }
 

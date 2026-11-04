@@ -325,12 +325,18 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN CARRUSEL CON EFECTO 3D Y TEXTOS MUY CERCANOS --- */
+        /* --- SECCIÓN CARRUSEL CON FONDO DE VENADO Y TRANSICIONES SUAVES --- */
         .utopia-section {
             position: relative;
             width: 100vw;
-            min-height: 90vh;
+            min-height: 100vh;
             background-color: #ffffff;
+            /* Fondo con la imagen venado.png sutil */
+            background-image: url('imagenes/venado.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 45vh;
+            background-blend-mode: overlay;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -340,26 +346,44 @@
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
             box-sizing: border-box;
-            padding: 10px 0;
-            transition: background-color 0.8s ease;
+            padding: 30px 0;
+            transition: background-color 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Capa adicional para asegurar que el fondo venado.png sea muy tenue y elegante */
+        .utopia-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('imagenes/venado.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.04; /* Ajusta la opacidad aquí si deseas más o menos presencia */
+            pointer-events: none;
+            z-index: 1;
         }
 
         .carousel-header-box {
             text-align: center;
             z-index: 10;
-            margin-bottom: -25px; /* Pegado firmemente arriba de las tarjetas */
+            margin-bottom: -10px;
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         .carousel-main-heading {
-            font-size: 2.3rem;
+            font-size: 2.6rem;
             font-weight: normal;
             letter-spacing: 1px;
             color: #000000;
-            margin: 0 0 2px 0;
+            margin: 0 0 5px 0;
         }
 
         .carousel-sub-heading {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: #666666;
@@ -371,14 +395,14 @@
             z-index: 2;
             width: 100%;
             max-width: 100%;
-            height: 520px;
+            height: 650px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             user-select: none;
             background: transparent !important;
-            perspective: 1200px;
+            perspective: 1400px;
         }
 
         .carousel-track {
@@ -392,20 +416,22 @@
             background: transparent !important;
         }
 
+        /* TAMAÑOS DE PORTADA AMPLIADOS */
         .carousel-card {
-            min-width: 480px;
-            max-width: 480px;
-            height: 480px;
-            margin: 0 10px;
+            min-width: 620px;
+            max-width: 620px;
+            height: 620px;
+            margin: 0 20px;
             position: relative;
             cursor: pointer;
             border: none !important;
             border-radius: 0px;
             overflow: visible;
+            /* Transiciones ultra fluidas para escala, opacidad, rotación y sombra */
             transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease, filter 0.6s ease;
             box-shadow: none !important;
-            opacity: 0.4;
-            transform: scale(0.8) rotateY(25deg) translateZ(-100px);
+            opacity: 0.35;
+            transform: scale(0.78) rotateY(25deg) translateZ(-120px);
             background: transparent !important;
             flex-shrink: 0;
             display: flex;
@@ -414,20 +440,20 @@
         }
 
         .carousel-card.left-card {
-            transform: scale(0.82) rotateY(20deg) translateZ(-50px);
-            opacity: 0.6;
+            transform: scale(0.82) rotateY(18deg) translateZ(-60px);
+            opacity: 0.55;
         }
 
         .carousel-card.right-card {
-            transform: scale(0.82) rotateY(-20deg) translateZ(-50px);
-            opacity: 0.6;
+            transform: scale(0.82) rotateY(-18deg) translateZ(-60px);
+            opacity: 0.55;
         }
 
         .carousel-card.active {
             opacity: 1;
-            transform: scale(1) rotateY(0deg) translateZ(50px);
+            transform: scale(1.05) rotateY(0deg) translateZ(60px);
             z-index: 10;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.18);
             background: transparent !important;
         }
 
@@ -441,6 +467,7 @@
             border-radius: 0px;
             background: transparent !important;
             box-shadow: none !important;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .card-explore-overlay {
@@ -454,7 +481,7 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.5s ease;
             pointer-events: none;
             border-radius: 0px;
         }
@@ -474,7 +501,7 @@
             text-transform: uppercase;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
             backdrop-filter: blur(2px);
         }
 
@@ -483,22 +510,33 @@
             color: #ffffff !important;
             border-color: #ffffff !important;
             transform: scale(1.08);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
 
-        /* TÍTULO INFERIOR PEGADO A LA IMAGEN ACTIVA */
         .carousel-footer-title {
             position: relative;
-            margin-top: -25px;
+            margin-top: -15px;
             z-index: 20;
-            font-size: 1.25rem;
-            letter-spacing: 5px;
+            font-size: 1.35rem;
+            letter-spacing: 6px;
             text-transform: uppercase;
             text-align: center;
             font-weight: 600;
             color: #000000;
             pointer-events: none;
             background: transparent;
+            /* Transición suave para el texto inferior */
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        /* Clase de animación para transiciones suaves de texto */
+        .fade-transition {
+            animation: fadeInOut 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(8px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         /* --- SECCIÓN DE PINTURAS AL ÓLEO --- */
@@ -1351,7 +1389,7 @@
 
         @media (max-width: 768px) {
             .hero-title { font-size: 3.2rem; letter-spacing: 2px; }
-            .carousel-card { min-width: 320px; max-width: 320px; height: 380px; }
+            .carousel-card { min-width: 340px; max-width: 340px; height: 340px; }
             .btn-submit { width: 100%; }
             .drawing-grid-3x3 { grid-template-columns: 1fr; }
             .collection-grid { grid-template-columns: 1fr; }
@@ -1441,9 +1479,9 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CARRUSEL CON EFECTO 3D Y TEXTOS CERCANOS -->
+    <!-- SECCIÓN CARRUSEL CON FONDO DE VENADO Y TRANSICIONES FLUIDAS -->
     <section class="utopia-section" id="utopiaCarousel">
-        <div class="carousel-header-box">
+        <div class="carousel-header-box" id="carouselHeaderBox">
             <h2 class="carousel-main-heading" id="carouselMainTitle">Un archivo de miradas.</h2>
             <p class="carousel-sub-heading" id="carouselSubHeading">PERSONAJES · HISTORIAS · EXPRESIONES</p>
         </div>
@@ -2249,6 +2287,7 @@
         const carouselMainTitle = document.getElementById('carouselMainTitle');
         const carouselSubHeading = document.getElementById('carouselSubHeading');
         const carouselFooterTitle = document.getElementById('carouselFooterTitle');
+        const carouselHeaderBox = document.getElementById('carouselHeaderBox');
         const dragContainer = document.getElementById('dragContainer');
 
         function initInfiniteCarousel() {
@@ -2294,7 +2333,7 @@
             const cardElement = track.children[10]; 
             if (!cardElement) return;
 
-            const cardWidth = 480 + 20; 
+            const cardWidth = 620 + 40; 
             const translateOffset = -10 * cardWidth - (cardWidth / 2); 
 
             if (!smooth) {
@@ -2319,11 +2358,19 @@
             const activeData = categoriesData[centerIndex];
             utopiaSection.style.backgroundColor = activeData.ambientBg;
 
+            // Aplicar transición suave al texto del título inferior y superior
+            carouselFooterTitle.classList.remove('fade-transition');
+            carouselHeaderBox.classList.remove('fade-transition');
+            void carouselFooterTitle.offsetWidth; // Trigger reflow
+
             if (currentLang === 'EN') {
                 carouselFooterTitle.innerText = activeData.titleEn.toUpperCase();
             } else {
                 carouselFooterTitle.innerText = activeData.titleEs.toUpperCase();
             }
+
+            carouselFooterTitle.classList.add('fade-transition');
+            carouselHeaderBox.classList.add('fade-transition');
         }
 
         function rotateCarousel(direction) {

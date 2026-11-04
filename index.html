@@ -325,16 +325,12 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN CARRUSEL CON FONDO MÁS CLARO Y TRANSPARENTE --- */
+        /* --- SECCIÓN CARRUSEL: FONDO ULTRA CLARO Y TRANSPARENTE --- */
         .utopia-section {
             position: relative;
             width: 100vw;
             min-height: 100vh;
             background-color: #ffffff;
-            background-image: url('imagenes/venado.jpg');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -345,10 +341,9 @@
             margin-right: calc(-50vw + 50%);
             box-sizing: border-box;
             padding: 10px 0;
-            transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Capa difuminada mucho más clara y transparente para lectura impecable */
+        /* Capa de fondo súper difuminada, clara y transparente */
         .utopia-section::before {
             content: '';
             position: absolute;
@@ -360,8 +355,8 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.08; 
-            filter: brightness(1.25) blur(4px);
+            opacity: 0.035; 
+            filter: brightness(1.8) blur(5px);
             pointer-events: none;
             z-index: 1;
         }
@@ -370,7 +365,7 @@
             text-align: center;
             z-index: 10;
             margin-bottom: -100px;
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition: opacity 0.6s ease, transform 0.6s ease;
             background: transparent !important;
         }
 
@@ -414,12 +409,11 @@
             left: 50%;
             transform-style: preserve-3d;
             will-change: transform;
-            /* Animación más lenta, fluida y elegante tipo video UTOPIA */
-            transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+            /* ANIMACIÓN LENTA, FLUIDA Y CINEMÁTICA EXACTA AL VIDEO DE REFERENCIA */
+            transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
             background: transparent !important;
         }
 
-        /* TAMAÑOS LIGERAMENTE MÁS GRANDES SIN MOVER POSICIÓN DE TEXTOS, SIN CAJAS GRISES */
         .carousel-card {
             min-width: 680px;
             max-width: 680px;
@@ -430,10 +424,10 @@
             border: none !important;
             border-radius: 0px;
             overflow: visible;
-            transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.4s ease, filter 0.8s ease;
+            transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.8s ease, filter 0.8s ease;
             box-shadow: none !important;
-            opacity: 0.35;
-            transform: scale(0.75) rotateY(25deg) translateZ(-140px);
+            opacity: 0.3;
+            transform: scale(0.72) rotateY(28deg) translateZ(-160px);
             background: transparent !important;
             flex-shrink: 0;
             display: flex;
@@ -442,22 +436,22 @@
         }
 
         .carousel-card.left-card {
-            transform: scale(0.8) rotateY(18deg) translateZ(-70px);
-            opacity: 0.55;
+            transform: scale(0.78) rotateY(18deg) translateZ(-80px);
+            opacity: 0.5;
             background: transparent !important;
             box-shadow: none !important;
         }
 
         .carousel-card.right-card {
-            transform: scale(0.8) rotateY(-18deg) translateZ(-70px);
-            opacity: 0.55;
+            transform: scale(0.78) rotateY(-18deg) translateZ(-80px);
+            opacity: 0.5;
             background: transparent !important;
             box-shadow: none !important;
         }
 
         .carousel-card.active {
             opacity: 1;
-            transform: scale(1.06) rotateY(0deg) translateZ(70px);
+            transform: scale(1.06) rotateY(0deg) translateZ(80px);
             z-index: 10;
             box-shadow: none !important; /* Cero recuadro gris */
             background: transparent !important;
@@ -473,7 +467,7 @@
             border-radius: 0px;
             background: transparent !important;
             box-shadow: none !important;
-            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .card-explore-overlay {
@@ -531,17 +525,17 @@
             color: #000000;
             pointer-events: none;
             background: transparent !important;
-            transition: opacity 0.4s ease, transform 0.4s ease;
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
-        /* Clase de animación para transiciones suaves de texto */
+        /* Animación de desvanecimiento suave para textos inspirada en UTOPIA */
         .fade-transition {
-            animation: fadeInOut 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: utopiaFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        @keyframes fadeInOut {
-            0% { opacity: 0; transform: translateY(8px); }
-            100% { opacity: 1; transform: translateY(0); }
+        @keyframes utopiaFadeIn {
+            0% { opacity: 0; transform: translateY(12px); filter: blur(2px); }
+            100% { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
 
         /* --- SECCIÓN DE PINTURAS AL ÓLEO --- */
@@ -2344,7 +2338,7 @@
             if (!smooth) {
                 track.style.transition = 'none';
             } else {
-                track.style.transition = 'transform 1.4s cubic-bezier(0.16, 1, 0.3, 1)';
+                track.style.transition = 'transform 1.8s cubic-bezier(0.16, 1, 0.3, 1)';
             }
 
             track.style.transform = `translateX(${translateOffset}px)`;
@@ -2407,7 +2401,7 @@
 
                         setTimeout(() => {
                             isWheelCooldown = false;
-                        }, 800);
+                        }, 1000);
                     }
                 }
             }

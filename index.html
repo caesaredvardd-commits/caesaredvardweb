@@ -325,13 +325,12 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN CARRUSEL CON FONDO DE VENADO CUBRIENDO TODO Y DIFUMINADO --- */
+        /* --- SECCIÓN CARRUSEL CON FONDO MÁS CLARO Y TRANSPARENTE --- */
         .utopia-section {
             position: relative;
             width: 100vw;
             min-height: 100vh;
-            background-color: #f7f7f5;
-            /* La imagen cubre todo el espacio disponible */
+            background-color: #ffffff;
             background-image: url('imagenes/venado.jpg');
             background-repeat: no-repeat;
             background-position: center;
@@ -346,10 +345,10 @@
             margin-right: calc(-50vw + 50%);
             box-sizing: border-box;
             padding: 10px 0;
-            transition: background-color 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Capa difuminada y clara para cubrir todo el fondo sin opacar las portadas */
+        /* Capa difuminada mucho más clara y transparente para lectura impecable */
         .utopia-section::before {
             content: '';
             position: absolute;
@@ -361,8 +360,8 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.15; 
-            filter: blur(3px);
+            opacity: 0.08; 
+            filter: brightness(1.25) blur(4px);
             pointer-events: none;
             z-index: 1;
         }
@@ -370,7 +369,7 @@
         .carousel-header-box {
             text-align: center;
             z-index: 10;
-            margin-bottom: -100px; /* Texto superior muy cerca de las imágenes */
+            margin-bottom: -100px;
             transition: opacity 0.5s ease, transform 0.5s ease;
             background: transparent !important;
         }
@@ -415,25 +414,26 @@
             left: 50%;
             transform-style: preserve-3d;
             will-change: transform;
-            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+            /* Animación más lenta, fluida y elegante tipo video UTOPIA */
+            transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
             background: transparent !important;
         }
 
-        /* TAMAÑOS DE PORTADA (SIN CAMBIAR TAMAÑO, SIN CAJAS GRISES) */
+        /* TAMAÑOS LIGERAMENTE MÁS GRANDES SIN MOVER POSICIÓN DE TEXTOS, SIN CAJAS GRISES */
         .carousel-card {
-            min-width: 620px;
-            max-width: 620px;
-            height: 620px;
+            min-width: 680px;
+            max-width: 680px;
+            height: 680px;
             margin: 0 20px;
             position: relative;
             cursor: pointer;
             border: none !important;
             border-radius: 0px;
             overflow: visible;
-            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease, filter 0.6s ease;
+            transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.4s ease, filter 0.8s ease;
             box-shadow: none !important;
-            opacity: 0.4;
-            transform: scale(0.78) rotateY(25deg) translateZ(-120px);
+            opacity: 0.35;
+            transform: scale(0.75) rotateY(25deg) translateZ(-140px);
             background: transparent !important;
             flex-shrink: 0;
             display: flex;
@@ -442,24 +442,24 @@
         }
 
         .carousel-card.left-card {
-            transform: scale(0.82) rotateY(18deg) translateZ(-60px);
-            opacity: 0.6;
+            transform: scale(0.8) rotateY(18deg) translateZ(-70px);
+            opacity: 0.55;
             background: transparent !important;
             box-shadow: none !important;
         }
 
         .carousel-card.right-card {
-            transform: scale(0.82) rotateY(-18deg) translateZ(-60px);
-            opacity: 0.6;
+            transform: scale(0.8) rotateY(-18deg) translateZ(-70px);
+            opacity: 0.55;
             background: transparent !important;
             box-shadow: none !important;
         }
 
         .carousel-card.active {
             opacity: 1;
-            transform: scale(1.05) rotateY(0deg) translateZ(60px);
+            transform: scale(1.06) rotateY(0deg) translateZ(70px);
             z-index: 10;
-            box-shadow: none !important; /* Eliminado completamente el recuadro gris o sombra */
+            box-shadow: none !important; /* Cero recuadro gris */
             background: transparent !important;
         }
 
@@ -473,7 +473,7 @@
             border-radius: 0px;
             background: transparent !important;
             box-shadow: none !important;
-            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .card-explore-overlay {
@@ -507,7 +507,7 @@
             text-transform: uppercase;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             backdrop-filter: blur(2px);
         }
 
@@ -521,7 +521,7 @@
 
         .carousel-footer-title {
             position: relative;
-            margin-top: -105px; /* Texto inferior muy cerca de las imágenes */
+            margin-top: -105px;
             z-index: 20;
             font-size: 1.35rem;
             letter-spacing: 6px;
@@ -536,7 +536,7 @@
 
         /* Clase de animación para transiciones suaves de texto */
         .fade-transition {
-            animation: fadeInOut 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            animation: fadeInOut 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @keyframes fadeInOut {
@@ -1394,7 +1394,7 @@
 
         @media (max-width: 768px) {
             .hero-title { font-size: 3.2rem; letter-spacing: 2px; }
-            .carousel-card { min-width: 340px; max-width: 340px; height: 340px; }
+            .carousel-card { min-width: 360px; max-width: 360px; height: 360px; }
             .btn-submit { width: 100%; }
             .drawing-grid-3x3 { grid-template-columns: 1fr; }
             .collection-grid { grid-template-columns: 1fr; }
@@ -1484,7 +1484,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CARRUSEL CON FONDO DE VENADO CUBRIENDO TODO -->
+    <!-- SECCIÓN CARRUSEL -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-header-box" id="carouselHeaderBox">
             <h2 class="carousel-main-heading" id="carouselMainTitle">Un archivo de miradas.</h2>
@@ -2338,13 +2338,13 @@
             const cardElement = track.children[10]; 
             if (!cardElement) return;
 
-            const cardWidth = 620 + 40; 
+            const cardWidth = 680 + 40; 
             const translateOffset = -10 * cardWidth - (cardWidth / 2); 
 
             if (!smooth) {
                 track.style.transition = 'none';
             } else {
-                track.style.transition = 'transform 1.2s cubic-bezier(0.25, 1, 0.5, 1)';
+                track.style.transition = 'transform 1.4s cubic-bezier(0.16, 1, 0.3, 1)';
             }
 
             track.style.transform = `translateX(${translateOffset}px)`;
@@ -2360,10 +2360,9 @@
                 }
             });
 
-            // Aplicar transición suave al texto del título inferior y superior
             carouselFooterTitle.classList.remove('fade-transition');
             carouselHeaderBox.classList.remove('fade-transition');
-            void carouselFooterTitle.offsetWidth; // Trigger reflow
+            void carouselFooterTitle.offsetWidth;
 
             const activeData = categoriesData[centerIndex];
             if (currentLang === 'EN') {
@@ -2408,7 +2407,7 @@
 
                         setTimeout(() => {
                             isWheelCooldown = false;
-                        }, 600);
+                        }, 800);
                     }
                 }
             }

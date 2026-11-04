@@ -325,7 +325,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN CARRUSEL: FONDO 85% TRASLÚCIDO CON FILTRO BLANCO --- */
+        /* --- SECCIÓN CARRUSEL: FONDO 65% TRASLÚCIDO (OPACITY 0.35) --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -343,7 +343,7 @@
             padding: 10px 0;
         }
 
-        /* Capa de fondo con opacidad al 15% (~85% traslúcida) y filtro de brillo blanco */
+        /* Capa de fondo con opacidad al 35% (65% traslúcida) y filtro de brillo blanco */
         .utopia-section::before {
             content: '';
             position: absolute;
@@ -355,7 +355,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.15; 
+            opacity: 0.35; 
             filter: brightness(1.5) blur(3px);
             pointer-events: none;
             z-index: 1;

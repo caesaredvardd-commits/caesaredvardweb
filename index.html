@@ -325,17 +325,17 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN CARRUSEL CON FONDO DIFUMINADO DE VENADO --- */
+        /* --- SECCIÓN CARRUSEL CON FONDO DE VENADO CUBRIENDO TODO Y DIFUMINADO --- */
         .utopia-section {
             position: relative;
             width: 100vw;
             min-height: 100vh;
-            /* Fondo con la imagen venado.jpg difuminada y clara (sin blanco sólido) */
             background-color: #f7f7f5;
+            /* La imagen cubre todo el espacio disponible */
             background-image: url('imagenes/venado.jpg');
             background-repeat: no-repeat;
             background-position: center;
-            background-size: 50vh;
+            background-size: cover;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -349,7 +349,7 @@
             transition: background-color 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* Capa difuminada para que la imagen de fondo se vea muy clara y sutil */
+        /* Capa difuminada y clara para cubrir todo el fondo sin opacar las portadas */
         .utopia-section::before {
             content: '';
             position: absolute;
@@ -358,11 +358,11 @@
             width: 100%;
             height: 100%;
             background-image: url('imagenes/venado.jpg');
-            background-size: contain;
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.12; 
-            filter: blur(2px);
+            opacity: 0.15; 
+            filter: blur(3px);
             pointer-events: none;
             z-index: 1;
         }
@@ -370,8 +370,9 @@
         .carousel-header-box {
             text-align: center;
             z-index: 10;
-            margin-bottom: -100px; /* Texto superior mucho más cerca de las imágenes */
+            margin-bottom: -100px; /* Texto superior muy cerca de las imágenes */
             transition: opacity 0.5s ease, transform 0.5s ease;
+            background: transparent !important;
         }
 
         .carousel-main-heading {
@@ -380,6 +381,7 @@
             letter-spacing: 1px;
             color: #000000;
             margin: 0 0 5px 0;
+            background: transparent !important;
         }
 
         .carousel-sub-heading {
@@ -388,6 +390,7 @@
             text-transform: uppercase;
             color: #666666;
             margin: 0;
+            background: transparent !important;
         }
 
         .carousel-container-drag {
@@ -416,7 +419,7 @@
             background: transparent !important;
         }
 
-        /* TAMAÑOS DE PORTADA AMPLIADOS (SIN CAMBIAR TAMAÑO, SIN FONDO GRIS AL SELECCIONAR) */
+        /* TAMAÑOS DE PORTADA (SIN CAMBIAR TAMAÑO, SIN CAJAS GRISES) */
         .carousel-card {
             min-width: 620px;
             max-width: 620px;
@@ -429,7 +432,7 @@
             overflow: visible;
             transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease, filter 0.6s ease;
             box-shadow: none !important;
-            opacity: 0.35;
+            opacity: 0.4;
             transform: scale(0.78) rotateY(25deg) translateZ(-120px);
             background: transparent !important;
             flex-shrink: 0;
@@ -440,21 +443,23 @@
 
         .carousel-card.left-card {
             transform: scale(0.82) rotateY(18deg) translateZ(-60px);
-            opacity: 0.55;
+            opacity: 0.6;
             background: transparent !important;
+            box-shadow: none !important;
         }
 
         .carousel-card.right-card {
             transform: scale(0.82) rotateY(-18deg) translateZ(-60px);
-            opacity: 0.55;
+            opacity: 0.6;
             background: transparent !important;
+            box-shadow: none !important;
         }
 
         .carousel-card.active {
             opacity: 1;
             transform: scale(1.05) rotateY(0deg) translateZ(60px);
             z-index: 10;
-            box-shadow: none !important; /* Eliminado el recuadro gris o sombra al seleccionar */
+            box-shadow: none !important; /* Eliminado completamente el recuadro gris o sombra */
             background: transparent !important;
         }
 
@@ -516,7 +521,7 @@
 
         .carousel-footer-title {
             position: relative;
-            margin-top: -105px; /* Texto inferior mucho más cerca de las imágenes */
+            margin-top: -105px; /* Texto inferior muy cerca de las imágenes */
             z-index: 20;
             font-size: 1.35rem;
             letter-spacing: 6px;
@@ -525,7 +530,7 @@
             font-weight: 600;
             color: #000000;
             pointer-events: none;
-            background: transparent;
+            background: transparent !important;
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
@@ -1479,7 +1484,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CARRUSEL CON FONDO DE VENADO DIFUMINADO -->
+    <!-- SECCIÓN CARRUSEL CON FONDO DE VENADO CUBRIENDO TODO -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-header-box" id="carouselHeaderBox">
             <h2 class="carousel-main-heading" id="carouselMainTitle">Un archivo de miradas.</h2>
@@ -2275,11 +2280,11 @@
         }
 
         const categoriesData = [
-            { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', filterCat: 'oleos', ambientBg: 'transparent' },
-            { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', filterCat: 'dibujo', ambientBg: 'transparent' },
-            { titleEs: 'Retratos', titleEn: 'Portraits', img: 'imagenes/pretratos.png', filterCat: 'retratos', ambientBg: 'transparent' },
-            { titleEs: 'Fotografía', titleEn: 'Photography', img: 'imagenes/pphotos.png', filterCat: 'fotografia', ambientBg: 'transparent' },
-            { titleEs: 'Cinematografía', titleEn: 'Cinematography', img: 'imagenes/pccine.png', filterCat: 'cinematografia', ambientBg: 'transparent' }
+            { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', filterCat: 'oleos' },
+            { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', filterCat: 'dibujo' },
+            { titleEs: 'Retratos', titleEn: 'Portraits', img: 'imagenes/pretratos.png', filterCat: 'retratos' },
+            { titleEs: 'Fotografía', titleEn: 'Photography', img: 'imagenes/pphotos.png', filterCat: 'fotografia' },
+            { titleEs: 'Cinematografía', titleEn: 'Cinematography', img: 'imagenes/pccine.png', filterCat: 'cinematografia' }
         ];
 
         let centerIndex = 0;

@@ -32,6 +32,7 @@
             font-family: var(--font-body) !important;
             -webkit-tap-highlight-color: transparent;
             outline: none;
+            box-sizing: border-box;
         }
 
         body {
@@ -49,7 +50,7 @@
             text-decoration: none;
         }
 
-        /* --- PRELOADER ANIMADO ULTRA FLUIDO --- */
+        /* --- PRELOADER ANIMADO --- */
         #preloader {
             position: fixed;
             top: 0;
@@ -75,13 +76,13 @@
             visibility: hidden;
         }
 
-        /* HEADER ESTRUCTURA REORGANIZADA (REQUERIMIENTO 6) */
+        /* --- HEADER ESTRUCTURA PERFECTA (80px ALTO FIX) --- */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 80px; /* Tamaño estricto de 80px */
+            height: 80px;
             padding: 0 40px;
             display: flex;
             justify-content: space-between;
@@ -89,7 +90,6 @@
             z-index: 100;
             background-color: #ffffff;
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            box-sizing: border-box;
             transition: transform 0.4s ease;
         }
 
@@ -115,7 +115,7 @@
             background: transparent;
             border: none;
             color: var(--text-main);
-            font-size: 0.75rem !important; /* Mismo tamaño exacto que el botón de sesión */
+            font-size: 0.75rem !important; /* Mismo tamaño exacto que sesión activa */
             letter-spacing: 1.5px;
             text-transform: uppercase;
             cursor: pointer;
@@ -165,12 +165,87 @@
         }
 
         .header-logo-firma {
-            height: 75px;
+            height: 85px; /* Un poco más grande como se solicitó */
             object-fit: contain;
             pointer-events: auto;
         }
 
-        /* BARRA DE BÚSQUEDA DESPLEGABLE CON SUGERENCIAS */
+        .header-right-slot {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 18px;
+            flex: 1;
+        }
+
+        .header-icon-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            transition: opacity 0.3s;
+        }
+
+        .header-icon-btn:hover {
+            opacity: 0.6;
+        }
+
+        .header-icon-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: #000000;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .lang-select {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            cursor: pointer;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .lang-select span {
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .lang-select span.active {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .google-login-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .google-login-btn:hover {
+            background-color: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+
+        /* BARRA DESPLEGABLE DE BÚSQUEDA */
         .search-dropdown-bar {
             position: absolute;
             top: 80px;
@@ -183,7 +258,6 @@
             flex-direction: column;
             align-items: center;
             padding: 15px 40px;
-            box-sizing: border-box;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
@@ -252,81 +326,6 @@
             color: #777777;
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-
-        .header-right-slot {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 18px;
-            flex: 1;
-        }
-
-        .header-icon-btn {
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4px;
-            transition: opacity 0.3s;
-        }
-
-        .header-icon-btn:hover {
-            opacity: 0.6;
-        }
-
-        .header-icon-btn svg {
-            width: 18px;
-            height: 18px;
-            fill: none;
-            stroke: #000000;
-            stroke-width: 1.8;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .lang-select {
-            font-size: 0.95rem;
-            letter-spacing: 2px;
-            color: var(--text-main);
-            cursor: pointer;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .lang-select span {
-            opacity: 0.5;
-            transition: opacity 0.3s;
-        }
-
-        .lang-select span.active {
-            opacity: 1;
-            text-decoration: underline;
-        }
-
-        .google-login-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #ffffff;
-            color: #000000;
-            border: 1px solid rgba(0, 0, 0, 0.25);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .google-login-btn:hover {
-            background-color: #000000;
-            color: #ffffff;
-            border-color: #000000;
         }
 
         .bookmark-btn {
@@ -406,7 +405,6 @@
             position: relative;
             z-index: 2;
             max-width: 800px;
-            margin-top: 0px;
         }
 
         .hero-subtitle {
@@ -464,7 +462,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN CARRUSEL (REQUERIMIENTO 4 - EXACTO AL VIDEO Y CAMBIO DINÁMICO DE FONDO) --- */
+        /* --- SECCIÓN CARRUSEL (BRUNELIO'S WORLD) --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -478,7 +476,6 @@
             overflow: hidden;
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
-            box-sizing: border-box;
             padding: 40px 0;
         }
 
@@ -491,38 +488,11 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.25; /* Opacidad constante mantenida */
-            filter: brightness(0.9) blur(3px);
+            opacity: 0.35;
+            filter: brightness(0.85) blur(3px);
             pointer-events: none;
             z-index: 1;
             transition: background-image 0.8s ease-in-out;
-        }
-
-        .carousel-top-bar {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            padding: 0 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-sizing: border-box;
-        }
-
-        .carousel-top-btn {
-            background: transparent;
-            border: none;
-            color: #ffffff;
-            font-size: 0.85rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            cursor: pointer;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-
-        .carousel-top-btn:hover {
-            opacity: 1;
         }
 
         .carousel-header-box {
@@ -625,7 +595,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.25);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -637,15 +607,16 @@
             opacity: 1;
         }
 
+        /* BOTÓN EXPLORE COMPLETAMENTE TRASLÚCIDO AL PASAR CURSOR */
         .btn-card-explore {
             padding: 12px 30px;
-            background: transparent !important;
+            background: rgba(0, 0, 0, 0.3) !important;
             color: #ffffff !important;
-            border: 1px solid #ffffff !important;
+            border: 1px solid rgba(255, 255, 255, 0.7) !important;
             font-size: 0.9rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(5px);
             cursor: pointer;
             transition: all 0.3s ease;
             border-radius: 2px;
@@ -655,7 +626,7 @@
             background: transparent !important;
             color: #ffffff !important;
             border-color: #ffffff !important;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
             transform: scale(1.05);
         }
 
@@ -675,14 +646,13 @@
             margin-bottom: 5px;
         }
 
-        /* --- SECCIÓN DE PINTURAS AL ÓLEO & DIBUJO MASONRY --- */
+        /* --- SECCIÓN MASONRY (ÓLEO Y DIBUJO) --- */
         .oil-section-wrapper {
             position: relative;
             width: 100vw;
             background-color: #ffffff;
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
-            box-sizing: border-box;
             padding-bottom: 80px;
         }
 
@@ -781,7 +751,6 @@
             display: flex;
             align-items: flex-start;
             padding: 20px;
-            box-sizing: border-box;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -799,7 +768,65 @@
             text-shadow: 0 2px 6px rgba(0,0,0,0.8);
         }
 
-        /* --- SECCIÓN DE FOTOGRAFÍA --- */
+        /* --- SECCIÓN DE RETRATOS (ESPEJOS GEOMÉTRICOS DISPERSOS) --- */
+        .portraits-section-wrapper {
+            position: relative;
+            width: 100vw;
+            background-color: #000000;
+            color: #ffffff;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            padding: 90px 40px;
+            box-sizing: border-box;
+        }
+
+        .portraits-mirror-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .mirror-frame {
+            position: relative;
+            overflow: hidden;
+            border: 8px solid #c5a059;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 15px rgba(0,0,0,0.6);
+            cursor: pointer;
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            background: #111111;
+        }
+
+        .mirror-frame:hover {
+            transform: scale(1.05);
+            border-color: #e5c178;
+            box-shadow: 0 15px 40px rgba(197, 160, 89, 0.4);
+            z-index: 10;
+        }
+
+        .mirror-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .mirror-frame:hover img {
+            transform: scale(1.08);
+        }
+
+        /* FORMAS GEOMÉTRICAS DE ESPEJOS */
+        .mirror-oval { width: 280px; height: 380px; border-radius: 50% / 50%; }
+        .mirror-circle { width: 300px; height: 300px; border-radius: 50%; }
+        .mirror-arch { width: 290px; height: 400px; border-radius: 150px 150px 0 0; }
+        .mirror-square { width: 320px; height: 320px; border-radius: 8px; }
+        .mirror-octagon { width: 300px; height: 360px; clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); border-radius: 0; }
+        .mirror-diamond { width: 280px; height: 380px; border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%; }
+
+        /* --- SECCIÓN DE FOTOGRAFÍA (SIN TÍTULO DE CABECERA) --- */
         .photo-section-wrapper {
             position: relative;
             width: 100vw;
@@ -808,7 +835,6 @@
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
             padding: 60px 0;
-            box-sizing: border-box;
         }
 
         .photo-split-grid {
@@ -888,7 +914,7 @@
             letter-spacing: 1px;
         }
 
-        /* --- SECCIÓN CINEMATOGRAFÍA (REQUERIMIENTO 1 - TODO NEGRO CON "WORKING ON" EN EL CENTRO) --- */
+        /* --- CINEMATOGRAFÍA (TODO NEGRO + CENTRADO 'WORKING ON') --- */
         .cinema-section-wrapper {
             position: relative;
             width: 100vw;
@@ -900,7 +926,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-sizing: border-box;
         }
 
         .cinema-working-text {
@@ -912,7 +937,7 @@
             opacity: 0.85;
         }
 
-        /* ==================== SECCIÓN MI COLECCIÓN ==================== */
+        /* --- SECCIÓN MI COLECCIÓN --- */
         .collection-section-wrapper {
             position: relative;
             width: 100vw;
@@ -922,7 +947,6 @@
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
             padding: 80px 40px;
-            box-sizing: border-box;
             border-top: 1px solid rgba(0,0,0,0.1);
         }
 
@@ -960,7 +984,7 @@
             padding: 60px 0;
         }
 
-        /* --- MODAL UNIVERSAL REESTRUCTURADO (REQUERIMIENTO 3 - TEXTO ARRIBA CON FONDO TRANSPARENTE Y BOTÓN ABAJO) --- */
+        /* --- MODAL UNIVERSAL (TEXTO ARRIBA TRANSPARENTE, LUPA INTERNA ABAJO DERECHA Y BOTÓN ABAJO CENTRADO) --- */
         .universal-modal-overlay {
             position: fixed;
             top: 0;
@@ -997,7 +1021,7 @@
         .universal-modal-header-info {
             width: 100%;
             text-align: center;
-            padding: 10px 0 15px 0;
+            padding: 0 0 15px 0;
             background: transparent;
             color: #ffffff;
             z-index: 310;
@@ -1028,7 +1052,7 @@
 
         .universal-modal-wrapper img {
             max-width: 85vw;
-            max-height: 70vh;
+            max-height: 68vh;
             object-fit: contain;
             box-shadow: 0 20px 50px rgba(0,0,0,0.9);
             transition: transform 0.1s ease-out;
@@ -1050,19 +1074,17 @@
         .universal-modal-footer-actions {
             width: 100%;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
+            justify-content: center;
             margin-top: 20px;
             z-index: 310;
         }
 
-        /* REQUERIMIENTO 7: FONDO NEGRO POR DEFECTO Y BLANCO AL PASAR EL MOUSE */
+        /* BOTÓN SOLICITAR INFORMACIÓN (NEGRO POR DEFECTO, BLANCO AL PASAR EL MOUSE) */
         .universal-modal-btn-email {
             background: #000000 !important;
             color: #ffffff !important;
             border: 1px solid #ffffff !important;
-            padding: 12px 32px;
+            padding: 12px 36px;
             font-size: 0.85rem;
             letter-spacing: 2.5px;
             text-transform: uppercase;
@@ -1076,11 +1098,6 @@
             background: #ffffff !important;
             color: #000000 !important;
             border-color: #ffffff !important;
-        }
-
-        .universal-modal-btn-email:hover {
-            background: transparent;
-            color: #ffffff;
         }
 
         .universal-modal-zoom-btn {
@@ -1117,7 +1134,7 @@
             filter: invert(1);
         }
 
-        /* --- SECCIÓN BIOGRAFÍA --- */
+        /* --- BIOGRAFÍA --- */
         .bio-section {
             padding: 120px 30px;
             background-color: #ffffff;
@@ -1140,7 +1157,6 @@
             overflow: hidden;
             background-color: #ffffff;
             cursor: pointer;
-            position: relative;
         }
 
         .bio-image-wrapper img {
@@ -1182,7 +1198,7 @@
             gap: 20px;
         }
 
-        /* --- FOOTER Y CONTACTO --- */
+        /* --- FOOTER --- */
         footer {
             padding: 100px 30px 40px 30px;
             background-color: var(--bg-main);
@@ -1297,18 +1313,15 @@
             .hero-side-img { display: none; }
             .photo-split-grid { grid-template-columns: 1fr; padding: 0 20px; }
             .photo-item.horizontal { grid-column: span 1; height: 50vh; }
-            .drawing-grid-3x3 { grid-template-columns: 1fr 1fr; }
             .oil-masonry-container { column-count: 2; }
             .collection-grid { grid-template-columns: repeat(2, 1fr); }
             header { padding: 0 20px; }
-            .header-center-slot { gap: 15px; }
         }
 
         @media (max-width: 600px) {
             .hero-title { font-size: 3.2rem; letter-spacing: 2px; }
             .oil-masonry-container { column-count: 1; }
             .btn-submit { width: 100%; }
-            .drawing-grid-3x3 { grid-template-columns: 1fr; }
             .collection-grid { grid-template-columns: 1fr; }
             .carousel-card { width: 280px; height: 380px; }
             .carousel-card.left-1 { transform: translateX(-220px) scale(0.8); }
@@ -1318,12 +1331,11 @@
 </head>
 <body>
 
-    <!-- PANTALLA DE CARGA / PRELOADER INDEPENDIENTE Y CONSTANTE -->
+    <!-- PRELOADER -->
     <div id="preloader">
         <img id="preloaderImg" src="preloadicon/1.png" alt="Brunelio Atelier Preloader">
     </div>
 
-    <!-- SCRIPT DE ANIMACIÓN DEL PRELOADER -->
     <script>
         (function() {
             const preloaderImg = document.getElementById('preloaderImg');
@@ -1366,16 +1378,6 @@
         })();
     </script>
 
-    <!-- HEADER REORGANIZADO ESTÉTICAMENTE (REQUERIMIENTO 6) -->
-    <header id="mainHeader">
-        <div class="header-left-slot">
-            <button class="header-back-btn" id="headerBackBtn" onclick="goBackToMain()">← Back</button>
-            <button class="header-nav-btn" id="navBioBtn" onclick="scrollToBio()">Biografía</button>
-            <button class="header-nav-btn" id="navCollectionBtn" onclick="filterGallery('coleccion')">Mi Colección</button>
-        </div>
-        
-        <div class="header-center-slot">
-            <div class="header-logo-container">
     <!-- HEADER -->
     <header id="mainHeader">
         <div class="header-left-slot">
@@ -1391,33 +1393,27 @@
         </div>
         
         <div class="header-right-slot">
-            <!-- Botón de Búsqueda -->
             <button class="header-icon-btn" title="Buscar" onclick="toggleSearchDropdown()">
                 <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             </button>
             
-            <!-- Botón de Perfil -->
             <button class="header-icon-btn" title="Perfil" onclick="handleGoogleLogin()">
                 <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             </button>
 
-            <!-- Botón de Bolsa / Tienda -->
-            <button class="header-icon-btn" title="Colección / Bolsa" onclick="filterGallery('coleccion')">
+            <button class="header-icon-btn" title="Colección" onclick="filterGallery('coleccion')">
                 <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
             </button>
 
-            <!-- Botón Login Original -->
             <button class="google-login-btn" id="googleLoginBtn" onclick="handleGoogleLogin()">
                 <span id="loginBtnText">Iniciar sesión</span>
             </button>
 
-            <!-- Idioma -->
             <div class="lang-select" id="langToggle" onclick="toggleLanguage()">
                 <span class="active" id="langEs">ES</span> / <span id="langEn">EN</span>
             </div>
         </div>
 
-        <!-- BARRA DESPLEGABLE CON SUGERENCIAS EN VIVO -->
         <div class="search-dropdown-bar" id="searchDropdownBar">
             <div class="search-input-wrapper">
                 <input type="text" id="searchInput" class="search-input-field" placeholder="Buscar obras, secciones o temas..." oninput="handleSearchInput(this.value)">
@@ -1426,7 +1422,7 @@
         </div>
     </header>
 
-    <!-- HERO / PORTADA -->
+    <!-- HERO -->
     <section class="hero">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral derecha" class="hero-side-img right" id="sideImgRight">
@@ -1441,7 +1437,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CARRUSEL (REQUERIMIENTO 2, 3, 4) -->
+    <!-- CARRUSEL -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="utopia-bg-layer" id="utopiaBgLayer"></div>
 
@@ -1459,7 +1455,7 @@
         </div>
     </section>
 
-    <!-- ==================== SECCIÓN DE PINTURAS AL ÓLEO ==================== -->
+    <!-- PINTURAS AL ÓLEO -->
     <section id="galleryOil" style="display:none;" class="oil-section-wrapper">
         <div class="oil-banner-header" style="background-image: url('imagenes/ppintura.png');">
             <h1 class="oil-banner-title" id="oilTitleText">PINTURAS AL ÓLEO</h1>
@@ -1641,7 +1637,7 @@
         </div>
     </section>
 
-    <!-- ==================== SECCIÓN DE DIBUJO (REQUERIMIENTO 5 - FORMATO TIPO ÓLEO MASONRY + BANNER) ==================== -->
+    <!-- DIBUJO -->
     <section id="galleryDrawing" style="display:none;" class="oil-section-wrapper">
         <div class="oil-banner-header" style="background-image: url('imagenes/pdibujo.png');">
             <h1 class="oil-banner-title">DIBUJO</h1>
@@ -1793,7 +1789,63 @@
         </div>
     </section>
 
-    <!-- ==================== SECCIÓN DE FOTOGRAFÍA (REQUERIMIENTO 6 - TÍTULO ELIMINADO) ==================== -->
+    <!-- RETRATOS -->
+    <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper">
+        <div class="portraits-mirror-grid">
+            
+            <div class="mirror-frame mirror-oval" onclick="openUniversalModal('Niño 1', 'Retrato', 'imagenes/niño1.jpg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Niño 1', 'Retrato', 'imagenes/niño1.jpg')">
+                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <img src="imagenes/niño1.jpg" alt="Niño 1">
+            </div>
+
+            <div class="mirror-frame mirror-arch" onclick="openUniversalModal('Retrato de una niña', 'Retrato', 'imagenes/mujer 1.DNG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de una niña', 'Retrato', 'imagenes/mujer 1.DNG')">
+                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <img src="imagenes/mujer 1.DNG" alt="Retrato de una niña">
+            </div>
+
+            <div class="mirror-frame mirror-circle" onclick="openUniversalModal('Clelia Toledo', 'Retrato', 'imagenes/Clelia Toledo.jpg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Clelia Toledo', 'Retrato', 'imagenes/Clelia Toledo.jpg')">
+                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <img src="imagenes/Clelia Toledo.jpg" alt="Clelia Toledo">
+            </div>
+
+            <div class="mirror-frame mirror-square" onclick="openUniversalModal('Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje 2.jpg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje 2.jpg')">
+                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <img src="imagenes/Hombre y paisaje 2.jpg" alt="Hombre y paisaje">
+            </div>
+
+            <div class="mirror-frame mirror-octagon" onclick="openUniversalModal('Retrato de Isabel', 'Retrato', 'imagenes/sis.DNG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de Isabel', 'Retrato', 'imagenes/sis.DNG')">
+                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <img src="imagenes/sis.DNG" alt="Retrato de Isabel">
+            </div>
+
+            <div class="mirror-frame mirror-diamond" onclick="openUniversalModal('Retrato de un hombre', 'Retrato', 'imagenes/hombre verde.jpg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de un hombre', 'Retrato', 'imagenes/hombre verde.jpg')">
+                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <img src="imagenes/hombre verde.jpg" alt="Retrato de un hombre">
+            </div>
+
+            <div class="mirror-frame mirror-oval" onclick="openUniversalModal('Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje.png', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje.png')">
+                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <img src="imagenes/Hombre y paisaje.png" alt="Hombre y paisaje">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOTOGRAFÍA -->
     <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
         <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
             <div class="photo-split-grid">
@@ -1954,12 +2006,12 @@
         </div>
     </section>
 
-    <!-- ==================== SECCIÓN DE CINEMATOGRAFÍA (REQUERIMIENTO 1 - NEGRO TOTAL Y "WORKING ON" EN EL CENTRO) ==================== -->
+    <!-- CINEMATOGRAFÍA -->
     <section id="galleryCinema" style="display:none;" class="cinema-section-wrapper">
         <div class="cinema-working-text">working on</div>
     </section>
 
-    <!-- ==================== SECCIÓN MI COLECCIÓN ==================== -->
+    <!-- MI COLECCIÓN -->
     <section id="galleryCollection" style="display:none;" class="collection-section-wrapper">
         <h2 class="collection-title">Mi Colección</h2>
         <p class="collection-sub">Obras y registros visuales guardados por el usuario</p>
@@ -1968,7 +2020,7 @@
         </div>
     </section>
 
-    <!-- MODAL UNIVERSAL (REQUERIMIENTO 3 - LUPA CONSERVADA, TEXTO ARRIBA Y BOTÓN ABAJO) -->
+    <!-- MODAL UNIVERSAL -->
     <div class="universal-modal-overlay" id="universalModal">
         <div class="universal-modal-container">
             <button class="universal-modal-close" id="closeUniversalModal">&times;</button>
@@ -1991,7 +2043,7 @@
         </div>
     </div>
 
-    <!-- SECCIÓN BIOGRAFÍA -->
+    <!-- BIOGRAFÍA -->
     <section class="bio-section" id="bio">
         <div class="bio-grid">
             <div class="bio-image-wrapper" onclick="openUniversalModal('BRUNELIO', 'Artista · Retrato', 'imagenes/foto cesar.JPG', false)">
@@ -2016,7 +2068,7 @@
         </div>
     </section>
 
-    <!-- FOOTER Y CONTACTO -->
+    <!-- FOOTER -->
     <footer id="contact">
         <div class="contact-container">
             <h2 class="section-title" id="contactSectionTitle" style="margin-top: 0; text-align: left;">CONTACTO / ENCARGOS</h2>
@@ -2081,7 +2133,7 @@
             document.getElementById('bio').scrollIntoView({ behavior: 'smooth' });
         }
 
-        /* LÓGICA DE BÚSQUEDA DESPLEGABLE Y SUGERENCIAS (REQUERIMIENTO 1) */
+        /* BÚSQUEDA Y SUGERENCIAS */
         const searchDropdownBar = document.getElementById('searchDropdownBar');
         const searchInput = document.getElementById('searchInput');
         const searchSuggestionsBox = document.getElementById('searchSuggestionsBox');
@@ -2186,7 +2238,7 @@
                 galleryPortraitsSection.style.display = 'block';
                 galleryPortraitsSection.scrollIntoView({ behavior: 'smooth' });
             } else if (category === 'cinematografia') {
-                galleryCinemaSection.style.display = 'block';
+                galleryCinemaSection.style.display = 'flex';
                 galleryCinemaSection.scrollIntoView({ behavior: 'smooth' });
             } else if (category === 'coleccion') {
                 renderSavedCollection();
@@ -2262,7 +2314,7 @@
             });
         }
 
-        /* CARRUSEL ANIMACIÓN Y CAMBIO DINÁMICO DE FONDO */
+        /* CARRUSEL Y FONDO CAMBIANTE */
         const categoriesData = [
             { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', bg: 'imagenes/ppintura.png', filterCat: 'oleos' },
             { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', bg: 'imagenes/pdibujo.png', filterCat: 'dibujo' },
@@ -2275,6 +2327,7 @@
         const track = document.getElementById('carouselTrack');
         const utopiaBgLayer = document.getElementById('utopiaBgLayer');
         const carouselFooterTitle = document.getElementById('carouselFooterTitle');
+        const dragContainer = document.getElementById('dragContainer');
 
         function initUtopiaCarousel() {
             renderUtopiaTrack();
@@ -2320,7 +2373,6 @@
                 }
             });
 
-            // Cambio dinámico de fondo con la opacidad fija del CSS
             const currentItem = categoriesData[activeCarouselIndex];
             utopiaBgLayer.style.backgroundImage = `url('${currentItem.bg}')`;
 
@@ -2342,7 +2394,7 @@
             filterGallery(category);
         }
 
-        /* REQUERIMIENTO 4: SENSIBILIDAD REDUCIDA DEL ÍNDICE/CARRUSEL (COOLDOWN MAAYOR A 1200ms) */
+        /* SENSIBILIDAD CONTROLADA CON COOLDOWN DE 1200MS */
         let isWheelCooldown = false;
         dragContainer.addEventListener('wheel', (e) => {
             const rect = utopiaSection.getBoundingClientRect();
@@ -2357,7 +2409,7 @@
                 }
 
                 isWheelCooldown = true;
-                setTimeout(() => { isWheelCooldown = false; }, 1200); /* Transición pausada y suave */
+                setTimeout(() => { isWheelCooldown = false; }, 1200);
             }
         }, { passive: false });
 
@@ -2444,7 +2496,7 @@
             }
         }
 
-        /* LÓGICA DEL MODAL UNIVERSAL */
+        /* MODAL UNIVERSAL */
         const universalModal = document.getElementById('universalModal');
         const uModalImg = document.getElementById('uModalImg');
         const uModalTitle = document.getElementById('uModalTitle');

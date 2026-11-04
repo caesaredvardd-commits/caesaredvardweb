@@ -49,7 +49,7 @@
             text-decoration: none;
         }
 
-        /* --- PRELOADER CON VIDEO INFINITO --- */
+        /* --- PRELOADER CON VIDEO INFINITO (MÁS GRANDE Y CORREGIDO) --- */
         #preloader {
             position: fixed;
             top: 0;
@@ -58,14 +58,16 @@
             height: 100vh;
             background-color: #ffffff;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 99999;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
+            z-index: 999999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
         }
 
         #preloader video {
-            width: 120px;
+            width: 220px; /* Tamaño aumentado */
+            max-width: 80vw;
             height: auto;
             max-height: 70vh;
             object-fit: contain;
@@ -75,6 +77,7 @@
         #preloader.hidden {
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
         }
 
         /* ANIMACIÓN AL HACER SCROLL (SCROLL REVEAL EFFECT) */
@@ -184,6 +187,7 @@
             pointer-events: auto;
         }
 
+        /* DERECHA DEL HEADER: IDIOMA + BOTÓN GOOGLE LOGIN */
         .header-right-slot {
             display: flex;
             align-items: center;
@@ -616,52 +620,45 @@
             100% { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
 
-        /* ==================== SECCIÓN DE PINTURAS AL ÓLEO (ESTRUCTURA IDÉNTICA A LA IMAGEN) ==================== */
+        /* ==================== SECCIÓN DE PINTURAS AL ÓLEO (FORMATO MODIFICADO SEGÚN ÚLTIMA REFERENCIA) ==================== */
         .oil-section-wrapper {
             position: relative;
             width: 100vw;
             min-height: 90vh;
-            background-color: #faf9f8;
+            background-color: #f6f6f6;
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
             display: flex;
             flex-direction: column;
-            padding: 80px 40px 90px 40px;
+            padding: 80px 60px;
             box-sizing: border-box;
-            overflow: hidden;
         }
 
         .oil-header-container {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto 50px auto;
+            margin-bottom: 50px;
         }
 
         .oil-section-title {
-            font-family: Arial, Helvetica, sans-serif !important;
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: 1px;
+            font-family: 'Dominican Small Caps', serif !important;
+            font-size: 3.2rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            line-height: 1.05;
-            margin: 0 0 16px 0;
-            color: #4a0d0d;
+            line-height: 1.1;
+            margin: 0 0 10px 0;
+            color: #111111;
         }
 
         .oil-section-subtitle {
-            font-family: Arial, Helvetica, sans-serif !important;
-            font-size: 0.95rem;
-            color: #666;
-            line-height: 1.6;
-            max-width: 650px;
-            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #666666;
+            margin: 0;
         }
 
         .oil-scroll-container {
             width: 100%;
             overflow-x: auto;
             overflow-y: hidden;
-            padding: 20px 0 40px 0;
+            padding-bottom: 30px;
             cursor: grab;
             scroll-behavior: smooth;
         }
@@ -675,110 +672,92 @@
         }
 
         .oil-scroll-container::-webkit-scrollbar-thumb {
-            background: rgba(74, 13, 13, 0.2);
-            border-radius: 3px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 4px;
         }
 
         .oil-track {
             display: flex;
-            gap: 24px;
+            gap: 28px;
             align-items: stretch;
-            padding: 0 10px;
         }
 
         .oil-card-v2 {
-            min-width: 320px;
-            max-width: 320px;
+            min-width: 380px;
+            max-width: 380px;
             height: 520px;
-            background: #4a0d0d;
-            border-radius: 20px;
+            background: #ffffff;
+            border-radius: 28px;
             overflow: hidden;
             cursor: pointer;
             flex-shrink: 0;
             position: relative;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 22px;
-            box-sizing: border-box;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
         }
 
         .oil-card-v2:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
         }
 
-        .oil-card-v2-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 2;
-        }
-
-        .oil-tag-pill {
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            color: #ffffff;
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 0.65rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .oil-img-v2-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .oil-img-v2-container img {
+        .oil-card-v2 img.oil-card-bg-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s ease;
         }
 
-        .oil-card-v2:hover .oil-img-v2-container img {
+        .oil-card-v2:hover img.oil-card-bg-img {
             transform: scale(1.05);
         }
 
-        .oil-card-v2-overlay {
+        .oil-card-v2 .oil-top-bar {
             position: absolute;
-            top: 0;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .oil-badge-pill {
+            background: rgba(240, 240, 240, 0.85);
+            backdrop-filter: blur(8px);
+            color: #222222;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .oil-card-v2 .oil-bottom-content {
+            position: absolute;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            z-index: 2;
-            background: linear-gradient(180deg, rgba(74, 13, 13, 0.4) 0%, rgba(74, 13, 13, 0.1) 40%, rgba(74, 13, 13, 0.95) 85%);
-            pointer-events: none;
-        }
-
-        .oil-card-v2-footer {
-            position: relative;
-            z-index: 3;
-            margin-top: auto;
-        }
-
-        .oil-card-v2-title {
-            font-family: Arial, Helvetica, sans-serif !important;
-            font-size: 1.7rem;
-            font-weight: 700;
+            padding: 30px 24px;
+            box-sizing: border-box;
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            z-index: 10;
             color: #ffffff;
-            margin: 0 0 4px 0;
-            line-height: 1.1;
         }
 
-        .oil-card-v2-meta {
-            font-family: Arial, Helvetica, sans-serif !important;
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.7);
-            letter-spacing: 0.5px;
+        .oil-card-v2 .oil-card-title-v2 {
+            font-size: 1.8rem;
+            font-weight: normal;
+            line-height: 1.2;
+            margin-bottom: 6px;
+            color: #ffffff;
+        }
+
+        .oil-card-v2 .oil-card-meta-v2 {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.75);
         }
 
         /* --- SECCIÓN DE DIBUJO --- */
@@ -865,7 +844,7 @@
             transform: scale(1.04);
         }
 
-        /* ==================== SECCIÓN DE RETRATOS (CON ESPACIO DE BANNER) ==================== */
+        /* ==================== SECCIÓN DE RETRATOS (CON BANNER INCORPORADO) ==================== */
         .portraits-section-wrapper {
             position: relative;
             width: 100vw;
@@ -908,14 +887,15 @@
             margin: 0;
         }
 
+        /* BANNER ESPACIO DEDICADO EN RETRATOS */
         .portraits-banner-slot {
             max-width: 1450px;
             width: 100%;
-            height: 240px;
-            margin: 0 auto 40px auto;
-            border-radius: 16px;
+            height: 250px;
+            margin: 0 auto 50px auto;
+            border-radius: 20px;
             overflow: hidden;
-            background-color: #1c1c22;
+            background-color: #1a1a20;
             border: 1px dashed rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
@@ -927,14 +907,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
         }
 
-        .portraits-banner-placeholder-text {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 1.1rem;
-            letter-spacing: 3px;
+        .portraits-banner-placeholder {
+            color: #666666;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
         .portraits-grid-3col {
@@ -1533,10 +1512,9 @@
             .photo-item.horizontal { grid-column: span 1; height: 50vh; }
             .drawing-grid-3x3 { grid-template-columns: 1fr 1fr; }
             .oil-section-wrapper { padding: 40px 20px; }
-            .oil-card-v2 { min-width: 280px; max-width: 280px; height: 460px; }
+            .oil-card-v2 { min-width: 320px; max-width: 320px; height: 460px; }
             .collection-grid { grid-template-columns: repeat(2, 1fr); }
             .cinema-grid { grid-template-columns: 1fr; }
-            .oil-section-title { font-size: 2.4rem; }
         }
 
         @media (max-width: 768px) {
@@ -1547,42 +1525,44 @@
             .portraits-grid-3col { grid-template-columns: 1fr; }
             .collection-grid { grid-template-columns: 1fr; }
             .header-left-slot, .header-right-slot { width: auto; }
-            .portraits-banner-slot { height: 160px; }
+            #preloader video { width: 160px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- PRELOADER CON VIDEO CORREGIDO -->
+    <!-- PRELOADER CON VIDEO INFINITO CORREGIDO -->
     <div id="preloader">
-        <video id="preloaderVideo" autoplay loop muted playsinline preload="auto">
+        <video autoplay loop muted playsinline id="preloaderVideo" preload="auto">
             <source src="imagenes/gif infinito.mp4" type="video/mp4">
             Tu navegador no soporta el formato de video.
         </video>
     </div>
 
-    <!-- SCRIPT DE REPRODUCCIÓN AUTOMÁTICA Y OCULTACIÓN DEL PRELOADER -->
+    <!-- SCRIPT DE MANEJO SEGURO Y GARANTIZADO DEL PRELOADER -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const video = document.getElementById('preloaderVideo');
+            const preloader = document.getElementById('preloader');
+
             if (video) {
-                video.muted = true;
+                // Forzar reproducción por JavaScript para navegadores estrictos
                 const playPromise = video.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(error => {
-                        console.log("Autoplay forzado del preloader", error);
+                        console.log("Auto-play de video prevenido por navegador:", error);
                     });
                 }
             }
-        });
 
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const preloader = document.getElementById('preloader');
-                if (preloader) {
-                    preloader.classList.add('hidden');
-                }
-            }, 800);
+            // Ocultar preloader cuando la ventana haya cargado completamente
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    if (preloader) {
+                        preloader.classList.add('hidden');
+                    }
+                }, 800);
+            });
         });
     </script>
 
@@ -1623,7 +1603,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CARRUSEL -->
+    <!-- SECCIÓN CARRUSEL ÍNDICE -->
     <section class="utopia-section reveal-on-scroll" id="utopiaCarousel">
         <div class="carousel-header-box" id="carouselHeaderBox">
             <h2 class="carousel-main-heading" id="carouselMainTitle">Un archivo de miradas.</h2>
@@ -1640,149 +1620,139 @@
         <div class="carousel-footer-title" id="carouselFooterTitle">PINTURAS AL ÓLEO</div>
     </section>
 
-    <!-- SECCIÓN DE PINTURAS AL ÓLEO -->
+    <!-- ==================== SECCIÓN DE PINTURAS AL ÓLEO (ESTRUCTURA IDÉNTICA A REFERENCIA) ==================== -->
     <section id="galleryOil" style="display:none;" class="oil-section-wrapper reveal-on-scroll">
         <div class="oil-header-container">
-            <h2 class="oil-section-title" id="oilTitleText">EVERYTHING YOUR BRAND NEEDS TO GROW</h2>
-            <p class="oil-section-subtitle" id="oilSubText">Reload offers strategic branding, visual identity, and creative direction — built to cut through noise and deliver results. From storytelling to execution, we design systems that grow with your business.</p>
+            <h2 class="oil-section-title" id="oilTitleText">Pinturas al Óleo</h2>
+            <p class="oil-section-subtitle" id="oilSubText">Obras de taller y catálogo de adquisición reciente</p>
         </div>
 
         <div class="oil-scroll-container" id="oilScrollContainer">
             <div class="oil-track">
                 
-                <div class="oil-card-v2" onclick="openUniversalModal('Branding Strategy', 'Óleo sobre lienzo · 2026', 'imagenes/nude 3.DNG', false)">
-                    <div class="oil-card-v2-header">
-                        <span class="oil-tag-pill">BRAND CORE</span>
-                        <div class="bookmark-btn" style="position:relative; top:0; right:0;" onclick="toggleSaveItem(event, 'Branding Strategy', 'Óleo sobre lienzo · 2026', 'imagenes/nude 3.DNG')">
+                <div class="oil-card-v2" onclick="openUniversalModal('Desnudo masculino', 'Óleo sobre tabla · 2018', 'imagenes/nude 3.DNG', false)">
+                    <div class="oil-top-bar">
+                        <span class="oil-badge-pill">Óleo</span>
+                        <div class="bookmark-btn" style="position:static;" onclick="toggleSaveItem(event, 'Desnudo masculino', 'Óleo sobre tabla · 2018', 'imagenes/nude 3.DNG')">
                             <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                         </div>
                     </div>
-                    <div class="oil-img-v2-container">
-                        <img src="imagenes/nude 3.DNG" alt="Branding strategy">
-                    </div>
-                    <div class="oil-card-v2-overlay"></div>
-                    <div class="oil-card-v2-footer">
-                        <div class="oil-card-v2-title">Branding<br>strategy</div>
-                        <div class="oil-card-v2-meta">Clarifying who you are, what you stand for, and how you speak.</div>
+                    <img src="imagenes/nude 3.DNG" alt="Desnudo masculino" class="oil-card-bg-img">
+                    <div class="oil-bottom-content">
+                        <div class="oil-card-title-v2">Desnudo masculino</div>
+                        <div class="oil-card-meta-v2">Óleo sobre tabla · 2018</div>
                     </div>
                 </div>
 
-                <div class="oil-card-v2" onclick="openUniversalModal('Visual Identity', 'Óleo sobre lienzo · 2026', 'imagenes/lyon.DNG', false)">
-                    <div class="oil-card-v2-header">
-                        <span class="oil-tag-pill">VISUAL SYSTEM</span>
-                        <div class="bookmark-btn" style="position:relative; top:0; right:0;" onclick="toggleSaveItem(event, 'Visual Identity', 'Óleo sobre lienzo · 2026', 'imagenes/lyon.DNG')">
+                <div class="oil-card-v2" onclick="openUniversalModal('Leona en el paisaje', 'Óleo sobre lienzo · 2019', 'imagenes/lyon.DNG', false)">
+                    <div class="oil-top-bar">
+                        <span class="oil-badge-pill">Óleo</span>
+                        <div class="bookmark-btn" style="position:static;" onclick="toggleSaveItem(event, 'Leona en el paisaje', 'Óleo sobre lienzo · 2019', 'imagenes/lyon.DNG')">
                             <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                         </div>
                     </div>
-                    <div class="oil-img-v2-container">
-                        <img src="imagenes/lyon.DNG" alt="Visual identity">
-                    </div>
-                    <div class="oil-card-v2-overlay"></div>
-                    <div class="oil-card-v2-footer">
-                        <div class="oil-card-v2-title">Visual<br>identity</div>
-                        <div class="oil-card-v2-meta">Turning strategy into bold, distinctive brand visuals.</div>
+                    <img src="imagenes/lyon.DNG" alt="Leona en el paisaje" class="oil-card-bg-img">
+                    <div class="oil-bottom-content">
+                        <div class="oil-card-title-v2">Leona en el paisaje</div>
+                        <div class="oil-card-meta-v2">Óleo sobre lienzo · 2019</div>
                     </div>
                 </div>
 
-                <div class="oil-card-v2" onclick="openUniversalModal('Creative Direction', 'Óleo sobre lienzo · 2026', 'imagenes/virgen 3.PNG', false)">
-                    <div class="oil-card-v2-header">
-                        <span class="oil-tag-pill">BRAND NARRATIVE</span>
-                        <div class="bookmark-btn" style="position:relative; top:0; right:0;" onclick="toggleSaveItem(event, 'Creative Direction', 'Óleo sobre lienzo · 2026', 'imagenes/virgen 3.PNG')">
+                <div class="oil-card-v2" onclick="openUniversalModal('Madonnina', 'Óleo sobre lienzo · 2026', 'imagenes/virgen 3.PNG', false)">
+                    <div class="oil-top-bar">
+                        <span class="oil-badge-pill">Óleo</span>
+                        <div class="bookmark-btn" style="position:static;" onclick="toggleSaveItem(event, 'Madonnina', 'Óleo sobre lienzo · 2026', 'imagenes/virgen 3.PNG')">
                             <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                         </div>
                     </div>
-                    <div class="oil-img-v2-container">
-                        <img src="imagenes/virgen 3.PNG" alt="Creative Direction">
-                    </div>
-                    <div class="oil-card-v2-overlay"></div>
-                    <div class="oil-card-v2-footer">
-                        <div class="oil-card-v2-title">Creative<br>Direction</div>
-                        <div class="oil-card-v2-meta">Setting the tone, mood, and message of the brand.</div>
+                    <img src="imagenes/virgen 3.PNG" alt="Madonnina" class="oil-card-bg-img">
+                    <div class="oil-bottom-content">
+                        <div class="oil-card-title-v2">Madonnina</div>
+                        <div class="oil-card-meta-v2">Óleo sobre lienzo · 2026</div>
                     </div>
                 </div>
 
-                <div class="oil-card-v2" onclick="openUniversalModal('Art Direction', 'Óleo sobre lienzo · 2026', 'imagenes/wvirgen.DNG', false)">
-                    <div class="oil-card-v2-header">
-                        <span class="oil-tag-pill">CREATIVE LOOK</span>
-                        <div class="bookmark-btn" style="position:relative; top:0; right:0;" onclick="toggleSaveItem(event, 'Art Direction', 'Óleo sobre lienzo · 2026', 'imagenes/wvirgen.DNG')">
+                <div class="oil-card-v2" onclick="openUniversalModal('Virgen de Medjujorge', 'Óleo sobre lienzo · 2026', 'imagenes/wvirgen.DNG', false)">
+                    <div class="oil-top-bar">
+                        <span class="oil-badge-pill">Óleo</span>
+                        <div class="bookmark-btn" style="position:static;" onclick="toggleSaveItem(event, 'Virgen de Medjujorge', 'Óleo sobre lienzo · 2026', 'imagenes/wvirgen.DNG')">
                             <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                         </div>
                     </div>
-                    <div class="oil-img-v2-container">
-                        <img src="imagenes/wvirgen.DNG" alt="Art Direction">
-                    </div>
-                    <div class="oil-card-v2-overlay"></div>
-                    <div class="oil-card-v2-footer">
-                        <div class="oil-card-v2-title">Art<br>Direction</div>
-                        <div class="oil-card-v2-meta">High-end aesthetic language and concept development.</div>
+                    <img src="imagenes/wvirgen.DNG" alt="Virgen de Medjujorge" class="oil-card-bg-img">
+                    <div class="oil-bottom-content">
+                        <div class="oil-card-title-v2">Virgen de Medjujorge</div>
+                        <div class="oil-card-meta-v2">Óleo sobre lienzo · 2026</div>
                     </div>
                 </div>
 
                 <div class="oil-card-v2" onclick="openUniversalModal('Retrato de Isabel', 'Óleo sobre lienzo · 2018', 'imagenes/sis.DNG', false)">
-                    <div class="oil-card-v2-header">
-                        <span class="oil-tag-pill">RETRATO</span>
-                        <div class="bookmark-btn" style="position:relative; top:0; right:0;" onclick="toggleSaveItem(event, 'Retrato de Isabel', 'Óleo sobre lienzo · 2018', 'imagenes/sis.DNG')">
+                    <div class="oil-top-bar">
+                        <span class="oil-badge-pill">Óleo</span>
+                        <div class="bookmark-btn" style="position:static;" onclick="toggleSaveItem(event, 'Retrato de Isabel', 'Óleo sobre lienzo · 2018', 'imagenes/sis.DNG')">
                             <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                         </div>
                     </div>
-                    <div class="oil-img-v2-container">
-                        <img src="imagenes/sis.DNG" alt="Retrato de Isabel">
-                    </div>
-                    <div class="oil-card-v2-overlay"></div>
-                    <div class="oil-card-v2-footer">
-                        <div class="oil-card-v2-title">Retrato de<br>Isabel</div>
-                        <div class="oil-card-v2-meta">Óleo sobre lienzo · 2018</div>
+                    <img src="imagenes/sis.DNG" alt="Retrato de Isabel" class="oil-card-bg-img">
+                    <div class="oil-bottom-content">
+                        <div class="oil-card-title-v2">Retrato de Isabel</div>
+                        <div class="oil-card-meta-v2">Óleo sobre lienzo · 2018</div>
                     </div>
                 </div>
 
                 <div class="oil-card-v2" onclick="openUniversalModal('Hombre y paisaje', 'Óleo sobre lienzo · 2026', 'imagenes/Hombre y paisaje.png', false)">
-                    <div class="oil-card-v2-header">
-                        <span class="oil-tag-pill">FIGURATIVO</span>
-                        <div class="bookmark-btn" style="position:relative; top:0; right:0;" onclick="toggleSaveItem(event, 'Hombre y paisaje', 'Óleo sobre lienzo · 2026', 'imagenes/Hombre y paisaje.png')">
+                    <div class="oil-top-bar">
+                        <span class="oil-badge-pill">Óleo</span>
+                        <div class="bookmark-btn" style="position:static;" onclick="toggleSaveItem(event, 'Hombre y paisaje', 'Óleo sobre lienzo · 2026', 'imagenes/Hombre y paisaje.png')">
                             <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                         </div>
                     </div>
-                    <div class="oil-img-v2-container">
-                        <img src="imagenes/Hombre y paisaje.png" alt="Hombre y paisaje">
-                    </div>
-                    <div class="oil-card-v2-overlay"></div>
-                    <div class="oil-card-v2-footer">
-                        <div class="oil-card-v2-title">Hombre y<br>paisaje</div>
-                        <div class="oil-card-v2-meta">Óleo sobre lienzo · 2026</div>
+                    <img src="imagenes/Hombre y paisaje.png" alt="Hombre y paisaje" class="oil-card-bg-img">
+                    <div class="oil-bottom-content">
+                        <div class="oil-card-title-v2">Hombre y paisaje</div>
+                        <div class="oil-card-meta-v2">Óleo sobre lienzo · 2026</div>
                     </div>
                 </div>
 
                 <div class="oil-card-v2" onclick="openUniversalModal('Rubia', 'Óleo sobre lienzo · 2016', 'imagenes/rubia.DNG', false)">
-                    <div class="oil-card-v2-header">
-                        <span class="oil-tag-pill">RETRATO</span>
-                        <div class="bookmark-btn" style="position:relative; top:0; right:0;" onclick="toggleSaveItem(event, 'Rubia', 'Óleo sobre lienzo · 2016', 'imagenes/rubia.DNG')">
+                    <div class="oil-top-bar">
+                        <span class="oil-badge-pill">Óleo</span>
+                        <div class="bookmark-btn" style="position:static;" onclick="toggleSaveItem(event, 'Rubia', 'Óleo sobre lienzo · 2016', 'imagenes/rubia.DNG')">
                             <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                         </div>
                     </div>
-                    <div class="oil-img-v2-container">
-                        <img src="imagenes/rubia.DNG" alt="Rubia">
-                    </div>
-                    <div class="oil-card-v2-overlay"></div>
-                    <div class="oil-card-v2-footer">
-                        <div class="oil-card-v2-title">Rubia</div>
-                        <div class="oil-card-v2-meta">Óleo sobre lienzo · 2016</div>
+                    <img src="imagenes/rubia.DNG" alt="Rubia" class="oil-card-bg-img">
+                    <div class="oil-bottom-content">
+                        <div class="oil-card-title-v2">Rubia</div>
+                        <div class="oil-card-meta-v2">Óleo sobre lienzo · 2016</div>
                     </div>
                 </div>
 
                 <div class="oil-card-v2" onclick="openUniversalModal('Padre', 'Óleo sobre tabla · 2016', 'imagenes/padre 2.PNG', false)">
-                    <div class="oil-card-v2-header">
-                        <span class="oil-tag-pill">RETRATO</span>
-                        <div class="bookmark-btn" style="position:relative; top:0; right:0;" onclick="toggleSaveItem(event, 'Padre', 'Óleo sobre tabla · 2016', 'imagenes/padre 2.PNG')">
+                    <div class="oil-top-bar">
+                        <span class="oil-badge-pill">Óleo</span>
+                        <div class="bookmark-btn" style="position:static;" onclick="toggleSaveItem(event, 'Padre', 'Óleo sobre tabla · 2016', 'imagenes/padre 2.PNG')">
                             <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                         </div>
                     </div>
-                    <div class="oil-img-v2-container">
-                        <img src="imagenes/padre 2.PNG" alt="Padre">
+                    <img src="imagenes/padre 2.PNG" alt="Padre" class="oil-card-bg-img">
+                    <div class="oil-bottom-content">
+                        <div class="oil-card-title-v2">Padre</div>
+                        <div class="oil-card-meta-v2">Óleo sobre tabla · 2016</div>
                     </div>
-                    <div class="oil-card-v2-overlay"></div>
-                    <div class="oil-card-v2-footer">
-                        <div class="oil-card-v2-title">Padre</div>
-                        <div class="oil-card-v2-meta">Óleo sobre tabla · 2016</div>
+                </div>
+
+                <div class="oil-card-v2" onclick="openUniversalModal('Retrato de una niña', 'Óleo sobre lienzo · 2019', 'imagenes/mujer 1.DNG', false)">
+                    <div class="oil-top-bar">
+                        <span class="oil-badge-pill">Óleo</span>
+                        <div class="bookmark-btn" style="position:static;" onclick="toggleSaveItem(event, 'Retrato de una niña', 'Óleo sobre lienzo · 2019', 'imagenes/mujer 1.DNG')">
+                            <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                    </div>
+                    <img src="imagenes/mujer 1.DNG" alt="Retrato de una niña" class="oil-card-bg-img">
+                    <div class="oil-bottom-content">
+                        <div class="oil-card-title-v2">Retrato de una niña</div>
+                        <div class="oil-card-meta-v2">Óleo sobre lienzo · 2019</div>
                     </div>
                 </div>
 
@@ -1790,7 +1760,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE DIBUJO -->
+    <!-- ==================== SECCIÓN DE DIBUJO ==================== -->
     <section id="galleryDrawing" style="display:none;" class="drawing-section-wrapper reveal-on-scroll">
         <div class="drawing-hero-banner">
             <div class="drawing-banner-title">DIBUJO</div>
@@ -1816,3 +1786,699 @@
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="drawing-img-wrapper"><img src="imagenes/9.jpeg" alt="Perfil Clásico"></div>
+            </div>
+
+            <div class="drawing-card" onclick="openUniversalModal('Silueta e Inercia', 'Tinta china', 'imagenes/bodegon gotico.JPG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Silueta e Inercia', 'Tinta china', 'imagenes/bodegon gotico.JPG')">
+                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <div class="drawing-img-wrapper"><img src="imagenes/bodegon gotico.JPG" alt="Silueta e Inercia"></div>
+            </div>
+
+            <div class="drawing-card" onclick="openUniversalModal('Torsos en Penumbra', 'Sanguina sobre papel', 'imagenes/hombre ilustrado.jpg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Torsos en Penumbra', 'Sanguina sobre papel', 'imagenes/hombre ilustrado.jpg')">
+                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <div class="drawing-img-wrapper"><img src="imagenes/hombre ilustrado.jpg" alt="Torsos en Penumbra"></div>
+            </div>
+
+            <div class="drawing-card" onclick="openUniversalModal('Boceto de manos 2', 'Carboncillo', 'imagenes/8.jpeg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Boceto de manos 2', 'Carboncillo', 'imagenes/8.jpeg')">
+                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <div class="drawing-img-wrapper"><img src="imagenes/8.jpeg" alt="Boceto de manos 2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN DE RETRATOS (CON BANNER AÑADIDO) ==================== -->
+    <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper reveal-on-scroll">
+        <div class="portraits-header-container">
+            <div class="portraits-section-tag">Behind the Designs</div>
+            <h2 class="portraits-section-title">Retratos</h2>
+            <p class="portraits-section-subtitle">Exploraciones sobre la fisonomía, el carácter y las miradas humanas.</p>
+        </div>
+
+        <!-- ESPACIO RESERVADO PARA BANNER -->
+        <div class="portraits-banner-slot">
+            <span class="portraits-banner-placeholder">Espacio para Banner publicitario o promocional</span>
+        </div>
+        
+        <div class="portraits-grid-3col">
+            <div class="portrait-item-card reveal-on-scroll" onclick="openUniversalModal('Niño 1', 'Retrato', 'imagenes/niño1.jpg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Niño 1', 'Retrato', 'imagenes/niño1.jpg')">
+                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <div class="portrait-img-wrapper">
+                    <img src="imagenes/niño1.jpg" alt="Niño 1">
+                    <div class="portrait-hover-overlay">
+                        <div class="portrait-hover-title">Niño 1</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portrait-item-card reveal-on-scroll" onclick="openUniversalModal('Retrato de una niña', 'Retrato', 'imagenes/mujer 1.DNG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de una niña', 'Retrato', 'imagenes/mujer 1.DNG')">
+                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <div class="portrait-img-wrapper">
+                    <img src="imagenes/mujer 1.DNG" alt="Retrato de una niña">
+                    <div class="portrait-hover-overlay">
+                        <div class="portrait-hover-title">Retrato de una niña</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portrait-item-card reveal-on-scroll" onclick="openUniversalModal('Clelia Toledo', 'Retrato', 'imagenes/Clelia Toledo.jpg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Clelia Toledo', 'Retrato', 'imagenes/Clelia Toledo.jpg')">
+                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <div class="portrait-img-wrapper">
+                    <img src="imagenes/Clelia Toledo.jpg" alt="Clelia Toledo">
+                    <div class="portrait-hover-overlay">
+                        <div class="portrait-hover-title">Clelia Toledo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN DE FOTOGRAFÍA ==================== -->
+    <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper reveal-on-scroll">
+        <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
+            <h2 class="photo-section-title">Fotografía</h2>
+            
+            <div class="photo-split-grid">
+                <div class="photo-item horizontal" onclick="openUniversalModal('F1000007', 'Analógica · 2025', 'imagenes/F1000007.JPG?v=2', true)">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000007', 'Analógica · 2025', 'imagenes/F1000007.JPG?v=2')">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <img src="imagenes/F1000007.JPG?v=2" alt="F1000007">
+                    <div class="photo-info-overlay"><div class="photo-title">F1000007</div><div class="photo-meta">Analógica · 2025</div></div>
+                </div>
+
+                <div class="photo-item" onclick="openUniversalModal('F1010026', 'Analógica · 2023', 'imagenes/F1010026.JPG?v=2', true)">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010026', 'Analógica · 2023', 'imagenes/F1010026.JPG?v=2')">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <img src="imagenes/F1010026.JPG?v=2" alt="F1010026">
+                    <div class="photo-info-overlay"><div class="photo-title">F1010026</div><div class="photo-meta">Analógica · 2023</div></div>
+                </div>
+
+                <div class="photo-item" onclick="openUniversalModal('F1010036', 'Analógica · 2023', 'imagenes/F1010036.JPG?v=2', true)">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010036', 'Analógica · 2023', 'imagenes/F1010036.JPG?v=2')">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <img src="imagenes/F1010036.JPG?v=2" alt="F1010036">
+                    <div class="photo-info-overlay"><div class="photo-title">F1010036</div><div class="photo-meta">Analógica · 2023</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN DE CINEMATOGRAFÍA ==================== -->
+    <section id="galleryCinema" style="display:none;" class="cinema-section-wrapper reveal-on-scroll">
+        <h2 class="cinema-title">Cinematografía</h2>
+        <div class="cinema-grid">
+            <div class="cinema-card" onclick="openUniversalModal('Estudio en Movimiento I', 'Fotograma 35mm · 2026', 'imagenes/cinei.png', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio en Movimiento I', 'Fotograma 35mm · 2026', 'imagenes/cinei.png')">
+                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <div class="cinema-img-wrapper">
+                    <img src="imagenes/cinei.png" alt="Estudio en Movimiento I">
+                </div>
+                <div class="cinema-info">
+                    <div class="cinema-card-title">Estudio en Movimiento I</div>
+                    <div class="cinema-card-meta">Fotograma 35mm · 2026</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN MI COLECCIÓN ==================== -->
+    <section id="galleryCollection" style="display:none;" class="collection-section-wrapper reveal-on-scroll">
+        <h2 class="collection-title">Mi Colección</h2>
+        <p class="collection-sub">Obras y registros visuales guardados por el usuario</p>
+        <div class="collection-grid" id="collectionGrid">
+            <div class="collection-empty" id="collectionEmpty">Aún no has guardado ninguna obra en tu colección.</div>
+        </div>
+    </section>
+
+    <!-- MODAL UNIVERSAL -->
+    <div class="universal-modal-overlay" id="universalModal">
+        <div class="universal-modal-wrapper" id="universalModalWrapper">
+            <button class="universal-modal-close" id="closeUniversalModal">&times;</button>
+            <img id="uModalImg" src="" alt="Imagen ampliada">
+            
+            <div class="universal-modal-actions">
+                <button class="universal-modal-btn-email" id="uModalEmailBtn">Solicitar información</button>
+                <button class="universal-modal-zoom-btn" id="universalZoomBtn" title="Activar/Desactivar Lupa" onclick="toggleUniversalZoom()">
+                    <img src="imagenes/lupa.png" alt="Lupa">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN BIOGRAFÍA -->
+    <section class="bio-section reveal-on-scroll" id="bio">
+        <div class="bio-grid">
+            <div class="bio-image-wrapper" onclick="openUniversalModal('BRUNELIO', 'Artista · Retrato', 'imagenes/foto cesar.JPG', false)">
+                <img src="imagenes/foto cesar.JPG" alt="BRUNELIO Portrait">
+            </div>
+            <div class="bio-content-wrapper">
+                <div class="bio-artist-tag" id="bioTag">ARTISTA</div>
+                <h2 class="bio-artist-name">Brunelio</h2>
+                
+                <div class="bio-paragraphs" id="bioParagraphs">
+                    <p style="font-style: normal; font-size: 1.1rem; margin-bottom: 5px;">
+                        <em>«El acto de pintar se trata de un corazón contándole a otro corazón dónde halló su salvación».</em> Francisco de Goya y Lucientes.
+                    </p>
+                    <p>
+                        Soy un artista emergente interesado en explorar posibilidades pictóricas a través del retrato, la religión, el erotismo y el estudio histórico de la iconografía occidental. Nací en la Ciudad de Guatemala en 1996 y desde los seis años recibí una formación artística en dibujo y pintura. A los diez años asistí a clases en otra academia artística, situada en la zona 1 capitalina. Durante mi adolescencia, tuve la oportunidad de exponer fotografías digitales en concursos estudiantiles, entre los cuales obtuve el primer lugar en varias ocasiones.
+                    </p>
+                    <p>
+                        Tuve una formación universitaria especializada en artes visuales y cinematografía, lo cual me permitió explorar diversos medios de analógicos y digitales. Una formación que me ha permitido experimentar con diferentes lenguajes visuales, sonoros y narrativos. Igualmente, me he dedicado a la escritura de guiones y a la literatura. Por más de seis años, me dediqué al negocio de los libros, interés que me llevó a laborar en una de las librerías más prestigiosas del país. Desde entonces, he experimentado con diversas técnicas, métodos y discursos visuales para hallar una voz en el mundo del arte.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER Y CONTACTO -->
+    <footer id="contact" class="reveal-on-scroll">
+        <div class="contact-container">
+            <h2 class="section-title" id="contactSectionTitle" style="margin-top: 0; text-align: left;">CONTACTO / ENCARGOS</h2>
+            <p id="contactSubText" style="font-style: italic; font-size: 1.2rem; margin-top: 10px;">
+                Para consultas sobre adquisición de obras de colección, solicitudes de encargos privados o comisiones, completa el siguiente formulario:
+            </p>
+
+            <form class="contact-form" action="https://formspree.io/f/cezzarostudio@gmail.com" method="POST">
+                <div class="form-group">
+                    <label for="clientType" id="labelClientType">Empresa o Particular</label>
+                    <select id="clientType" name="clientType" class="form-control">
+                        <option value="Individual" id="optIndividual">Cliente Individual</option>
+                        <option value="Gallery / Business" id="optGallery">Galería / Empresa / Coleccionista</option>
+                        <option value="Press / Media" id="optPress">Prensa / Medios</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="firstName" id="labelFirstName">Nombre</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Nombre" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName" id="labelLastName">Apellido</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Apellido" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="email" id="labelEmail">Correo electrónico *</label>
+                    <input type="email" id="email" name="email" placeholder="Correo electrónico" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message" id="labelMessage">Mensaje *</label>
+                    <textarea id="message" name="message" placeholder="Mensaje" class="form-control" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtnText">Submit</button>
+            </form>
+        </div>
+
+        <div style="text-align: center; border-top: 1px solid rgba(0, 0, 0, 0.1); padding-top: 40px;">
+            <div style="letter-spacing: 2px; font-size: 1rem; text-transform: uppercase;" id="directEmailText">Correo Directo del Taller</div>
+            <a href="mailto:cezzarostudio@gmail.com" class="contact-email">cezzarostudio@gmail.com</a>
+            <div class="copyright" id="copyrightText">
+                © BRUNELIO. TODOS LOS DERECHOS RESERVADOS.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT PRINCIPAL -->
+    <script>
+        window.addEventListener('load', () => {
+            initInfiniteCarousel();
+            initScrollReveal();
+        });
+
+        function initScrollReveal() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(element => {
+                revealObserver.observe(element);
+            });
+        }
+
+        const mainHeader = document.getElementById('mainHeader');
+        const headerBackBtn = document.getElementById('headerBackBtn');
+        const utopiaSection = document.getElementById('utopiaCarousel');
+
+        function scrollToBio() {
+            document.getElementById('bio').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        let isUserLoggedIn = false;
+        function handleGoogleLogin() {
+            if (!isUserLoggedIn) {
+                isUserLoggedIn = true;
+                const loginBtnText = document.getElementById('loginBtnText');
+                if (currentLang === 'EN') {
+                    loginBtnText.innerText = 'Google User';
+                } else {
+                    loginBtnText.innerText = 'Sesión Activa';
+                }
+                alert(currentLang === 'EN' ? 'Successfully signed in with Google!' : '¡Sesión iniciada correctamente con Google!');
+            } else {
+                if (confirm(currentLang === 'EN' ? 'Do you want to sign out?' : '¿Deseas cerrar sesión?')) {
+                    isUserLoggedIn = false;
+                    const loginBtnText = document.getElementById('loginBtnText');
+                    loginBtnText.innerText = currentLang === 'EN' ? 'Sign In' : 'Iniciar sesión';
+                }
+            }
+        }
+
+        function filterGallery(category) {
+            const galleryPhotoSection = document.getElementById('galleryPhoto');
+            const galleryDrawingSection = document.getElementById('galleryDrawing');
+            const galleryOilSection = document.getElementById('galleryOil');
+            const galleryPortraitsSection = document.getElementById('galleryPortraits');
+            const galleryCinemaSection = document.getElementById('galleryCinema');
+            const galleryCollectionSection = document.getElementById('galleryCollection');
+
+            headerBackBtn.style.display = 'inline-block';
+
+            galleryOilSection.style.display = 'none';
+            galleryDrawingSection.style.display = 'none';
+            galleryPhotoSection.style.display = 'none';
+            galleryPortraitsSection.style.display = 'none';
+            galleryCinemaSection.style.display = 'none';
+            galleryCollectionSection.style.display = 'none';
+
+            if (category === 'fotografia') {
+                galleryPhotoSection.style.display = 'block';
+                galleryPhotoSection.scrollIntoView({ behavior: 'smooth' });
+            } else if (category === 'dibujo') {
+                galleryDrawingSection.style.display = 'block';
+                galleryDrawingSection.scrollIntoView({ behavior: 'smooth' });
+            } else if (category === 'retratos') {
+                galleryPortraitsSection.style.display = 'block';
+                galleryPortraitsSection.scrollIntoView({ behavior: 'smooth' });
+            } else if (category === 'cinematografia') {
+                galleryCinemaSection.style.display = 'block';
+                galleryCinemaSection.scrollIntoView({ behavior: 'smooth' });
+            } else if (category === 'coleccion') {
+                renderSavedCollection();
+                galleryCollectionSection.style.display = 'block';
+                galleryCollectionSection.scrollIntoView({ behavior: 'smooth' });
+            } else if (category === 'oleos' || category === 'all') {
+                galleryOilSection.style.display = 'flex';
+                galleryOilSection.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            setTimeout(initScrollReveal, 100);
+        }
+
+        function goBackToMain() {
+            headerBackBtn.style.display = 'none';
+            utopiaSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop <= 50) {
+                mainHeader.classList.remove('header-hidden');
+            } else if (scrollTop > lastScrollTop) {
+                mainHeader.classList.add('header-hidden');
+            } else {
+                mainHeader.classList.remove('header-hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
+        const oilScrollContainer = document.getElementById('oilScrollContainer');
+        let isOilDragging = false;
+        let oilStartX, oilScrollLeft;
+
+        if (oilScrollContainer) {
+            oilScrollContainer.addEventListener('mousedown', (e) => {
+                isOilDragging = true;
+                oilStartX = e.pageX - oilScrollContainer.offsetLeft;
+                oilScrollLeft = oilScrollContainer.scrollLeft;
+            });
+            oilScrollContainer.addEventListener('mouseleave', () => { isOilDragging = false; });
+            oilScrollContainer.addEventListener('mouseup', () => { isOilDragging = false; });
+            oilScrollContainer.addEventListener('mousemove', (e) => {
+                if (!isOilDragging) return;
+                e.preventDefault();
+                const x = e.pageX - oilScrollContainer.offsetLeft;
+                const walk = (x - oilStartX) * 1.8;
+                oilScrollContainer.scrollLeft = oilScrollLeft - walk;
+            });
+
+            oilScrollContainer.addEventListener('wheel', (e) => {
+                if (e.deltaY !== 0) {
+                    e.preventDefault();
+                    oilScrollContainer.scrollLeft += e.deltaY;
+                }
+            }, { passive: false });
+        }
+
+        let savedItems = [];
+
+        function toggleSaveItem(e, title, meta, imgSrc) {
+            e.stopPropagation();
+            const btn = e.currentTarget;
+            const index = savedItems.findIndex(item => item.title === title);
+
+            if (index > -1) {
+                savedItems.splice(index, 1);
+                btn.classList.remove('saved');
+            } else {
+                savedItems.push({ title, meta, imgSrc });
+                btn.classList.add('saved');
+            }
+            renderSavedCollection();
+        }
+
+        function renderSavedCollection() {
+            const grid = document.getElementById('collectionGrid');
+
+            if (savedItems.length === 0) {
+                grid.innerHTML = '<div class="collection-empty">Aún no has guardado ninguna obra en tu colección.</div>';
+                return;
+            }
+
+            grid.innerHTML = '';
+            savedItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'oil-card-v2';
+                card.onclick = () => openUniversalModal(item.title, item.meta, item.imgSrc, false);
+                card.innerHTML = `
+                    <div class="oil-top-bar">
+                        <span class="oil-badge-pill">Colección</span>
+                        <div class="bookmark-btn saved" style="position:static;" onclick="toggleSaveItem(event, '${item.title}', '${item.meta}', '${item.imgSrc}')">
+                            <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                    </div>
+                    <img src="${item.imgSrc}" alt="${item.title}" class="oil-card-bg-img">
+                    <div class="oil-bottom-content">
+                        <div class="oil-card-title-v2">${item.title}</div>
+                        <div class="oil-card-meta-v2">${item.meta}</div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        const categoriesData = [
+            { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', filterCat: 'oleos' },
+            { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', filterCat: 'dibujo' },
+            { titleEs: 'Retratos', titleEn: 'Portraits', img: 'imagenes/pretratos.png', filterCat: 'retratos' },
+            { titleEs: 'Fotografía', titleEn: 'Photography', img: 'imagenes/pphotos.png', filterCat: 'fotografia' },
+            { titleEs: 'Cinematografía', titleEn: 'Cinematography', img: 'imagenes/pccine.png', filterCat: 'cinematografia' }
+        ];
+
+        let centerIndex = 0;
+        const track = document.getElementById('carouselTrack');
+        const carouselMainTitle = document.getElementById('carouselMainTitle');
+        const carouselSubHeading = document.getElementById('carouselSubHeading');
+        const carouselFooterTitle = document.getElementById('carouselFooterTitle');
+        const carouselHeaderBox = document.getElementById('carouselHeaderBox');
+        const dragContainer = document.getElementById('dragContainer');
+
+        function initInfiniteCarousel() {
+            renderInfiniteTrack();
+            updateInfinitePosition(false);
+        }
+
+        function renderInfiniteTrack() {
+            track.innerHTML = '';
+            const totalCards = categoriesData.length;
+            
+            for (let i = -10; i <= 10; i++) {
+                let dataIndex = (centerIndex + i) % totalCards;
+                if (dataIndex < 0) dataIndex += totalCards;
+
+                const item = categoriesData[dataIndex];
+                const card = document.createElement('div');
+                
+                let extraClass = '';
+                if (i < 0) extraClass = 'left-card';
+                else if (i > 0) extraClass = 'right-card';
+
+                card.className = `carousel-card ${i === 0 ? 'active' : extraClass}`;
+                card.onclick = () => {
+                    if (i !== 0) {
+                        centerIndex = dataIndex;
+                        renderInfiniteTrack();
+                        updateInfinitePosition(true);
+                    }
+                };
+
+                card.innerHTML = `
+                    <img src="${item.img}" alt="Categoría">
+                    <div class="card-explore-overlay">
+                        <button class="btn-card-explore" onclick="goToCategory('${item.filterCat}', event)">Explore</button>
+                    </div>
+                `;
+                track.appendChild(card);
+            }
+        }
+
+        function updateInfinitePosition(smooth = true) {
+            const cardElement = track.children[10]; 
+            if (!cardElement) return;
+
+            const cardWidth = 680 + 40; 
+            const translateOffset = -10 * cardWidth - (cardWidth / 2); 
+
+            if (!smooth) {
+                track.style.transition = 'none';
+            } else {
+                track.style.transition = 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+            }
+
+            track.style.transform = `translateX(${translateOffset}px)`;
+
+            Array.from(track.children).forEach((child, idx) => {
+                child.classList.remove('active', 'left-card', 'right-card');
+                if (idx === 10) {
+                    child.classList.add('active');
+                } else if (idx < 10) {
+                    child.classList.add('left-card');
+                } else {
+                    child.classList.add('right-card');
+                }
+            });
+
+            carouselFooterTitle.classList.remove('fade-transition');
+            carouselHeaderBox.classList.remove('fade-transition');
+            void carouselFooterTitle.offsetWidth;
+
+            const activeData = categoriesData[centerIndex];
+            if (currentLang === 'EN') {
+                carouselFooterTitle.innerText = activeData.titleEn.toUpperCase();
+            } else {
+                carouselFooterTitle.innerText = activeData.titleEs.toUpperCase();
+            }
+
+            carouselFooterTitle.classList.add('fade-transition');
+            carouselHeaderBox.classList.add('fade-transition');
+        }
+
+        function rotateCarousel(direction) {
+            const totalCards = categoriesData.length;
+            centerIndex = (centerIndex + direction + totalCards) % totalCards;
+            renderInfiniteTrack();
+            updateInfinitePosition(true);
+        }
+
+        function goToCategory(category, event) {
+            event.stopPropagation();
+            filterGallery(category);
+        }
+
+        let wheelAccumulator = 0;
+        let isWheelCooldown = false;
+
+        dragContainer.addEventListener('wheel', (e) => {
+            const rect = utopiaSection.getBoundingClientRect();
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || Math.abs(e.deltaY) < 40) {
+                    e.preventDefault();
+                    if (isWheelCooldown) return;
+
+                    wheelAccumulator += (e.deltaX || e.deltaY);
+                    
+                    if (Math.abs(wheelAccumulator) > 100) {
+                        const dir = wheelAccumulator > 0 ? 1 : -1;
+                        rotateCarousel(dir);
+                        wheelAccumulator = 0;
+                        isWheelCooldown = true;
+
+                        setTimeout(() => {
+                            isWheelCooldown = false;
+                        }, 1000);
+                    }
+                }
+            }
+        }, { passive: false });
+
+        window.addEventListener('keydown', (e) => {
+            const rect = utopiaSection.getBoundingClientRect();
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
+                    e.preventDefault();
+                    rotateCarousel(1);
+                } else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+                    e.preventDefault();
+                    rotateCarousel(-1);
+                }
+            }
+        });
+
+        const sideImgLeft = document.getElementById('sideImgLeft');
+        const sideImgRight = document.getElementById('sideImgRight');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            if (scrollY <= window.innerHeight) {
+                const scaleValue = 1 + scrollY * 0.0015;
+                const translateYValue = -scrollY * 0.35;
+                if(sideImgLeft) sideImgLeft.style.transform = `scaleX(1) scale(${scaleValue}) translateY(${translateYValue}px)`;
+                if(sideImgRight) sideImgRight.style.transform = `scaleX(-1) scale(${scaleValue}) translateY(${translateYValue}px)`;
+            }
+        });
+
+        let currentLang = 'ES';
+        function toggleLanguage() {
+            currentLang = currentLang === 'ES' ? 'EN' : 'ES';
+            const langEs = document.getElementById('langEs');
+            const langEn = document.getElementById('langEn');
+            
+            updateInfinitePosition(false);
+
+            if (currentLang === 'EN') {
+                langEn.classList.add('active');
+                langEs.classList.remove('active');
+                
+                document.getElementById('navBioBtn').innerText = 'Biography';
+                document.getElementById('navCollectionBtn').innerText = 'My Collection';
+                document.getElementById('heroDescText').innerText = 'Oil · Ink · Traditional Figurative Art';
+                document.getElementById('heroBtnText').innerText = 'Explore Gallery';
+                document.getElementById('oilTitleText').innerHTML = 'Oil Paintings';
+                document.getElementById('oilSubText').innerText = 'Atelier works and recent acquisition catalog';
+                document.getElementById('labelClientType').innerText = 'Business or Individual';
+                document.getElementById('optIndividual').innerText = 'Individual Client';
+                document.getElementById('optGallery').innerText = 'Gallery / Business / Collector';
+                document.getElementById('optPress').innerText = 'Press / Media';
+                document.getElementById('labelFirstName').innerText = 'First name';
+                document.getElementById('labelLastName').innerText = 'Last name';
+                document.getElementById('labelEmail').innerText = 'Email *';
+                document.getElementById('labelMessage').innerText = 'Message *';
+                document.getElementById('submitBtnText').innerText = 'Submit';
+                document.getElementById('contactSectionTitle').innerText = 'CONTACT / COMMISSIONS';
+                document.getElementById('contactSubText').innerText = 'For inquiries regarding collection works, private commission requests, or collaborations, please fill out the form below:';
+                document.getElementById('directEmailText').innerText = 'Direct Studio Email';
+                document.getElementById('copyrightText').innerText = '© BRUNELIO. ALL RIGHTS RESERVED.';
+                document.getElementById('carouselHintText').innerHTML = 'Swipe or navigate <span>→</span>';
+                if (!isUserLoggedIn) document.getElementById('loginBtnText').innerText = 'Sign In';
+            } else {
+                langEs.classList.add('active');
+                langEn.classList.remove('active');
+                
+                document.getElementById('navBioBtn').innerText = 'Biografía';
+                document.getElementById('navCollectionBtn').innerText = 'Mi Colección';
+                document.getElementById('heroDescText').innerText = 'Óleo · Tinta · Arte Figurativo Tradicional';
+                document.getElementById('heroBtnText').innerText = 'Explorar Galería';
+                document.getElementById('oilTitleText').innerHTML = 'Pinturas al Óleo';
+                document.getElementById('oilSubText').innerText = 'Obras de taller y catálogo de adquisición reciente';
+                document.getElementById('labelClientType').innerText = 'Empresa o Particular';
+                document.getElementById('optIndividual').innerText = 'Cliente Individual';
+                document.getElementById('optGallery').innerText = 'Galería / Empresa / Coleccionista';
+                document.getElementById('optPress').innerText = 'Prensa / Medios';
+                document.getElementById('labelFirstName').innerText = 'Nombre';
+                document.getElementById('labelLastName').innerText = 'Apellido';
+                document.getElementById('labelEmail').innerText = 'Correo electrónico *';
+                document.getElementById('labelMessage').innerText = 'Mensaje *';
+                document.getElementById('submitBtnText').innerText = 'Submit';
+                document.getElementById('contactSectionTitle').innerText = 'CONTACTO / ENCARGOS';
+                document.getElementById('contactSubText').innerText = 'Para consultas sobre adquisición de obras de colección, solicitudes de encargos privados o comisiones, completa el siguiente formulario:';
+                document.getElementById('directEmailText').innerText = 'Correo Directo del Taller';
+                document.getElementById('copyrightText').innerText = '© BRUNELIO. TODOS LOS DERECHOS RESERVADOS.';
+                document.getElementById('carouselHintText').innerHTML = 'Desliza o navega <span>→</span>';
+                if (!isUserLoggedIn) document.getElementById('loginBtnText').innerText = 'Iniciar sesión';
+            }
+        }
+
+        const universalModal = document.getElementById('universalModal');
+        const uModalImg = document.getElementById('uModalImg');
+        const universalModalWrapper = document.getElementById('universalModalWrapper');
+        const universalZoomBtn = document.getElementById('universalZoomBtn');
+        const closeUniversalModalBtn = document.getElementById('closeUniversalModal');
+        const uModalEmailBtn = document.getElementById('uModalEmailBtn');
+
+        let isUniversalZoomActive = false;
+
+        function openUniversalModal(title, techOrMeta, imgSrc, isPhotoSection = false) {
+            uModalImg.src = imgSrc;
+            
+            if (isPhotoSection) {
+                uModalEmailBtn.style.display = 'none';
+            } else {
+                uModalEmailBtn.style.display = 'block';
+                uModalEmailBtn.innerText = currentLang === 'EN' ? 'Request information' : 'Solicitar información';
+                uModalEmailBtn.onclick = () => {
+                    location.href = `mailto:cezzarostudio@gmail.com?subject=Solicitud%20de%20informaci%C3%B3n%20sobre%20obra:%20${encodeURIComponent(title)}`;
+                };
+            }
+
+            isUniversalZoomActive = false;
+            universalZoomBtn.classList.remove('active');
+            uModalImg.style.transform = 'scale(1)';
+            uModalImg.style.cursor = 'default';
+            universalModal.classList.add('active');
+        }
+
+        function toggleUniversalZoom() {
+            isUniversalZoomActive = !isUniversalZoomActive;
+            if (isUniversalZoomActive) {
+                universalZoomBtn.classList.add('active');
+                uModalImg.style.cursor = 'crosshair';
+            } else {
+                universalZoomBtn.classList.remove('active');
+                uModalImg.style.transform = 'scale(1)';
+                uModalImg.style.cursor = 'default';
+            }
+        }
+
+        universalModalWrapper.addEventListener('mousemove', (e) => {
+            if (!isUniversalZoomActive) return;
+            const rect = uModalImg.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            uModalImg.style.transformOrigin = `${(x / rect.width) * 100}% ${(y / rect.height) * 100}%`;
+            uModalImg.style.transform = 'scale(2.2)';
+        });
+
+        closeUniversalModalBtn.addEventListener('click', () => { universalModal.classList.remove('active'); });
+        universalModal.addEventListener('click', (e) => { if (e.target === universalModal) universalModal.classList.remove('active'); });
+
+        window.addEventListener('resize', () => { updateInfinitePosition(false); });
+    </script>
+</body>
+</html>

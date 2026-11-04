@@ -81,7 +81,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 80px; /* Tamaño estricto sin cambios */
+            height: 80px; /* Tamaño estricto de 80px */
             padding: 0 40px;
             display: flex;
             justify-content: space-between;
@@ -108,7 +108,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 35px;
         }
 
         header .header-nav-btn {
@@ -166,12 +165,12 @@
         }
 
         .header-logo-firma {
-            height: 85px; /* Firma central más grande */
+            height: 75px;
             object-fit: contain;
             pointer-events: auto;
         }
 
-        /* BARRA DE BÚSQUEDA DESPLEGABLE CON SUGERENCIAS (REQUERIMIENTO 1) */
+        /* BARRA DE BÚSQUEDA DESPLEGABLE CON SUGERENCIAS */
         .search-dropdown-bar {
             position: absolute;
             top: 80px;
@@ -259,7 +258,7 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            gap: 20px;
+            gap: 18px;
             flex: 1;
         }
 
@@ -270,7 +269,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 6px;
+            padding: 4px;
             transition: opacity 0.3s;
         }
 
@@ -279,8 +278,8 @@
         }
 
         .header-icon-btn svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             fill: none;
             stroke: #000000;
             stroke-width: 1.8;
@@ -1377,12 +1376,7 @@
         
         <div class="header-center-slot">
             <div class="header-logo-container">
-                <img src="imagenes/firma .png" alt="BRUNELIO" class="header-logo-firma">
-            </div>
-        </div>
-        
-        <div class="header-right-slot">
-    <!-- HEADER REORGANIZADO ESTÉTICAMENTE (REQUERIMIENTO 1, 6) -->
+    <!-- HEADER -->
     <header id="mainHeader">
         <div class="header-left-slot">
             <button class="header-back-btn" id="headerBackBtn" onclick="goBackToMain()">← Back</button>
@@ -1402,9 +1396,14 @@
                 <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             </button>
             
-            <!-- Botón de Usuario/Perfil -->
+            <!-- Botón de Perfil -->
             <button class="header-icon-btn" title="Perfil" onclick="handleGoogleLogin()">
                 <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </button>
+
+            <!-- Botón de Bolsa / Tienda -->
+            <button class="header-icon-btn" title="Colección / Bolsa" onclick="filterGallery('coleccion')">
+                <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
             </button>
 
             <!-- Botón Login Original -->
@@ -1418,7 +1417,7 @@
             </div>
         </div>
 
-        <!-- BARRA DESPLEGABLE CON SUGERENCIAS EN VIVO (REQUERIMIENTO 1) -->
+        <!-- BARRA DESPLEGABLE CON SUGERENCIAS EN VIVO -->
         <div class="search-dropdown-bar" id="searchDropdownBar">
             <div class="search-input-wrapper">
                 <input type="text" id="searchInput" class="search-input-field" placeholder="Buscar obras, secciones o temas..." oninput="handleSearchInput(this.value)">

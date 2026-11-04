@@ -827,7 +827,7 @@
             stroke: #ffffff;
         }
 
-        /* --- SECCIÓN DE RETRATOS REDISEÑADA ESTILO CIRCULAR --- */
+        /* --- SECCIÓN DE RETRATOS REDISEÑADA ESTILO CIRCULAR CON HOVER CORREGIDO --- */
         .portraits-section-wrapper {
             position: relative;
             width: 100vw;
@@ -889,10 +889,19 @@
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
+        .portrait-circle-wrapper img.portrait-default-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 1;
+        }
+
         .portrait-circle-wrapper img.portrait-hover-img {
             position: absolute;
             top: 0;
             left: 0;
+            z-index: 2;
             opacity: 0;
         }
 
@@ -1530,9 +1539,9 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE VIDEO REEMPLAZADA CON webvideo.mp4 -->
+    <!-- SECCIÓN DE VIDEO REEMPLAZADA CON webvideo.mp4 CON AUTOPLAY CORREGIDO -->
     <section class="video-section-wrapper" id="mirageVideoSection">
-        <video id="loopVideo" autoplay loop muted playsinline>
+        <video id="loopVideo" autoplay loop muted playsinline preload="auto">
             <source src="imagenes/webvideo.mp4" type="video/mp4">
             Tu navegador no soporta el elemento de video.
         </video>
@@ -1891,62 +1900,62 @@
         </div>
     </section>
 
-    <!-- RETRATOS MODIFICADOS CON PORTADAS DESDE LA CARPETA Y EFECTO HOVER -->
+    <!-- RETRATOS MODIFICADOS CON RUTAS DE LA CARPETA Y MODAL FUNCIONAL -->
     <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper">
         <h2 class="portraits-header-title">Selección de Retratos</h2>
         <div class="portraits-circle-grid">
             
-            <div class="portrait-circle-card" onclick="openUniversalModal('Niño 1', 'Retrato', 'imagenes/retratos/1.png', false)">
+            <div class="portrait-circle-card" onclick="openUniversalModal('Niño 1', 'Retrato', 'imagenes/niño1.jpg', false)">
                 <div class="portrait-circle-wrapper">
-                    <img src="imagenes/retratos/1.png" alt="Niño 1" class="portrait-default-img">
+                    <img src="retratos - copia/1.png" alt="Niño 1" class="portrait-default-img">
                     <img src="imagenes/niño1.jpg" alt="Niño 1 Hover" class="portrait-hover-img">
                 </div>
                 <div class="portrait-circle-name">Niño 1</div>
             </div>
 
-            <div class="portrait-circle-card" onclick="openUniversalModal('Retrato de una niña', 'Retrato', 'imagenes/retratos/2.png', false)">
+            <div class="portrait-circle-card" onclick="openUniversalModal('Retrato de una niña', 'Retrato', 'imagenes/mujer 1.DNG', false)">
                 <div class="portrait-circle-wrapper">
-                    <img src="imagenes/retratos/2.png" alt="Niña" class="portrait-default-img">
+                    <img src="retratos - copia/2.png" alt="Niña" class="portrait-default-img">
                     <img src="imagenes/mujer 1.DNG" alt="Niña Hover" class="portrait-hover-img">
                 </div>
                 <div class="portrait-circle-name">Niña</div>
             </div>
 
-            <div class="portrait-circle-card" onclick="openUniversalModal('Clelia Toledo', 'Retrato', 'imagenes/retratos/3.png', false)">
+            <div class="portrait-circle-card" onclick="openUniversalModal('Clelia Toledo', 'Retrato', 'imagenes/Clelia Toledo.jpg', false)">
                 <div class="portrait-circle-wrapper">
-                    <img src="imagenes/retratos/3.png" alt="Clelia Toledo" class="portrait-default-img">
+                    <img src="retratos - copia/3.png" alt="Clelia Toledo" class="portrait-default-img">
                     <img src="imagenes/Clelia Toledo.jpg" alt="Clelia Toledo Hover" class="portrait-hover-img">
                 </div>
                 <div class="portrait-circle-name">Clelia Toledo</div>
             </div>
 
-            <div class="portrait-circle-card" onclick="openUniversalModal('Hombre y paisaje', 'Retrato', 'imagenes/retratos/4.png', false)">
+            <div class="portrait-circle-card" onclick="openUniversalModal('Hombre y paisaje II', 'Retrato', 'imagenes/Hombre y paisaje 2.jpg', false)">
                 <div class="portrait-circle-wrapper">
-                    <img src="imagenes/retratos/4.png" alt="Hombre II" class="portrait-default-img">
+                    <img src="retratos - copia/4.png" alt="Hombre II" class="portrait-default-img">
                     <img src="imagenes/Hombre y paisaje 2.jpg" alt="Hombre II Hover" class="portrait-hover-img">
                 </div>
                 <div class="portrait-circle-name">Hombre II</div>
             </div>
 
-            <div class="portrait-circle-card" onclick="openUniversalModal('Retrato de Isabel', 'Retrato', 'imagenes/retratos/5.png', false)">
+            <div class="portrait-circle-card" onclick="openUniversalModal('Retrato de Isabel', 'Retrato', 'imagenes/sis.DNG', false)">
                 <div class="portrait-circle-wrapper">
-                    <img src="imagenes/retratos/5.png" alt="Isabel" class="portrait-default-img">
+                    <img src="retratos - copia/5.png" alt="Isabel" class="portrait-default-img">
                     <img src="imagenes/sis.DNG" alt="Isabel Hover" class="portrait-hover-img">
                 </div>
                 <div class="portrait-circle-name">Isabel</div>
             </div>
 
-            <div class="portrait-circle-card" onclick="openUniversalModal('Retrato de un hombre', 'Retrato', 'imagenes/retratos/6.png', false)">
+            <div class="portrait-circle-card" onclick="openUniversalModal('Retrato de un hombre', 'Retrato', 'imagenes/hombre verde.jpg', false)">
                 <div class="portrait-circle-wrapper">
-                    <img src="imagenes/retratos/6.png" alt="Hombre Verde" class="portrait-default-img">
+                    <img src="retratos - copia/6.png" alt="Hombre Verde" class="portrait-default-img">
                     <img src="imagenes/hombre verde.jpg" alt="Hombre Verde Hover" class="portrait-hover-img">
                 </div>
                 <div class="portrait-circle-name">Hombre Verde</div>
             </div>
 
-            <div class="portrait-circle-card" onclick="openUniversalModal('Hombre y paisaje', 'Retrato', 'imagenes/retratos/7.png', false)">
+            <div class="portrait-circle-card" onclick="openUniversalModal('Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje.png', false)">
                 <div class="portrait-circle-wrapper">
-                    <img src="imagenes/retratos/7.png" alt="Hombre I" class="portrait-default-img">
+                    <img src="retratos - copia/7.png" alt="Hombre I" class="portrait-default-img">
                     <img src="imagenes/Hombre y paisaje.png" alt="Hombre I Hover" class="portrait-hover-img">
                 </div>
                 <div class="portrait-circle-name">Hombre I</div>
@@ -2250,22 +2259,16 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        /* CONTROL DEL VIDEO */
+        /* CONTROL Y REPRODUCCIÓN DEL VIDEO DE ESPEJIMOS */
         function setupVideoLoop() {
             const video = document.getElementById('loopVideo');
             if (!video) return;
 
-            const startTime = 65; // 1:05
-            const endTime = 77;   // 1:17
+            video.muted = true;
+            video.play().catch(e => console.log("Autoplay forzado:", e));
 
-            video.addEventListener('loadedmetadata', () => {
-                video.currentTime = startTime;
-            });
-
-            video.addEventListener('timeupdate', () => {
-                if (video.currentTime >= endTime || video.currentTime < startTime) {
-                    video.currentTime = startTime;
-                }
+            video.addEventListener('loadeddata', () => {
+                video.play();
             });
         }
 

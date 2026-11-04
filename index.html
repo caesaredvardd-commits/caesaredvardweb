@@ -169,7 +169,7 @@
             pointer-events: auto;
         }
 
-        /* DERECHA DEL HEADER: IDIOMA + BOTÓN GOOGLE LOGIN */
+        /* DERECHA DEL HEADER: IDIOMA + BOTÓN GOOGLE LOGIN (SIN LOGO) */
         .header-right-slot {
             display: flex;
             align-items: center;
@@ -198,11 +198,11 @@
         .google-login-btn {
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
             background-color: #ffffff;
             color: #000000;
             border: 1px solid rgba(0, 0, 0, 0.25);
-            padding: 6px 14px;
+            padding: 6px 16px;
             border-radius: 20px;
             font-size: 0.8rem;
             letter-spacing: 1px;
@@ -216,11 +216,6 @@
             background-color: #000000;
             color: #ffffff;
             border-color: #000000;
-        }
-
-        .google-login-btn svg {
-            width: 14px;
-            height: 14px;
         }
 
         .bookmark-btn {
@@ -358,7 +353,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN CARRUSEL: FONDO 45% TRASLÚCIDO (OPACITY 0.25) --- */
+        /* --- SECCIÓN CARRUSEL: FONDO 45% CON MENOS DESENFOQUE (blur 1px) --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -376,7 +371,6 @@
             padding: 10px 0;
         }
 
-        /* Capa de fondo con opacidad exacta al 45% visible (opacity: 0.25) */
         .utopia-section::before {
             content: '';
             position: absolute;
@@ -389,7 +383,7 @@
             background-position: center;
             background-repeat: no-repeat;
             opacity: 0.25; 
-            filter: brightness(1.5) blur(3px);
+            filter: brightness(1.2) blur(1px);
             pointer-events: none;
             z-index: 1;
         }
@@ -415,12 +409,12 @@
             font-size: 0.85rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: #666666;
+            color: #333333;
             margin: 0;
             background: transparent !important;
         }
 
-        /* Indicador sutil de carrusel debajo de los textos del índice sin alterar posiciones */
+        /* Indicador de carrusel con mayor visibilidad (flechita más clara) */
         .carousel-hint-indicator {
             display: flex;
             align-items: center;
@@ -430,14 +424,17 @@
             font-size: 0.75rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: #555555;
+            color: #000000;
             background: transparent !important;
-            opacity: 0.85;
+            opacity: 1;
+            font-weight: 600;
             pointer-events: none;
         }
 
         .carousel-hint-indicator span {
             display: inline-block;
+            font-weight: bold;
+            font-size: 1rem;
             animation: hintPulse 2s infinite ease-in-out;
         }
 
@@ -446,8 +443,8 @@
         .carousel-hint-indicator span:nth-child(3) { animation-delay: 0.6s; }
 
         @keyframes hintPulse {
-            0%, 100% { opacity: 0.3; transform: translateX(0); }
-            50% { opacity: 1; transform: translateX(3px); }
+            0%, 100% { opacity: 0.4; transform: translateX(0); }
+            50% { opacity: 1; transform: translateX(4px); }
         }
 
         .carousel-container-drag {
@@ -472,7 +469,7 @@
             left: 50%;
             transform-style: preserve-3d;
             will-change: transform;
-            transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
             background: transparent !important;
         }
 
@@ -486,7 +483,7 @@
             border: none !important;
             border-radius: 0px;
             overflow: visible;
-            transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.8s ease, filter 0.8s ease;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease, filter 0.8s ease;
             box-shadow: none !important;
             opacity: 0.3;
             transform: scale(0.72) rotateY(28deg) translateZ(-160px);
@@ -529,9 +526,10 @@
             border-radius: 0px;
             background: transparent !important;
             box-shadow: none !important;
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        /* Eliminado el recuadro gris al hacer hover, conservando únicamente la visualización limpia y zoom */
         .card-explore-overlay {
             position: absolute;
             top: 0;
@@ -543,14 +541,16 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.4s ease;
             pointer-events: none;
             border-radius: 0px;
+            box-shadow: none !important;
         }
 
         .carousel-card.active:hover .card-explore-overlay {
             opacity: 1;
             pointer-events: auto;
+            background: transparent !important;
         }
 
         .btn-card-explore {
@@ -565,6 +565,7 @@
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             backdrop-filter: blur(2px);
+            box-shadow: none !important;
         }
 
         .btn-card-explore:hover, .btn-card-explore:active {
@@ -572,7 +573,7 @@
             color: #ffffff !important;
             border-color: #ffffff !important;
             transform: scale(1.08);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            box-shadow: none !important;
         }
 
         .carousel-footer-title {
@@ -1521,7 +1522,6 @@
         
         <div class="header-right-slot">
             <button class="google-login-btn" id="googleLoginBtn" onclick="handleGoogleLogin()">
-                <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
                 <span id="loginBtnText">Iniciar sesión</span>
             </button>
             <div class="lang-select" id="langToggle" onclick="toggleLanguage()">
@@ -1550,7 +1550,7 @@
         <div class="carousel-header-box" id="carouselHeaderBox">
             <h2 class="carousel-main-heading" id="carouselMainTitle">Un archivo de miradas.</h2>
             <p class="carousel-sub-heading" id="carouselSubHeading">PERSONAJES · HISTORIAS · EXPRESIONES</p>
-            <!-- Indicador intuitivo de tipo carrusel debajo del texto inferior -->
+            <!-- Indicador intuitivo de tipo carrusel con flecha más visible -->
             <div class="carousel-hint-indicator" id="carouselHintText">
                 Desliza o navega <span>→</span>
             </div>
@@ -1915,7 +1915,7 @@
         </div>
     </section>
 
-    <!-- ==================== SECCIÓN DE FOTOGRAFÍA (SIN BOTÓN DE ADQUISICIÓN / SOLO SOLICITAR INFORMACIÓN) ==================== -->
+    <!-- ==================== SECCIÓN DE FOTOGRAFÍA (SIN BOTÓN) ==================== -->
     <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
         <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
             <h2 class="photo-section-title">Fotografía</h2>
@@ -2115,7 +2115,7 @@
             <img id="uModalImg" src="" alt="Imagen ampliada">
             
             <div class="universal-modal-actions">
-                <button class="universal-modal-btn-email" id="uModalEmailBtn">Solicitar información vía email</button>
+                <button class="universal-modal-btn-email" id="uModalEmailBtn">Solicitar información</button>
                 <button class="universal-modal-zoom-btn" id="universalZoomBtn" title="Activar/Desactivar Lupa" onclick="toggleUniversalZoom()">
                     <img src="imagenes/lupa.png" alt="Lupa">
                 </button>
@@ -2213,11 +2213,10 @@
             document.getElementById('bio').scrollIntoView({ behavior: 'smooth' });
         }
 
-        /* LÓGICA DE INICIAR SESIÓN CON GOOGLE FUNCIONAL */
+        /* LÓGICA DE INICIAR SESIÓN CON GOOGLE (SIN LOGO) */
         let isUserLoggedIn = false;
         function handleGoogleLogin() {
             if (!isUserLoggedIn) {
-                // Simulación de autenticación exitosa con Google OAuth
                 isUserLoggedIn = true;
                 const loginBtnText = document.getElementById('loginBtnText');
                 if (currentLang === 'EN') {
@@ -2431,7 +2430,7 @@
             if (!smooth) {
                 track.style.transition = 'none';
             } else {
-                track.style.transition = 'transform 1.8s cubic-bezier(0.16, 1, 0.3, 1)';
+                track.style.transition = 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
             }
 
             track.style.transform = `translateX(${translateOffset}px)`;
@@ -2600,15 +2599,13 @@
             uModalImg.src = imgSrc;
             
             if (isPhotoSection) {
-                // En la sección de fotografía cambia a "Solicitar información vía email" y no menciona adquisición
-                uModalEmailBtn.innerText = currentLang === 'EN' ? 'Request information via email' : 'Solicitar información vía email';
-                uModalEmailBtn.onclick = () => {
-                    location.href = `mailto:cezzarostudio@gmail.com?subject=Solicitud%20de%20informaci%C3%B3n%20sobre%20fotograf%C3%ADa:%20${encodeURIComponent(title)}`;
-                };
+                // En la sección de fotografía se oculta el botón o se gestiona sin mención de adquisición
+                uModalEmailBtn.style.display = 'none';
             } else {
-                uModalEmailBtn.innerText = currentLang === 'EN' ? 'Request acquisition via email' : 'Solicitar adquisición vía email';
+                uModalEmailBtn.style.display = 'block';
+                uModalEmailBtn.innerText = currentLang === 'EN' ? 'Request information' : 'Solicitar información';
                 uModalEmailBtn.onclick = () => {
-                    location.href = `mailto:cezzarostudio@gmail.com?subject=Consulta%20sobre%20obra:%20${encodeURIComponent(title)}`;
+                    location.href = `mailto:cezzarostudio@gmail.com?subject=Solicitud%20de%20informaci%C3%B3n%20sobre%20obra:%20${encodeURIComponent(title)}`;
                 };
             }
 

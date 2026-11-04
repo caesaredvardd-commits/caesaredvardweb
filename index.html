@@ -169,7 +169,7 @@
             pointer-events: auto;
         }
 
-        /* DERECHA DEL HEADER: IDIOMA + BOTÓN GOOGLE LOGIN (SIN LOGO) */
+        /* DERECHA DEL HEADER: IDIOMA + BOTÓN INICIAR SESIÓN (SIN LOGO) */
         .header-right-slot {
             display: flex;
             align-items: center;
@@ -414,7 +414,7 @@
             background: transparent !important;
         }
 
-        /* Indicador de carrusel con mayor visibilidad (flechita más clara) */
+        /* Indicador de carrusel con mayor visibilidad */
         .carousel-hint-indicator {
             display: flex;
             align-items: center;
@@ -469,10 +469,11 @@
             left: 50%;
             transform-style: preserve-3d;
             will-change: transform;
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             background: transparent !important;
         }
 
+        /* --- PROPIEDADES QUIRÚRGICAS DEL CARRUSEL --- */
         .carousel-card {
             min-width: 680px;
             max-width: 680px;
@@ -483,10 +484,11 @@
             border: none !important;
             border-radius: 0px;
             overflow: visible;
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease, filter 0.8s ease;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
             box-shadow: none !important;
-            opacity: 0.3;
-            transform: scale(0.72) rotateY(28deg) translateZ(-160px);
+            opacity: 0.4;
+            transform: scale(0.75);
+            z-index: 1;
             background: transparent !important;
             flex-shrink: 0;
             display: flex;
@@ -495,22 +497,24 @@
         }
 
         .carousel-card.left-card {
-            transform: scale(0.78) rotateY(18deg) translateZ(-80px);
-            opacity: 0.5;
+            transform: scale(0.75);
+            opacity: 0.4;
+            z-index: 1;
             background: transparent !important;
             box-shadow: none !important;
         }
 
         .carousel-card.right-card {
-            transform: scale(0.78) rotateY(-18deg) translateZ(-80px);
-            opacity: 0.5;
+            transform: scale(0.75);
+            opacity: 0.4;
+            z-index: 1;
             background: transparent !important;
             box-shadow: none !important;
         }
 
         .carousel-card.active {
             opacity: 1;
-            transform: scale(1.06) rotateY(0deg) translateZ(80px);
+            transform: scale(1);
             z-index: 10;
             box-shadow: none !important;
             background: transparent !important;
@@ -526,10 +530,10 @@
             border-radius: 0px;
             background: transparent !important;
             box-shadow: none !important;
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Eliminado el recuadro gris al hacer hover, conservando únicamente la visualización limpia y zoom */
+        /* Sin recuadro gris al hacer hover, completamente limpio */
         .card-explore-overlay {
             position: absolute;
             top: 0;
@@ -918,7 +922,7 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.9);
         }
 
-        /* --- SECCIÓN DE FOTOGRAFÍA --- */
+        /* --- SECCIÓN DE FOTOGRAFÍA (SIN BOTÓN) --- */
         .photo-section-wrapper {
             position: relative;
             width: 100vw;
@@ -2213,7 +2217,6 @@
             document.getElementById('bio').scrollIntoView({ behavior: 'smooth' });
         }
 
-        /* LÓGICA DE INICIAR SESIÓN CON GOOGLE (SIN LOGO) */
         let isUserLoggedIn = false;
         function handleGoogleLogin() {
             if (!isUserLoggedIn) {
@@ -2430,7 +2433,7 @@
             if (!smooth) {
                 track.style.transition = 'none';
             } else {
-                track.style.transition = 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+                track.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
             }
 
             track.style.transform = `translateX(${translateOffset}px)`;
@@ -2493,7 +2496,7 @@
 
                         setTimeout(() => {
                             isWheelCooldown = false;
-                        }, 1000);
+                        }, 800);
                     }
                 }
             }
@@ -2599,7 +2602,6 @@
             uModalImg.src = imgSrc;
             
             if (isPhotoSection) {
-                // En la sección de fotografía se oculta el botón o se gestiona sin mención de adquisición
                 uModalEmailBtn.style.display = 'none';
             } else {
                 uModalEmailBtn.style.display = 'block';

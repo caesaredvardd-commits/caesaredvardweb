@@ -325,18 +325,17 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN CARRUSEL CON FONDO DE VENADO Y TRANSICIONES SUAVES --- */
+        /* --- SECCIÓN CARRUSEL CON FONDO DIFUMINADO DE VENADO --- */
         .utopia-section {
             position: relative;
             width: 100vw;
             min-height: 100vh;
-            background-color: #ffffff;
-            /* Fondo con la imagen venado.jpg */
+            /* Fondo con la imagen venado.jpg difuminada y clara (sin blanco sólido) */
+            background-color: #f7f7f5;
             background-image: url('imagenes/venado.jpg');
             background-repeat: no-repeat;
             background-position: center;
-            background-size: 45vh;
-            background-blend-mode: overlay;
+            background-size: 50vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -350,7 +349,7 @@
             transition: background-color 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* Capa adicional para asegurar que el fondo venado.jpg sea muy tenue y elegante */
+        /* Capa difuminada para que la imagen de fondo se vea muy clara y sutil */
         .utopia-section::before {
             content: '';
             position: absolute;
@@ -362,7 +361,8 @@
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.04; /* Ajusta la opacidad aquí si deseas más o menos presencia */
+            opacity: 0.12; 
+            filter: blur(2px);
             pointer-events: none;
             z-index: 1;
         }
@@ -370,7 +370,7 @@
         .carousel-header-box {
             text-align: center;
             z-index: 10;
-            margin-bottom: -50px;
+            margin-bottom: -100px; /* Texto superior mucho más cerca de las imágenes */
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
@@ -416,7 +416,7 @@
             background: transparent !important;
         }
 
-        /* TAMAÑOS DE PORTADA AMPLIADOS */
+        /* TAMAÑOS DE PORTADA AMPLIADOS (SIN CAMBIAR TAMAÑO, SIN FONDO GRIS AL SELECCIONAR) */
         .carousel-card {
             min-width: 620px;
             max-width: 620px;
@@ -427,7 +427,6 @@
             border: none !important;
             border-radius: 0px;
             overflow: visible;
-            /* Transiciones ultra fluidas para escala, opacidad, rotación y sombra */
             transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease, filter 0.6s ease;
             box-shadow: none !important;
             opacity: 0.35;
@@ -442,18 +441,20 @@
         .carousel-card.left-card {
             transform: scale(0.82) rotateY(18deg) translateZ(-60px);
             opacity: 0.55;
+            background: transparent !important;
         }
 
         .carousel-card.right-card {
             transform: scale(0.82) rotateY(-18deg) translateZ(-60px);
             opacity: 0.55;
+            background: transparent !important;
         }
 
         .carousel-card.active {
             opacity: 1;
             transform: scale(1.05) rotateY(0deg) translateZ(60px);
             z-index: 10;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+            box-shadow: none !important; /* Eliminado el recuadro gris o sombra al seleccionar */
             background: transparent !important;
         }
 
@@ -515,7 +516,7 @@
 
         .carousel-footer-title {
             position: relative;
-            margin-top: -55px;
+            margin-top: -105px; /* Texto inferior mucho más cerca de las imágenes */
             z-index: 20;
             font-size: 1.35rem;
             letter-spacing: 6px;
@@ -525,7 +526,6 @@
             color: #000000;
             pointer-events: none;
             background: transparent;
-            /* Transición suave para el texto inferior */
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
@@ -1479,7 +1479,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CARRUSEL CON FONDO DE VENADO Y TRANSICIONES FLUIDAS -->
+    <!-- SECCIÓN CARRUSEL CON FONDO DE VENADO DIFUMINADO -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-header-box" id="carouselHeaderBox">
             <h2 class="carousel-main-heading" id="carouselMainTitle">Un archivo de miradas.</h2>
@@ -2275,11 +2275,11 @@
         }
 
         const categoriesData = [
-            { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', filterCat: 'oleos', ambientBg: '#ffffff' },
-            { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', filterCat: 'dibujo', ambientBg: '#ffffff' },
-            { titleEs: 'Retratos', titleEn: 'Portraits', img: 'imagenes/pretratos.png', filterCat: 'retratos', ambientBg: '#ffffff' },
-            { titleEs: 'Fotografía', titleEn: 'Photography', img: 'imagenes/pphotos.png', filterCat: 'fotografia', ambientBg: '#ffffff' },
-            { titleEs: 'Cinematografía', titleEn: 'Cinematography', img: 'imagenes/pccine.png', filterCat: 'cinematografia', ambientBg: '#ffffff' }
+            { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', filterCat: 'oleos', ambientBg: 'transparent' },
+            { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', filterCat: 'dibujo', ambientBg: 'transparent' },
+            { titleEs: 'Retratos', titleEn: 'Portraits', img: 'imagenes/pretratos.png', filterCat: 'retratos', ambientBg: 'transparent' },
+            { titleEs: 'Fotografía', titleEn: 'Photography', img: 'imagenes/pphotos.png', filterCat: 'fotografia', ambientBg: 'transparent' },
+            { titleEs: 'Cinematografía', titleEn: 'Cinematography', img: 'imagenes/pccine.png', filterCat: 'cinematografia', ambientBg: 'transparent' }
         ];
 
         let centerIndex = 0;
@@ -2355,14 +2355,12 @@
                 }
             });
 
-            const activeData = categoriesData[centerIndex];
-            utopiaSection.style.backgroundColor = activeData.ambientBg;
-
             // Aplicar transición suave al texto del título inferior y superior
             carouselFooterTitle.classList.remove('fade-transition');
             carouselHeaderBox.classList.remove('fade-transition');
             void carouselFooterTitle.offsetWidth; // Trigger reflow
 
+            const activeData = categoriesData[centerIndex];
             if (currentLang === 'EN') {
                 carouselFooterTitle.innerText = activeData.titleEn.toUpperCase();
             } else {

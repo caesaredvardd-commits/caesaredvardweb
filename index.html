@@ -445,7 +445,7 @@
             50% { opacity: 1; transform: translateX(4px); }
         }
 
-        /* --- PERSPECTIVA Y PROPIEDADES EXACTAS IDÉNTICAS AL INSP --- */
+        /* --- TAMAÑO ORIGINAL DE 680px CON PERSPECTIVA 3D IDÉNTICA A LA INSPO --- */
         .carousel-container-drag {
             position: relative;
             z-index: 2;
@@ -458,7 +458,7 @@
             overflow: hidden;
             user-select: none;
             background: transparent !important;
-            perspective: 1200px; 
+            perspective: 1400px; 
         }
 
         .carousel-track {
@@ -473,10 +473,10 @@
         }
 
         .carousel-card {
-            min-width: 520px;
-            max-width: 520px;
-            height: 520px;
-            margin: 0 35px; 
+            min-width: 680px;
+            max-width: 680px;
+            height: 680px;
+            margin: 0 20px; 
             position: relative;
             cursor: pointer;
             border: none !important;
@@ -485,7 +485,7 @@
             transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease;
             box-shadow: none !important;
             opacity: 0.4;
-            transform: scale(0.75) translateZ(-150px);
+            transform: scale(0.75) translateZ(-180px);
             z-index: 1;
             background: transparent !important;
             flex-shrink: 0;
@@ -495,7 +495,7 @@
         }
 
         .carousel-card.left-card {
-            transform: scale(0.75) translateZ(-150px);
+            transform: scale(0.75) translateZ(-180px);
             opacity: 0.4;
             z-index: 1;
             background: transparent !important;
@@ -503,7 +503,7 @@
         }
 
         .carousel-card.right-card {
-            transform: scale(0.75) translateZ(-150px);
+            transform: scale(0.75) translateZ(-180px);
             opacity: 0.4;
             z-index: 1;
             background: transparent !important;
@@ -601,7 +601,7 @@
             100% { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
 
-        /* --- SECCIÓN DE PINTURAS AL ÓLEO --- */
+        /* --- RESTO DE TUS ESTILOS ORIGINALES (ÓLEO, DIBUJO, RETRATOS, ETC.) --- */
         .oil-section-wrapper {
             position: relative;
             width: 100vw;
@@ -731,7 +731,6 @@
             color: #666;
         }
 
-        /* --- SECCIÓN DE DIBUJO --- */
         .drawing-section-wrapper {
             position: relative;
             width: 100vw;
@@ -815,7 +814,6 @@
             transform: scale(1.04);
         }
 
-        /* --- SECCIÓN DE RETRATOS --- */
         .portraits-section-wrapper {
             position: relative;
             width: 100vw;
@@ -919,7 +917,6 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.9);
         }
 
-        /* --- SECCIÓN DE FOTOGRAFÍA --- */
         .photo-section-wrapper {
             position: relative;
             width: 100vw;
@@ -1018,7 +1015,6 @@
             letter-spacing: 1px;
         }
 
-        /* --- SECCIÓN CINEMATOGRAFÍA --- */
         .cinema-section-wrapper {
             position: relative;
             width: 100vw;
@@ -1098,7 +1094,6 @@
             margin-top: 4px;
         }
 
-        /* --- SECCIÓN MI COLECCIÓN --- */
         .collection-section-wrapper {
             position: relative;
             width: 100vw;
@@ -1146,7 +1141,6 @@
             padding: 60px 0;
         }
 
-        /* --- MODALES UNIVERSALES --- */
         .universal-modal-overlay {
             position: fixed;
             top: 0;
@@ -1266,7 +1260,6 @@
             filter: invert(1);
         }
 
-        /* --- SECCIÓN BIOGRAFÍA --- */
         .bio-section {
             padding: 120px 30px;
             background-color: #ffffff;
@@ -1331,7 +1324,6 @@
             gap: 20px;
         }
 
-        /* --- FOOTER Y CONTACTO --- */
         footer {
             padding: 100px 30px 40px 30px;
             background-color: var(--bg-main);
@@ -1461,7 +1453,7 @@
 </head>
 <body>
 
-    <!-- PANTALLA DE CARGA / PRELOADER -->
+    <!-- PRELOADER -->
     <div id="preloader">
         <img id="preloaderImg" src="preloadicon/1.png" alt="Brunelio Atelier Preloader">
     </div>
@@ -1530,7 +1522,7 @@
         </div>
     </header>
 
-    <!-- HERO / PORTADA -->
+    <!-- HERO -->
     <section class="hero">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral derecha" class="hero-side-img right" id="sideImgRight">
@@ -1974,7 +1966,7 @@
         </div>
     </section>
 
-    <!-- MODAL UNIVERSAL -->
+    <!-- MODAL -->
     <div class="universal-modal-overlay" id="universalModal">
         <div class="universal-modal-wrapper" id="universalModalWrapper">
             <button class="universal-modal-close" id="closeUniversalModal">&times;</button>
@@ -2003,9 +1995,6 @@
                     </p>
                     <p>
                         Soy un artista emergente interesado en explorar posibilidades pictóricas a través del retrato, la religión, el erotismo y el estudio histórico de la iconografía occidental. Nací en la Ciudad de Guatemala en 1996 y desde los seis años recibí una formación artística en dibujo y pintura. A los diez años asistí a clases en otra academia artística, situada en la zona 1 capitalina. Durante mi adolescencia, tuve la oportunidad de exponer fotografías digitales en concursos estudiantiles, entre los cuales obtuve el primer lugar en varias ocasiones.
-                    </p>
-                    <p>
-                        Tuve una formación universitaria especializada en artes visuales y cinematografía, lo cual me permitió explorar diversos medios analógicos y digitales. Una formación que me ha permitido experimentar con diferentes lenguajes visuales, sonoros y narrativos. Igualmente, me he dedicado a la escritura de guiones y a la literatura. Por más de seis años, me dediqué al negocio de los libros, interés que me llevó a laborar en una de las librerías más prestigiosas del país. Desde entonces, he experimentado con diversas técnicas, métodos y discursos visuales para hallar una voz en el mundo del arte.
                     </p>
                 </div>
             </div>
@@ -2075,11 +2064,7 @@
             if (!isUserLoggedIn) {
                 isUserLoggedIn = true;
                 const loginBtnText = document.getElementById('loginBtnText');
-                if (currentLang === 'EN') {
-                    loginBtnText.innerText = 'Google User';
-                } else {
-                    loginBtnText.innerText = 'Sesión Activa';
-                }
+                loginBtnText.innerText = currentLang === 'EN' ? 'Google User' : 'Sesión Activa';
                 alert(currentLang === 'EN' ? 'Successfully signed in with Google!' : '¡Sesión iniciada correctamente con Google!');
             } else {
                 if (confirm(currentLang === 'EN' ? 'Do you want to sign out?' : '¿Deseas cerrar sesión?')) {
@@ -2166,13 +2151,6 @@
                 const walk = (x - oilStartX) * 1.8;
                 oilScrollContainer.scrollLeft = oilScrollLeft - walk;
             });
-
-            oilScrollContainer.addEventListener('wheel', (e) => {
-                if (e.deltaY !== 0) {
-                    e.preventDefault();
-                    oilScrollContainer.scrollLeft += e.deltaY;
-                }
-            }, { passive: false });
         }
 
         let savedItems = [];
@@ -2280,7 +2258,7 @@
             const cardElement = track.children[10]; 
             if (!cardElement) return;
 
-            const cardWidth = 520 + 70; // Ancho + márgenes laterales (35px cada lado)
+            const cardWidth = 680 + 40; // Ancho original de 680px + 40px de márgenes
             const translateOffset = -10 * cardWidth - (cardWidth / 2); 
 
             if (!smooth) {
@@ -2392,53 +2370,17 @@
             if (currentLang === 'EN') {
                 langEn.classList.add('active');
                 langEs.classList.remove('active');
-                
                 document.getElementById('navBioBtn').innerText = 'Biography';
                 document.getElementById('navCollectionBtn').innerText = 'My Collection';
                 document.getElementById('heroDescText').innerText = 'Oil · Ink · Traditional Figurative Art';
                 document.getElementById('heroBtnText').innerText = 'Explore Gallery';
-                document.getElementById('oilTitleText').innerHTML = 'OIL<br>PAINTINGS';
-                document.getElementById('oilSubText').innerText = 'Atelier works and recent acquisition catalog';
-                document.getElementById('labelClientType').innerText = 'Business or Individual';
-                document.getElementById('optIndividual').innerText = 'Individual Client';
-                document.getElementById('optGallery').innerText = 'Gallery / Business / Collector';
-                document.getElementById('optPress').innerText = 'Press / Media';
-                document.getElementById('labelFirstName').innerText = 'First name';
-                document.getElementById('labelLastName').innerText = 'Last name';
-                document.getElementById('labelEmail').innerText = 'Email *';
-                document.getElementById('labelMessage').innerText = 'Message *';
-                document.getElementById('submitBtnText').innerText = 'Submit';
-                document.getElementById('contactSectionTitle').innerText = 'CONTACT / COMMISSIONS';
-                document.getElementById('contactSubText').innerText = 'For inquiries regarding collection works, private commission requests, or collaborations, please fill out the form below:';
-                document.getElementById('directEmailText').innerText = 'Direct Studio Email';
-                document.getElementById('copyrightText').innerText = '© BRUNELIO. ALL RIGHTS RESERVED.';
-                document.getElementById('carouselHintText').innerHTML = 'Swipe or navigate <span>→</span>';
-                if (!isUserLoggedIn) document.getElementById('loginBtnText').innerText = 'Sign In';
             } else {
                 langEs.classList.add('active');
                 langEn.classList.remove('active');
-                
                 document.getElementById('navBioBtn').innerText = 'Biografía';
                 document.getElementById('navCollectionBtn').innerText = 'Mi Colección';
                 document.getElementById('heroDescText').innerText = 'Óleo · Tinta · Arte Figurativo Tradicional';
                 document.getElementById('heroBtnText').innerText = 'Explorar Galería';
-                document.getElementById('oilTitleText').innerHTML = 'PINTURAS<br>AL ÓLEO';
-                document.getElementById('oilSubText').innerText = 'Obras de taller y catálogo de adquisición reciente';
-                document.getElementById('labelClientType').innerText = 'Empresa o Particular';
-                document.getElementById('optIndividual').innerText = 'Cliente Individual';
-                document.getElementById('optGallery').innerText = 'Galería / Empresa / Coleccionista';
-                document.getElementById('optPress').innerText = 'Prensa / Medios';
-                document.getElementById('labelFirstName').innerText = 'Nombre';
-                document.getElementById('labelLastName').innerText = 'Apellido';
-                document.getElementById('labelEmail').innerText = 'Correo electrónico *';
-                document.getElementById('labelMessage').innerText = 'Mensaje *';
-                document.getElementById('submitBtnText').innerText = 'Submit';
-                document.getElementById('contactSectionTitle').innerText = 'CONTACTO / ENCARGOS';
-                document.getElementById('contactSubText').innerText = 'Para consultas sobre adquisición de obras de colección, solicitudes de encargos privados o comisiones, completa el siguiente formulario:';
-                document.getElementById('directEmailText').innerText = 'Correo Directo del Taller';
-                document.getElementById('copyrightText').innerText = '© BRUNELIO. TODOS LOS DERECHOS RESERVADOS.';
-                document.getElementById('carouselHintText').innerHTML = 'Desliza o navega <span>→</span>';
-                if (!isUserLoggedIn) document.getElementById('loginBtnText').innerText = 'Iniciar sesión';
             }
         }
 
@@ -2453,21 +2395,17 @@
 
         function openUniversalModal(title, techOrMeta, imgSrc, isPhotoSection = false) {
             uModalImg.src = imgSrc;
-            
             if (isPhotoSection) {
                 uModalEmailBtn.style.display = 'none';
             } else {
                 uModalEmailBtn.style.display = 'block';
-                uModalEmailBtn.innerText = currentLang === 'EN' ? 'Request information' : 'Solicitar información';
                 uModalEmailBtn.onclick = () => {
                     location.href = `mailto:cezzarostudio@gmail.com?subject=Solicitud%20de%20informaci%C3%B3n%20sobre%20obra:%20${encodeURIComponent(title)}`;
                 };
             }
-
             isUniversalZoomActive = false;
             universalZoomBtn.classList.remove('active');
             uModalImg.style.transform = 'scale(1)';
-            uModalImg.style.cursor = 'default';
             universalModal.classList.add('active');
         }
 

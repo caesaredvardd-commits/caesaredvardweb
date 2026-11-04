@@ -169,7 +169,6 @@
             pointer-events: auto;
         }
 
-        /* DERECHA DEL HEADER: IDIOMA + BOTÓN INICIAR SESIÓN (SIN LOGO) */
         .header-right-slot {
             display: flex;
             align-items: center;
@@ -353,7 +352,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN CARRUSEL: FONDO 45% CON MENOS DESENFOQUE (blur 1px) --- */
+        /* --- SECCIÓN CARRUSEL --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -414,7 +413,6 @@
             background: transparent !important;
         }
 
-        /* Indicador de carrusel con mayor visibilidad */
         .carousel-hint-indicator {
             display: flex;
             align-items: center;
@@ -447,6 +445,7 @@
             50% { opacity: 1; transform: translateX(4px); }
         }
 
+        /* --- PERSPECTIVA Y PROPIEDADES EXACTAS IDÉNTICAS AL INSP --- */
         .carousel-container-drag {
             position: relative;
             z-index: 2;
@@ -459,7 +458,7 @@
             overflow: hidden;
             user-select: none;
             background: transparent !important;
-            perspective: 1400px;
+            perspective: 1200px; 
         }
 
         .carousel-track {
@@ -469,25 +468,24 @@
             left: 50%;
             transform-style: preserve-3d;
             will-change: transform;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
             background: transparent !important;
         }
 
-        /* --- PROPIEDADES QUIRÚRGICAS DEL CARRUSEL --- */
         .carousel-card {
-            min-width: 680px;
-            max-width: 680px;
-            height: 680px;
-            margin: 0 20px;
+            min-width: 520px;
+            max-width: 520px;
+            height: 520px;
+            margin: 0 35px; 
             position: relative;
             cursor: pointer;
             border: none !important;
             border-radius: 0px;
             overflow: visible;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease;
             box-shadow: none !important;
             opacity: 0.4;
-            transform: scale(0.75);
+            transform: scale(0.75) translateZ(-150px);
             z-index: 1;
             background: transparent !important;
             flex-shrink: 0;
@@ -497,7 +495,7 @@
         }
 
         .carousel-card.left-card {
-            transform: scale(0.75);
+            transform: scale(0.75) translateZ(-150px);
             opacity: 0.4;
             z-index: 1;
             background: transparent !important;
@@ -505,7 +503,7 @@
         }
 
         .carousel-card.right-card {
-            transform: scale(0.75);
+            transform: scale(0.75) translateZ(-150px);
             opacity: 0.4;
             z-index: 1;
             background: transparent !important;
@@ -514,7 +512,7 @@
 
         .carousel-card.active {
             opacity: 1;
-            transform: scale(1);
+            transform: scale(1) translateZ(0px);
             z-index: 10;
             box-shadow: none !important;
             background: transparent !important;
@@ -530,10 +528,9 @@
             border-radius: 0px;
             background: transparent !important;
             box-shadow: none !important;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Sin recuadro gris al hacer hover, completamente limpio */
         .card-explore-overlay {
             position: absolute;
             top: 0;
@@ -818,7 +815,7 @@
             transform: scale(1.04);
         }
 
-        /* ==================== SECCIÓN DE RETRATOS ==================== */
+        /* --- SECCIÓN DE RETRATOS --- */
         .portraits-section-wrapper {
             position: relative;
             width: 100vw;
@@ -922,7 +919,7 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.9);
         }
 
-        /* --- SECCIÓN DE FOTOGRAFÍA (SIN BOTÓN) --- */
+        /* --- SECCIÓN DE FOTOGRAFÍA --- */
         .photo-section-wrapper {
             position: relative;
             width: 100vw;
@@ -1101,7 +1098,7 @@
             margin-top: 4px;
         }
 
-        /* ==================== SECCIÓN MI COLECCIÓN ==================== */
+        /* --- SECCIÓN MI COLECCIÓN --- */
         .collection-section-wrapper {
             position: relative;
             width: 100vw;
@@ -1464,12 +1461,11 @@
 </head>
 <body>
 
-    <!-- PANTALLA DE CARGA / PRELOADER INDEPENDIENTE Y CONSTANTE -->
+    <!-- PANTALLA DE CARGA / PRELOADER -->
     <div id="preloader">
         <img id="preloaderImg" src="preloadicon/1.png" alt="Brunelio Atelier Preloader">
     </div>
 
-    <!-- SCRIPT DE ANIMACIÓN DEL PRELOADER -->
     <script>
         (function() {
             const preloaderImg = document.getElementById('preloaderImg');
@@ -1554,7 +1550,6 @@
         <div class="carousel-header-box" id="carouselHeaderBox">
             <h2 class="carousel-main-heading" id="carouselMainTitle">Un archivo de miradas.</h2>
             <p class="carousel-sub-heading" id="carouselSubHeading">PERSONAJES · HISTORIAS · EXPRESIONES</p>
-            <!-- Indicador intuitivo de tipo carrusel con flecha más visible -->
             <div class="carousel-hint-indicator" id="carouselHintText">
                 Desliza o navega <span>→</span>
             </div>
@@ -1567,7 +1562,7 @@
         <div class="carousel-footer-title" id="carouselFooterTitle">PINTURAS AL ÓLEO</div>
     </section>
 
-    <!-- ==================== SECCIÓN DE PINTURAS AL ÓLEO ==================== -->
+    <!-- PINTURAS AL ÓLEO -->
     <section id="galleryOil" style="display:none;" class="oil-section-wrapper">
         <div class="oil-left-panel">
             <h2 class="oil-section-title" id="oilTitleText">PINTURAS<br>AL ÓLEO</h2>
@@ -1576,7 +1571,6 @@
 
         <div class="oil-scroll-container" id="oilScrollContainer">
             <div class="oil-track">
-                
                 <div class="oil-card" onclick="openUniversalModal('Desnudo masculino', 'Óleo sobre tabla · 2018', 'imagenes/nude 3.DNG', false)">
                     <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Desnudo masculino', 'Óleo sobre tabla · 2018', 'imagenes/nude 3.DNG')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -1601,72 +1595,72 @@
                     <div class="oil-card-info"><div class="oil-card-title">Madonnina</div><div class="oil-card-meta">Óleo sobre lienzo · 2026</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openUniversalModal('Virgen de Medjujorge', 'Óleo sobre lienzo · 2026 (9 x 12 pulgadas)', 'imagenes/wvirgen.DNG', false)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Virgen de Medjujorge', 'Óleo sobre lienzo · 2026 (9 x 12 pulgadas)', 'imagenes/wvirgen.DNG')">
+                <div class="oil-card" onclick="openUniversalModal('Virgen de Medjujorge', 'Óleo sobre lienzo · 2026', 'imagenes/wvirgen.DNG', false)">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Virgen de Medjujorge', 'Óleo sobre lienzo · 2026', 'imagenes/wvirgen.DNG')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </div>
                     <div class="oil-img-wrapper"><img src="imagenes/wvirgen.DNG" alt="Virgen de Medjujorge"></div>
                     <div class="oil-card-info"><div class="oil-card-title">Virgen de Medjujorge</div><div class="oil-card-meta">Óleo sobre lienzo · 2026</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openUniversalModal('Retrato de Isabel', 'Óleo sobre lienzo · 2018 (50 x 40.5 cm)', 'imagenes/sis.DNG', false)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de Isabel', 'Óleo sobre lienzo · 2018 (50 x 40.5 cm)', 'imagenes/sis.DNG')">
+                <div class="oil-card" onclick="openUniversalModal('Retrato de Isabel', 'Óleo sobre lienzo · 2018', 'imagenes/sis.DNG', false)">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de Isabel', 'Óleo sobre lienzo · 2018', 'imagenes/sis.DNG')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </div>
                     <div class="oil-img-wrapper"><img src="imagenes/sis.DNG" alt="Retrato de Isabel"></div>
                     <div class="oil-card-info"><div class="oil-card-title">Retrato de Isabel</div><div class="oil-card-meta">Óleo sobre lienzo · 2018</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openUniversalModal('Hombre y paisaje', 'Óleo sobre lienzo · 2026 (40.5 x 29.5 cm)', 'imagenes/Hombre y paisaje.png', false)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Hombre y paisaje', 'Óleo sobre lienzo · 2026 (40.5 x 29.5 cm)', 'imagenes/Hombre y paisaje.png')">
+                <div class="oil-card" onclick="openUniversalModal('Hombre y paisaje', 'Óleo sobre lienzo · 2026', 'imagenes/Hombre y paisaje.png', false)">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Hombre y paisaje', 'Óleo sobre lienzo · 2026', 'imagenes/Hombre y paisaje.png')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </div>
                     <div class="oil-img-wrapper"><img src="imagenes/Hombre y paisaje.png" alt="Hombre y paisaje"></div>
                     <div class="oil-card-info"><div class="oil-card-title">Hombre y paisaje</div><div class="oil-card-meta">Óleo sobre lienzo · 2026</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openUniversalModal('Hombre y paisaje', 'Óleo sobre lienzo · 2026 (50 x 40.5 cm)', 'imagenes/Hombre y paisaje 2.jpg', false)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Hombre y paisaje', 'Óleo sobre lienzo · 2026 (50 x 40.5 cm)', 'imagenes/Hombre y paisaje 2.jpg')">
+                <div class="oil-card" onclick="openUniversalModal('Hombre y paisaje 2', 'Óleo sobre lienzo · 2026', 'imagenes/Hombre y paisaje 2.jpg', false)">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Hombre y paisaje 2', 'Óleo sobre lienzo · 2026', 'imagenes/Hombre y paisaje 2.jpg')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </div>
-                    <div class="oil-img-wrapper"><img src="imagenes/Hombre y paisaje 2.jpg" alt="Hombre y paisaje"></div>
+                    <div class="oil-img-wrapper"><img src="imagenes/Hombre y paisaje 2.jpg" alt="Hombre y paisaje 2"></div>
                     <div class="oil-card-info"><div class="oil-card-title">Hombre y paisaje</div><div class="oil-card-meta">Óleo sobre lienzo · 2026</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openUniversalModal('Retrato de un hombre', 'Óleo sobre lienzo · 2026 (50 x 40.5 cm)', 'imagenes/hombre verde.jpg', false)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de un hombre', 'Óleo sobre lienzo · 2026 (50 x 40.5 cm)', 'imagenes/hombre verde.jpg')">
+                <div class="oil-card" onclick="openUniversalModal('Retrato de un hombre', 'Óleo sobre lienzo · 2026', 'imagenes/hombre verde.jpg', false)">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de un hombre', 'Óleo sobre lienzo · 2026', 'imagenes/hombre verde.jpg')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </div>
                     <div class="oil-img-wrapper"><img src="imagenes/hombre verde.jpg" alt="Retrato de un hombre"></div>
                     <div class="oil-card-info"><div class="oil-card-title">Retrato de un hombre</div><div class="oil-card-meta">Óleo sobre lienzo · 2026</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openUniversalModal('Poupée', 'Óleo sobre lienzo · 2026 (9 x 12 pulgadas)', 'imagenes/doll.DNG', false)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Poupée', 'Óleo sobre lienzo · 2026 (9 x 12 pulgadas)', 'imagenes/doll.DNG')">
+                <div class="oil-card" onclick="openUniversalModal('Poupée', 'Óleo sobre lienzo · 2026', 'imagenes/doll.DNG', false)">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Poupée', 'Óleo sobre lienzo · 2026', 'imagenes/doll.DNG')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </div>
                     <div class="oil-img-wrapper"><img src="imagenes/doll.DNG" alt="Poupée"></div>
                     <div class="oil-card-info"><div class="oil-card-title">Poupée</div><div class="oil-card-meta">Óleo sobre lienzo · 2026</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openUniversalModal('Evae', 'Óleo sobre lienzo · 2018 (9 x 12 pulgadas)', 'imagenes/eva.jpeg', false)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Evae', 'Óleo sobre lienzo · 2018 (9 x 12 pulgadas)', 'imagenes/eva.jpeg')">
+                <div class="oil-card" onclick="openUniversalModal('Evae', 'Óleo sobre lienzo · 2018', 'imagenes/eva.jpeg', false)">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Evae', 'Óleo sobre lienzo · 2018', 'imagenes/eva.jpeg')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </div>
                     <div class="oil-img-wrapper"><img src="imagenes/eva.jpeg" alt="Evae"></div>
                     <div class="oil-card-info"><div class="oil-card-title">Evae</div><div class="oil-card-meta">Óleo sobre lienzo · 2018</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openUniversalModal('Adam', 'Óleo sobre lienzo · 2018 (9 x 12 pulgadas)', 'imagenes/adan 2.PNG', false)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Adam', 'Óleo sobre lienzo · 2018 (9 x 12 pulgadas)', 'imagenes/adan 2.PNG')">
+                <div class="oil-card" onclick="openUniversalModal('Adam', 'Óleo sobre lienzo · 2018', 'imagenes/adan 2.PNG', false)">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Adam', 'Óleo sobre lienzo · 2018', 'imagenes/adan 2.PNG')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </div>
                     <div class="oil-img-wrapper"><img src="imagenes/adan 2.PNG" alt="Adam"></div>
                     <div class="oil-card-info"><div class="oil-card-title">Adam</div><div class="oil-card-meta">Óleo sobre lienzo · 2018</div></div>
                 </div>
 
-                <div class="oil-card" onclick="openUniversalModal('Azucena', 'Óleo sobre lienzo · 2026 (8 x 10 pulgadas)', 'imagenes/flower.DNG', false)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Azucena', 'Óleo sobre lienzo · 2026 (8 x 10 pulgadas)', 'imagenes/flower.DNG')">
+                <div class="oil-card" onclick="openUniversalModal('Azucena', 'Óleo sobre lienzo · 2026', 'imagenes/flower.DNG', false)">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Azucena', 'Óleo sobre lienzo · 2026', 'imagenes/flower.DNG')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </div>
                     <div class="oil-img-wrapper"><img src="imagenes/flower.DNG" alt="Azucena"></div>
@@ -1712,398 +1706,266 @@
                     <div class="oil-img-wrapper"><img src="imagenes/Clelia Toledo.jpg" alt="Clelia Toledo"></div>
                     <div class="oil-card-info"><div class="oil-card-title">Clelia Toledo</div><div class="oil-card-meta">Óleo sobre lienzo · 2026</div></div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ==================== SECCIÓN DE DIBUJO ==================== -->
+    <!-- DIBUJO -->
     <section id="galleryDrawing" style="display:none;" class="drawing-section-wrapper">
         <div class="drawing-hero-banner">
             <div class="drawing-banner-title">DIBUJO</div>
         </div>
-
         <div class="drawing-grid-3x3">
-            
             <div class="drawing-card" onclick="openUniversalModal('Estudio Mitológico 1', 'Tinta sobre papel', 'imagenes/1.JPG', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio Mitológico 1', 'Tinta sobre papel', 'imagenes/1.JPG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="drawing-img-wrapper"><img src="imagenes/1.JPG" alt="Estudio Mitológico 1"></div>
             </div>
-
             <div class="drawing-card" onclick="openUniversalModal('Anatomía Cruzada', 'Carboncillo y grafito', 'imagenes/4.jpeg', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Anatomía Cruzada', 'Carboncillo y grafito', 'imagenes/4.jpeg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="drawing-img-wrapper"><img src="imagenes/4.jpeg" alt="Anatomía Cruzada"></div>
             </div>
-
             <div class="drawing-card" onclick="openUniversalModal('Perfil Clásico', 'Grafito sobre papel', 'imagenes/9.jpeg', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Perfil Clásico', 'Grafito sobre papel', 'imagenes/9.jpeg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="drawing-img-wrapper"><img src="imagenes/9.jpeg" alt="Perfil Clásico"></div>
             </div>
-
             <div class="drawing-card" onclick="openUniversalModal('Silueta e Inercia', 'Tinta china', 'imagenes/bodegon gotico.JPG', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Silueta e Inercia', 'Tinta china', 'imagenes/bodegon gotico.JPG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="drawing-img-wrapper"><img src="imagenes/bodegon gotico.JPG" alt="Silueta e Inercia"></div>
             </div>
-
             <div class="drawing-card" onclick="openUniversalModal('Torsos en Penumbra', 'Sanguina sobre papel', 'imagenes/hombre ilustrado.jpg', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Torsos en Penumbra', 'Sanguina sobre papel', 'imagenes/hombre ilustrado.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="drawing-img-wrapper"><img src="imagenes/hombre ilustrado.jpg" alt="Torsos en Penumbra"></div>
             </div>
-
             <div class="drawing-card" onclick="openUniversalModal('Boceto de manos 2', 'Carboncillo', 'imagenes/8.jpeg', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Boceto de manos 2', 'Carboncillo', 'imagenes/8.jpeg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="drawing-img-wrapper"><img src="imagenes/8.jpeg" alt="Boceto de manos 2"></div>
             </div>
-
             <div class="drawing-card" onclick="openUniversalModal('Fragmento de Estatua', 'Grafito', 'imagenes/niño2.jpg', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Fragmento de Estatua', 'Grafito', 'imagenes/niño2.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="drawing-img-wrapper"><img src="imagenes/niño2.jpg" alt="Fragmento de Estatua"></div>
             </div>
-
             <div class="drawing-card" onclick="openUniversalModal('Flora y Ceniza', 'Tinta estilográfica', 'imagenes/silla.jpg', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Flora y Ceniza', 'Tinta estilográfica', 'imagenes/silla.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="drawing-img-wrapper"><img src="imagenes/silla.jpg" alt="Flora y Ceniza"></div>
             </div>
-
             <div class="drawing-card" onclick="openUniversalModal('El Guía Nocturno', 'Pluma y bistre', 'imagenes/iglesia.JPG', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'El Guía Nocturno', 'Pluma y bistre', 'imagenes/iglesia.JPG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="drawing-img-wrapper"><img src="imagenes/iglesia.JPG" alt="El Guía Nocturno"></div>
             </div>
-
             <div class="drawing-card" onclick="openUniversalModal('Pliegues de Seda', 'Grafito sobre cartulina', 'imagenes/venado.jpg', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Pliegues de Seda', 'Grafito sobre cartulina', 'imagenes/venado.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="drawing-img-wrapper"><img src="imagenes/venado.jpg" alt="Pliegues de Seda"></div>
             </div>
-
             <div class="drawing-card" onclick="openUniversalModal('Estudio de Café', 'Tinta y técnica mixta', 'imagenes/cofee 2.png', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio de Café', 'Tinta y técnica mixta', 'imagenes/cofee 2.png')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="drawing-img-wrapper"><img src="imagenes/cofee 2.png" alt="Estudio de Café"></div>
             </div>
-
             <div class="drawing-card" onclick="openUniversalModal('Arquitectura del Resto', 'Tinta y aguada', 'imagenes/11.jpeg', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Arquitectura del Resto', 'Tinta y aguada', 'imagenes/11.jpeg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="drawing-img-wrapper"><img src="imagenes/11.jpeg" alt="Arquitectura del Resto"></div>
             </div>
-
             <div class="drawing-card" onclick="openUniversalModal('Estudio Anatómico Final', 'Carboncillo', 'imagenes/Tótem_final.JPG', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio Anatómico Final', 'Carboncillo', 'imagenes/Tótem_final.JPG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="drawing-img-wrapper"><img src="imagenes/Tótem_final.JPG" alt="Estudio Anatómico Final"></div>
             </div>
-
             <div class="drawing-card" onclick="openUniversalModal('Trazo inicial 2018', 'Tinta sobre papel', 'imagenes/bigote.jpg', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Trazo inicial 2018', 'Tinta sobre papel', 'imagenes/bigote.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="drawing-img-wrapper"><img src="imagenes/bigote.jpg" alt="Trazo inicial 2018"></div>
             </div>
-
         </div>
     </section>
 
-    <!-- ==================== SECCIÓN DE RETRATOS ==================== -->
+    <!-- RETRATOS -->
     <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper">
         <h2 class="portraits-section-title">Retratos</h2>
-        
         <div class="portraits-masonry-grid">
-            
             <div class="portrait-item h-extra-tall" onclick="openUniversalModal('Niño 1', 'Retrato', 'imagenes/niño1.jpg', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Niño 1', 'Retrato', 'imagenes/niño1.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
-                <div class="portrait-img-wrapper">
-                    <img src="imagenes/niño1.jpg" alt="Niño 1">
-                    <div class="portrait-hover-overlay">
-                        <div class="portrait-hover-title">Niño 1</div>
-                    </div>
-                </div>
+                <div class="portrait-img-wrapper"><img src="imagenes/niño1.jpg" alt="Niño 1"><div class="portrait-hover-overlay"><div class="portrait-hover-title">Niño 1</div></div></div>
             </div>
-
             <div class="portrait-item h-short" onclick="openUniversalModal('Retrato de una niña', 'Retrato', 'imagenes/mujer 1.DNG', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de una niña', 'Retrato', 'imagenes/mujer 1.DNG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
-                <div class="portrait-img-wrapper">
-                    <img src="imagenes/mujer 1.DNG" alt="Retrato de una niña">
-                    <div class="portrait-hover-overlay">
-                        <div class="portrait-hover-title">Retrato de una niña</div>
-                    </div>
-                </div>
+                <div class="portrait-img-wrapper"><img src="imagenes/mujer 1.DNG" alt="Retrato de una niña"><div class="portrait-hover-overlay"><div class="portrait-hover-title">Retrato de una niña</div></div></div>
             </div>
-
             <div class="portrait-item h-tall" onclick="openUniversalModal('Clelia Toledo', 'Retrato', 'imagenes/Clelia Toledo.jpg', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Clelia Toledo', 'Retrato', 'imagenes/Clelia Toledo.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
-                <div class="portrait-img-wrapper">
-                    <img src="imagenes/Clelia Toledo.jpg" alt="Clelia Toledo">
-                    <div class="portrait-hover-overlay">
-                        <div class="portrait-hover-title">Clelia Toledo</div>
-                    </div>
-                </div>
+                <div class="portrait-img-wrapper"><img src="imagenes/Clelia Toledo.jpg" alt="Clelia Toledo"><div class="portrait-hover-overlay"><div class="portrait-hover-title">Clelia Toledo</div></div></div>
             </div>
-
             <div class="portrait-item h-wide" onclick="openUniversalModal('Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje 2.jpg', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje 2.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
-                <div class="portrait-img-wrapper">
-                    <img src="imagenes/Hombre y paisaje 2.jpg" alt="Hombre y paisaje">
-                    <div class="portrait-hover-overlay">
-                        <div class="portrait-hover-title">Hombre y paisaje</div>
-                    </div>
-                </div>
+                <div class="portrait-img-wrapper"><img src="imagenes/Hombre y paisaje 2.jpg" alt="Hombre y paisaje"><div class="portrait-hover-overlay"><div class="portrait-hover-title">Hombre y paisaje</div></div></div>
             </div>
-
             <div class="portrait-item h-medium" onclick="openUniversalModal('Retrato de Isabel', 'Retrato', 'imagenes/sis.DNG', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de Isabel', 'Retrato', 'imagenes/sis.DNG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
-                <div class="portrait-img-wrapper">
-                    <img src="imagenes/sis.DNG" alt="Retrato de Isabel">
-                    <div class="portrait-hover-overlay">
-                        <div class="portrait-hover-title">Retrato de Isabel</div>
-                    </div>
-                </div>
+                <div class="portrait-img-wrapper"><img src="imagenes/sis.DNG" alt="Retrato de Isabel"><div class="portrait-hover-overlay"><div class="portrait-hover-title">Retrato de Isabel</div></div></div>
             </div>
-
             <div class="portrait-item h-tall" onclick="openUniversalModal('Retrato de un hombre', 'Retrato', 'imagenes/hombre verde.jpg', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de un hombre', 'Retrato', 'imagenes/hombre verde.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
-                <div class="portrait-img-wrapper">
-                    <img src="imagenes/hombre verde.jpg" alt="Retrato de un hombre">
-                    <div class="portrait-hover-overlay">
-                        <div class="portrait-hover-title">Retrato de un hombre</div>
-                    </div>
-                </div>
+                <div class="portrait-img-wrapper"><img src="imagenes/hombre verde.jpg" alt="Retrato de un hombre"><div class="portrait-hover-overlay"><div class="portrait-hover-title">Retrato de un hombre</div></div></div>
             </div>
-
             <div class="portrait-item h-short" onclick="openUniversalModal('Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje.png', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje.png')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
-                <div class="portrait-img-wrapper">
-                    <img src="imagenes/Hombre y paisaje.png" alt="Hombre y paisaje">
-                    <div class="portrait-hover-overlay">
-                        <div class="portrait-hover-title">Hombre y paisaje</div>
-                    </div>
-                </div>
+                <div class="portrait-img-wrapper"><img src="imagenes/Hombre y paisaje.png" alt="Hombre y paisaje"><div class="portrait-hover-overlay"><div class="portrait-hover-title">Hombre y paisaje</div></div></div>
             </div>
-
         </div>
     </section>
 
-    <!-- ==================== SECCIÓN DE FOTOGRAFÍA (SIN BOTÓN) ==================== -->
+    <!-- FOTOGRAFÍA -->
     <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
         <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
             <h2 class="photo-section-title">Fotografía</h2>
-            
             <div class="photo-split-grid">
-                
                 <div class="photo-item horizontal" onclick="openUniversalModal('F1000007', 'Analógica · 2025', 'imagenes/F1000007.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000007', 'Analógica · 2025', 'imagenes/F1000007.JPG?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000007', 'Analógica · 2025', 'imagenes/F1000007.JPG?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/F1000007.JPG?v=2" alt="F1000007">
                     <div class="photo-info-overlay"><div class="photo-title">F1000007</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
-
                 <div class="photo-item" onclick="openUniversalModal('F1010026', 'Analógica · 2023', 'imagenes/F1010026.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010026', 'Analógica · 2023', 'imagenes/F1010026.JPG?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010026', 'Analógica · 2023', 'imagenes/F1010026.JPG?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/F1010026.JPG?v=2" alt="F1010026">
                     <div class="photo-info-overlay"><div class="photo-title">F1010026</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
-
                 <div class="photo-item" onclick="openUniversalModal('F1010036', 'Analógica · 2023', 'imagenes/F1010036.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010036', 'Analógica · 2023', 'imagenes/F1010036.JPG?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010036', 'Analógica · 2023', 'imagenes/F1010036.JPG?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/F1010036.JPG?v=2" alt="F1010036">
                     <div class="photo-info-overlay"><div class="photo-title">F1010036</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
-
                 <div class="photo-item horizontal" onclick="openUniversalModal('F1000014', 'Analógica · 2025', 'imagenes/F1000014.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000014', 'Analógica · 2025', 'imagenes/F1000014.JPG?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000014', 'Analógica · 2025', 'imagenes/F1000014.JPG?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/F1000014.JPG?v=2" alt="F1000014">
                     <div class="photo-info-overlay"><div class="photo-title">F1000014</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
-
                 <div class="photo-item" onclick="openUniversalModal('F1000006', 'Analógica · 2025', 'imagenes/F1000006.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000006', 'Analógica · 2025', 'imagenes/F1000006.JPG?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000006', 'Analógica · 2025', 'imagenes/F1000006.JPG?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/F1000006.JPG?v=2" alt="F1000006">
                     <div class="photo-info-overlay"><div class="photo-title">F1000006</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
-
                 <div class="photo-item" onclick="openUniversalModal('F1000019', 'Analógica · 2025', 'imagenes/F1000019.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000019', 'Analógica · 2025', 'imagenes/F1000019.JPG?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000019', 'Analógica · 2025', 'imagenes/F1000019.JPG?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/F1000019.JPG?v=2" alt="F1000019" class="img-focus-top">
                     <div class="photo-info-overlay"><div class="photo-title">F1000019</div><div class="photo-meta">Analógica · 2025</div></div>
                 </div>
-
                 <div class="photo-item horizontal" onclick="openUniversalModal('F1000023', 'Analógica · 2024', 'imagenes/F1000023.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000023', 'Analógica · 2024', 'imagenes/F1000023.JPG?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000023', 'Analógica · 2024', 'imagenes/F1000023.JPG?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/F1000023.JPG?v=2" alt="F1000023">
                     <div class="photo-info-overlay"><div class="photo-title">F1000023</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
-
                 <div class="photo-item horizontal" onclick="openUniversalModal('F1000024', 'Analógica · 2024', 'imagenes/F1000024.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000024', 'Analógica · 2024', 'imagenes/F1000024.JPG?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000024', 'Analógica · 2024', 'imagenes/F1000024.JPG?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/F1000024.JPG?v=2" alt="F1000024">
                     <div class="photo-info-overlay"><div class="photo-title">F1000024</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
-
                 <div class="photo-item" onclick="openUniversalModal('F1000026(1)', 'Analógica · 2024', 'imagenes/F1000026(1).JPG?v=3', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000026(1)', 'Analógica · 2024', 'imagenes/F1000026(1).JPG?v=3')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000026(1)', 'Analógica · 2024', 'imagenes/F1000026(1).JPG?v=3')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/F1000026(1).JPG?v=3" alt="F1000026(1)">
                     <div class="photo-info-overlay"><div class="photo-title">F1000026(1)</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
-
                 <div class="photo-item" onclick="openUniversalModal('Estudio Adjunto', 'Fine Art Print · 2024', 'imagenes/10.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio Adjunto', 'Fine Art Print · 2024', 'imagenes/10.JPG?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio Adjunto', 'Fine Art Print · 2024', 'imagenes/10.JPG?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/10.JPG?v=2" alt="Estudio Adjunto">
                     <div class="photo-info-overlay"><div class="photo-title">Estudio Adjunto</div><div class="photo-meta">Fine Art Print · 2024</div></div>
                 </div>
-
                 <div class="photo-item horizontal" onclick="openUniversalModal('F1000031', 'Analógica · 2024', 'imagenes/F1000031.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000031', 'Analógica · 2024', 'imagenes/F1000031.JPG?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000031', 'Analógica · 2024', 'imagenes/F1000031.JPG?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/F1000031.JPG?v=2" alt="F1000031">
                     <div class="photo-info-overlay"><div class="photo-title">F1000031</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
-
                 <div class="photo-item horizontal" onclick="openUniversalModal('F1000032', 'Analógica · 2024', 'imagenes/F1000032.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000032', 'Analógica · 2024', 'imagenes/F1000032.JPG?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1000032', 'Analógica · 2024', 'imagenes/F1000032.JPG?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/F1000032.JPG?v=2" alt="F1000032">
                     <div class="photo-info-overlay"><div class="photo-title">F1000032</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
-
                 <div class="photo-item" onclick="openUniversalModal('F1010024', 'Analógica · 2023', 'imagenes/F1010024.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010024', 'Analógica · 2023', 'imagenes/F1010024.JPG?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010024', 'Analógica · 2023', 'imagenes/F1010024.JPG?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/F1010024.JPG?v=2" alt="F1010024">
                     <div class="photo-info-overlay"><div class="photo-title">F1010024</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
-
                 <div class="photo-item" onclick="openUniversalModal('F1010025', 'Analógica · 2023', 'imagenes/F1010025.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010025', 'Analógica · 2023', 'imagenes/F1010025.JPG?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010025', 'Analógica · 2023', 'imagenes/F1010025.JPG?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/F1010025.JPG?v=2" alt="F1010025">
                     <div class="photo-info-overlay"><div class="photo-title">F1010025</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
-
                 <div class="photo-item horizontal" onclick="openUniversalModal('F1010012', 'Analógica · 2023', 'imagenes/F1010012.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010012', 'Analógica · 2023', 'imagenes/F1010012.JPG?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010012', 'Analógica · 2023', 'imagenes/F1010012.JPG?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/F1010012.JPG?v=2" alt="F1010012">
                     <div class="photo-info-overlay"><div class="photo-title">F1010012</div><div class="photo-meta">Analógica · 2023</div></div>
                 </div>
-
                 <div class="photo-item" onclick="openUniversalModal('El salto', 'Fine Art Print · 2025', 'imagenes/El salto.jpg?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'El salto', 'Fine Art Print · 2025', 'imagenes/El salto.jpg?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'El salto', 'Fine Art Print · 2025', 'imagenes/El salto.jpg?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/El salto.jpg?v=2" alt="El salto">
                     <div class="photo-info-overlay"><div class="photo-title">El salto</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
-
                 <div class="photo-item" onclick="openUniversalModal('Satygne 1', 'Fine Art Print · 2025', 'imagenes/Satygne_1.jpg?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Satygne 1', 'Fine Art Print · 2025', 'imagenes/Satygne_1.jpg?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Satygne 1', 'Fine Art Print · 2025', 'imagenes/Satygne_1.jpg?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/Satygne_1.jpg?v=2" alt="Satygne 1">
                     <div class="photo-info-overlay"><div class="photo-title">Satygne 1</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
-
                 <div class="photo-item" onclick="openUniversalModal('Spiegel', 'Fine Art Print · 2025', 'imagenes/Spiegel.jpg?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Spiegel', 'Fine Art Print · 2025', 'imagenes/Spiegel.jpg?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Spiegel', 'Fine Art Print · 2025', 'imagenes/Spiegel.jpg?v=2')"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
                     <img src="imagenes/Spiegel.jpg?v=2" alt="Spiegel">
                     <div class="photo-info-overlay"><div class="photo-title">Spiegel</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
-
-                <div class="photo-item" onclick="openUniversalModal('Estudio Espejo', 'Fine Art Print · 2025', 'imagenes/Spiegel.jpg?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio Espejo', 'Fine Art Print · 2025', 'imagenes/Spiegel.jpg?v=2')">
-                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
-                    <img src="imagenes/Spiegel.jpg?v=2" alt="Estudio Espejo">
-                    <div class="photo-info-overlay"><div class="photo-title">Estudio Espejo</div><div class="photo-meta">Fine Art Print · 2025</div></div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ==================== SECCIÓN DE CINEMATOGRAFÍA ==================== -->
+    <!-- CINEMATOGRAFÍA -->
     <section id="galleryCinema" style="display:none;" class="cinema-section-wrapper">
         <h2 class="cinema-title">Cinematografía</h2>
         <div class="cinema-grid">
-            
             <div class="cinema-card" onclick="openUniversalModal('Estudio en Movimiento I', 'Fotograma 35mm · 2026', 'imagenes/cinei.png', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio en Movimiento I', 'Fotograma 35mm · 2026', 'imagenes/cinei.png')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
-                <div class="cinema-img-wrapper">
-                    <img src="imagenes/cinei.png" alt="Estudio en Movimiento I">
-                </div>
-                <div class="cinema-info">
-                    <div class="cinema-card-title">Estudio en Movimiento I</div>
-                    <div class="cinema-card-meta">Fotograma 35mm · 2026</div>
-                </div>
+                <div class="cinema-img-wrapper"><img src="imagenes/cinei.png" alt="Estudio en Movimiento I"></div>
+                <div class="cinema-info"><div class="cinema-card-title">Estudio en Movimiento I</div><div class="cinema-card-meta">Fotograma 35mm · 2026</div></div>
             </div>
-
         </div>
     </section>
 
-    <!-- ==================== SECCIÓN MI COLECCIÓN ==================== -->
+    <!-- MI COLECCIÓN -->
     <section id="galleryCollection" style="display:none;" class="collection-section-wrapper">
         <h2 class="collection-title">Mi Colección</h2>
         <p class="collection-sub">Obras y registros visuales guardados por el usuario</p>
@@ -2112,12 +1974,11 @@
         </div>
     </section>
 
-    <!-- MODAL UNIVERSAL CON LUPA ACTIVA -->
+    <!-- MODAL UNIVERSAL -->
     <div class="universal-modal-overlay" id="universalModal">
         <div class="universal-modal-wrapper" id="universalModalWrapper">
             <button class="universal-modal-close" id="closeUniversalModal">&times;</button>
             <img id="uModalImg" src="" alt="Imagen ampliada">
-            
             <div class="universal-modal-actions">
                 <button class="universal-modal-btn-email" id="uModalEmailBtn">Solicitar información</button>
                 <button class="universal-modal-zoom-btn" id="universalZoomBtn" title="Activar/Desactivar Lupa" onclick="toggleUniversalZoom()">
@@ -2127,7 +1988,7 @@
         </div>
     </div>
 
-    <!-- SECCIÓN BIOGRAFÍA -->
+    <!-- BIOGRAFÍA -->
     <section class="bio-section" id="bio">
         <div class="bio-grid">
             <div class="bio-image-wrapper" onclick="openUniversalModal('BRUNELIO', 'Artista · Retrato', 'imagenes/foto cesar.JPG', false)">
@@ -2136,7 +1997,6 @@
             <div class="bio-content-wrapper">
                 <div class="bio-artist-tag" id="bioTag">ARTISTA</div>
                 <h2 class="bio-artist-name">Brunelio</h2>
-                
                 <div class="bio-paragraphs" id="bioParagraphs">
                     <p style="font-style: normal; font-size: 1.1rem; margin-bottom: 5px;">
                         <em>«El acto de pintar se trata de un corazón contándole a otro corazón dónde halló su salvación».</em> Francisco de Goya y Lucientes.
@@ -2145,21 +2005,20 @@
                         Soy un artista emergente interesado en explorar posibilidades pictóricas a través del retrato, la religión, el erotismo y el estudio histórico de la iconografía occidental. Nací en la Ciudad de Guatemala en 1996 y desde los seis años recibí una formación artística en dibujo y pintura. A los diez años asistí a clases en otra academia artística, situada en la zona 1 capitalina. Durante mi adolescencia, tuve la oportunidad de exponer fotografías digitales en concursos estudiantiles, entre los cuales obtuve el primer lugar en varias ocasiones.
                     </p>
                     <p>
-                        Tuve una formación universitaria especializada en artes visuales y cinematografía, lo cual me permitió explorar diversos medios de analógicos y digitales. Una formación que me ha permitido experimentar con diferentes lenguajes visuales, sonoros y narrativos. Igualmente, me he dedicado a la escritura de guiones y a la literatura. Por más de seis años, me dediqué al negocio de los libros, interés que me llevó a laborar en una de las librerías más prestigiosas del país. Desde entonces, he experimentado con diversas técnicas, métodos y discursos visuales para hallar una voz en el mundo del arte.
+                        Tuve una formación universitaria especializada en artes visuales y cinematografía, lo cual me permitió explorar diversos medios analógicos y digitales. Una formación que me ha permitido experimentar con diferentes lenguajes visuales, sonoros y narrativos. Igualmente, me he dedicado a la escritura de guiones y a la literatura. Por más de seis años, me dediqué al negocio de los libros, interés que me llevó a laborar en una de las librerías más prestigiosas del país. Desde entonces, he experimentado con diversas técnicas, métodos y discursos visuales para hallar una voz en el mundo del arte.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER Y CONTACTO -->
+    <!-- FOOTER -->
     <footer id="contact">
         <div class="contact-container">
             <h2 class="section-title" id="contactSectionTitle" style="margin-top: 0; text-align: left;">CONTACTO / ENCARGOS</h2>
             <p id="contactSubText" style="font-style: italic; font-size: 1.2rem; margin-top: 10px;">
                 Para consultas sobre adquisición de obras de colección, solicitudes de encargos privados o comisiones, completa el siguiente formulario:
             </p>
-
             <form class="contact-form" action="https://formspree.io/f/cezzarostudio@gmail.com" method="POST">
                 <div class="form-group">
                     <label for="clientType" id="labelClientType">Empresa o Particular</label>
@@ -2169,31 +2028,25 @@
                         <option value="Press / Media" id="optPress">Prensa / Medios</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label for="firstName" id="labelFirstName">Nombre</label>
                     <input type="text" id="firstName" name="firstName" placeholder="Nombre" class="form-control">
                 </div>
-
                 <div class="form-group">
                     <label for="lastName" id="labelLastName">Apellido</label>
                     <input type="text" id="lastName" name="lastName" placeholder="Apellido" class="form-control">
                 </div>
-
                 <div class="form-group">
                     <label for="email" id="labelEmail">Correo electrónico *</label>
                     <input type="email" id="email" name="email" placeholder="Correo electrónico" class="form-control" required>
                 </div>
-
                 <div class="form-group">
                     <label for="message" id="labelMessage">Mensaje *</label>
                     <textarea id="message" name="message" placeholder="Mensaje" class="form-control" required></textarea>
                 </div>
-
                 <button type="submit" class="btn-submit" id="submitBtnText">Submit</button>
             </form>
         </div>
-
         <div style="text-align: center; border-top: 1px solid rgba(0, 0, 0, 0.1); padding-top: 40px;">
             <div style="letter-spacing: 2px; font-size: 1rem; text-transform: uppercase;" id="directEmailText">Correo Directo del Taller</div>
             <a href="mailto:cezzarostudio@gmail.com" class="contact-email">cezzarostudio@gmail.com</a>
@@ -2427,13 +2280,13 @@
             const cardElement = track.children[10]; 
             if (!cardElement) return;
 
-            const cardWidth = 680 + 40; 
+            const cardWidth = 520 + 70; // Ancho + márgenes laterales (35px cada lado)
             const translateOffset = -10 * cardWidth - (cardWidth / 2); 
 
             if (!smooth) {
                 track.style.transition = 'none';
             } else {
-                track.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                track.style.transition = 'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
             }
 
             track.style.transform = `translateX(${translateOffset}px)`;

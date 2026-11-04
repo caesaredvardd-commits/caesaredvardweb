@@ -118,7 +118,6 @@
             position: relative;
         }
 
-        /* Animación de subrayado de izquierda a derecha */
         header .header-nav-btn::after {
             content: '';
             position: absolute;
@@ -228,7 +227,7 @@
             stroke: #ffffff;
         }
 
-        /* --- HERO SECCIÓN (LIMPIA, SIN RÍOS ARRIBA) --- */
+        /* --- HERO SECCIÓN --- */
         .hero {
             position: relative;
             height: 100vh;
@@ -326,7 +325,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN CARRUSEL (CON TEXTO SUPERIOR) --- */
+        /* --- SECCIÓN CARRUSEL CON EFECTO 3D Y TEXTOS CERCANOS --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -341,26 +340,26 @@
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
             box-sizing: border-box;
-            padding: 40px 0;
+            padding: 20px 0;
             transition: background-color 0.8s ease;
         }
 
         .carousel-header-box {
             text-align: center;
             z-index: 10;
-            margin-bottom: -20px;
+            margin-bottom: -10px; /* Texto superior más cerca de la imagen */
         }
 
         .carousel-main-heading {
-            font-size: 2.6rem;
+            font-size: 2.4rem;
             font-weight: normal;
             letter-spacing: 1px;
             color: #000000;
-            margin: 0 0 10px 0;
+            margin: 0 0 5px 0;
         }
 
         .carousel-sub-heading {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: #666666;
@@ -372,13 +371,14 @@
             z-index: 2;
             width: 100%;
             max-width: 100%;
-            height: 650px;
+            height: 560px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             user-select: none;
             background: transparent !important;
+            perspective: 1200px; /* Efecto 3D de profundidad */
         }
 
         .carousel-track {
@@ -386,16 +386,17 @@
             align-items: center;
             position: absolute;
             left: 50%;
+            transform-style: preserve-3d;
             will-change: transform;
             transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
             background: transparent !important;
         }
 
         .carousel-card {
-            min-width: 580px;
-            max-width: 580px;
-            height: 580px;
-            margin: 0 35px;
+            min-width: 500px;
+            max-width: 500px;
+            height: 500px;
+            margin: 0 15px;
             position: relative;
             cursor: pointer;
             border: none !important;
@@ -403,8 +404,8 @@
             overflow: visible;
             transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.2s ease, filter 0.6s ease;
             box-shadow: none !important;
-            opacity: 0.3;
-            transform: scale(0.82);
+            opacity: 0.4;
+            transform: scale(0.8) rotateY(25deg) translateZ(-100px);
             background: transparent !important;
             flex-shrink: 0;
             display: flex;
@@ -412,11 +413,21 @@
             justify-content: center;
         }
 
+        .carousel-card.left-card {
+            transform: scale(0.82) rotateY(20deg) translateZ(-50px);
+            opacity: 0.6;
+        }
+
+        .carousel-card.right-card {
+            transform: scale(0.82) rotateY(-20deg) translateZ(-50px);
+            opacity: 0.6;
+        }
+
         .carousel-card.active {
             opacity: 1;
-            transform: scale(1.05);
+            transform: scale(1) rotateY(0deg) translateZ(50px);
             z-index: 10;
-            box-shadow: none !important;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
             background: transparent !important;
         }
 
@@ -453,7 +464,6 @@
             pointer-events: auto;
         }
 
-        /* BOTÓN EXPLORE 100% TRANSPARENTE AL PASAR EL MOUSE */
         .btn-card-explore {
             padding: 14px 32px;
             background: transparent !important;
@@ -474,6 +484,21 @@
             border-color: #ffffff !important;
             transform: scale(1.08);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+        }
+
+        /* TEXTO INFERIOR (NOMBRE DE SECCIÓN) CERCA DE LA IMAGEN */
+        .carousel-footer-title {
+            position: relative;
+            margin-top: -10px; /* Muy cercano a la parte baja de la imagen activa */
+            z-index: 20;
+            font-size: 1.35rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 600;
+            color: #000000;
+            pointer-events: none;
+            background: transparent;
         }
 
         /* --- SECCIÓN DE PINTURAS AL ÓLEO --- */
@@ -1141,7 +1166,7 @@
             filter: invert(1);
         }
 
-        /* --- SECCIÓN BIOGRAFÍA (FONDO BLANCO) --- */
+        /* --- SECCIÓN BIOGRAFÍA --- */
         .bio-section {
             padding: 120px 30px;
             background-color: #ffffff;
@@ -1326,7 +1351,7 @@
 
         @media (max-width: 768px) {
             .hero-title { font-size: 3.2rem; letter-spacing: 2px; }
-            .carousel-card { min-width: 320px; max-width: 320px; height: 400px; }
+            .carousel-card { min-width: 320px; max-width: 320px; height: 380px; }
             .btn-submit { width: 100%; }
             .drawing-grid-3x3 { grid-template-columns: 1fr; }
             .collection-grid { grid-template-columns: 1fr; }
@@ -1416,7 +1441,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CARRUSEL CON TÍTULO SUPERIOR -->
+    <!-- SECCIÓN CARRUSEL CON EFECTO 3D Y TEXTOS DINÁMICOS -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="carousel-header-box">
             <h2 class="carousel-main-heading" id="carouselMainTitle">Un archivo de miradas.</h2>
@@ -1426,6 +1451,8 @@
         <div class="carousel-container-drag" id="dragContainer">
             <div class="carousel-track" id="carouselTrack"></div>
         </div>
+        
+        <div class="carousel-footer-title" id="carouselFooterTitle">PINTURAS AL ÓLEO</div>
     </section>
 
     <!-- ==================== SECCIÓN DE PINTURAS AL ÓLEO ==================== -->
@@ -1988,7 +2015,7 @@
         </div>
     </div>
 
-    <!-- SECCIÓN BIOGRAFÍA (CON FONDO BLANCO) -->
+    <!-- SECCIÓN BIOGRAFÍA -->
     <section class="bio-section" id="bio">
         <div class="bio-grid">
             <div class="bio-image-wrapper" onclick="openUniversalModal('BRUNELIO', 'Artista · Retrato', 'imagenes/foto cesar.JPG')">
@@ -2210,17 +2237,18 @@
         }
 
         const categoriesData = [
-            { titleEs: 'Un archivo de miradas.', titleEn: 'An archive of glances.', subEs: 'PERSONAJES · HISTORIAS · EXPRESIONES', subEn: 'CHARACTERS · STORIES · EXPRESSIONS', img: 'imagenes/ppintura.png', filterCat: 'oleos', ambientBg: '#ffffff' },
-            { titleEs: 'Un archivo de miradas.', titleEn: 'An archive of glances.', subEs: 'PERSONAJES · HISTORIAS · EXPRESIONES', subEn: 'CHARACTERS · STORIES · EXPRESSIONS', img: 'imagenes/pdibujo.png', filterCat: 'dibujo', ambientBg: '#ffffff' },
-            { titleEs: 'Un archivo de miradas.', titleEn: 'An archive of glances.', subEs: 'PERSONAJES · HISTORIAS · EXPRESIONES', subEn: 'CHARACTERS · STORIES · EXPRESSIONS', img: 'imagenes/pretratos.png', filterCat: 'retratos', ambientBg: '#ffffff' },
-            { titleEs: 'Un archivo de miradas.', titleEn: 'An archive of glances.', subEs: 'PERSONAJES · HISTORIAS · EXPRESIONES', subEn: 'CHARACTERS · STORIES · EXPRESSIONS', img: 'imagenes/pphotos.png', filterCat: 'fotografia', ambientBg: '#ffffff' },
-            { titleEs: 'Un archivo de miradas.', titleEn: 'An archive of glances.', subEs: 'PERSONAJES · HISTORIAS · EXPRESIONES', subEn: 'CHARACTERS · STORIES · EXPRESSIONS', img: 'imagenes/pccine.png', filterCat: 'cinematografia', ambientBg: '#ffffff' }
+            { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', filterCat: 'oleos', ambientBg: '#ffffff' },
+            { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', filterCat: 'dibujo', ambientBg: '#ffffff' },
+            { titleEs: 'Retratos', titleEn: 'Portraits', img: 'imagenes/pretratos.png', filterCat: 'retratos', ambientBg: '#ffffff' },
+            { titleEs: 'Fotografía', titleEn: 'Photography', img: 'imagenes/pphotos.png', filterCat: 'fotografia', ambientBg: '#ffffff' },
+            { titleEs: 'Cinematografía', titleEn: 'Cinematography', img: 'imagenes/pccine.png', filterCat: 'cinematografia', ambientBg: '#ffffff' }
         ];
 
         let centerIndex = 0;
         const track = document.getElementById('carouselTrack');
         const carouselMainTitle = document.getElementById('carouselMainTitle');
         const carouselSubHeading = document.getElementById('carouselSubHeading');
+        const carouselFooterTitle = document.getElementById('carouselFooterTitle');
         const dragContainer = document.getElementById('dragContainer');
 
         function initInfiniteCarousel() {
@@ -2238,7 +2266,12 @@
 
                 const item = categoriesData[dataIndex];
                 const card = document.createElement('div');
-                card.className = `carousel-card ${i === 0 ? 'active' : ''}`;
+                
+                let extraClass = '';
+                if (i < 0) extraClass = 'left-card';
+                else if (i > 0) extraClass = 'right-card';
+
+                card.className = `carousel-card ${i === 0 ? 'active' : extraClass}`;
                 card.onclick = () => {
                     if (i !== 0) {
                         centerIndex = dataIndex;
@@ -2261,7 +2294,7 @@
             const cardElement = track.children[10]; 
             if (!cardElement) return;
 
-            const cardWidth = 580 + 70; 
+            const cardWidth = 500 + 30; 
             const translateOffset = -10 * cardWidth - (cardWidth / 2); 
 
             if (!smooth) {
@@ -2273,10 +2306,13 @@
             track.style.transform = `translateX(${translateOffset}px)`;
 
             Array.from(track.children).forEach((child, idx) => {
+                child.classList.remove('active', 'left-card', 'right-card');
                 if (idx === 10) {
                     child.classList.add('active');
+                } else if (idx < 10) {
+                    child.classList.add('left-card');
                 } else {
-                    child.classList.remove('active');
+                    child.classList.add('right-card');
                 }
             });
 
@@ -2284,11 +2320,9 @@
             utopiaSection.style.backgroundColor = activeData.ambientBg;
 
             if (currentLang === 'EN') {
-                carouselMainTitle.innerText = activeData.titleEn;
-                carouselSubHeading.innerText = activeData.subEn;
+                carouselFooterTitle.innerText = activeData.titleEn.toUpperCase();
             } else {
-                carouselMainTitle.innerText = activeData.titleEs;
-                carouselSubHeading.innerText = activeData.subEs;
+                carouselFooterTitle.innerText = activeData.titleEs.toUpperCase();
             }
         }
 

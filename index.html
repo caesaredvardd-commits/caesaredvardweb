@@ -76,7 +76,7 @@
             visibility: hidden;
         }
 
-        /* --- 1 & 4. HEADER IDÉNTICO A IMAGEN 1 Y TRANSPARENTE COMO IMAGEN 3 --- */
+        /* --- HEADER MODIFICADO (BLANCO TOTALMENTE) --- */
         header {
             position: fixed;
             top: 0;
@@ -88,9 +88,7 @@
             flex-direction: column;
             justify-content: center;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: #ffffff;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             transition: transform 0.4s ease, background 0.3s;
         }
@@ -305,7 +303,7 @@
             color: #ffffff !important;
         }
 
-        /* --- 5. BOTÓN FLOTANTE PARA VOLVER A PÁGINA PRINCIPAL --- */
+        /* --- BOTÓN FLOTANTE PARA VOLVER A PÁGINA PRINCIPAL --- */
         .back-to-top-btn {
             position: fixed;
             bottom: 35px;
@@ -444,7 +442,7 @@
             box-shadow: none !important;
         }
 
-        /* --- 6. SECCIÓN VIDEO ENTRE PÁGINA INICIAL E ÍNDICE ("ESPEJIMOS") --- */
+        /* --- SECCIÓN VIDEO ENTRE PÁGINA INICIAL E ÍNDICE ("ESPEJIMOS") --- */
         .video-section-wrapper {
             position: relative;
             width: 100vw;
@@ -690,9 +688,9 @@
             margin-bottom: 40px;
         }
 
-        /* 5. BANNER DE DIBUJO MODIFICADO CON POSICIONADO EXACTO (Tótem_final.JPG) */
+        /* BANNER DE DIBUJO MODIFICADO CON LA NUEVA IMAGEN */
         .oil-banner-header.drawing-banner {
-            background-image: url('imagenes/Tótem_final.JPG');
+            background-image: url('imagenes/totemvisible.png');
             background-position: center 35%;
         }
 
@@ -829,7 +827,7 @@
             stroke: #ffffff;
         }
 
-        /* --- 7. SECCIÓN DE RETRATOS REDISEÑADA ESTILO CIRCULAR ("SHOP OUR MOST POPULAR") --- */
+        /* --- SECCIÓN DE RETRATOS REDISEÑADA ESTILO CIRCULAR --- */
         .portraits-section-wrapper {
             position: relative;
             width: 100vw;
@@ -888,10 +886,22 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
-        .portrait-circle-card:hover .portrait-circle-wrapper img {
+        .portrait-circle-wrapper img.portrait-hover-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .portrait-circle-card:hover .portrait-circle-wrapper img.portrait-default-img {
+            opacity: 0;
+        }
+
+        .portrait-circle-card:hover .portrait-circle-wrapper img.portrait-hover-img {
+            opacity: 1;
             transform: scale(1.08);
         }
 
@@ -1456,7 +1466,7 @@
         })();
     </script>
 
-    <!-- 1, 2 & 4. HEADER MODIFICADO (TRANSPARENTE, DISEÑO HERMÈS Y BÚSQUEDA POR NOMBRE FUNCIONAL) -->
+    <!-- HEADER MODIFICADO (LOGO GUARDADO Y FONDO BLANCO TOTAL) -->
     <header id="mainHeader">
         <div class="header-top-row">
             <!-- Izquierda: Lupa + Input de Búsqueda -->
@@ -1477,14 +1487,14 @@
                 <img src="imagenes/firma .png" alt="BRUNELIO" class="header-logo-firma" onclick="scrollToTop()">
             </div>
             
-            <!-- Derecha: Íconos de Usuario y Guardados (Hermès Style) -->
+            <!-- Derecha: Íconos de Usuario y Guardados (Logo de guardado actualizado) -->
             <div class="header-right-slot">
                 <button class="header-icon-btn" title="Perfil" onclick="handleGoogleLogin()">
                     <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                 </button>
 
                 <button class="header-icon-btn" title="Mi Colección" onclick="filterGallery('coleccion')">
-                    <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </button>
             </div>
         </div>
@@ -1500,7 +1510,7 @@
         </nav>
     </header>
 
-    <!-- 5. BOTÓN FLOTANTE INFERIOR DERECHO PARA IR A LA PÁGINA PRINCIPAL -->
+    <!-- BOTÓN FLOTANTE INFERIOR DERECHO PARA IR A LA PÁGINA PRINCIPAL -->
     <button class="back-to-top-btn" id="backToTopBtn" title="Volver a la página principal" onclick="scrollToTop()">
         <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
@@ -1520,22 +1530,21 @@
         </div>
     </section>
 
-    <!-- 6. SECCIÓN DE VIDEO (ENTRE PÁGINA INICIAL E ÍNDICE) - MINUTO 1:05 A 1:17 LOOP SIN AUDIO -->
+    <!-- SECCIÓN DE VIDEO REEMPLAZADA CON webvideo.mp4 -->
     <section class="video-section-wrapper" id="mirageVideoSection">
         <video id="loopVideo" autoplay loop muted playsinline>
-            <source src="videos/video principal.mp4" type="video/mp4">
+            <source src="imagenes/webvideo.mp4" type="video/mp4">
             Tu navegador no soporta el elemento de video.
         </video>
         <div class="video-overlay-text">espejismos</div>
     </section>
 
-    <!-- CARRUSEL (ÍNDICE CON TÍTULO MODIFICADO A "GALERÍA") -->
+    <!-- CARRUSEL -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="utopia-bg-layer" id="utopiaBgLayer"></div>
 
         <div class="carousel-header-box" id="carouselHeaderBox">
             <div class="carousel-sub-heading" id="carouselSubHeading">EXPLORE</div>
-            <!-- 3. CAMBIADO DE BRUNELIO'S WORLD A GALERÍA -->
             <h2 class="carousel-main-heading" id="carouselMainTitle">GALERÍA</h2>
         </div>
 
@@ -1730,7 +1739,7 @@
         </div>
     </section>
 
-    <!-- 5. DIBUJO CON BANNER AJUSTADO A IMAGEN 6 (imagenes/Tótem_final.JPG) -->
+    <!-- DIBUJO CON BANNER E IMAGEN REEMPLAZADOS POR totemvisible.png -->
     <section id="galleryDrawing" style="display:none;" class="oil-section-wrapper">
         <div class="oil-banner-header drawing-banner">
             <h1 class="oil-banner-title">DIBUJO</h1>
@@ -1859,12 +1868,12 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Estudio Anatómico Final', 'Carboncillo', 'imagenes/Tótem_final.JPG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio Anatómico Final', 'Carboncillo', 'imagenes/Tótem_final.JPG')">
+            <div class="oil-card" onclick="openUniversalModal('Estudio Anatómico Final', 'Carboncillo', 'imagenes/totemvisible.png', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio Anatómico Final', 'Carboncillo', 'imagenes/totemvisible.png')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
-                    <img src="imagenes/Tótem_final.JPG" alt="Estudio Anatómico Final">
+                    <img src="imagenes/totemvisible.png" alt="Estudio Anatómico Final">
                     <div class="oil-card-hover-overlay"><span class="oil-card-hover-title">Estudio Anatómico Final</span></div>
                 </div>
             </div>
@@ -1882,56 +1891,63 @@
         </div>
     </section>
 
-    <!-- 7. RETRATOS REDISEÑADOS COMO LA ÚLTIMA IMAGEN (LAYOUT DE CÍRCULOS ELEGANTES) -->
+    <!-- RETRATOS MODIFICADOS CON PORTADAS DESDE LA CARPETA Y EFECTO HOVER -->
     <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper">
         <h2 class="portraits-header-title">Selección de Retratos</h2>
         <div class="portraits-circle-grid">
             
-            <div class="portrait-circle-card" onclick="openUniversalModal('Niño 1', 'Retrato', 'imagenes/niño1.jpg', false)">
+            <div class="portrait-circle-card" onclick="openUniversalModal('Niño 1', 'Retrato', 'imagenes/retratos/1.png', false)">
                 <div class="portrait-circle-wrapper">
-                    <img src="imagenes/niño1.jpg" alt="Niño 1">
+                    <img src="imagenes/retratos/1.png" alt="Niño 1" class="portrait-default-img">
+                    <img src="imagenes/niño1.jpg" alt="Niño 1 Hover" class="portrait-hover-img">
                 </div>
                 <div class="portrait-circle-name">Niño 1</div>
             </div>
 
-            <div class="portrait-circle-card" onclick="openUniversalModal('Retrato de una niña', 'Retrato', 'imagenes/mujer 1.DNG', false)">
+            <div class="portrait-circle-card" onclick="openUniversalModal('Retrato de una niña', 'Retrato', 'imagenes/retratos/2.png', false)">
                 <div class="portrait-circle-wrapper">
-                    <img src="imagenes/mujer 1.DNG" alt="Retrato de una niña">
+                    <img src="imagenes/retratos/2.png" alt="Niña" class="portrait-default-img">
+                    <img src="imagenes/mujer 1.DNG" alt="Niña Hover" class="portrait-hover-img">
                 </div>
                 <div class="portrait-circle-name">Niña</div>
             </div>
 
-            <div class="portrait-circle-card" onclick="openUniversalModal('Clelia Toledo', 'Retrato', 'imagenes/Clelia Toledo.jpg', false)">
+            <div class="portrait-circle-card" onclick="openUniversalModal('Clelia Toledo', 'Retrato', 'imagenes/retratos/3.png', false)">
                 <div class="portrait-circle-wrapper">
-                    <img src="imagenes/Clelia Toledo.jpg" alt="Clelia Toledo">
+                    <img src="imagenes/retratos/3.png" alt="Clelia Toledo" class="portrait-default-img">
+                    <img src="imagenes/Clelia Toledo.jpg" alt="Clelia Toledo Hover" class="portrait-hover-img">
                 </div>
                 <div class="portrait-circle-name">Clelia Toledo</div>
             </div>
 
-            <div class="portrait-circle-card" onclick="openUniversalModal('Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje 2.jpg', false)">
+            <div class="portrait-circle-card" onclick="openUniversalModal('Hombre y paisaje', 'Retrato', 'imagenes/retratos/4.png', false)">
                 <div class="portrait-circle-wrapper">
-                    <img src="imagenes/Hombre y paisaje 2.jpg" alt="Hombre y paisaje">
+                    <img src="imagenes/retratos/4.png" alt="Hombre II" class="portrait-default-img">
+                    <img src="imagenes/Hombre y paisaje 2.jpg" alt="Hombre II Hover" class="portrait-hover-img">
                 </div>
                 <div class="portrait-circle-name">Hombre II</div>
             </div>
 
-            <div class="portrait-circle-card" onclick="openUniversalModal('Retrato de Isabel', 'Retrato', 'imagenes/sis.DNG', false)">
+            <div class="portrait-circle-card" onclick="openUniversalModal('Retrato de Isabel', 'Retrato', 'imagenes/retratos/5.png', false)">
                 <div class="portrait-circle-wrapper">
-                    <img src="imagenes/sis.DNG" alt="Retrato de Isabel">
+                    <img src="imagenes/retratos/5.png" alt="Isabel" class="portrait-default-img">
+                    <img src="imagenes/sis.DNG" alt="Isabel Hover" class="portrait-hover-img">
                 </div>
                 <div class="portrait-circle-name">Isabel</div>
             </div>
 
-            <div class="portrait-circle-card" onclick="openUniversalModal('Retrato de un hombre', 'Retrato', 'imagenes/hombre verde.jpg', false)">
+            <div class="portrait-circle-card" onclick="openUniversalModal('Retrato de un hombre', 'Retrato', 'imagenes/retratos/6.png', false)">
                 <div class="portrait-circle-wrapper">
-                    <img src="imagenes/hombre verde.jpg" alt="Retrato de un hombre">
+                    <img src="imagenes/retratos/6.png" alt="Hombre Verde" class="portrait-default-img">
+                    <img src="imagenes/hombre verde.jpg" alt="Hombre Verde Hover" class="portrait-hover-img">
                 </div>
                 <div class="portrait-circle-name">Hombre Verde</div>
             </div>
 
-            <div class="portrait-circle-card" onclick="openUniversalModal('Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje.png', false)">
+            <div class="portrait-circle-card" onclick="openUniversalModal('Hombre y paisaje', 'Retrato', 'imagenes/retratos/7.png', false)">
                 <div class="portrait-circle-wrapper">
-                    <img src="imagenes/Hombre y paisaje.png" alt="Hombre y paisaje">
+                    <img src="imagenes/retratos/7.png" alt="Hombre I" class="portrait-default-img">
+                    <img src="imagenes/Hombre y paisaje.png" alt="Hombre I Hover" class="portrait-hover-img">
                 </div>
                 <div class="portrait-circle-name">Hombre I</div>
             </div>
@@ -2234,7 +2250,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        /* 6. CONTROL DEL VIDEO (MINUTO 1:05 A 1:17 LOOP INFINITO SIN AUDIO) */
+        /* CONTROL DEL VIDEO */
         function setupVideoLoop() {
             const video = document.getElementById('loopVideo');
             if (!video) return;
@@ -2253,7 +2269,7 @@
             });
         }
 
-        /* 2. BÚSQUEDA Y SUGERENCIAS FUNCIONALES POR NOMBRE */
+        /* BÚSQUEDA Y SUGERENCIAS FUNCIONALES POR NOMBRE */
         const searchInput = document.getElementById('searchInput');
         const searchSuggestionsBox = document.getElementById('searchSuggestionsBox');
 

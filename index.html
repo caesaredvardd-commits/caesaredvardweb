@@ -76,105 +76,149 @@
             visibility: hidden;
         }
 
-        /* --- HEADER ESTRUCTURA PERFECTA (80px ALTO FIX) --- */
+        /* --- 1 & 4. HEADER IDÉNTICO A IMAGEN 1 Y TRANSPARENTE COMO IMAGEN 3 --- */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 90px;
             padding: 0 40px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            background-color: #ffffff;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            transition: transform 0.4s ease;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s ease, background 0.3s;
         }
 
         header.header-hidden {
             transform: translateY(-100%);
         }
 
+        .header-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Lado izquierdo: Lupa + Campo de búsqueda funcional */
         .header-left-slot {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 10px;
             flex: 1;
+            position: relative;
         }
 
+        .header-search-container {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #000000;
+            padding-bottom: 2px;
+            width: 160px;
+            position: relative;
+        }
+
+        .header-search-icon {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0 5px 0 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-search-icon svg {
+            width: 16px;
+            height: 16px;
+            stroke: #000000;
+            stroke-width: 1.8;
+            fill: none;
+        }
+
+        .header-search-input {
+            border: none;
+            background: transparent;
+            font-size: 0.95rem;
+            color: #000000;
+            width: 100%;
+            outline: none;
+        }
+
+        .header-search-input::placeholder {
+            color: #555555;
+        }
+
+        /* Sugerencias flotantes desplegables de búsqueda por nombre */
+        .search-suggestions-box {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 280px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            margin-top: 5px;
+            max-height: 250px;
+            overflow-y: auto;
+            display: none;
+            z-index: 1100;
+        }
+
+        .search-suggestions-box.has-results {
+            display: block;
+        }
+
+        .suggestion-item {
+            padding: 10px 14px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: background 0.2s;
+            color: #000;
+        }
+
+        .suggestion-item:hover {
+            background: rgba(0,0,0,0.06);
+        }
+
+        .suggestion-category {
+            font-size: 0.7rem;
+            color: #777777;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Centro: Firma Logo Hermès Style */
         .header-center-slot {
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        header .header-nav-btn {
-            font-family: var(--font-titles) !important;
-            background: transparent;
-            border: none;
-            color: var(--text-main);
-            font-size: 0.75rem !important; /* Mismo tamaño exacto que sesión activa */
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            cursor: pointer;
-            padding: 0;
-            white-space: nowrap;
-            position: relative;
-        }
-
-        header .header-nav-btn::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1.5px;
-            bottom: -4px;
-            left: 0;
-            background-color: var(--text-main);
-            transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        header .header-nav-btn:hover::after {
-            width: 100%;
-        }
-
-        header .header-back-btn {
-            font-family: 'EB Garamond 08', 'Georgia', serif !important;
-            background: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--text-main) !important;
-            padding: 4px 12px !important;
-            font-size: 0.75rem !important;
-            display: none;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .header-back-btn:hover {
-            background: var(--text-main) !important;
-            color: #ffffff !important;
-        }
-
-        .header-logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .header-logo-firma {
-            height: 85px; /* Un poco más grande como se solicitó */
+            height: 65px;
             object-fit: contain;
-            pointer-events: auto;
+            cursor: pointer;
         }
 
+        /* Lado derecho: Íconos estilo Hermès */
         .header-right-slot {
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            gap: 18px;
+            gap: 20px;
             flex: 1;
         }
 
@@ -194,181 +238,119 @@
         }
 
         .header-icon-btn svg {
-            width: 18px;
-            height: 18px;
+            width: 22px;
+            height: 22px;
             fill: none;
             stroke: #000000;
-            stroke-width: 1.8;
+            stroke-width: 1.5;
             stroke-linecap: round;
             stroke-linejoin: round;
         }
 
-        .lang-select {
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            color: var(--text-main);
-            cursor: pointer;
+        /* Fila Inferior del Header: Navegación Centralizada */
+        .header-bottom-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            margin-top: 4px;
+        }
+
+        .header-nav-link {
+            font-family: var(--font-body) !important;
+            font-size: 0.72rem !important;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             font-weight: 600;
-            transition: color 0.3s;
+            color: #000000;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 2px 0;
+            position: relative;
+            white-space: nowrap;
         }
 
-        .lang-select span {
-            opacity: 0.5;
-            transition: opacity 0.3s;
+        .header-nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: #000000;
+            transition: width 0.3s ease;
         }
 
-        .lang-select span.active {
-            opacity: 1;
-            text-decoration: underline;
+        .header-nav-link:hover::after {
+            width: 100%;
         }
 
-        .google-login-btn {
+        .header-back-btn {
+            font-family: 'EB Garamond 08', 'Georgia', serif !important;
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--text-main) !important;
+            padding: 4px 12px !important;
+            font-size: 0.75rem !important;
+            display: none;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .header-back-btn:hover {
+            background: var(--text-main) !important;
+            color: #ffffff !important;
+        }
+
+        /* --- 5. BOTÓN FLOTANTE PARA VOLVER A PÁGINA PRINCIPAL --- */
+        .back-to-top-btn {
+            position: fixed;
+            bottom: 35px;
+            right: 35px;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #ffffff;
-            color: #000000;
-            border: 1px solid rgba(0, 0, 0, 0.25);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .google-login-btn:hover {
-            background-color: #000000;
-            color: #ffffff;
-            border-color: #000000;
-        }
-
-        /* BARRA DESPLEGABLE DE BÚSQUEDA */
-        .search-dropdown-bar {
-            position: absolute;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            background: #ffffff;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 15px 40px;
+            z-index: 999;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(-10px);
             transition: all 0.3s ease;
-            z-index: 99;
         }
 
-        .search-dropdown-bar.active {
+        .back-to-top-btn.visible {
             opacity: 1;
             visibility: visible;
-            transform: translateY(0);
         }
 
-        .search-input-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            display: flex;
-            align-items: center;
-        }
-
-        .search-input-field {
-            width: 100%;
-            padding: 10px 18px;
-            font-size: 1.1rem;
-            border: 1px solid rgba(0,0,0,0.2);
-            border-radius: 4px;
-            outline: none;
-            background: #fcfcfc;
-        }
-
-        .search-suggestions-box {
-            width: 100%;
-            max-width: 600px;
+        .back-to-top-btn:hover {
+            transform: translateY(-3px);
             background: #ffffff;
-            border: 1px solid rgba(0,0,0,0.1);
-            border-top: none;
-            border-radius: 0 0 4px 4px;
-            max-height: 250px;
-            overflow-y: auto;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            display: none;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
 
-        .search-suggestions-box.has-results {
-            display: block;
-        }
-
-        .suggestion-item {
-            padding: 10px 18px;
-            cursor: pointer;
-            font-size: 0.95rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(0,0,0,0.04);
-            transition: background 0.2s;
-        }
-
-        .suggestion-item:hover {
-            background: #f4f4f4;
-        }
-
-        .suggestion-category {
-            font-size: 0.75rem;
-            color: #777777;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .bookmark-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 36px;
-            height: 36px;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 15;
-            transition: all 0.3s ease;
-        }
-
-        .bookmark-btn:hover {
-            background: rgba(0, 0, 0, 0.9);
-            transform: scale(1.1);
-        }
-
-        .bookmark-btn svg {
-            width: 16px;
-            height: 16px;
+        .back-to-top-btn svg {
+            width: 18px;
+            height: 18px;
             fill: none;
-            stroke: #ffffff;
+            stroke: #000000;
             stroke-width: 2;
-            transition: fill 0.3s ease, stroke 0.3s ease;
-        }
-
-        .bookmark-btn.saved svg {
-            fill: #ffffff;
-            stroke: #ffffff;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         /* --- HERO SECCIÓN --- */
         .hero {
             position: relative;
-            height: calc(100vh - 80px);
+            height: calc(100vh - 90px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -376,7 +358,7 @@
             background-color: #ffffff;
             overflow: hidden;
             padding: 0 20px;
-            margin-top: 80px;
+            margin-top: 90px;
         }
 
         .hero-side-img {
@@ -462,7 +444,44 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN CARRUSEL (BRUNELIO'S WORLD) --- */
+        /* --- 6. SECCIÓN VIDEO ENTRE PÁGINA INICIAL E ÍNDICE ("ESPEJIMOS") --- */
+        .video-section-wrapper {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+        }
+
+        .video-section-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .video-overlay-text {
+            position: absolute;
+            bottom: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            font-size: 0.9rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            font-weight: 300;
+            z-index: 5;
+            pointer-events: none;
+            text-align: center;
+        }
+
+        /* --- SECCIÓN CARRUSEL (GALERÍA) --- */
         .utopia-section {
             position: relative;
             width: 100vw;
@@ -607,7 +626,6 @@
             opacity: 1;
         }
 
-        /* BOTÓN EXPLORE COMPLETAMENTE TRASLÚCIDO AL PASAR CURSOR */
         .btn-card-explore {
             padding: 12px 30px;
             background: rgba(0, 0, 0, 0.3) !important;
@@ -670,6 +688,12 @@
             color: #ffffff;
             text-align: center;
             margin-bottom: 40px;
+        }
+
+        /* 5. BANNER DE DIBUJO MODIFICADO CON POSICIONADO EXACTO (Tótem_final.JPG) */
+        .oil-banner-header.drawing-banner {
+            background-image: url('imagenes/Tótem_final.JPG');
+            background-position: center 35%;
         }
 
         .oil-banner-header::before {
@@ -768,65 +792,117 @@
             text-shadow: 0 2px 6px rgba(0,0,0,0.8);
         }
 
-        /* --- SECCIÓN DE RETRATOS (ESPEJOS GEOMÉTRICOS DISPERSOS) --- */
+        .bookmark-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 36px;
+            height: 36px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 15;
+            transition: all 0.3s ease;
+        }
+
+        .bookmark-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+
+        .bookmark-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 2;
+            transition: fill 0.3s ease, stroke 0.3s ease;
+        }
+
+        .bookmark-btn.saved svg {
+            fill: #ffffff;
+            stroke: #ffffff;
+        }
+
+        /* --- 7. SECCIÓN DE RETRATOS REDISEÑADA ESTILO CIRCULAR ("SHOP OUR MOST POPULAR") --- */
         .portraits-section-wrapper {
             position: relative;
             width: 100vw;
-            background-color: #000000;
-            color: #ffffff;
+            background-color: #ffffff;
+            color: #000000;
             margin-left: calc(-50vw + 50%);
             margin-right: calc(-50vw + 50%);
             padding: 90px 40px;
             box-sizing: border-box;
         }
 
-        .portraits-mirror-grid {
-            max-width: 1400px;
+        .portraits-header-title {
+            text-align: center;
+            font-size: 2.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 400;
+            margin-bottom: 60px;
+        }
+
+        .portraits-circle-grid {
+            max-width: 1300px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 40px 25px;
+            justify-items: center;
+        }
+
+        .portrait-circle-card {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
+            flex-direction: column;
             align-items: center;
-        }
-
-        .mirror-frame {
-            position: relative;
-            overflow: hidden;
-            border: 8px solid #c5a059;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 15px rgba(0,0,0,0.6);
             cursor: pointer;
-            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-            background: #111111;
+            text-align: center;
+            width: 100%;
         }
 
-        .mirror-frame:hover {
+        .portrait-circle-wrapper {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .portrait-circle-card:hover .portrait-circle-wrapper {
             transform: scale(1.05);
-            border-color: #e5c178;
-            box-shadow: 0 15px 40px rgba(197, 160, 89, 0.4);
-            z-index: 10;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
-        .mirror-frame img {
+        .portrait-circle-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.5s ease;
         }
 
-        .mirror-frame:hover img {
+        .portrait-circle-card:hover .portrait-circle-wrapper img {
             transform: scale(1.08);
         }
 
-        /* FORMAS GEOMÉTRICAS DE ESPEJOS */
-        .mirror-oval { width: 280px; height: 380px; border-radius: 50% / 50%; }
-        .mirror-circle { width: 300px; height: 300px; border-radius: 50%; }
-        .mirror-arch { width: 290px; height: 400px; border-radius: 150px 150px 0 0; }
-        .mirror-square { width: 320px; height: 320px; border-radius: 8px; }
-        .mirror-octagon { width: 300px; height: 360px; clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); border-radius: 0; }
-        .mirror-diamond { width: 280px; height: 380px; border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%; }
+        .portrait-circle-name {
+            font-size: 1rem;
+            letter-spacing: 1px;
+            color: #000000;
+            margin-top: 4px;
+        }
 
-        /* --- SECCIÓN DE FOTOGRAFÍA (SIN TÍTULO DE CABECERA) --- */
+        /* --- SECCIÓN DE FOTOGRAFÍA --- */
         .photo-section-wrapper {
             position: relative;
             width: 100vw;
@@ -914,7 +990,7 @@
             letter-spacing: 1px;
         }
 
-        /* --- CINEMATOGRAFÍA (TODO NEGRO + CENTRADO 'WORKING ON') --- */
+        /* --- CINEMATOGRAFÍA --- */
         .cinema-section-wrapper {
             position: relative;
             width: 100vw;
@@ -984,7 +1060,7 @@
             padding: 60px 0;
         }
 
-        /* --- MODAL UNIVERSAL (TEXTO ARRIBA TRANSPARENTE, LUPA INTERNA ABAJO DERECHA Y BOTÓN ABAJO CENTRADO) --- */
+        /* --- MODAL UNIVERSAL --- */
         .universal-modal-overlay {
             position: fixed;
             top: 0;
@@ -993,7 +1069,7 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.94);
             backdrop-filter: blur(12px);
-            z-index: 300;
+            z-index: 2000;
             opacity: 0;
             visibility: hidden;
             transition: 0.35s ease;
@@ -1024,7 +1100,7 @@
             padding: 0 0 15px 0;
             background: transparent;
             color: #ffffff;
-            z-index: 310;
+            z-index: 2010;
         }
 
         .universal-modal-title {
@@ -1068,7 +1144,7 @@
             color: #ffffff;
             font-size: 2.2rem;
             cursor: pointer;
-            z-index: 320;
+            z-index: 2020;
         }
 
         .universal-modal-footer-actions {
@@ -1076,10 +1152,9 @@
             display: flex;
             justify-content: center;
             margin-top: 20px;
-            z-index: 310;
+            z-index: 2010;
         }
 
-        /* BOTÓN SOLICITAR INFORMACIÓN (NEGRO POR DEFECTO, BLANCO AL PASAR EL MOUSE) */
         .universal-modal-btn-email {
             background: #000000 !important;
             color: #ffffff !important;
@@ -1114,7 +1189,7 @@
             justify-content: center;
             cursor: pointer;
             transition: background 0.3s, transform 0.2s;
-            z-index: 315;
+            z-index: 2015;
             padding: 8px;
         }
 
@@ -1305,6 +1380,7 @@
 
         @media (max-width: 1024px) {
             .oil-masonry-container { column-count: 3; }
+            .portraits-circle-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
         @media (max-width: 900px) {
@@ -1316,6 +1392,7 @@
             .oil-masonry-container { column-count: 2; }
             .collection-grid { grid-template-columns: repeat(2, 1fr); }
             header { padding: 0 20px; }
+            .header-bottom-nav { gap: 12px; font-size: 0.65rem; }
         }
 
         @media (max-width: 600px) {
@@ -1326,6 +1403,7 @@
             .carousel-card { width: 280px; height: 380px; }
             .carousel-card.left-1 { transform: translateX(-220px) scale(0.8); }
             .carousel-card.right-1 { transform: translateX(220px) scale(0.8); }
+            .portraits-circle-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
@@ -1378,52 +1456,57 @@
         })();
     </script>
 
-    <!-- HEADER -->
+    <!-- 1, 2 & 4. HEADER MODIFICADO (TRANSPARENTE, DISEÑO HERMÈS Y BÚSQUEDA POR NOMBRE FUNCIONAL) -->
     <header id="mainHeader">
-        <div class="header-left-slot">
-            <button class="header-back-btn" id="headerBackBtn" onclick="goBackToMain()">← Back</button>
-            <button class="header-nav-btn" id="navBioBtn" onclick="scrollToBio()">Biografía</button>
-            <button class="header-nav-btn" id="navCollectionBtn" onclick="filterGallery('coleccion')">Mi Colección</button>
-        </div>
-        
-        <div class="header-center-slot">
-            <div class="header-logo-container">
-                <img src="imagenes/firma .png" alt="BRUNELIO" class="header-logo-firma">
+        <div class="header-top-row">
+            <!-- Izquierda: Lupa + Input de Búsqueda -->
+            <div class="header-left-slot">
+                <button class="header-back-btn" id="headerBackBtn" onclick="goBackToMain()">← Back</button>
+                <div class="header-search-container">
+                    <button class="header-search-icon" title="Buscar" onclick="document.getElementById('searchInput').focus()">
+                        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </button>
+                    <input type="text" id="searchInput" class="header-search-input" placeholder="Search..." oninput="handleSearchInput(this.value)">
+                </div>
+                <!-- Menú Desplegable de Sugerencias -->
+                <div class="search-suggestions-box" id="searchSuggestionsBox"></div>
             </div>
-        </div>
-        
-        <div class="header-right-slot">
-            <button class="header-icon-btn" title="Buscar" onclick="toggleSearchDropdown()">
-                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            </button>
             
-            <button class="header-icon-btn" title="Perfil" onclick="handleGoogleLogin()">
-                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            </button>
+            <!-- Centro: Logo / Firma -->
+            <div class="header-center-slot">
+                <img src="imagenes/firma .png" alt="BRUNELIO" class="header-logo-firma" onclick="scrollToTop()">
+            </div>
+            
+            <!-- Derecha: Íconos de Usuario y Guardados (Hermès Style) -->
+            <div class="header-right-slot">
+                <button class="header-icon-btn" title="Perfil" onclick="handleGoogleLogin()">
+                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </button>
 
-            <button class="header-icon-btn" title="Colección" onclick="filterGallery('coleccion')">
-                <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-            </button>
-
-            <button class="google-login-btn" id="googleLoginBtn" onclick="handleGoogleLogin()">
-                <span id="loginBtnText">Iniciar sesión</span>
-            </button>
-
-            <div class="lang-select" id="langToggle" onclick="toggleLanguage()">
-                <span class="active" id="langEs">ES</span> / <span id="langEn">EN</span>
+                <button class="header-icon-btn" title="Mi Colección" onclick="filterGallery('coleccion')">
+                    <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                </button>
             </div>
         </div>
 
-        <div class="search-dropdown-bar" id="searchDropdownBar">
-            <div class="search-input-wrapper">
-                <input type="text" id="searchInput" class="search-input-field" placeholder="Buscar obras, secciones o temas..." oninput="handleSearchInput(this.value)">
-            </div>
-            <div class="search-suggestions-box" id="searchSuggestionsBox"></div>
-        </div>
+        <!-- Fila Inferior de Categorías -->
+        <nav class="header-bottom-nav">
+            <button class="header-nav-link" onclick="filterGallery('oleos')">Pinturas al Óleo</button>
+            <button class="header-nav-link" onclick="filterGallery('dibujo')">Dibujo</button>
+            <button class="header-nav-link" onclick="filterGallery('retratos')">Retratos</button>
+            <button class="header-nav-link" onclick="filterGallery('fotografia')">Fotografía</button>
+            <button class="header-nav-link" onclick="filterGallery('cinematografia')">Cinematografía</button>
+            <button class="header-nav-link" onclick="scrollToBio()">Biografía</button>
+        </nav>
     </header>
 
-    <!-- HERO -->
-    <section class="hero">
+    <!-- 5. BOTÓN FLOTANTE INFERIOR DERECHO PARA IR A LA PÁGINA PRINCIPAL -->
+    <button class="back-to-top-btn" id="backToTopBtn" title="Volver a la página principal" onclick="scrollToTop()">
+        <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+
+    <!-- HERO (PÁGINA INICIAL) -->
+    <section class="hero" id="heroSection">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral derecha" class="hero-side-img right" id="sideImgRight">
 
@@ -1433,17 +1516,27 @@
                 <h1 class="hero-title">Brunelio</h1>
             </div>
             <p class="hero-desc" id="heroDescText">Óleo · Tinta · Arte Figurativo Tradicional</p>
-            <a href="#utopiaCarousel" class="btn-enter" id="heroBtnText">Explorar Galería</a>
+            <a href="#mirageVideoSection" class="btn-enter" id="heroBtnText">Explorar Galería</a>
         </div>
     </section>
 
-    <!-- CARRUSEL -->
+    <!-- 6. SECCIÓN DE VIDEO (ENTRE PÁGINA INICIAL E ÍNDICE) - MINUTO 1:05 A 1:17 LOOP SIN AUDIO -->
+    <section class="video-section-wrapper" id="mirageVideoSection">
+        <video id="loopVideo" autoplay loop muted playsinline>
+            <source src="videos/video principal.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+        <div class="video-overlay-text">espejismos</div>
+    </section>
+
+    <!-- CARRUSEL (ÍNDICE CON TÍTULO MODIFICADO A "GALERÍA") -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="utopia-bg-layer" id="utopiaBgLayer"></div>
 
         <div class="carousel-header-box" id="carouselHeaderBox">
             <div class="carousel-sub-heading" id="carouselSubHeading">EXPLORE</div>
-            <h2 class="carousel-main-heading" id="carouselMainTitle">BRUNELIO'S WORLD</h2>
+            <!-- 3. CAMBIADO DE BRUNELIO'S WORLD A GALERÍA -->
+            <h2 class="carousel-main-heading" id="carouselMainTitle">GALERÍA</h2>
         </div>
 
         <div class="carousel-container-drag" id="dragContainer">
@@ -1637,9 +1730,9 @@
         </div>
     </section>
 
-    <!-- DIBUJO -->
+    <!-- 5. DIBUJO CON BANNER AJUSTADO A IMAGEN 6 (imagenes/Tótem_final.JPG) -->
     <section id="galleryDrawing" style="display:none;" class="oil-section-wrapper">
-        <div class="oil-banner-header" style="background-image: url('imagenes/pdibujo.png');">
+        <div class="oil-banner-header drawing-banner">
             <h1 class="oil-banner-title">DIBUJO</h1>
             <p class="oil-banner-subtitle">Tinta, carboncillo, grafito y técnicas mixtas sobre papel</p>
         </div>
@@ -1789,57 +1882,58 @@
         </div>
     </section>
 
-    <!-- RETRATOS -->
+    <!-- 7. RETRATOS REDISEÑADOS COMO LA ÚLTIMA IMAGEN (LAYOUT DE CÍRCULOS ELEGANTES) -->
     <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper">
-        <div class="portraits-mirror-grid">
+        <h2 class="portraits-header-title">Selección de Retratos</h2>
+        <div class="portraits-circle-grid">
             
-            <div class="mirror-frame mirror-oval" onclick="openUniversalModal('Niño 1', 'Retrato', 'imagenes/niño1.jpg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Niño 1', 'Retrato', 'imagenes/niño1.jpg')">
-                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            <div class="portrait-circle-card" onclick="openUniversalModal('Niño 1', 'Retrato', 'imagenes/niño1.jpg', false)">
+                <div class="portrait-circle-wrapper">
+                    <img src="imagenes/niño1.jpg" alt="Niño 1">
                 </div>
-                <img src="imagenes/niño1.jpg" alt="Niño 1">
+                <div class="portrait-circle-name">Niño 1</div>
             </div>
 
-            <div class="mirror-frame mirror-arch" onclick="openUniversalModal('Retrato de una niña', 'Retrato', 'imagenes/mujer 1.DNG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de una niña', 'Retrato', 'imagenes/mujer 1.DNG')">
-                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            <div class="portrait-circle-card" onclick="openUniversalModal('Retrato de una niña', 'Retrato', 'imagenes/mujer 1.DNG', false)">
+                <div class="portrait-circle-wrapper">
+                    <img src="imagenes/mujer 1.DNG" alt="Retrato de una niña">
                 </div>
-                <img src="imagenes/mujer 1.DNG" alt="Retrato de una niña">
+                <div class="portrait-circle-name">Niña</div>
             </div>
 
-            <div class="mirror-frame mirror-circle" onclick="openUniversalModal('Clelia Toledo', 'Retrato', 'imagenes/Clelia Toledo.jpg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Clelia Toledo', 'Retrato', 'imagenes/Clelia Toledo.jpg')">
-                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            <div class="portrait-circle-card" onclick="openUniversalModal('Clelia Toledo', 'Retrato', 'imagenes/Clelia Toledo.jpg', false)">
+                <div class="portrait-circle-wrapper">
+                    <img src="imagenes/Clelia Toledo.jpg" alt="Clelia Toledo">
                 </div>
-                <img src="imagenes/Clelia Toledo.jpg" alt="Clelia Toledo">
+                <div class="portrait-circle-name">Clelia Toledo</div>
             </div>
 
-            <div class="mirror-frame mirror-square" onclick="openUniversalModal('Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje 2.jpg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje 2.jpg')">
-                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            <div class="portrait-circle-card" onclick="openUniversalModal('Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje 2.jpg', false)">
+                <div class="portrait-circle-wrapper">
+                    <img src="imagenes/Hombre y paisaje 2.jpg" alt="Hombre y paisaje">
                 </div>
-                <img src="imagenes/Hombre y paisaje 2.jpg" alt="Hombre y paisaje">
+                <div class="portrait-circle-name">Hombre II</div>
             </div>
 
-            <div class="mirror-frame mirror-octagon" onclick="openUniversalModal('Retrato de Isabel', 'Retrato', 'imagenes/sis.DNG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de Isabel', 'Retrato', 'imagenes/sis.DNG')">
-                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            <div class="portrait-circle-card" onclick="openUniversalModal('Retrato de Isabel', 'Retrato', 'imagenes/sis.DNG', false)">
+                <div class="portrait-circle-wrapper">
+                    <img src="imagenes/sis.DNG" alt="Retrato de Isabel">
                 </div>
-                <img src="imagenes/sis.DNG" alt="Retrato de Isabel">
+                <div class="portrait-circle-name">Isabel</div>
             </div>
 
-            <div class="mirror-frame mirror-diamond" onclick="openUniversalModal('Retrato de un hombre', 'Retrato', 'imagenes/hombre verde.jpg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de un hombre', 'Retrato', 'imagenes/hombre verde.jpg')">
-                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            <div class="portrait-circle-card" onclick="openUniversalModal('Retrato de un hombre', 'Retrato', 'imagenes/hombre verde.jpg', false)">
+                <div class="portrait-circle-wrapper">
+                    <img src="imagenes/hombre verde.jpg" alt="Retrato de un hombre">
                 </div>
-                <img src="imagenes/hombre verde.jpg" alt="Retrato de un hombre">
+                <div class="portrait-circle-name">Hombre Verde</div>
             </div>
 
-            <div class="mirror-frame mirror-oval" onclick="openUniversalModal('Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje.png', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje.png')">
-                    <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            <div class="portrait-circle-card" onclick="openUniversalModal('Hombre y paisaje', 'Retrato', 'imagenes/Hombre y paisaje.png', false)">
+                <div class="portrait-circle-wrapper">
+                    <img src="imagenes/Hombre y paisaje.png" alt="Hombre y paisaje">
                 </div>
-                <img src="imagenes/Hombre y paisaje.png" alt="Hombre y paisaje">
+                <div class="portrait-circle-name">Hombre I</div>
             </div>
 
         </div>
@@ -2123,18 +2217,43 @@
     <script>
         window.addEventListener('load', () => {
             initUtopiaCarousel();
+            setupVideoLoop();
+            setupScrollListener();
         });
 
         const mainHeader = document.getElementById('mainHeader');
         const headerBackBtn = document.getElementById('headerBackBtn');
         const utopiaSection = document.getElementById('utopiaCarousel');
+        const backToTopBtn = document.getElementById('backToTopBtn');
 
         function scrollToBio() {
             document.getElementById('bio').scrollIntoView({ behavior: 'smooth' });
         }
 
-        /* BÚSQUEDA Y SUGERENCIAS */
-        const searchDropdownBar = document.getElementById('searchDropdownBar');
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /* 6. CONTROL DEL VIDEO (MINUTO 1:05 A 1:17 LOOP INFINITO SIN AUDIO) */
+        function setupVideoLoop() {
+            const video = document.getElementById('loopVideo');
+            if (!video) return;
+
+            const startTime = 65; // 1:05
+            const endTime = 77;   // 1:17
+
+            video.addEventListener('loadedmetadata', () => {
+                video.currentTime = startTime;
+            });
+
+            video.addEventListener('timeupdate', () => {
+                if (video.currentTime >= endTime || video.currentTime < startTime) {
+                    video.currentTime = startTime;
+                }
+            });
+        }
+
+        /* 2. BÚSQUEDA Y SUGERENCIAS FUNCIONALES POR NOMBRE */
         const searchInput = document.getElementById('searchInput');
         const searchSuggestionsBox = document.getElementById('searchSuggestionsBox');
 
@@ -2150,17 +2269,10 @@
             { name: 'Desnudo masculino', category: 'Óleo', action: () => openUniversalModal('Desnudo masculino', 'Óleo sobre tabla · 2018', 'imagenes/nude 3.DNG', false) },
             { name: 'Leona en el paisaje', category: 'Óleo', action: () => openUniversalModal('Leona en el paisaje', 'Óleo sobre lienzo · 2019', 'imagenes/lyon.DNG', false) },
             { name: 'Anatomía Cruzada', category: 'Dibujo', action: () => openUniversalModal('Anatomía Cruzada', 'Carboncillo y grafito', 'imagenes/4.jpeg', false) },
-            { name: 'Silueta e Inercia', category: 'Dibujo', action: () => openUniversalModal('Silueta e Inercia', 'Tinta china', 'imagenes/bodegon gotico.JPG', false) }
+            { name: 'Silueta e Inercia', category: 'Dibujo', action: () => openUniversalModal('Silueta e Inercia', 'Tinta china', 'imagenes/bodegon gotico.JPG', false) },
+            { name: 'Estudio Mitológico 1', category: 'Dibujo', action: () => openUniversalModal('Estudio Mitológico 1', 'Tinta sobre papel', 'imagenes/1.JPG', false) },
+            { name: 'Retrato de Isabel', category: 'Óleo', action: () => openUniversalModal('Retrato de Isabel', 'Óleo sobre lienzo · 2018', 'imagenes/sis.DNG', false) }
         ];
-
-        function toggleSearchDropdown() {
-            searchDropdownBar.classList.toggle('active');
-            if (searchDropdownBar.classList.contains('active')) {
-                searchInput.focus();
-            } else {
-                searchSuggestionsBox.classList.remove('has-results');
-            }
-        }
 
         function handleSearchInput(value) {
             const query = value.toLowerCase().trim();
@@ -2189,24 +2301,25 @@
             const item = searchableIndex.find(i => i.name === name);
             if (item) {
                 item.action();
-                searchDropdownBar.classList.remove('active');
                 searchSuggestionsBox.classList.remove('has-results');
                 searchInput.value = '';
             }
         }
 
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.header-left-slot')) {
+                searchSuggestionsBox.classList.remove('has-results');
+            }
+        });
+
         let isUserLoggedIn = false;
         function handleGoogleLogin() {
             if (!isUserLoggedIn) {
                 isUserLoggedIn = true;
-                const loginBtnText = document.getElementById('loginBtnText');
-                loginBtnText.innerText = currentLang === 'EN' ? 'Google User' : 'Sesión Activa';
-                alert(currentLang === 'EN' ? 'Successfully signed in with Google!' : '¡Sesión iniciada correctamente con Google!');
+                alert('¡Sesión iniciada correctamente con Google!');
             } else {
-                if (confirm(currentLang === 'EN' ? 'Do you want to sign out?' : '¿Deseas cerrar sesión?')) {
+                if (confirm('¿Deseas cerrar sesión?')) {
                     isUserLoggedIn = false;
-                    const loginBtnText = document.getElementById('loginBtnText');
-                    loginBtnText.innerText = currentLang === 'EN' ? 'Sign In' : 'Iniciar sesión';
                 }
             }
         }
@@ -2255,18 +2368,30 @@
             utopiaSection.scrollIntoView({ behavior: 'smooth' });
         }
 
+        /* MANEJO DE SCROLL & BOTÓN VOLVER ARRIBA */
         let lastScrollTop = 0;
-        window.addEventListener('scroll', () => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop <= 50) {
-                mainHeader.classList.remove('header-hidden');
-            } else if (scrollTop > lastScrollTop) {
-                mainHeader.classList.add('header-hidden');
-            } else {
-                mainHeader.classList.remove('header-hidden');
-            }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        });
+        function setupScrollListener() {
+            window.addEventListener('scroll', () => {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Botón volver a inicio
+                if (scrollTop > 400) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+
+                // Header Ocultar/Mostrar
+                if (scrollTop <= 50) {
+                    mainHeader.classList.remove('header-hidden');
+                } else if (scrollTop > lastScrollTop) {
+                    mainHeader.classList.add('header-hidden');
+                } else {
+                    mainHeader.classList.remove('header-hidden');
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            });
+        }
 
         let savedItems = [];
 
@@ -2375,12 +2500,7 @@
 
             const currentItem = categoriesData[activeCarouselIndex];
             utopiaBgLayer.style.backgroundImage = `url('${currentItem.bg}')`;
-
-            if (currentLang === 'EN') {
-                carouselFooterTitle.innerText = currentItem.titleEn.toUpperCase();
-            } else {
-                carouselFooterTitle.innerText = currentItem.titleEs.toUpperCase();
-            }
+            carouselFooterTitle.innerText = currentItem.titleEs.toUpperCase();
         }
 
         function rotateCarousel(dir) {
@@ -2394,7 +2514,6 @@
             filterGallery(category);
         }
 
-        /* SENSIBILIDAD CONTROLADA CON COOLDOWN DE 1200MS */
         let isWheelCooldown = false;
         dragContainer.addEventListener('wheel', (e) => {
             const rect = utopiaSection.getBoundingClientRect();
@@ -2437,65 +2556,6 @@
             }
         });
 
-        let currentLang = 'ES';
-        function toggleLanguage() {
-            currentLang = currentLang === 'ES' ? 'EN' : 'ES';
-            const langEs = document.getElementById('langEs');
-            const langEn = document.getElementById('langEn');
-            
-            updateUtopiaCarousel();
-
-            if (currentLang === 'EN') {
-                langEn.classList.add('active');
-                langEs.classList.remove('active');
-                
-                document.getElementById('navBioBtn').innerText = 'Biography';
-                document.getElementById('navCollectionBtn').innerText = 'My Collection';
-                document.getElementById('heroDescText').innerText = 'Oil · Ink · Traditional Figurative Art';
-                document.getElementById('heroBtnText').innerText = 'Explore Gallery';
-                document.getElementById('oilTitleText').innerText = 'OIL PAINTINGS';
-                document.getElementById('oilSubText').innerText = 'Atelier works and recent acquisition catalog';
-                document.getElementById('labelClientType').innerText = 'Business or Individual';
-                document.getElementById('optIndividual').innerText = 'Individual Client';
-                document.getElementById('optGallery').innerText = 'Gallery / Business / Collector';
-                document.getElementById('optPress').innerText = 'Press / Media';
-                document.getElementById('labelFirstName').innerText = 'First name';
-                document.getElementById('labelLastName').innerText = 'Last name';
-                document.getElementById('labelEmail').innerText = 'Email *';
-                document.getElementById('labelMessage').innerText = 'Message *';
-                document.getElementById('submitBtnText').innerText = 'Submit';
-                document.getElementById('contactSectionTitle').innerText = 'CONTACT / COMMISSIONS';
-                document.getElementById('contactSubText').innerText = 'For inquiries regarding collection works, private commission requests, or collaborations, please fill out the form below:';
-                document.getElementById('directEmailText').innerText = 'Direct Studio Email';
-                document.getElementById('copyrightText').innerText = '© BRUNELIO. ALL RIGHTS RESERVED.';
-                if (!isUserLoggedIn) document.getElementById('loginBtnText').innerText = 'Sign In';
-            } else {
-                langEs.classList.add('active');
-                langEn.classList.remove('active');
-                
-                document.getElementById('navBioBtn').innerText = 'Biografía';
-                document.getElementById('navCollectionBtn').innerText = 'Mi Colección';
-                document.getElementById('heroDescText').innerText = 'Óleo · Tinta · Arte Figurativo Tradicional';
-                document.getElementById('heroBtnText').innerText = 'Explorar Galería';
-                document.getElementById('oilTitleText').innerText = 'PINTURAS AL ÓLEO';
-                document.getElementById('oilSubText').innerText = 'Obras de taller y catálogo de adquisición reciente';
-                document.getElementById('labelClientType').innerText = 'Empresa o Particular';
-                document.getElementById('optIndividual').innerText = 'Cliente Individual';
-                document.getElementById('optGallery').innerText = 'Galería / Empresa / Coleccionista';
-                document.getElementById('optPress').innerText = 'Prensa / Medios';
-                document.getElementById('labelFirstName').innerText = 'Nombre';
-                document.getElementById('labelLastName').innerText = 'Apellido';
-                document.getElementById('labelEmail').innerText = 'Correo electrónico *';
-                document.getElementById('labelMessage').innerText = 'Mensaje *';
-                document.getElementById('submitBtnText').innerText = 'Submit';
-                document.getElementById('contactSectionTitle').innerText = 'CONTACTO / ENCARGOS';
-                document.getElementById('contactSubText').innerText = 'Para consultas sobre adquisición de obras de colección, solicitudes de encargos privados o comisiones, completa el siguiente formulario:';
-                document.getElementById('directEmailText').innerText = 'Correo Directo del Taller';
-                document.getElementById('copyrightText').innerText = '© BRUNELIO. TODOS LOS DERECHOS RESERVADOS.';
-                if (!isUserLoggedIn) document.getElementById('loginBtnText').innerText = 'Iniciar sesión';
-            }
-        }
-
         /* MODAL UNIVERSAL */
         const universalModal = document.getElementById('universalModal');
         const uModalImg = document.getElementById('uModalImg');
@@ -2517,7 +2577,7 @@
                 uModalEmailBtn.style.display = 'none';
             } else {
                 uModalEmailBtn.style.display = 'inline-block';
-                uModalEmailBtn.innerText = currentLang === 'EN' ? 'REQUEST INFORMATION' : 'SOLICITAR INFORMACIÓN';
+                uModalEmailBtn.innerText = 'SOLICITAR INFORMACIÓN';
                 uModalEmailBtn.onclick = () => {
                     location.href = `mailto:cezzarostudio@gmail.com?subject=Solicitud%20de%20informaci%C3%B3n%20sobre%20obra:%20${encodeURIComponent(title)}`;
                 };

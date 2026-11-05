@@ -82,7 +82,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 90px;
+            height: 110px;
             padding: 0 40px;
             display: flex;
             flex-direction: column;
@@ -202,9 +202,10 @@
             justify-content: center;
         }
 
-        /* LOGO AMPLIADO */
+        /* LOGO AMPLIADO RESTAURADO */
         .header-logo-firma {
-            height: 82px;
+            height: 115px;
+            max-height: 115px;
             object-fit: contain;
             cursor: pointer;
         }
@@ -344,7 +345,7 @@
         /* --- HERO --- */
         .hero {
             position: relative;
-            height: calc(100vh - 90px);
+            height: calc(100vh - 110px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -352,7 +353,7 @@
             background-color: #ffffff;
             overflow: hidden;
             padding: 0 20px;
-            margin-top: 90px;
+            margin-top: 110px;
         }
 
         .hero-side-img {
@@ -1351,11 +1352,12 @@
             margin-bottom: 10px;
         }
 
-        /* LOGO / FIRMA EN LUGAR DE TEXTO EN BIO */
+        /* LOGO / FIRMA MÁS GRANDE EN BIOGRAFÍA */
         .bio-artist-logo {
-            height: 65px;
+            height: 110px;
+            max-height: 110px;
             object-fit: contain;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
             align-self: flex-start;
             pointer-events: none;
         }
@@ -1553,7 +1555,7 @@
         })();
     </script>
 
-    <!-- HEADER -->
+    <!-- HEADER RESTAURADO EXACTAMENTE IGUAL -->
     <header id="mainHeader">
         <div class="header-top-row">
             <div class="header-left-slot">
@@ -2049,7 +2051,7 @@
         </div>
     </section>
 
-    <!-- FOTOGRAFÍA (CON F1010034 Y SPIEGEL REPETIDO) -->
+    <!-- FOTOGRAFÍA (CAMBIADA REPETICIÓN DE SPIEGEL POR 10.JPG) -->
     <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
         <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
             <div class="photo-split-grid">
@@ -2126,7 +2128,6 @@
                     <div class="photo-info-overlay"><div class="photo-title">F1000026(1)</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <!-- SUSTITUCIÓN 6: F1010034 en lugar de la primera 10.JPG -->
                 <div class="photo-item" onclick="openUniversalModal('F1010034', 'Analógica · 2024', 'imagenes/F1010034.JPG', true)">
                     <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010034', 'Analógica · 2024', 'imagenes/F1010034.JPG')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -2199,13 +2200,13 @@
                     <div class="photo-info-overlay"><div class="photo-title">Spiegel</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
 
-                <!-- SUSTITUCIÓN 7: Spiegel repetido en lugar de la segunda 10.JPG -->
-                <div class="photo-item" onclick="openUniversalModal('Estudio Espejo', 'Fine Art Print · 2025', 'imagenes/Spiegel.jpg?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio Espejo', 'Fine Art Print · 2025', 'imagenes/Spiegel.jpg?v=2')">
+                <!-- SUSTITUCIÓN DE LA SEGUNDA INSTANCIA REPETIDA DE SPIEGEL POR 10.JPG -->
+                <div class="photo-item" onclick="openUniversalModal('10.JPG', 'Analógica', 'imagenes/10.JPG', true)">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, '10.JPG', 'Analógica', 'imagenes/10.JPG')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </div>
-                    <img src="imagenes/Spiegel.jpg?v=2" alt="Estudio Espejo">
-                    <div class="photo-info-overlay"><div class="photo-title">Estudio Espejo</div><div class="photo-meta">Fine Art Print · 2025</div></div>
+                    <img src="imagenes/10.JPG" alt="10.JPG">
+                    <div class="photo-info-overlay"><div class="photo-title">10.JPG</div><div class="photo-meta">Analógica</div></div>
                 </div>
 
             </div>
@@ -2249,11 +2250,11 @@
         </div>
     </div>
 
-    <!-- BIOGRAFÍA CON IMG_3889.JPG FIJA Y LOGO DE FIRMA -->
+    <!-- BIOGRAFÍA CON IMG_3989.JPG FIJA Y LOGO DE FIRMA MÁS GRANDE -->
     <section class="bio-section" id="bio">
         <div class="bio-grid">
             <div class="bio-image-wrapper">
-                <img src="imagenes/IMG_3889.JPG" alt="BRUNELIO Portrait">
+                <img src="imagenes/IMG_3989.JPG" alt="BRUNELIO Portrait">
             </div>
             <div class="bio-content-wrapper">
                 <div class="bio-artist-tag" id="bioTag">ARTISTA</div>

@@ -76,14 +76,14 @@
             visibility: hidden;
         }
 
-        /* --- HEADER MODIFICADO (LOGO MÁS GRANDE) --- */
+        /* --- HEADER MODIFICADO (MÁS COMPACTO Y ESTILIZADO) --- */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 140px;
-            padding: 10px 40px 12px 40px;
+            height: 100px;
+            padding: 6px 40px 8px 40px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -103,7 +103,7 @@
             align-items: center;
             width: 100%;
             position: relative;
-            height: 85px;
+            height: 55px;
         }
 
         .header-left-slot {
@@ -119,7 +119,7 @@
             align-items: center;
             border-bottom: 1px solid #000000;
             padding-bottom: 2px;
-            width: 160px;
+            width: 150px;
             position: relative;
         }
 
@@ -133,8 +133,8 @@
         }
 
         .header-search-icon svg {
-            width: 16px;
-            height: 16px;
+            width: 15px;
+            height: 15px;
             stroke: #000000;
             stroke-width: 1.8;
             fill: none;
@@ -143,7 +143,7 @@
         .header-search-input {
             border: none;
             background: transparent;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #000000;
             width: 100%;
             outline: none;
@@ -203,10 +203,9 @@
             justify-content: center;
         }
 
-        /* LOGO AMPLIADO RESTAURADO */
         .header-logo-firma {
-            height: 80px;
-            max-height: 80px;
+            height: 55px;
+            max-height: 55px;
             object-fit: contain;
             cursor: pointer;
         }
@@ -215,7 +214,7 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            gap: 20px;
+            gap: 18px;
             flex: 1;
         }
 
@@ -235,8 +234,8 @@
         }
 
         .header-icon-btn svg {
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
             fill: none;
             stroke: #000000;
             stroke-width: 1.5;
@@ -248,14 +247,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 24px;
+            gap: 22px;
             margin-top: 0;
-            padding-bottom: 4px;
+            padding-bottom: 2px;
         }
 
         .header-nav-link {
             font-family: var(--font-body) !important;
-            font-size: 0.72rem !important;
+            font-size: 0.7rem !important;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             font-weight: 600;
@@ -347,7 +346,7 @@
         /* --- HERO --- */
         .hero {
             position: relative;
-            height: calc(100vh - 140px);
+            height: calc(100vh - 100px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -355,7 +354,7 @@
             background-color: #ffffff;
             overflow: hidden;
             padding: 0 20px;
-            margin-top: 140px;
+            margin-top: 100px;
         }
 
         .hero-side-img {
@@ -1354,7 +1353,7 @@
             margin-bottom: 10px;
         }
 
-        /* LOGO / FIRMA MÁS GRANDE EN BIOGRAFÍA (EL DOBLE DE GRANDE) */
+        /* LOGO / FIRMA MÁS GRANDE EN BIOGRAFÍA */
         .bio-artist-logo {
             height: 220px;
             max-height: 220px;
@@ -1456,13 +1455,20 @@
             box-shadow: none !important;
         }
 
+        .contact-emails-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            margin: 20px 0 40px 0;
+        }
+
         .contact-email {
             font-style: italic;
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: var(--text-main);
             letter-spacing: 2px;
             display: inline-block;
-            margin: 20px 0 40px 0;
             transition: color 0.3s;
         }
 
@@ -1492,8 +1498,9 @@
             .photo-item.horizontal { grid-column: span 1; height: 50vh; }
             .oil-masonry-container { column-count: 2; }
             .collection-grid { grid-template-columns: repeat(2, 1fr); }
-            header { padding: 10px 20px; }
+            header { padding: 6px 20px; }
             .header-bottom-nav { gap: 12px; font-size: 0.65rem; }
+            .contact-email { font-size: 1.4rem; }
         }
 
         @media (max-width: 600px) {
@@ -1505,6 +1512,7 @@
             .carousel-card.left-1 { transform: translateX(-220px) scale(0.8); }
             .carousel-card.right-1 { transform: translateX(220px) scale(0.8); }
             .portraits-circle-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-email { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -1638,7 +1646,7 @@
         <div class="utopia-bg-layer" id="utopiaBgLayer"></div>
 
         <div class="carousel-header-box" id="carouselHeaderBox">
-            <div class="carousel-sub-heading" id="carouselSubHeading">EXPLORE</div>
+            <div class="carousel-sub-heading" id="carouselSubHeading">EXPLORA</div>
             <h2 class="carousel-main-heading" id="carouselMainTitle">GALERÍA</h2>
         </div>
 
@@ -2285,7 +2293,7 @@
                 Para consultas sobre adquisición de obras de colección, solicitudes de encargos privados o comisiones, completa el siguiente formulario:
             </p>
 
-            <form class="contact-form" action="https://formspree.io/f/cezzarostudio@gmail.com" method="POST">
+            <form class="contact-form" action="https://formspree.io/f/bruneliopictor@gmail.com" method="POST">
                 <div class="form-group">
                     <label for="clientType" id="labelClientType">Empresa o Particular</label>
                     <select id="clientType" name="clientType" class="form-control">
@@ -2321,7 +2329,10 @@
 
         <div style="text-align: center; border-top: 1px solid rgba(0, 0, 0, 0.1); padding-top: 40px;">
             <div style="letter-spacing: 2px; font-size: 1rem; text-transform: uppercase;" id="directEmailText">Correo Directo del Taller</div>
-            <a href="mailto:cezzarostudio@gmail.com" class="contact-email">cezzarostudio@gmail.com</a>
+            <div class="contact-emails-container">
+                <a href="mailto:bruneliopictor@gmail.com" class="contact-email">bruneliopictor@gmail.com</a>
+                <a href="mailto:bruneliopictor@outlook.com" class="contact-email">bruneliopictor@outlook.com</a>
+            </div>
             <div class="copyright" id="copyrightText">
                 © BRUNELIO. TODOS LOS DERECHOS RESERVADOS.
             </div>
@@ -2577,7 +2588,7 @@
                 card.innerHTML = `
                     <img src="${item.img}" alt="${item.titleEs}">
                     <div class="card-explore-overlay">
-                        <button class="btn-card-explore" onclick="goToCategory('${item.filterCat}', event)">Explore</button>
+                        <button class="btn-card-explore" onclick="goToCategory('${item.filterCat}', event)">Explora</button>
                     </div>
                 `;
                 track.appendChild(card);
@@ -2681,7 +2692,7 @@
                 uModalEmailBtn.style.display = 'inline-block';
                 uModalEmailBtn.innerText = 'SOLICITAR INFORMACIÓN';
                 uModalEmailBtn.onclick = () => {
-                    location.href = `mailto:cezzarostudio@gmail.com?subject=Solicitud%20de%20informaci%C3%B3n%20sobre%20obra:%20${encodeURIComponent(title)}`;
+                    location.href = `mailto:bruneliopictor@gmail.com?subject=Solicitud%20de%20informaci%C3%B3n%20sobre%20obra:%20${encodeURIComponent(title)}`;
                 };
             }
 

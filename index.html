@@ -76,7 +76,7 @@
             visibility: hidden;
         }
 
-        /* --- HEADER MODIFICADO (BLANCO TOTALMENTE) --- */
+        /* --- HEADER MODIFICADO (LOGO MÁS GRANDE) --- */
         header {
             position: fixed;
             top: 0;
@@ -105,7 +105,6 @@
             position: relative;
         }
 
-        /* Lado izquierdo: Lupa + Campo de búsqueda funcional */
         .header-left-slot {
             display: flex;
             align-items: center;
@@ -153,7 +152,6 @@
             color: #555555;
         }
 
-        /* Sugerencias flotantes desplegables de búsqueda por nombre */
         .search-suggestions-box {
             position: absolute;
             top: 100%;
@@ -198,20 +196,19 @@
             letter-spacing: 1px;
         }
 
-        /* Centro: Firma Logo Hermès Style */
         .header-center-slot {
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
+        /* LOGO AMPLIADO */
         .header-logo-firma {
-            height: 65px;
+            height: 82px;
             object-fit: contain;
             cursor: pointer;
         }
 
-        /* Lado derecho: Íconos estilo Hermès */
         .header-right-slot {
             display: flex;
             align-items: center;
@@ -245,7 +242,6 @@
             stroke-linejoin: round;
         }
 
-        /* Fila Inferior del Header: Navegación Centralizada */
         .header-bottom-nav {
             display: flex;
             justify-content: center;
@@ -303,7 +299,7 @@
             color: #ffffff !important;
         }
 
-        /* --- BOTÓN FLOTANTE PARA VOLVER A PÁGINA PRINCIPAL --- */
+        /* --- BOTÓN FLOTANTE --- */
         .back-to-top-btn {
             position: fixed;
             bottom: 35px;
@@ -345,7 +341,7 @@
             stroke-linejoin: round;
         }
 
-        /* --- HERO SECCIÓN --- */
+        /* --- HERO --- */
         .hero {
             position: relative;
             height: calc(100vh - 90px);
@@ -442,7 +438,7 @@
             box-shadow: none !important;
         }
 
-        /* --- SECCIÓN VIDEO ENTRE PÁGINA INICIAL E ÍNDICE ("ESPEJIMOS") --- */
+        /* --- SECCIÓN DE VIDEO --- */
         .video-section-wrapper {
             position: relative;
             width: 100vw;
@@ -477,6 +473,44 @@
             z-index: 5;
             pointer-events: none;
             text-align: center;
+        }
+
+        /* --- FRANJA NEGRA DELGADA CON TEXTO DESLIZANTE (MARQUEE) --- */
+        .quote-ticker-strip {
+            position: relative;
+            width: 100vw;
+            height: 48px;
+            background-color: #000000;
+            color: #ffffff;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            z-index: 10;
+        }
+
+        .quote-ticker-track {
+            display: flex;
+            white-space: nowrap;
+            will-change: transform;
+            animation: tickerScroll 35s linear infinite;
+        }
+
+        .quote-ticker-item {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            font-style: italic;
+            padding-right: 80px;
+            display: inline-block;
+            color: #dddddd;
+        }
+
+        @keyframes tickerScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         /* --- SECCIÓN CARRUSEL (GALERÍA) --- */
@@ -659,7 +693,50 @@
             text-transform: uppercase;
             font-weight: 600;
             color: #ffffff;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+        }
+
+        /* FLECHITAS SUTILES Y ELEGANTES DEBAJO DEL TEXTO INFERIOR */
+        .carousel-nav-arrows {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            opacity: 0.6;
+            margin-top: 4px;
+            transition: opacity 0.3s;
+        }
+
+        .carousel-nav-arrows:hover {
+            opacity: 1;
+        }
+
+        .carousel-nav-arrow-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+        }
+
+        .carousel-nav-arrow-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .carousel-swipe-hint {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: #aaaaaa;
+            text-transform: uppercase;
         }
 
         /* --- SECCIÓN MASONRY (ÓLEO Y DIBUJO) --- */
@@ -688,7 +765,6 @@
             margin-bottom: 40px;
         }
 
-        /* BANNER DE DIBUJO MODIFICADO CON LA NUEVA IMAGEN */
         .oil-banner-header.drawing-banner {
             background-image: url('imagenes/totemvisible.png');
             background-position: center 35%;
@@ -827,7 +903,7 @@
             stroke: #ffffff;
         }
 
-        /* --- SECCIÓN DE RETRATOS REDISEÑADA ESTILO CIRCULAR CON HOVER CORREGIDO --- */
+        /* --- SECCIÓN DE RETRATOS --- */
         .portraits-section-wrapper {
             position: relative;
             width: 100vw;
@@ -1228,7 +1304,7 @@
             filter: invert(1);
         }
 
-        /* --- BIOGRAFÍA --- */
+        /* --- BIOGRAFÍA CON IMAGEN FIJA Y FIRMA --- */
         .bio-section {
             padding: 120px 30px;
             background-color: #ffffff;
@@ -1250,14 +1326,16 @@
             border: 1px solid var(--text-main);
             overflow: hidden;
             background-color: #ffffff;
-            cursor: pointer;
+            pointer-events: none; /* FIJA: No seleccionable ni clickeable */
+            user-select: none;
         }
 
         .bio-image-wrapper img {
             width: 100%;
             height: auto;
             display: block;
-            transition: filter 0.5s ease;
+            pointer-events: none;
+            user-select: none;
         }
 
         .bio-content-wrapper {
@@ -1273,13 +1351,13 @@
             margin-bottom: 10px;
         }
 
-        .bio-artist-name {
-            font-size: 3.2rem;
-            font-weight: normal;
-            letter-spacing: 3px;
-            color: var(--text-main);
+        /* LOGO / FIRMA EN LUGAR DE TEXTO EN BIO */
+        .bio-artist-logo {
+            height: 65px;
+            object-fit: contain;
             margin-bottom: 35px;
-            line-height: 1.2;
+            align-self: flex-start;
+            pointer-events: none;
         }
 
         .bio-paragraphs {
@@ -1475,10 +1553,9 @@
         })();
     </script>
 
-    <!-- HEADER MODIFICADO (LOGO GUARDADO Y FONDO BLANCO TOTAL) -->
+    <!-- HEADER -->
     <header id="mainHeader">
         <div class="header-top-row">
-            <!-- Izquierda: Lupa + Input de Búsqueda -->
             <div class="header-left-slot">
                 <button class="header-back-btn" id="headerBackBtn" onclick="goBackToMain()">← Back</button>
                 <div class="header-search-container">
@@ -1487,16 +1564,13 @@
                     </button>
                     <input type="text" id="searchInput" class="header-search-input" placeholder="Search..." oninput="handleSearchInput(this.value)">
                 </div>
-                <!-- Menú Desplegable de Sugerencias -->
                 <div class="search-suggestions-box" id="searchSuggestionsBox"></div>
             </div>
             
-            <!-- Centro: Logo / Firma -->
             <div class="header-center-slot">
                 <img src="imagenes/firma .png" alt="BRUNELIO" class="header-logo-firma" onclick="scrollToTop()">
             </div>
             
-            <!-- Derecha: Íconos de Usuario y Guardados (Logo de guardado actualizado) -->
             <div class="header-right-slot">
                 <button class="header-icon-btn" title="Perfil" onclick="handleGoogleLogin()">
                     <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
@@ -1508,7 +1582,6 @@
             </div>
         </div>
 
-        <!-- Fila Inferior de Categorías -->
         <nav class="header-bottom-nav">
             <button class="header-nav-link" onclick="filterGallery('oleos')">Pinturas al Óleo</button>
             <button class="header-nav-link" onclick="filterGallery('dibujo')">Dibujo</button>
@@ -1519,18 +1592,17 @@
         </nav>
     </header>
 
-    <!-- BOTÓN FLOTANTE INFERIOR DERECHO PARA IR A LA PÁGINA PRINCIPAL -->
     <button class="back-to-top-btn" id="backToTopBtn" title="Volver a la página principal" onclick="scrollToTop()">
         <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
 
-    <!-- HERO (PÁGINA INICIAL) -->
+    <!-- HERO CON "ARCHIVO VISUAL & ATELIER" -->
     <section class="hero" id="heroSection">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral derecha" class="hero-side-img right" id="sideImgRight">
 
         <div class="hero-content">
-            <div class="hero-subtitle">Visual Archive & Atelier</div>
+            <div class="hero-subtitle">Archivo Visual & Atelier</div>
             <div class="hero-title-wrapper">
                 <h1 class="hero-title">Brunelio</h1>
             </div>
@@ -1539,7 +1611,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE VIDEO REEMPLAZADA CON webvideo.mp4 CON AUTOPLAY CORREGIDO -->
+    <!-- SECCIÓN DE VIDEO -->
     <section class="video-section-wrapper" id="mirageVideoSection">
         <video id="loopVideo" autoplay loop muted playsinline preload="auto">
             <source src="imagenes/webvideo.mp4" type="video/mp4">
@@ -1548,7 +1620,16 @@
         <div class="video-overlay-text">espejismos</div>
     </section>
 
-    <!-- CARRUSEL -->
+    <!-- FRANJA NEGRA CON TEXTO DESLIZANTE DE GOYA -->
+    <div class="quote-ticker-strip">
+        <div class="quote-ticker-track">
+            <span class="quote-ticker-item">«El acto de pintar se trata de un corazón contándole a otro corazón dónde halló su salvación». Francisco de Goya y Lucientes.</span>
+            <span class="quote-ticker-item">«El acto de pintar se trata de un corazón contándole a otro corazón dónde halló su salvación». Francisco de Goya y Lucientes.</span>
+            <span class="quote-ticker-item">«El acto de pintar se trata de un corazón contándole a otro corazón dónde halló su salvación». Francisco de Goya y Lucientes.</span>
+        </div>
+    </div>
+
+    <!-- CARRUSEL CON FLECHITAS SUTILES -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="utopia-bg-layer" id="utopiaBgLayer"></div>
 
@@ -1563,6 +1644,16 @@
         
         <div class="carousel-bottom-info">
             <div class="carousel-footer-title" id="carouselFooterTitle">PINTURAS AL ÓLEO</div>
+            <!-- FLECHITAS SUTILES Y ELEGANTES -->
+            <div class="carousel-nav-arrows">
+                <button class="carousel-nav-arrow-btn" onclick="rotateCarousel(-1)" title="Anterior">
+                    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <span class="carousel-swipe-hint">Desliza o usa flechas</span>
+                <button class="carousel-nav-arrow-btn" onclick="rotateCarousel(1)" title="Siguiente">
+                    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
         </div>
     </section>
 
@@ -1574,7 +1665,6 @@
         </div>
 
         <div class="oil-masonry-container">
-            
             <div class="oil-card" onclick="openUniversalModal('Desnudo masculino', 'Óleo sobre tabla · 2018', 'imagenes/nude 3.DNG', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Desnudo masculino', 'Óleo sobre tabla · 2018', 'imagenes/nude 3.DNG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -1744,11 +1834,10 @@
                     <div class="oil-card-hover-overlay"><span class="oil-card-hover-title">Clelia Toledo</span></div>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- DIBUJO CON BANNER E IMAGEN REEMPLAZADOS POR totemvisible.png -->
+    <!-- DIBUJO -->
     <section id="galleryDrawing" style="display:none;" class="oil-section-wrapper">
         <div class="oil-banner-header drawing-banner">
             <h1 class="oil-banner-title">DIBUJO</h1>
@@ -1756,7 +1845,6 @@
         </div>
 
         <div class="oil-masonry-container">
-            
             <div class="oil-card" onclick="openUniversalModal('Estudio Mitológico 1', 'Tinta sobre papel', 'imagenes/1.JPG', false)">
                 <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio Mitológico 1', 'Tinta sobre papel', 'imagenes/1.JPG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -1896,15 +1984,13 @@
                     <div class="oil-card-hover-overlay"><span class="oil-card-hover-title">Trazo inicial 2018</span></div>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- RETRATOS MODIFICADOS CON RUTAS DE LA CARPETA Y MODAL FUNCIONAL -->
+    <!-- RETRATOS -->
     <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper">
         <h2 class="portraits-header-title">Selección de Retratos</h2>
         <div class="portraits-circle-grid">
-            
             <div class="portrait-circle-card" onclick="openUniversalModal('Niño 1', 'Retrato', 'imagenes/niño1.jpg', false)">
                 <div class="portrait-circle-wrapper">
                     <img src="retratos - copia/1.png" alt="Niño 1" class="portrait-default-img">
@@ -1960,11 +2046,10 @@
                 </div>
                 <div class="portrait-circle-name">Hombre I</div>
             </div>
-
         </div>
     </section>
 
-    <!-- FOTOGRAFÍA -->
+    <!-- FOTOGRAFÍA (CON F1010034 Y SPIEGEL REPETIDO) -->
     <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
         <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
             <div class="photo-split-grid">
@@ -2041,12 +2126,13 @@
                     <div class="photo-info-overlay"><div class="photo-title">F1000026(1)</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openUniversalModal('Estudio Adjunto', 'Fine Art Print · 2024', 'imagenes/10.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio Adjunto', 'Fine Art Print · 2024', 'imagenes/10.JPG?v=2')">
+                <!-- SUSTITUCIÓN 6: F1010034 en lugar de la primera 10.JPG -->
+                <div class="photo-item" onclick="openUniversalModal('F1010034', 'Analógica · 2024', 'imagenes/F1010034.JPG', true)">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'F1010034', 'Analógica · 2024', 'imagenes/F1010034.JPG')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </div>
-                    <img src="imagenes/10.JPG?v=2" alt="Estudio Adjunto">
-                    <div class="photo-info-overlay"><div class="photo-title">Estudio Adjunto</div><div class="photo-meta">Fine Art Print · 2024</div></div>
+                    <img src="imagenes/F1010034.JPG" alt="F1010034">
+                    <div class="photo-info-overlay"><div class="photo-title">F1010034</div><div class="photo-meta">Analógica · 2024</div></div>
                 </div>
 
                 <div class="photo-item horizontal" onclick="openUniversalModal('F1000031', 'Analógica · 2024', 'imagenes/F1000031.JPG?v=2', true)">
@@ -2113,6 +2199,7 @@
                     <div class="photo-info-overlay"><div class="photo-title">Spiegel</div><div class="photo-meta">Fine Art Print · 2025</div></div>
                 </div>
 
+                <!-- SUSTITUCIÓN 7: Spiegel repetido en lugar de la segunda 10.JPG -->
                 <div class="photo-item" onclick="openUniversalModal('Estudio Espejo', 'Fine Art Print · 2025', 'imagenes/Spiegel.jpg?v=2', true)">
                     <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio Espejo', 'Fine Art Print · 2025', 'imagenes/Spiegel.jpg?v=2')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -2162,15 +2249,15 @@
         </div>
     </div>
 
-    <!-- BIOGRAFÍA -->
+    <!-- BIOGRAFÍA CON IMG_3889.JPG FIJA Y LOGO DE FIRMA -->
     <section class="bio-section" id="bio">
         <div class="bio-grid">
-            <div class="bio-image-wrapper" onclick="openUniversalModal('BRUNELIO', 'Artista · Retrato', 'imagenes/foto cesar.JPG', false)">
-                <img src="imagenes/foto cesar.JPG" alt="BRUNELIO Portrait">
+            <div class="bio-image-wrapper">
+                <img src="imagenes/IMG_3889.JPG" alt="BRUNELIO Portrait">
             </div>
             <div class="bio-content-wrapper">
                 <div class="bio-artist-tag" id="bioTag">ARTISTA</div>
-                <h2 class="bio-artist-name">Brunelio</h2>
+                <img src="imagenes/firma .png" alt="Brunelio" class="bio-artist-logo">
                 
                 <div class="bio-paragraphs" id="bioParagraphs">
                     <p style="font-style: normal; font-size: 1.1rem; margin-bottom: 5px;">
@@ -2259,7 +2346,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        /* CONTROL Y REPRODUCCIÓN DEL VIDEO DE ESPEJIMOS */
         function setupVideoLoop() {
             const video = document.getElementById('loopVideo');
             if (!video) return;
@@ -2272,7 +2358,6 @@
             });
         }
 
-        /* BÚSQUEDA Y SUGERENCIAS FUNCIONALES POR NOMBRE */
         const searchInput = document.getElementById('searchInput');
         const searchSuggestionsBox = document.getElementById('searchSuggestionsBox');
 
@@ -2387,20 +2472,17 @@
             utopiaSection.scrollIntoView({ behavior: 'smooth' });
         }
 
-        /* MANEJO DE SCROLL & BOTÓN VOLVER ARRIBA */
         let lastScrollTop = 0;
         function setupScrollListener() {
             window.addEventListener('scroll', () => {
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 
-                // Botón volver a inicio
                 if (scrollTop > 400) {
                     backToTopBtn.classList.add('visible');
                 } else {
                     backToTopBtn.classList.remove('visible');
                 }
 
-                // Header Ocultar/Mostrar
                 if (scrollTop <= 50) {
                     mainHeader.classList.remove('header-hidden');
                 } else if (scrollTop > lastScrollTop) {
@@ -2458,7 +2540,6 @@
             });
         }
 
-        /* CARRUSEL Y FONDO CAMBIANTE */
         const categoriesData = [
             { titleEs: 'Pinturas al Óleo', titleEn: 'Oil Paintings', img: 'imagenes/ppintura.png', bg: 'imagenes/ppintura.png', filterCat: 'oleos' },
             { titleEs: 'Dibujo', titleEn: 'Drawing', img: 'imagenes/pdibujo.png', bg: 'imagenes/pdibujo.png', filterCat: 'dibujo' },
@@ -2575,7 +2656,6 @@
             }
         });
 
-        /* MODAL UNIVERSAL */
         const universalModal = document.getElementById('universalModal');
         const uModalImg = document.getElementById('uModalImg');
         const uModalTitle = document.getElementById('uModalTitle');

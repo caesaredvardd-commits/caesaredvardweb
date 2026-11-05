@@ -82,11 +82,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 110px;
-            padding: 0 40px;
+            height: 140px;
+            padding: 10px 40px 12px 40px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             z-index: 1000;
             background: #ffffff;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -103,6 +103,7 @@
             align-items: center;
             width: 100%;
             position: relative;
+            height: 85px;
         }
 
         .header-left-slot {
@@ -204,8 +205,8 @@
 
         /* LOGO AMPLIADO RESTAURADO */
         .header-logo-firma {
-            height: 115px;
-            max-height: 115px;
+            height: 80px;
+            max-height: 80px;
             object-fit: contain;
             cursor: pointer;
         }
@@ -248,7 +249,8 @@
             justify-content: center;
             align-items: center;
             gap: 24px;
-            margin-top: 4px;
+            margin-top: 0;
+            padding-bottom: 4px;
         }
 
         .header-nav-link {
@@ -345,7 +347,7 @@
         /* --- HERO --- */
         .hero {
             position: relative;
-            height: calc(100vh - 110px);
+            height: calc(100vh - 140px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -353,7 +355,7 @@
             background-color: #ffffff;
             overflow: hidden;
             padding: 0 20px;
-            margin-top: 110px;
+            margin-top: 140px;
         }
 
         .hero-side-img {
@@ -1352,10 +1354,10 @@
             margin-bottom: 10px;
         }
 
-        /* LOGO / FIRMA MÁS GRANDE EN BIOGRAFÍA */
+        /* LOGO / FIRMA MÁS GRANDE EN BIOGRAFÍA (EL DOBLE DE GRANDE) */
         .bio-artist-logo {
-            height: 110px;
-            max-height: 110px;
+            height: 220px;
+            max-height: 220px;
             object-fit: contain;
             margin-bottom: 25px;
             align-self: flex-start;
@@ -1490,7 +1492,7 @@
             .photo-item.horizontal { grid-column: span 1; height: 50vh; }
             .oil-masonry-container { column-count: 2; }
             .collection-grid { grid-template-columns: repeat(2, 1fr); }
-            header { padding: 0 20px; }
+            header { padding: 10px 20px; }
             .header-bottom-nav { gap: 12px; font-size: 0.65rem; }
         }
 
@@ -1555,7 +1557,7 @@
         })();
     </script>
 
-    <!-- HEADER RESTAURADO EXACTAMENTE IGUAL -->
+    <!-- HEADER RESTAURADO EXACTAMENTE IGUAL CON NAVEGACIÓN INTEGRADA DENTRO -->
     <header id="mainHeader">
         <div class="header-top-row">
             <div class="header-left-slot">

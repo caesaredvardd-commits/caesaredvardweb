@@ -250,6 +250,12 @@
             gap: 22px;
             margin-top: 0;
             padding-bottom: 2px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .header-bottom-nav::-webkit-scrollbar {
+            display: none;
         }
 
         .header-nav-link {
@@ -1492,6 +1498,7 @@
             margin-top: 40px;
         }
 
+        /* --- ADAPTABILIDAD MÓVIL (MEDIA QUERIES) --- */
         @media (max-width: 1024px) {
             .oil-masonry-container { column-count: 3; }
             .portraits-circle-grid { grid-template-columns: repeat(3, 1fr); }
@@ -1506,20 +1513,36 @@
             .oil-masonry-container { column-count: 2; }
             .collection-grid { grid-template-columns: repeat(2, 1fr); }
             header { padding: 6px 20px; }
-            .header-bottom-nav { gap: 12px; font-size: 0.65rem; }
-            .contact-email { font-size: 1.4rem; }
+            .header-bottom-nav { gap: 16px; font-size: 0.65rem; justify-content: flex-start; padding-left: 10px; padding-right: 10px; }
+            .contact-email { font-size: 1.4rem; word-break: break-all; text-align: center; }
+            .hero-title { font-size: 4rem; }
+            .carousel-card { width: 300px; height: 400px; }
+            .carousel-card.left-1 { transform: translateX(-240px) scale(0.8); }
+            .carousel-card.right-1 { transform: translateX(240px) scale(0.8); }
         }
 
         @media (max-width: 600px) {
-            .hero-title { font-size: 3.2rem; letter-spacing: 2px; }
-            .oil-masonry-container { column-count: 1; }
+            header { height: 95px; padding: 4px 12px; }
+            .header-top-row { height: 50px; }
+            .header-logo-firma { height: 42px; max-height: 42px; }
+            .header-search-container { width: 110px; }
+            .hero { margin-top: 95px; height: calc(100vh - 95px); padding: 0 15px; }
+            .hero-title { font-size: 3rem; letter-spacing: 2px; }
+            .hero-subtitle { font-size: 0.95rem; letter-spacing: 2px; }
+            .hero-desc { font-size: 0.95rem; letter-spacing: 1.5px; }
+            .oil-masonry-container { column-count: 1; padding: 0 15px; }
             .btn-submit { width: 100%; }
             .collection-grid { grid-template-columns: 1fr; }
-            .carousel-card { width: 280px; height: 380px; }
-            .carousel-card.left-1 { transform: translateX(-220px) scale(0.8); }
-            .carousel-card.right-1 { transform: translateX(220px) scale(0.8); }
-            .portraits-circle-grid { grid-template-columns: repeat(2, 1fr); }
-            .contact-email { font-size: 1.1rem; }
+            .carousel-card { width: 250px; height: 340px; }
+            .carousel-card.left-1 { transform: translateX(-160px) scale(0.75); }
+            .carousel-card.right-1 { transform: translateX(160px) scale(0.75); }
+            .portraits-circle-grid { grid-template-columns: repeat(2, 1fr); gap: 25px 15px; }
+            .portrait-circle-wrapper { width: 130px; height: 130px; }
+            .contact-email { font-size: 1rem; }
+            .photo-split-grid { padding: 0 12px; }
+            .photo-item { height: 55vh; }
+            .bio-section { padding: 70px 20px; }
+            footer { padding: 60px 20px 30px 20px; }
         }
     </style>
 </head>
@@ -2176,7 +2199,6 @@
                     <div class="photo-info-overlay"><div class="photo-title">Capilla del baptisterio de Juan Letrán, Roma</div><div class="photo-meta">Fotografía analógica · 2024</div></div>
                 </div>
 
-                <!-- AQUÍ SE APLICÓ EL CAMBIO EXACTO SOLICITADO -->
                 <div class="photo-item" onclick="openUniversalModal('Capilla del baptisterio de Juan Letrán, Roma', 'Fotografía analógica · 2024', 'imagenes/F1010025.JPG?v=2', true)">
                     <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Capilla del baptisterio de Juan Letrán, Roma', 'Fotografía analógica · 2024', 'imagenes/F1010025.JPG?v=2')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>

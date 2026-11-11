@@ -353,6 +353,7 @@
         .hero {
             position: relative;
             height: calc(100vh - 100px);
+            min-height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -451,6 +452,7 @@
             position: relative;
             width: 100vw;
             height: 100vh;
+            min-height: 400px;
             background-color: #000000;
             overflow: hidden;
             display: flex;
@@ -1526,16 +1528,19 @@
             .header-top-row { height: 50px; }
             .header-logo-firma { height: 42px; max-height: 42px; }
             .header-search-container { width: 110px; }
-            .hero { margin-top: 95px; height: calc(100vh - 95px); padding: 0 15px; }
-            .hero-title { font-size: 3rem; letter-spacing: 2px; }
-            .hero-subtitle { font-size: 0.95rem; letter-spacing: 2px; }
-            .hero-desc { font-size: 0.95rem; letter-spacing: 1.5px; }
+            .hero { margin-top: 95px; height: auto; min-height: 85vh; padding: 40px 15px; }
+            .hero-title { font-size: 2.8rem; letter-spacing: 2px; }
+            .hero-subtitle { font-size: 0.9rem; letter-spacing: 2px; }
+            .hero-desc { font-size: 0.9rem; letter-spacing: 1.5px; }
+            .video-section-wrapper { height: 60vh; min-height: 320px; }
+            .utopia-section { min-height: auto; padding: 30px 0; }
+            .carousel-container-drag { height: 420px; }
+            .carousel-card { width: 240px; height: 320px; }
+            .carousel-card.left-1 { transform: translateX(-140px) scale(0.75); }
+            .carousel-card.right-1 { transform: translateX(140px) scale(0.75); }
             .oil-masonry-container { column-count: 1; padding: 0 15px; }
             .btn-submit { width: 100%; }
             .collection-grid { grid-template-columns: 1fr; }
-            .carousel-card { width: 250px; height: 340px; }
-            .carousel-card.left-1 { transform: translateX(-160px) scale(0.75); }
-            .carousel-card.right-1 { transform: translateX(160px) scale(0.75); }
             .portraits-circle-grid { grid-template-columns: repeat(2, 1fr); gap: 25px 15px; }
             .portrait-circle-wrapper { width: 130px; height: 130px; }
             .contact-email { font-size: 1rem; }
@@ -2032,12 +2037,13 @@
     <section id="galleryPortraits" style="display:none;" class="portraits-section-wrapper">
         <h2 class="portraits-header-title">Selección de Retratos</h2>
         <div class="portraits-circle-grid">
-            <div class="portrait-circle-card" onclick="openUniversalModal('Niño 1', 'Retrato', 'imagenes/niño1.jpg', false)">
+            <!-- CAMBIADO DE NIÑO 1 A SANTIAGO -->
+            <div class="portrait-circle-card" onclick="openUniversalModal('Santiago', 'Retrato', 'imagenes/niño1.jpg', false)">
                 <div class="portrait-circle-wrapper">
-                    <img src="retratos - copia/1.png" alt="Niño 1" class="portrait-default-img">
-                    <img src="imagenes/niño1.jpg" alt="Niño 1 Hover" class="portrait-hover-img">
+                    <img src="retratos - copia/1.png" alt="Santiago" class="portrait-default-img">
+                    <img src="imagenes/niño1.jpg" alt="Santiago Hover" class="portrait-hover-img">
                 </div>
-                <div class="portrait-circle-name">Niño 1</div>
+                <div class="portrait-circle-name">Santiago</div>
             </div>
 
             <div class="portrait-circle-card" onclick="openUniversalModal('Quetzalteca', 'Retrato', 'imagenes/mujer 1.DNG', false)">
@@ -2441,7 +2447,7 @@
             { name: 'Retrato de Santiago', category: 'Fotografía', action: () => openUniversalModal('Retrato de Santiago', 'Fotografía digital · 2015', 'imagenes/Satygne_1.jpg?v=2', true) },
             { name: 'El espejo', category: 'Fotografía', action: () => openUniversalModal('El espejo', 'Fotografía digital · 2014', 'imagenes/Spiegel.jpg?v=2', true) },
             { name: 'Lepidóptero', category: 'Fotografía', action: () => openUniversalModal('Lepidóptero', 'Fotografía digital · 2015', 'imagenes/10.JPG', true) },
-            { name: 'Niño 1', category: 'Retratos', action: () => openUniversalModal('Niño 1', 'Retrato', 'imagenes/niño1.jpg', false) },
+            { name: 'Santiago', category: 'Retratos', action: () => openUniversalModal('Santiago', 'Retrato', 'imagenes/niño1.jpg', false) },
             { name: 'Quetzalteca', category: 'Retratos', action: () => openUniversalModal('Quetzalteca', 'Retrato', 'imagenes/mujer 1.DNG', false) },
             { name: 'Hombre II', category: 'Retratos', action: () => openUniversalModal('Hombre y paisaje II', 'Retrato', 'imagenes/Hombre y paisaje 2.jpg', false) },
             { name: 'Isabel', category: 'Retratos', action: () => openUniversalModal('Retrato de Isabel', 'Retrato', 'imagenes/sis.DNG', false) },

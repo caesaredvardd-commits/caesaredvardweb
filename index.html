@@ -2067,12 +2067,11 @@
         </div>
     </section>
 
-    <!-- FOTOGRAFÍA (Cambios aplicados) -->
+    <!-- FOTOGRAFÍA -->
     <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
         <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
             <div class="photo-split-grid">
                 
-                <!-- 1. CAMBIADO A: Tritone, Roma -->
                 <div class="photo-item horizontal" onclick="openUniversalModal('Tritone, Roma', 'Fotografía analógica · 2024', 'imagenes/F1000007.JPG?v=2', true)">
                     <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Tritone, Roma', 'Fotografía analógica · 2024', 'imagenes/F1000007.JPG?v=2')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -2081,7 +2080,6 @@
                     <div class="photo-info-overlay"><div class="photo-title">Tritone, Roma</div><div class="photo-meta">Fotografía analógica · 2024</div></div>
                 </div>
 
-                <!-- 2. CAMBIADO A: Capilla del baptisterio de Juan Letrán, Roma -->
                 <div class="photo-item" onclick="openUniversalModal('Capilla del baptisterio de Juan Letrán, Roma', 'Fotografía analógica · 2024', 'imagenes/F1010026.JPG?v=2', true)">
                     <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Capilla del baptisterio de Juan Letrán, Roma', 'Fotografía analógica · 2024', 'imagenes/F1010026.JPG?v=2')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
@@ -2178,12 +2176,13 @@
                     <div class="photo-info-overlay"><div class="photo-title">Capilla del baptisterio de Juan Letrán, Roma</div><div class="photo-meta">Fotografía analógica · 2024</div></div>
                 </div>
 
-                <div class="photo-item" onclick="openUniversalModal('Nave central de Juan Letrán, Roma', 'Fotografía analógica · 2024', 'imagenes/F1010025.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Nave central de Juan Letrán, Roma', 'Fotografía analógica · 2024', 'imagenes/F1010025.JPG?v=2')">
+                <!-- AQUÍ SE APLICÓ EL CAMBIO EXACTO SOLICITADO -->
+                <div class="photo-item" onclick="openUniversalModal('Capilla del baptisterio de Juan Letrán, Roma', 'Fotografía analógica · 2024', 'imagenes/F1010025.JPG?v=2', true)">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Capilla del baptisterio de Juan Letrán, Roma', 'Fotografía analógica · 2024', 'imagenes/F1010025.JPG?v=2')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </div>
-                    <img src="imagenes/F1010025.JPG?v=2" alt="Nave central de Juan Letrán, Roma">
-                    <div class="photo-info-overlay"><div class="photo-title">Nave central de Juan Letrán, Roma</div><div class="photo-meta">Fotografía analógica · 2024</div></div>
+                    <img src="imagenes/F1010025.JPG?v=2" alt="Capilla del baptisterio de Juan Letrán, Roma">
+                    <div class="photo-info-overlay"><div class="photo-title">Capilla del baptisterio de Juan Letrán, Roma</div><div class="photo-meta">Fotografía analógica · 2024</div></div>
                 </div>
 
                 <div class="photo-item horizontal" onclick="openUniversalModal('Nave central de Juan Letrán, Roma', 'Fotografía analógica · 2024', 'imagenes/F1010012.JPG?v=2', true)">
@@ -2415,6 +2414,7 @@
             { name: 'Piazza, Florencia', category: 'Fotografía', action: () => openUniversalModal('Piazza, Florencia', 'Fotografía analógica · 2024', 'imagenes/F1000031.JPG?v=2', true) },
             { name: 'Estatua de Dante Alighieri, Florencia', category: 'Fotografía', action: () => openUniversalModal('Estatua de Dante Alighieri, Florencia', 'Fotografía analógica · 2024', 'imagenes/F1000032.JPG?v=2', true) },
             { name: 'Capilla del baptisterio de Juan Letrán, Roma', category: 'Fotografía', action: () => openUniversalModal('Capilla del baptisterio de Juan Letrán, Roma', 'Fotografía analógica · 2024', 'imagenes/F1010024.JPG?v=2', true) },
+            { name: 'Capilla del baptisterio de Juan Letrán, Roma', category: 'Fotografía', action: () => openUniversalModal('Capilla del baptisterio de Juan Letrán, Roma', 'Fotografía analógica · 2024', 'imagenes/F1010025.JPG?v=2', true) },
             { name: 'El salto', category: 'Fotografía', action: () => openUniversalModal('El salto', 'Fotografía analógica · 2024', 'imagenes/El salto.jpg?v=2', true) },
             { name: 'Retrato de Santiago', category: 'Fotografía', action: () => openUniversalModal('Retrato de Santiago', 'Fotografía digital · 2015', 'imagenes/Satygne_1.jpg?v=2', true) },
             { name: 'El espejo', category: 'Fotografía', action: () => openUniversalModal('El espejo', 'Fotografía digital · 2014', 'imagenes/Spiegel.jpg?v=2', true) },

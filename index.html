@@ -1328,7 +1328,7 @@
             border: 1px solid var(--text-main);
             overflow: hidden;
             background-color: #ffffff;
-            pointer-events: none; /* FIJA: No seleccionable ni clickeable */
+            pointer-events: none;
             user-select: none;
         }
 
@@ -1361,7 +1361,6 @@
             margin-bottom: 10px;
         }
 
-        /* LOGO / FIRMA MÁS GRANDE EN BIOGRAFÍA */
         .bio-artist-logo {
             height: 220px;
             max-height: 220px;
@@ -1573,7 +1572,7 @@
         })();
     </script>
 
-    <!-- HEADER RESTAURADO EXACTAMENTE IGUAL CON NAVEGACIÓN INTEGRADA DENTRO -->
+    <!-- HEADER -->
     <header id="mainHeader">
         <div class="header-top-row">
             <div class="header-left-slot">
@@ -1616,7 +1615,7 @@
         <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
 
-    <!-- HERO CON "ARCHIVO VISUAL & ATELIER" -->
+    <!-- HERO -->
     <section class="hero" id="heroSection">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral izquierda" class="hero-side-img left" id="sideImgLeft">
         <img src="imagenes/foto para pagina principal 2.png" alt="Ilustración lateral derecha" class="hero-side-img right" id="sideImgRight">
@@ -1640,7 +1639,7 @@
         <div class="video-overlay-text">espejismos</div>
     </section>
 
-    <!-- FRANJA NEGRA CON TEXTO DESLIZANTE DE GOYA -->
+    <!-- FRANJA NEGRA -->
     <div class="quote-ticker-strip">
         <div class="quote-ticker-track">
             <span class="quote-ticker-item">«El acto de pintar se trata de un corazón contándole a otro corazón dónde halló su salvación». Francisco de Goya y Lucientes.</span>
@@ -1649,7 +1648,7 @@
         </div>
     </div>
 
-    <!-- CARRUSEL CON FLECHITAS SUTILES -->
+    <!-- CARRUSEL -->
     <section class="utopia-section" id="utopiaCarousel">
         <div class="utopia-bg-layer" id="utopiaBgLayer"></div>
 
@@ -1664,7 +1663,6 @@
         
         <div class="carousel-bottom-info">
             <div class="carousel-footer-title" id="carouselFooterTitle">PINTURAS AL ÓLEO</div>
-            <!-- FLECHITAS SUTILES Y ELEGANTES -->
             <div class="carousel-nav-arrows">
                 <button class="carousel-nav-arrow-btn" onclick="rotateCarousel(-1)" title="Anterior">
                     <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
@@ -1677,7 +1675,7 @@
         </div>
     </section>
 
-    <!-- PINTURAS AL ÓLEO -->
+    <!-- PINTURAS AL ÓLEO (Técnicas corregidas según Word) -->
     <section id="galleryOil" style="display:none;" class="oil-section-wrapper">
         <div class="oil-banner-header" style="background-image: url('imagenes/ppintura.png');">
             <h1 class="oil-banner-title" id="oilTitleText">PINTURAS AL ÓLEO</h1>
@@ -1685,8 +1683,8 @@
         </div>
 
         <div class="oil-masonry-container">
-            <div class="oil-card" onclick="openUniversalModal('Desnudo masculino', 'Óleo sobre tabla · 2018', 'imagenes/nude 3.DNG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Desnudo masculino', 'Óleo sobre tabla · 2018', 'imagenes/nude 3.DNG')">
+            <div class="oil-card" onclick="openUniversalModal('Desnudo masculino', 'óleo sobre tabla · 2018', 'imagenes/nude 3.DNG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Desnudo masculino', 'óleo sobre tabla · 2018', 'imagenes/nude 3.DNG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1695,8 +1693,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Leona en el paisaje', 'Óleo sobre lienzo · 2019', 'imagenes/lyon.DNG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Leona en el paisaje', 'Óleo sobre lienzo · 2019', 'imagenes/lyon.DNG')">
+            <div class="oil-card" onclick="openUniversalModal('Leona en el paisaje', 'óleo sobre lienzo · 2019', 'imagenes/lyon.DNG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Leona en el paisaje', 'óleo sobre lienzo · 2019', 'imagenes/lyon.DNG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1705,8 +1703,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Madonnina', 'Óleo sobre lienzo · 2026', 'imagenes/virgen 3.PNG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Madonnina', 'Óleo sobre lienzo · 2026', 'imagenes/virgen 3.PNG')">
+            <div class="oil-card" onclick="openUniversalModal('Madonnina', 'óleo sobre lienzo · 2026', 'imagenes/virgen 3.PNG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Madonnina', 'óleo sobre lienzo · 2026', 'imagenes/virgen 3.PNG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1715,8 +1713,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Virgen de Medjujorge', 'Óleo sobre lienzo · 2026', 'imagenes/wvirgen.DNG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Virgen de Medjujorge', 'Óleo sobre lienzo · 2026', 'imagenes/wvirgen.DNG')">
+            <div class="oil-card" onclick="openUniversalModal('Virgen de Medjujorge', 'óleo sobre lienzo · 2026', 'imagenes/wvirgen.DNG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Virgen de Medjujorge', 'óleo sobre lienzo · 2026', 'imagenes/wvirgen.DNG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1725,8 +1723,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Retrato de Isabel', 'Óleo sobre lienzo · 2018', 'imagenes/sis.DNG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de Isabel', 'Óleo sobre lienzo · 2018', 'imagenes/sis.DNG')">
+            <div class="oil-card" onclick="openUniversalModal('Retrato de Isabel', 'óleo sobre lienzo · 2018', 'imagenes/sis.DNG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de Isabel', 'óleo sobre lienzo · 2018', 'imagenes/sis.DNG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1735,8 +1733,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Hombre y paisaje', 'Óleo sobre lienzo · 2026', 'imagenes/Hombre y paisaje.png', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Hombre y paisaje', 'Óleo sobre lienzo · 2026', 'imagenes/Hombre y paisaje.png')">
+            <div class="oil-card" onclick="openUniversalModal('Hombre y paisaje', 'óleo sobre lienzo · 2026', 'imagenes/Hombre y paisaje.png', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Hombre y paisaje', 'óleo sobre lienzo · 2026', 'imagenes/Hombre y paisaje.png')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1745,8 +1743,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Hombre y paisaje II', 'Óleo sobre lienzo · 2026', 'imagenes/Hombre y paisaje 2.jpg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Hombre y paisaje II', 'Óleo sobre lienzo · 2026', 'imagenes/Hombre y paisaje 2.jpg')">
+            <div class="oil-card" onclick="openUniversalModal('Hombre y paisaje II', 'óleo sobre lienzo · 2026', 'imagenes/Hombre y paisaje 2.jpg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Hombre y paisaje II', 'óleo sobre lienzo · 2026', 'imagenes/Hombre y paisaje 2.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1755,8 +1753,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Retrato de un hombre', 'Óleo sobre lienzo · 2026', 'imagenes/hombre verde.jpg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de un hombre', 'Óleo sobre lienzo · 2026', 'imagenes/hombre verde.jpg')">
+            <div class="oil-card" onclick="openUniversalModal('Retrato de un hombre', 'óleo sobre lienzo · 2026', 'imagenes/hombre verde.jpg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de un hombre', 'óleo sobre lienzo · 2026', 'imagenes/hombre verde.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1765,8 +1763,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Poupée', 'Óleo sobre lienzo · 2026', 'imagenes/doll.DNG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Poupée', 'Óleo sobre lienzo · 2026', 'imagenes/doll.DNG')">
+            <div class="oil-card" onclick="openUniversalModal('Poupée', 'óleo sobre lienzo · 2026', 'imagenes/doll.DNG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Poupée', 'óleo sobre lienzo · 2026', 'imagenes/doll.DNG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1775,8 +1773,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Evae', 'Óleo sobre lienzo · 2018', 'imagenes/eva.jpeg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Evae', 'Óleo sobre lienzo · 2018', 'imagenes/eva.jpeg')">
+            <div class="oil-card" onclick="openUniversalModal('Evae', 'óleo sobre lienzo · 2018', 'imagenes/eva.jpeg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Evae', 'óleo sobre lienzo · 2018', 'imagenes/eva.jpeg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1785,8 +1783,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Adam', 'Óleo sobre lienzo · 2018', 'imagenes/adan 2.PNG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Adam', 'Óleo sobre lienzo · 2018', 'imagenes/adan 2.PNG')">
+            <div class="oil-card" onclick="openUniversalModal('Adam', 'óleo sobre lienzo · 2018', 'imagenes/adan 2.PNG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Adam', 'óleo sobre lienzo · 2018', 'imagenes/adan 2.PNG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1795,8 +1793,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Azucena', 'Óleo sobre lienzo · 2026', 'imagenes/flower.DNG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Azucena', 'Óleo sobre lienzo · 2026', 'imagenes/flower.DNG')">
+            <div class="oil-card" onclick="openUniversalModal('Azucena', 'óleo sobre lienzo · 2026', 'imagenes/flower.DNG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Azucena', 'óleo sobre lienzo · 2026', 'imagenes/flower.DNG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1805,8 +1803,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Retrato de una niña', 'Óleo sobre lienzo · 2016', 'imagenes/rubia.DNG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de una niña', 'Óleo sobre lienzo · 2016', 'imagenes/rubia.DNG')">
+            <div class="oil-card" onclick="openUniversalModal('Retrato de una niña', 'óleo sobre lienzo · 2019', 'imagenes/rubia.DNG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de una niña', 'óleo sobre lienzo · 2019', 'imagenes/rubia.DNG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1815,8 +1813,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Retrato de un presbítero', 'Óleo sobre tabla · 2016', 'imagenes/padre 2.PNG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de un presbítero', 'Óleo sobre tabla · 2016', 'imagenes/padre 2.PNG')">
+            <div class="oil-card" onclick="openUniversalModal('Retrato de un presbítero', 'óleo sobre lienzo · 2019', 'imagenes/padre 2.PNG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de un presbítero', 'óleo sobre lienzo · 2019', 'imagenes/padre 2.PNG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1825,8 +1823,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Quetzalteca', 'Óleo sobre lienzo · 2019', 'imagenes/mujer 1.DNG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Quetzalteca', 'Óleo sobre lienzo · 2019', 'imagenes/mujer 1.DNG')">
+            <div class="oil-card" onclick="openUniversalModal('Quetzalteca', 'óleo sobre lienzo · 2026', 'imagenes/mujer 1.DNG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Quetzalteca', 'óleo sobre lienzo · 2026', 'imagenes/mujer 1.DNG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1835,18 +1833,19 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Estudio Inicial', 'Óleo sobre tabla · 2015', 'imagenes/flor w.jpg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio Inicial', 'Óleo sobre tabla · 2015', 'imagenes/flor w.jpg')">
+            <!-- CAMBIADO: Estudio Inicial por Estudio de una flor -->
+            <div class="oil-card" onclick="openUniversalModal('Estudio de una flor', 'óleo sobre lienzo · 2026', 'imagenes/flor w.jpg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio de una flor', 'óleo sobre lienzo · 2026', 'imagenes/flor w.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
-                    <img src="imagenes/flor w.jpg" alt="Estudio Inicial">
-                    <div class="oil-card-hover-overlay"><span class="oil-card-hover-title">Estudio Inicial</span></div>
+                    <img src="imagenes/flor w.jpg" alt="Estudio de una flor">
+                    <div class="oil-card-hover-overlay"><span class="oil-card-hover-title">Estudio de una flor</span></div>
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Clelia Toledo', 'Óleo sobre lienzo · 2026', 'imagenes/Clelia Toledo.jpg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Clelia Toledo', 'Óleo sobre lienzo · 2026', 'imagenes/Clelia Toledo.jpg')">
+            <div class="oil-card" onclick="openUniversalModal('Clelia Toledo', 'óleo sobre lienzo · 2026', 'imagenes/Clelia Toledo.jpg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Clelia Toledo', 'óleo sobre lienzo · 2026', 'imagenes/Clelia Toledo.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1857,7 +1856,7 @@
         </div>
     </section>
 
-    <!-- DIBUJO -->
+    <!-- DIBUJO (Técnicas corregidas y "Copia de un dibujo de Ramón Casas") -->
     <section id="galleryDrawing" style="display:none;" class="oil-section-wrapper">
         <div class="oil-banner-header drawing-banner">
             <h1 class="oil-banner-title">DIBUJO</h1>
@@ -1865,8 +1864,8 @@
         </div>
 
         <div class="oil-masonry-container">
-            <div class="oil-card" onclick="openUniversalModal('Retrato de un joven estudiante', 'Tinta sobre papel', 'imagenes/1 copy.JPG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de un joven estudiante', 'Tinta sobre papel', 'imagenes/1 copy.JPG')">
+            <div class="oil-card" onclick="openUniversalModal('Retrato de un joven estudiante', 'carboncillo · 2019', 'imagenes/1 copy.JPG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de un joven estudiante', 'carboncillo · 2019', 'imagenes/1 copy.JPG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1875,8 +1874,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Retrato de un marinero', 'Carboncillo y grafito', 'imagenes/4 copy.jpeg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de un marinero', 'Carboncillo y grafito', 'imagenes/4 copy.jpeg')">
+            <div class="oil-card" onclick="openUniversalModal('Retrato de un marinero', 'carboncillo · 2019', 'imagenes/4 copy.jpeg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de un marinero', 'carboncillo · 2019', 'imagenes/4 copy.jpeg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1885,8 +1884,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Retrato de un joven llamado Gabo', 'Grafito sobre papel', 'imagenes/9 copy.jpeg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de un joven llamado Gabo', 'Grafito sobre papel', 'imagenes/9 copy.jpeg')">
+            <div class="oil-card" onclick="openUniversalModal('Retrato de un joven llamado Gabo', 'carboncillo · 2019', 'imagenes/9 copy.jpeg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de un joven llamado Gabo', 'carboncillo · 2019', 'imagenes/9 copy.jpeg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1895,8 +1894,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Memento mori', 'Tinta china', 'imagenes/bodegon gotico.JPG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Memento mori', 'Tinta china', 'imagenes/bodegon gotico.JPG')">
+            <div class="oil-card" onclick="openUniversalModal('Memento mori', 'grafito sobre papel · 2019', 'imagenes/bodegon gotico.JPG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Memento mori', 'grafito sobre papel · 2019', 'imagenes/bodegon gotico.JPG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1905,8 +1904,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Estudio de un desnudo', 'Sanguina sobre papel', 'imagenes/hombre ilustrado.jpg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio de un desnudo', 'Sanguina sobre papel', 'imagenes/hombre ilustrado.jpg')">
+            <div class="oil-card" onclick="openUniversalModal('Estudio de un desnudo', 'tinta sobre papel · 2019', 'imagenes/hombre ilustrado.jpg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Estudio de un desnudo', 'tinta sobre papel · 2019', 'imagenes/hombre ilustrado.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1915,8 +1914,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Retrato imaginario de Francis Bacon', 'Carboncillo', 'imagenes/8.jpeg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato imaginario de Francis Bacon', 'Carboncillo', 'imagenes/8.jpeg')">
+            <div class="oil-card" onclick="openUniversalModal('Retrato imaginario de Francis Bacon', 'carboncillo · 2019', 'imagenes/8.jpeg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato imaginario de Francis Bacon', 'carboncillo · 2019', 'imagenes/8.jpeg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1925,8 +1924,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Retrato de Santiago', 'Grafito', 'imagenes/niño2.jpg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de Santiago', 'Grafito', 'imagenes/niño2.jpg')">
+            <div class="oil-card" onclick="openUniversalModal('Retrato de Santiago', 'sanguina sobre papel · 2019', 'imagenes/niño2.jpg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato de Santiago', 'sanguina sobre papel · 2019', 'imagenes/niño2.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1935,8 +1934,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Fragmento de un sueño', 'Tinta estilográfica', 'imagenes/silla.jpg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Fragmento de un sueño', 'Tinta estilográfica', 'imagenes/silla.jpg')">
+            <div class="oil-card" onclick="openUniversalModal('Fragmento de un sueño', 'tinta sobre papel · 2018', 'imagenes/silla.jpg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Fragmento de un sueño', 'tinta sobre papel · 2018', 'imagenes/silla.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1945,18 +1944,18 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Fachada de la catedral de escuintla', 'Pluma y bistre', 'imagenes/FACHADA.JPG', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Fachada de la catedral de escuintla', 'Pluma y bistre', 'imagenes/FACHADA.JPG')">
+            <div class="oil-card" onclick="openUniversalModal('Fachada de la catedral de Escuintla', 'carboncillo · 2020', 'imagenes/FACHADA.JPG', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Fachada de la catedral de Escuintla', 'carboncillo · 2020', 'imagenes/FACHADA.JPG')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
-                    <img src="imagenes/FACHADA.JPG" alt="Fachada de la catedral de escuintla">
-                    <div class="oil-card-hover-overlay"><span class="oil-card-hover-title">Fachada de la catedral de escuintla</span></div>
+                    <img src="imagenes/FACHADA.JPG" alt="Fachada de la catedral de Escuintla">
+                    <div class="oil-card-hover-overlay"><span class="oil-card-hover-title">Fachada de la catedral de Escuintla</span></div>
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Ciervos en un estanque', 'Grafito sobre cartulina', 'imagenes/venado.jpg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Ciervos en un estanque', 'Grafito sobre cartulina', 'imagenes/venado.jpg')">
+            <div class="oil-card" onclick="openUniversalModal('Ciervos en un estanque', 'grafito sobre papel · 2019', 'imagenes/venado.jpg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Ciervos en un estanque', 'grafito sobre papel · 2019', 'imagenes/venado.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1965,8 +1964,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Hombre camino al mercado', 'Tinta y técnica mixta', 'imagenes/cofee 2.png', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Hombre camino al mercado', 'Tinta y técnica mixta', 'imagenes/cofee 2.png')">
+            <div class="oil-card" onclick="openUniversalModal('Hombre camino al mercado', 'grafito sobre papel · 2019', 'imagenes/cofee 2.png', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Hombre camino al mercado', 'grafito sobre papel · 2019', 'imagenes/cofee 2.png')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1975,8 +1974,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Retrato y melancolía', 'Tinta y aguada', 'imagenes/11 copy.jpeg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato y melancolía', 'Tinta y aguada', 'imagenes/11 copy.jpeg')">
+            <div class="oil-card" onclick="openUniversalModal('Retrato y melancolía', 'carboncillo · 2019', 'imagenes/11 copy.jpeg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Retrato y melancolía', 'carboncillo · 2019', 'imagenes/11 copy.jpeg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1985,8 +1984,8 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Tótem', 'Carboncillo', 'imagenes/totemvisible.png', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Tótem', 'Carboncillo', 'imagenes/totemvisible.png')">
+            <div class="oil-card" onclick="openUniversalModal('Tótem', 'grafito sobre papel · 2016', 'imagenes/totemvisible.png', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Tótem', 'grafito sobre papel · 2016', 'imagenes/totemvisible.png')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
@@ -1995,13 +1994,14 @@
                 </div>
             </div>
 
-            <div class="oil-card" onclick="openUniversalModal('Dibujo a partir de Ramón Casas', 'Tinta sobre papel', 'imagenes/bigote.jpg', false)">
-                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Dibujo a partir de Ramón Casas', 'Tinta sobre papel', 'imagenes/bigote.jpg')">
+            <!-- CAMBIADO: "Dibujo a partir de Ramón Casas" por "Copia de un dibujo de Ramón Casas" -->
+            <div class="oil-card" onclick="openUniversalModal('Copia de un dibujo de Ramón Casas', 'carboncillo · 2018', 'imagenes/bigote.jpg', false)">
+                <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Copia de un dibujo de Ramón Casas', 'carboncillo · 2018', 'imagenes/bigote.jpg')">
                     <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                 </div>
                 <div class="oil-img-wrapper">
-                    <img src="imagenes/bigote.jpg" alt="Dibujo a partir de Ramón Casas">
-                    <div class="oil-card-hover-overlay"><span class="oil-card-hover-title">Dibujo a partir de Ramón Casas</span></div>
+                    <img src="imagenes/bigote.jpg" alt="Copia de un dibujo de Ramón Casas">
+                    <div class="oil-card-hover-overlay"><span class="oil-card-hover-title">Copia de un dibujo de Ramón Casas</span></div>
                 </div>
             </div>
         </div>
@@ -2069,17 +2069,17 @@
         </div>
     </section>
 
-    <!-- FOTOGRAFÍA -->
+    <!-- FOTOGRAFÍA (1ra imagen cambiada a "Nave central de Juan Letrán, Roma") -->
     <section id="galleryPhoto" style="display:none;" class="photo-section-wrapper">
         <div style="max-width: 1500px; margin: 0 auto; padding: 0 40px;">
             <div class="photo-split-grid">
                 
-                <div class="photo-item horizontal" onclick="openUniversalModal('Tritone, Roma', 'Fotografía analógica · 2024', 'imagenes/F1000007.JPG?v=2', true)">
-                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Tritone, Roma', 'Fotografía analógica · 2024', 'imagenes/F1000007.JPG?v=2')">
+                <div class="photo-item horizontal" onclick="openUniversalModal('Nave central de Juan Letrán, Roma', 'Fotografía analógica · 2024', 'imagenes/F1000007.JPG?v=2', true)">
+                    <div class="bookmark-btn" onclick="toggleSaveItem(event, 'Nave central de Juan Letrán, Roma', 'Fotografía analógica · 2024', 'imagenes/F1000007.JPG?v=2')">
                         <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
                     </div>
-                    <img src="imagenes/F1000007.JPG?v=2" alt="Tritone, Roma">
-                    <div class="photo-info-overlay"><div class="photo-title">Tritone, Roma</div><div class="photo-meta">Fotografía analógica · 2024</div></div>
+                    <img src="imagenes/F1000007.JPG?v=2" alt="Nave central de Juan Letrán, Roma">
+                    <div class="photo-info-overlay"><div class="photo-title">Nave central de Juan Letrán, Roma</div><div class="photo-meta">Fotografía analógica · 2024</div></div>
                 </div>
 
                 <div class="photo-item" onclick="openUniversalModal('Vista desde Santa Maria Maggiore, Roma', 'Fotografía analógica · 2024', 'imagenes/F1010026.JPG?v=2', true)">
@@ -2267,7 +2267,7 @@
         </div>
     </div>
 
-    <!-- BIOGRAFÍA CON CESAR BIO.JPG FIJA, CRÉDITO DE FOTOGRAFÍA Y LOGO DE FIRMA MÁS GRANDE -->
+    <!-- BIOGRAFÍA -->
     <section class="bio-section" id="bio">
         <div class="bio-grid">
             <div>
@@ -2288,7 +2288,7 @@
                         Soy un artista emergente interesado en explorar posibilidades pictóricas a través del retrato, la religión, el erotismo y el estudio histórico de la iconografía occidental. Nací en la Ciudad de Guatemala en 1996 y desde los seis años recibí una formación artística en dibujo y pintura. A los diez años asistí a clases en otra academia artística, situada en la zona 1 capitalina. Durante mi adolescencia, tuve la oportunidad de exponer fotografías digitales en concursos estudiantiles, entre los cuales obtuve el primer lugar en varias ocasiones.
                     </p>
                     <p>
-                        Tuve una formación universitaria especializada en artes visuales y cinematografía, lo cual me permitió explorar diversos medios de analógicos y digitales. Una formación que me ha permitido experimentar con diferentes lenguajes visuales, sonoros y narrativos. Igualmente, me he dedicado a la escritura de guiones y a la literatura. Por más de seis años, me dediqué al negocio de los libros, interés que me llevó a laborar en una de las librerías más prestigiosas del país. Desde entonces, he experimentado con diversas técnicas, métodos y discursos visuales para hallar una voz en el mundo del arte.
+                        Tuve una formación universitaria especializada en artes visuales y cinematografía, lo cual me permitió explorar diversos medios analógicos y digitales. Una formación que me ha permitido experimentar con diferentes lenguajes visuales, sonoros y narrativos. Igualmente, me he dedicado a la escritura de guiones y a la literatura. Por más de seis años, me dediqué al negocio de los libros, interés que me llevó a laborar en una de las librerías más prestigiosas del país. Desde entonces, he experimentado con diversas técnicas, métodos y discursos visuales para hallar una voz en el mundo del arte.
                     </p>
                 </div>
             </div>
@@ -2392,16 +2392,18 @@
             { name: 'Fotografía', category: 'Sección', action: () => filterGallery('fotografia') },
             { name: 'Cinematografía', category: 'Sección', action: () => filterGallery('cinematografia') },
             { name: 'Biografía', category: 'Información', action: () => scrollToBio() },
-            { name: 'Madonnina', category: 'Óleo', action: () => openUniversalModal('Madonnina', 'Óleo sobre lienzo · 2026', 'imagenes/virgen 3.PNG', false) },
-            { name: 'Clelia Toledo', category: 'Óleo', action: () => openUniversalModal('Clelia Toledo', 'Óleo sobre lienzo · 2026', 'imagenes/Clelia Toledo.jpg', false) },
-            { name: 'Desnudo masculino', category: 'Óleo', action: () => openUniversalModal('Desnudo masculino', 'Óleo sobre tabla · 2018', 'imagenes/nude 3.DNG', false) },
-            { name: 'Leona en el paisaje', category: 'Óleo', action: () => openUniversalModal('Leona en el paisaje', 'Óleo sobre lienzo · 2019', 'imagenes/lyon.DNG', false) },
-            { name: 'Retrato de un marinero', category: 'Dibujo', action: () => openUniversalModal('Retrato de un marinero', 'Carboncillo y grafito', 'imagenes/4 copy.jpeg', false) },
-            { name: 'Memento mori', category: 'Dibujo', action: () => openUniversalModal('Memento mori', 'Tinta china', 'imagenes/bodegon gotico.JPG', false) },
-            { name: 'Retrato de un joven estudiante', category: 'Dibujo', action: () => openUniversalModal('Retrato de un joven estudiante', 'Tinta sobre papel', 'imagenes/1 copy.JPG', false) },
-            { name: 'Fachada de la catedral de escuintla', category: 'Dibujo', action: () => openUniversalModal('Fachada de la catedral de escuintla', 'Pluma y bistre', 'imagenes/FACHADA.JPG', false) },
-            { name: 'Retrato de Isabel', category: 'Óleo', action: () => openUniversalModal('Retrato de Isabel', 'Óleo sobre lienzo · 2018', 'imagenes/sis.DNG', false) },
-            { name: 'Tritone, Roma', category: 'Fotografía', action: () => openUniversalModal('Tritone, Roma', 'Fotografía analógica · 2024', 'imagenes/F1000007.JPG?v=2', true) },
+            { name: 'Madonnina', category: 'Óleo', action: () => openUniversalModal('Madonnina', 'óleo sobre lienzo · 2026', 'imagenes/virgen 3.PNG', false) },
+            { name: 'Clelia Toledo', category: 'Óleo', action: () => openUniversalModal('Clelia Toledo', 'óleo sobre lienzo · 2026', 'imagenes/Clelia Toledo.jpg', false) },
+            { name: 'Desnudo masculino', category: 'Óleo', action: () => openUniversalModal('Desnudo masculino', 'óleo sobre tabla · 2018', 'imagenes/nude 3.DNG', false) },
+            { name: 'Leona en el paisaje', category: 'Óleo', action: () => openUniversalModal('Leona en el paisaje', 'óleo sobre lienzo · 2019', 'imagenes/lyon.DNG', false) },
+            { name: 'Retrato de un marinero', category: 'Dibujo', action: () => openUniversalModal('Retrato de un marinero', 'carboncillo · 2019', 'imagenes/4 copy.jpeg', false) },
+            { name: 'Memento mori', category: 'Dibujo', action: () => openUniversalModal('Memento mori', 'grafito sobre papel · 2019', 'imagenes/bodegon gotico.JPG', false) },
+            { name: 'Retrato de un joven estudiante', category: 'Dibujo', action: () => openUniversalModal('Retrato de un joven estudiante', 'carboncillo · 2019', 'imagenes/1 copy.JPG', false) },
+            { name: 'Fachada de la catedral de Escuintla', category: 'Dibujo', action: () => openUniversalModal('Fachada de la catedral de Escuintla', 'carboncillo · 2020', 'imagenes/FACHADA.JPG', false) },
+            { name: 'Copia de un dibujo de Ramón Casas', category: 'Dibujo', action: () => openUniversalModal('Copia de un dibujo de Ramón Casas', 'carboncillo · 2018', 'imagenes/bigote.jpg', false) },
+            { name: 'Estudio de una flor', category: 'Óleo', action: () => openUniversalModal('Estudio de una flor', 'óleo sobre lienzo · 2026', 'imagenes/flor w.jpg', false) },
+            { name: 'Retrato de Isabel', category: 'Óleo', action: () => openUniversalModal('Retrato de Isabel', 'óleo sobre lienzo · 2018', 'imagenes/sis.DNG', false) },
+            { name: 'Nave central de Juan Letrán, Roma', category: 'Fotografía', action: () => openUniversalModal('Nave central de Juan Letrán, Roma', 'Fotografía analógica · 2024', 'imagenes/F1000007.JPG?v=2', true) },
             { name: 'Vista desde Santa Maria Maggiore, Roma', category: 'Fotografía', action: () => openUniversalModal('Vista desde Santa Maria Maggiore, Roma', 'Fotografía analógica · 2024', 'imagenes/F1010026.JPG?v=2', true) },
             { name: 'Estatua de Augusto, Roma', category: 'Fotografía', action: () => openUniversalModal('Estatua de Augusto, Roma', 'Fotografía analógica · 2024', 'imagenes/F1010036.JPG?v=2', true) },
             { name: 'Capitolio, Roma', category: 'Fotografía', action: () => openUniversalModal('Capitolio, Roma', 'Fotografía analógica · 2024', 'imagenes/F1000014.JPG?v=2', true) },
@@ -2413,7 +2415,6 @@
             { name: 'Piazza, Florencia', category: 'Fotografía', action: () => openUniversalModal('Piazza, Florencia', 'Fotografía analógica · 2024', 'imagenes/F1000031.JPG?v=2', true) },
             { name: 'Estatua de Dante Alighieri, Florencia', category: 'Fotografía', action: () => openUniversalModal('Estatua de Dante Alighieri, Florencia', 'Fotografía analógica · 2024', 'imagenes/F1000032.JPG?v=2', true) },
             { name: 'Capilla del baptisterio de Juan Letrán, Roma', category: 'Fotografía', action: () => openUniversalModal('Capilla del baptisterio de Juan Letrán, Roma', 'Fotografía analógica · 2024', 'imagenes/F1010024.JPG?v=2', true) },
-            { name: 'Nave central de Juan Letrán, Roma', category: 'Fotografía', action: () => openUniversalModal('Nave central de Juan Letrán, Roma', 'Fotografía analógica · 2024', 'imagenes/F1010025.JPG?v=2', true) },
             { name: 'El salto', category: 'Fotografía', action: () => openUniversalModal('El salto', 'Fotografía analógica · 2024', 'imagenes/El salto.jpg?v=2', true) },
             { name: 'Retrato de Santiago', category: 'Fotografía', action: () => openUniversalModal('Retrato de Santiago', 'Fotografía digital · 2015', 'imagenes/Satygne_1.jpg?v=2', true) },
             { name: 'El espejo', category: 'Fotografía', action: () => openUniversalModal('El espejo', 'Fotografía digital · 2014', 'imagenes/Spiegel.jpg?v=2', true) },
